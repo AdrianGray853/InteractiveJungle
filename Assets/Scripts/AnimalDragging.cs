@@ -26,6 +26,8 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             Vector3 spawnPos = GetWorldPosition(eventData.position);
             spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
+            spawnedObj.GetComponent<Sorting>().isDragging = true;
+
             SpriteRenderer[] sprites = spawnedObj.GetComponentsInChildren<SpriteRenderer>();
             foreach (var item in sprites)
             {
@@ -46,6 +48,7 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnEndDrag(PointerEventData eventData)
     {
         if (spawnedObj == null) return;
+        spawnedObj.GetComponent<Sorting>().isDragging = false;
 
         Vector3 finalPos = spawnedObj.transform.position;
 
@@ -55,7 +58,7 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             AnimalItem clonedItem = GameManager.instance.animal.CloneItem(item);
 
             // ✅ Step 2: Assign unique key using time (safe)
-            string uniqueKey = $"{clonedItem.itemName}:{GameManager.instance.birds.activeItems.Count}";
+            string uniqueKey = $"{clonedItem.itemName}:{GameManager.instance.GenerateRandomKey()}";
             clonedItem.postionkey = uniqueKey;
 
             // ✅ Step 3: Assign position and prefab reference

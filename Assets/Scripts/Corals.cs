@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class coralsItem : BaseItem
 {
     public CoralDragging drag;
-    public GameObject ItemUi; // Prefab to instantiate
 }
 public class Corals : Base<coralsItem>
 {

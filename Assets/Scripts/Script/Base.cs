@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 using static UnityEditor.Progress;
-using static UnityEngine.UI.Image;
+
 
 
 [System.Serializable]
@@ -18,6 +18,8 @@ public class BaseItem
     public bool isLocked = false;
     public bool isDefault = false;
     public Vector2 ItemPostion;
+    public GameObject ItemUi; // Prefab to instantiate
+
 }
 
 public enum SelectionMode
@@ -84,10 +86,10 @@ public abstract class Base<T> : MonoBehaviour where T : BaseItem
     {
         foreach (var item in items)
             item.item?.SetActive(item == newItem);
-
+        newItem.item?.SetActive(true);
         activeItems.Clear();
         activeItems.Add(newItem);
-
+        Debug.Log($"Save Item");
         OnItemSelected(newItem);
         SaveSelectedItems();
         SaveItemData(newItem);
@@ -110,14 +112,14 @@ public abstract class Base<T> : MonoBehaviour where T : BaseItem
         AddItem(newItem.postionkey);
         SaveItemData(newItem);
     }
-    
+
     public virtual void RemoveActiveItem(T item)
     {
         //if (!activeItems.Contains(item)) return;
-        T match = activeItems.Find(x => x.postionkey == item.postionkey );
+        T match = activeItems.Find(x => x.postionkey == item.postionkey);
 
 
-    
+
 
         int index = activeItems.IndexOf(match);
         //match.item?.SetActive(false);
@@ -260,7 +262,7 @@ public abstract class Base<T> : MonoBehaviour where T : BaseItem
                 // int index = int.Parse(parts[1]); // ✅ if you want to use the index for any logic later
 
                 T match = items.Find(x => x.itemName == itemName && !x.isLocked);
-               
+
                 if (match != null)
                 {
                     if (selectionMode == SelectionMode.Single)
@@ -272,10 +274,10 @@ public abstract class Base<T> : MonoBehaviour where T : BaseItem
                     {
 
 
-                       // ✅ Clone the item instead of using original
+                        // ✅ Clone the item instead of using original
                         T cloned = CloneItem(match);
                         cloned.postionkey = entry;
-                         // activate the clone in scene
+                        // activate the clone in scene
 
                         AddActiveItem(cloned);
                         LoadItemData(cloned);
@@ -320,7 +322,7 @@ public abstract class Base<T> : MonoBehaviour where T : BaseItem
 
 
     public abstract T CloneItem(T original);
-   
+
     // ------------------- Virtual Save Hooks (Override in Derived) -------------------
 
     public virtual void SaveItemData(T item)

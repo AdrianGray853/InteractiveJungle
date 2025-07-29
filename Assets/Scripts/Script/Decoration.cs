@@ -6,7 +6,6 @@ public class DecorationItem : BaseItem
 {
 
     public DecorationDragging drag;
-    public GameObject ItemUi; // Prefab to instantiate
 }
 public class Decoration : Base<DecorationItem>
 {
@@ -15,7 +14,7 @@ public class Decoration : Base<DecorationItem>
     protected override void Start()
     {
 
-        levelCounts = PlayerPrefs.GetInt(key, 1);
+        levelCounts = PlayerPrefs.GetInt(key, 20);
         UnlockLevels();
         base.Start();
 

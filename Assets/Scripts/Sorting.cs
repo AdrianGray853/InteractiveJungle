@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 public class Sorting : MonoBehaviour
 {
     private SortingGroup sortingGroup;
+    public bool isDragging;
 
     void Start()
     {
@@ -13,6 +14,12 @@ public class Sorting : MonoBehaviour
 
     void LateUpdate()
     {
+        if (isDragging)
+        {
+            sortingGroup.sortingLayerName = "Spawned";
+            return;
+
+        }
         float y = transform.position.y;
 
         // Dynamically assign Sorting Layer based on Y position

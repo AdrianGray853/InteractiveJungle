@@ -4,52 +4,98 @@ using UnityEngine.UI;
 [System.Serializable]
 public class BackgroundItem : BaseItem
 {
-    // You can add more background-specific fields here if needed (e.g. theme ID, day/night toggle)
+    public BackgroundDrag drag;
 }
 
 public class Background : Base<BackgroundItem>
 {
-    public string key = "Background";
+    public string key = "Decoration";
+
     protected override void Start()
     {
-        levelCounts = PlayerPrefs.GetInt(key, 1);
+
+        levelCounts = PlayerPrefs.GetInt(key, 20);
         UnlockLevels();
         base.Start();
 
     }
+
     protected override void OnItemSelected(BackgroundItem item)
     {
         base.OnItemSelected(item);
-        // Optional: Add fade-in animation or background-specific effects
+
+        //if (item.houseDrag != null)
+        //    item.houseDrag.houseItem = item;
     }
 
     protected override void OnItemLocked(BackgroundItem item)
     {
         base.OnItemLocked(item);
-        // Optional: show a UI lock warning, animation, etc.
+        // Optional: show popup, sound, etc.
     }
 
-    // Background doesn't need to save position, so these are left empty
+    // ---------------------- Custom Save / Load Overrides ----------------------
 
     public override void SaveItemData(BackgroundItem item)
     {
-        // No additional save logic needed for background
+        if (item.item == null) return;
+        OnItemSelected(item);
+        string key = item.postionkey;
+        Debug.Log(key);
+        Vector3 pos = item.ItemPostion;
+        PlayerPrefs.SetFloat($"{key}_x", pos.x);
+        PlayerPrefs.SetFloat($"{key}_y", pos.y);
+        PlayerPrefs.Save();
+
+        Debug.Log($" Saved position for {key} at {pos}");
+    }
+    public override void UpdateItemData(BackgroundItem item)
+    {
+        if (item.item == null) return;
+        //OnItemSelected(item);
+        string key = item.postionkey;
+
+        Vector3 pos = item.ItemPostion;
+        PlayerPrefs.SetFloat($"{key}_x", pos.x);
+        PlayerPrefs.SetFloat($"{key}_y", pos.y);
+        PlayerPrefs.Save();
+
+        Debug.Log($" Saved position for {key} at {pos}");
     }
 
     public override void LoadItemData(BackgroundItem item)
     {
-        // No additional load logic needed for background
-    }
 
+    }
+    public override BackgroundItem CloneItem(BackgroundItem original)
+    {
+        return new BackgroundItem
+        {
+            itemName = original.itemName,
+            ItemUi = original.ItemUi,
+            isLocked = original.isLocked,
+            isDefault = false,
+            postionkey = original.postionkey,
+            // Don't assign postionkey or item here; assign later
+        };
+    }
     public override void RemoveItemData(BackgroundItem item)
     {
-        // Nothing to remove
+        string key = item.postionkey;
+
+        PlayerPrefs.DeleteKey($"{key}_x");
+        PlayerPrefs.DeleteKey($"{key}_y");
+        RemoveActiveItem(item);
+
+        PlayerPrefs.Save();
+
+        Debug.Log($"🗑️ Removed saved position for {item.itemName}");
     }
     [Header("Load List Settings")]
 
     public GameObject[] itemObjects;
     public GameObject[] item; // Shared item prefab ya visual
-    //public GameObject itemcomp; // Shared item prefab ya visual
+    public GameObject itemUi; // Shared item prefab ya visual
     public int levelCounts;
 
     [ContextMenu("UnlockLevls")]
@@ -71,7 +117,7 @@ public class Background : Base<BackgroundItem>
 
     }
 
-    [ContextMenu("SetAnimals")]
+    [ContextMenu("Set Background")]
     public void SetRange()
     {
         items.Clear(); // Clear existing items
@@ -82,31 +128,21 @@ public class Background : Base<BackgroundItem>
 
             newItem.itemName = $"Background{i + 1}";
             newItem.item = item[i]; // ✔ Set correct visual object (individual)
-           
-                                                                          // ✔ Set correct visual object (individual)
+            newItem.ItemUi = itemUi; // ✔ Set correct visual object (individual)
+
+            // ✔ Set correct visual object (individual)
             newItem.itemBtn = itemObjects[i].GetComponent<Button>();
             newItem.lockIcon = itemObjects[i].GetComponent<HandleLock>();
             newItem.isLocked = false; // or false based on logic
             //newItem.isDefault = (i == 0); // Make first item default
-            //itemObjects[i].GetComponent<AnimalDragging>().item = newItem;
+            itemObjects[i].GetComponent<BackgroundDrag>().item = newItem;
             // Optional: Assign decoration drag
-            //newItem.decorationDrag = itemObjects[i].GetComponent<DecorationDragging>();
+            newItem.drag = itemObjects[i].GetComponent<BackgroundDrag>();
 
             items.Add(newItem); // ✅ Add to list
         }
 
         Debug.Log("Items assigned to Decoration");
     }
-    public override BackgroundItem CloneItem(BackgroundItem original)
-    {
-        return new BackgroundItem
-        {
-            itemName = original.itemName,
-            item = original.item,
-            isLocked = original.isLocked,
-            isDefault = false,
-            postionkey = original.postionkey,
-            // Don't assign postionkey or item here; assign later
-        };
-    }
+
 }

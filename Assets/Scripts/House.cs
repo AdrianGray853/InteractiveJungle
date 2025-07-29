@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class HouseItem : BaseItem
 {
     public HousDragging drag;
-    public GameObject ItemUi; // Prefab to instantiate
 }
 
 public class House : Base<HouseItem>

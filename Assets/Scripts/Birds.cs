@@ -5,14 +5,13 @@ using UnityEngine.UI;
 public class BirdsItem : BaseItem
 {
     public BirdsDragging drag;
-    public GameObject ItemUi; // Prefab to instantiate
 }
 public class Birds : Base<BirdsItem>
 {
     public string key;
     protected override void Start()
     {
-        levelCounts = PlayerPrefs.GetInt(key, 1);
+        levelCounts = PlayerPrefs.GetInt(key, 20);
         UnlockLevels();
         base.Start();
 

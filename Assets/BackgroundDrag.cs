@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class CoralDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-
-    public coralsItem item;
+    public BackgroundItem item;
     private GameObject spawnedObj;
 
     private Camera mainCam;
@@ -20,18 +20,13 @@ public class CoralDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (item.isLocked) return;
+        if (item.isLocked)
+            return;
         if (item.ItemUi != null)
         {
             Vector3 spawnPos = GetWorldPosition(eventData.position);
             spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
-            spawnedObj.GetComponent<Sorting>().isDragging = true;
-
-            SpriteRenderer[] sprites = spawnedObj.GetComponentsInChildren<SpriteRenderer>();
-            foreach (var item in sprites)
-            {
-                item.maskInteraction = SpriteMaskInteraction.None;
-            }
+            spawnedObj.GetComponent<SpriteRenderer>().sprite = GetComponent<Image>().sprite;
         }
     }
 
@@ -47,33 +42,31 @@ public class CoralDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnEndDrag(PointerEventData eventData)
     {
         if (spawnedObj == null) return;
-        spawnedObj.GetComponent<Sorting>().isDragging = false;
 
         Vector3 finalPos = spawnedObj.transform.position;
 
+
+        // ✅ Step 1: Clone the item
+        //BackgroundItem clonedItem = GameManager.instance.background.CloneItem(item);
+
+        //// ✅ Step 2: Assign unique key using time (safe)
+        //string uniqueKey = $"{clonedItem.itemName}:{GameManager.instance.background.activeItems.Count}";
+        //clonedItem.postionkey = uniqueKey;
+
+        //// ✅ Step 3: Assign position and prefab reference
+        //clonedItem.ItemPostion = finalPos;
+        //clonedItem.item = spawnedObj;
+
+        // ✅ Step 4: Link UI and set data
+        //spawnedObj.GetComponent<bACKGR>().Item = clonedItem;
+
+        // ✅ Step 5: Add to active list and save data
+        Destroy(spawnedObj);
         if (IsWithinBounds(finalPos))
-        {
+            GameManager.instance.background.Clicked(item);
 
 
 
-            item.ItemPostion = finalPos;
-            spawnedObj.GetComponent<CoralItemUi>().Item = item;
-            int index = GameManager.instance.house.activeItems.Count;
-            string uniqueKey = $"{item.itemName}:{index}";
-            item.postionkey = uniqueKey;
-            GameManager.instance.corals.AddActiveItem(item);
-            GameManager.instance.corals.SaveData(item);
-            //GameManager.instance.house.SaveItemData(houseItem);
-            SpriteRenderer[] sprites = spawnedObj.GetComponentsInChildren<SpriteRenderer>();
-            foreach (var item in sprites)
-            {
-                item.maskInteraction = SpriteMaskInteraction.None;
-            }
-        }
-        else
-        {
-            Destroy(spawnedObj);
-        }
     }
 
     private Vector3 GetWorldPosition(Vector3 screenPosition)

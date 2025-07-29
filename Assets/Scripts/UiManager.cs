@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
@@ -46,6 +47,30 @@ public class UiManager : MonoBehaviour
 
 
     }
-   
-
+    private void Update()
+    {
+        // Check for left mouse click (or first finger tap on mobile)
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Check if pointer is NOT over a UI element
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                if (prePanel != null)
+                {
+                    ClosePanel(); // 👈 Call your panel close method
+                }
+            }
+        }
+    }
+    public void ClosePanel()
+    {
+        prePanel.ClosePanel();
+        panelAnim.Play("ClosePanel");
+        canAnim.Play("ClosePanel");
+        foreach (var item in tools)
+        {
+            item.SetActive(true);
+        }
+        prePanel = null;
+    }
 }

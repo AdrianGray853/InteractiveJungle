@@ -25,6 +25,7 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             Vector3 spawnPos = GetWorldPosition(eventData.position);
             spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
+            spawnedObj.GetComponent<Sorting>().isDragging = true;
             SpriteRenderer[] sprites = spawnedObj.GetComponentsInChildren<SpriteRenderer>();
             foreach (var item in sprites)
             {
@@ -45,6 +46,7 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
       public void OnEndDrag(PointerEventData eventData)
     {
         if (spawnedObj == null) return;
+        spawnedObj.GetComponent<Sorting>().isDragging = false;
 
         Vector3 finalPos = spawnedObj.transform.position;
 
@@ -54,7 +56,7 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             BirdsItem clonedItem = GameManager.instance.birds.CloneItem(item);
 
             // ✅ Step 2: Assign unique key using time (safe)
-            string uniqueKey = $"{clonedItem.itemName}:{GenerateRandomKey()}";
+            string uniqueKey = $"{clonedItem.itemName}:{GameManager.instance.GenerateRandomKey()}";
             clonedItem.postionkey = uniqueKey;
 
             // ✅ Step 3: Assign position and prefab reference
@@ -78,20 +80,7 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             Destroy(spawnedObj);
         }
     }
-    public  string GenerateRandomKey(int length = 8)
-    {
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        System.Random random = new System.Random();
-        char[] result = new char[length];
-
-        for (int i = 0; i < length; i++)
-        {
-            result[i] = chars[random.Next(chars.Length)];
-        }
-
-        return new string(result);
-    }
-
+   
     private Vector3 GetWorldPosition(Vector3 screenPosition)
     {
         Vector3 worldPos = mainCam.ScreenToWorldPoint(screenPosition);

@@ -5,14 +5,13 @@ using UnityEngine.UI;
 public class AnimalItem : BaseItem
 {
     public AnimalDragging drag;
-    public GameObject ItemUi; // Prefab to instantiate
 }
 public class Animals : Base<AnimalItem>
 {
     public string key;
     protected override void Start()
     {
-        levelCounts = PlayerPrefs.GetInt(key, 1);
+        levelCounts = PlayerPrefs.GetInt(key, 20);
         UnlockLevels();
         base.Start();
 
