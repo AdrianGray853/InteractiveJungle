@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8937521529819838028}
   - component: {fileID: 407189487003443585}
+  - component: {fileID: 3766216175756786204}
   m_Layer: 0
   m_Name: Decorations_0
   m_TagString: Untagged
@@ -87,6 +88,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3766216175756786204
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143052993435569917}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9cb0bbc9c53ece24682c6f302e593671, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2566973321035524687
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,8 +167,8 @@ MonoBehaviour:
     isLocked: 0
     isDefault: 0
     ItemPostion: {x: 0, y: 0}
-    drag: {fileID: 0}
     ItemUi: {fileID: 0}
+    drag: {fileID: 0}
   minBounds: {x: -12, y: -6}
   maxBounds: {x: 12, y: 6}
 --- !u!61 &7546120381629359569
@@ -218,3 +241,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1003c618a5fff4f80cc227bb9ce93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDragging: 0
