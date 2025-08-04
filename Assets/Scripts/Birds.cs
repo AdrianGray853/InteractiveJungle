@@ -86,7 +86,11 @@ public class Birds : Base<BirdsItem>
             itemss.maskInteraction = SpriteMaskInteraction.None;
         }
         //AddActiveItem(item);
-
+        obj.transform.GetComponent<BirdController>().enabled = true;
+        if (obj.transform.GetChild(0).TryGetComponent<Animator>(out Animator anim))
+        {
+            anim.enabled = true;
+        }
         Debug.Log($" Loaded {key} at {savedPos}");
 
 

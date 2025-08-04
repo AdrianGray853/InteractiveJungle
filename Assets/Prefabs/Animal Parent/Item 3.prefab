@@ -104,8 +104,8 @@ MonoBehaviour:
     isLocked: 0
     isDefault: 0
     ItemPostion: {x: 0, y: 0}
-    drag: {fileID: 0}
     ItemUi: {fileID: 0}
+    drag: {fileID: 0}
   minBounds: {x: -12, y: -6}
   maxBounds: {x: 12, y: 6}
 --- !u!114 &-225477855561746978
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6122418397902231842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3df39277aeff9b4f878ddefedbbe0ff, type: 3}
   m_Name: 
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1003c618a5fff4f80cc227bb9ce93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDragging: 0
 --- !u!1001 &5919359038651741268
 PrefabInstance:
   m_ObjectHideFlags: 0

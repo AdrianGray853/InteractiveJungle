@@ -20,7 +20,7 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (item.isLocked)
+        if (item.isLocked || GameManager.instance.animal.isAvalible(item.itemName))
             return;
         if (item.ItemUi != null)
         {
@@ -38,6 +38,8 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (item.isLocked || GameManager.instance.animal.isAvalible(item.itemName))
+            return;
         if (spawnedObj != null)
         {
             Vector3 pos = GetWorldPosition(eventData.position);
@@ -47,6 +49,8 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (item.isLocked || GameManager.instance.animal.isAvalible(item.itemName))
+            return;
         if (spawnedObj == null) return;
         spawnedObj.GetComponent<Sorting>().isDragging = false;
 
@@ -71,6 +75,8 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             // ✅ Step 5: Add to active list and save data
             GameManager.instance.animal.AddActiveItem(clonedItem);
             GameManager.instance.animal.SaveData(clonedItem);
+            spawnedObj.transform.GetChild(0).GetComponent<Animator>().enabled = true;
+            spawnedObj.transform.GetComponent<AnimalController>().enabled = true;
 
             // ✅ Optional: turn off sprite masking
             SpriteRenderer[] sprites = spawnedObj.GetComponentsInChildren<SpriteRenderer>();

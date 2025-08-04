@@ -92,7 +92,11 @@ public class Animals : Base<AnimalItem>
         //AddActiveItem(item);
 
         Debug.Log($" Loaded {key} at {savedPos}");
-
+        obj.transform.GetComponent<AnimalController>().enabled = true;
+        if (obj.transform.GetChild(0).TryGetComponent<Animator>(out Animator anim))
+        {
+            anim.enabled = true;
+        }
 
 
         if (PlayerPrefs.HasKey($"{key}_x") && PlayerPrefs.HasKey($"{key}_y"))

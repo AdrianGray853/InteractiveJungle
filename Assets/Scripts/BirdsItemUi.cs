@@ -36,6 +36,8 @@ public class BirdsItemUi : MonoBehaviour
     }
     void OnMouseDown()
     {
+        if (UiManager.Instance.isPanelOpen) return;
+
         offset = transform.position - GetMouseWorldPos();
         isDragging = true;
         dragStartPos = transform.position;
@@ -50,6 +52,8 @@ public class BirdsItemUi : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (UiManager.Instance.isPanelOpen) return;
+
         if (isDragging)
         {
             transform.position = GetMouseWorldPos() + offset;
@@ -58,6 +62,8 @@ public class BirdsItemUi : MonoBehaviour
 
     void OnMouseUp()
     {
+        if (UiManager.Instance.isPanelOpen) return;
+
         isDragging = false;
 
         // Restore mask visibility

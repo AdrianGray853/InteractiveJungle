@@ -60,6 +60,7 @@ public class AnimalItemUi : MonoBehaviour
 
     void OnMouseUp()
     {
+        if (UiManager.Instance.isPanelOpen) return;
 
         isDragging = false;
 

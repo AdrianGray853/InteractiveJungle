@@ -19,7 +19,7 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (item.isLocked)
+        if (item.isLocked || GameManager.instance.birds.isAvalible(item.itemName))
             return;
         if (item.ItemUi != null)
         {
@@ -36,6 +36,8 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (item.isLocked || GameManager.instance.birds.isAvalible(item.itemName))
+            return;
         if (spawnedObj != null)
         {
             Vector3 pos = GetWorldPosition(eventData.position);
@@ -45,6 +47,8 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
       public void OnEndDrag(PointerEventData eventData)
     {
+        if (item.isLocked || GameManager.instance.birds.isAvalible(item.itemName))
+            return;
         if (spawnedObj == null) return;
         spawnedObj.GetComponent<Sorting>().isDragging = false;
 
@@ -69,7 +73,11 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             // ✅ Step 5: Add to active list and save data
             GameManager.instance.birds.AddActiveItem(clonedItem);
             GameManager.instance.birds.SaveData(clonedItem);
-
+            spawnedObj.transform.GetComponent<BirdController>().enabled = true;
+            if (spawnedObj.transform.GetChild(0).TryGetComponent<Animator>(out Animator anim))
+            {
+                anim.enabled = true;
+            }
             // ✅ Optional: turn off sprite masking
             SpriteRenderer[] sprites = spawnedObj.GetComponentsInChildren<SpriteRenderer>();
             foreach (var s in sprites)
