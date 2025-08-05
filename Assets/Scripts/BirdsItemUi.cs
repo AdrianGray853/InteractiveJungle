@@ -13,7 +13,7 @@ public class BirdsItemUi : MonoBehaviour
 
     public void OpenRemoveConsentPanel()
     {
-        if (UiManager.Instance.isPanelOpen) return;
+        if (UiManager.Instance.panelOpen) return;
 
         ConsentManager.Instance.ShowConsent(
             transform.position,
@@ -36,7 +36,7 @@ public class BirdsItemUi : MonoBehaviour
     }
     void OnMouseDown()
     {
-        if (UiManager.Instance.isPanelOpen) return;
+        if (UiManager.Instance.panelOpen) return;
 
         offset = transform.position - GetMouseWorldPos();
         isDragging = true;
@@ -52,7 +52,7 @@ public class BirdsItemUi : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (UiManager.Instance.isPanelOpen) return;
+        if (UiManager.Instance.panelOpen) return;
 
         if (isDragging)
         {
@@ -62,7 +62,7 @@ public class BirdsItemUi : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (UiManager.Instance.isPanelOpen) return;
+        if (UiManager.Instance.panelOpen) return;
 
         isDragging = false;
 

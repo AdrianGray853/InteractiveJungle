@@ -13,7 +13,7 @@ public class AnimalItemUi : MonoBehaviour
 
     public void OpenRemoveConsentPanel()
     {
-        if (UiManager.Instance.isPanelOpen) return;
+        if (UiManager.Instance.panelOpen) return;
 
         ConsentManager.Instance.ShowConsent(
             transform.position,
@@ -37,7 +37,9 @@ public class AnimalItemUi : MonoBehaviour
     }
     void OnMouseDown()
     {
-
+        if (GameManager.instance.currentDrag != null) return;
+        GameManager.instance.currentDrag = gameObject;
+        if (UiManager.Instance.panelOpen) return;
         offset = transform.position - GetMouseWorldPos();
         isDragging = true;
         dragStartPos = transform.position;
@@ -52,6 +54,7 @@ public class AnimalItemUi : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (UiManager.Instance.panelOpen) return;
         if (isDragging)
         {
             transform.position = GetMouseWorldPos() + offset;
@@ -60,7 +63,10 @@ public class AnimalItemUi : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (UiManager.Instance.isPanelOpen) return;
+        if (UiManager.Instance.panelOpen) return;
+        GameManager.instance.currentDrag = null;
+
+
 
         isDragging = false;
 

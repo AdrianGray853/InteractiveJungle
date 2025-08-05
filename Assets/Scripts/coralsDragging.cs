@@ -20,6 +20,8 @@ public class CoralDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (item.isLocked || GameManager.instance.animal.isAvalible(item.itemName))
+            return;
         if (item.isLocked) return;
         if (item.ItemUi != null)
         {
@@ -37,6 +39,8 @@ public class CoralDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (item.isLocked || GameManager.instance.animal.isAvalible(item.itemName))
+            return;
         if (spawnedObj != null)
         {
             Vector3 pos = GetWorldPosition(eventData.position);
@@ -46,6 +50,8 @@ public class CoralDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (item.isLocked || GameManager.instance.animal.isAvalible(item.itemName))
+            return;
         if (spawnedObj == null) return;
         spawnedObj.GetComponent<Sorting>().isDragging = false;
 

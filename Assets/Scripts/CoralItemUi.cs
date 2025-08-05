@@ -35,6 +35,7 @@ public class CoralItemUi : MonoBehaviour
     }
     void OnMouseDown()
     {
+        if (UiManager.Instance.panelOpen) return;
         offset = transform.position - GetMouseWorldPos();
         isDragging = true;
         dragStartPos = transform.position;
@@ -49,6 +50,7 @@ public class CoralItemUi : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (UiManager.Instance.panelOpen) return;
         if (isDragging)
         {
             transform.position = GetMouseWorldPos() + offset;
@@ -57,6 +59,7 @@ public class CoralItemUi : MonoBehaviour
 
     void OnMouseUp()
     {
+        if (UiManager.Instance.panelOpen) return;
         isDragging = false;
 
         // Restore mask visibility

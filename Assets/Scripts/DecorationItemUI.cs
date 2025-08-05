@@ -15,7 +15,7 @@ public class DecorationItemUI : MonoBehaviour
 
     public void OpenRemoveConsentPanel()
     {
-        if (UiManager.Instance.isPanelOpen) return;
+        if (UiManager.Instance.panelOpen) return;
 
         ConsentManager.Instance.ShowConsent(
             transform.position,

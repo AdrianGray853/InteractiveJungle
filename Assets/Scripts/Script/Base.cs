@@ -225,21 +225,23 @@ public abstract class Base<T> : MonoBehaviour where T : BaseItem
 
     public virtual bool isAvalible(string itemName)
     {
-        string saved = PlayerPrefs.GetString(PlayerPrefsKey, "");
-        if (!string.IsNullOrEmpty(saved))
-        {
-            string[] savedNames = saved.Split(',');
+        return activeItems.Any(item => item.itemName == itemName);
 
-            foreach (var name in savedNames)
-            {
+        //string saved = PlayerPrefs.GetString(PlayerPrefsKey, "");
+        //if (!string.IsNullOrEmpty(saved))
+        //{
+        //    string[] savedNames = saved.Split(',');
 
-                if (name == itemName)
-                    return true;
+        //    foreach (var name in savedNames)
+        //    {
+
+        //        if (name == itemName)
+        //            return true;
 
 
-            }
-        }
-        return false;
+        //    }
+        //}
+        //return false;
 
     }
     public virtual void LoadSavedItems()

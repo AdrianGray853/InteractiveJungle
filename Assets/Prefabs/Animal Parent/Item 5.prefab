@@ -71,7 +71,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.35, y: -1.97}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -81,7 +81,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &-1300805703909468284
 MonoBehaviour:
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3df39277aeff9b4f878ddefedbbe0ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 0.9
   waitTimeRange: {x: 0, y: 0}
   moveDistanceRange: {x: 10, y: 20}
   isFacingRightAtStart: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   distanceToStopFromFood: 0.4
-  rayDistance: 0.5
+  rayDistance: 1
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -173,11 +173,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8022119528439045997, guid: 7dc64507e79fbee42bdbffd5df0dd0fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.52
       objectReference: {fileID: 0}
     - target: {fileID: 8022119528439045997, guid: 7dc64507e79fbee42bdbffd5df0dd0fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.54
       objectReference: {fileID: 0}
     - target: {fileID: 8022119528439045997, guid: 7dc64507e79fbee42bdbffd5df0dd0fd, type: 3}
       propertyPath: m_LocalPosition.z
