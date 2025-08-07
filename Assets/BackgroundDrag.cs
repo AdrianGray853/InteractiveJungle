@@ -2,71 +2,145 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IInitializePotentialDragHandler
 {
     public BackgroundItem item;
     private GameObject spawnedObj;
-
     private Camera mainCam;
 
     [Header("Valid Placement Bounds")]
     public Vector2 minBounds = new Vector2(-5f, -3f);
     public Vector2 maxBounds = new Vector2(5f, 3f);
 
+    private int activePointerId = -1;
+    private bool isDragging = false;
+    private bool hasSpawned = false;
+    private Vector2 dragStartPos;
+    private const float dragThreshold = 20f; // pixels
+
+    private ScrollRect parentScroll;
+
     private void Start()
     {
         mainCam = Camera.main;
+        parentScroll = GetComponentInParent<ScrollRect>();
+    }
+
+    public void OnInitializePotentialDrag(PointerEventData eventData)
+    {
+        // Allow ScrollRect to work unless horizontal drag confirmed
+        if (parentScroll != null)
+        {
+            parentScroll.OnInitializePotentialDrag(eventData);
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (item.isLocked)
             return;
-        if (item.ItemUi != null)
+
+        isDragging = true;
+        hasSpawned = false;
+        dragStartPos = eventData.position;
+        activePointerId = eventData.pointerId;
+
+        // Let ScrollRect start first
+        if (parentScroll != null)
         {
-            Vector3 spawnPos = GetWorldPosition(eventData.position);
-            spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
-            spawnedObj.GetComponent<SpriteRenderer>().sprite = GetComponent<Image>().sprite;
+            parentScroll.OnBeginDrag(eventData);
         }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!isDragging || eventData.pointerId != activePointerId)
+            return;
+
+        Vector2 delta = eventData.position - dragStartPos;
+
+        // Not yet started dragging item
+        if (!hasSpawned)
+        {
+            if (Mathf.Abs(delta.x) > dragThreshold && Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
+            {
+                // Now we cancel ScrollRect drag and begin our item drag
+                if (parentScroll != null)
+                {
+                    parentScroll.OnEndDrag(eventData);
+                }
+
+                hasSpawned = true;
+
+                if (item.ItemUi != null)
+                {
+                    transform.localScale *= 1.1f;
+                    Vector3 spawnPos = GetWorldPosition(eventData.position);
+                    spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
+
+                    SpriteRenderer sr = spawnedObj.GetComponent<SpriteRenderer>() ?? spawnedObj.GetComponentInChildren<SpriteRenderer>();
+                    if (sr != null)
+                    {
+                        sr.sprite = GetComponent<Image>().sprite;
+                        sr.sortingOrder = 100;
+                    }
+
+                    Sorting sorting = spawnedObj.GetComponent<Sorting>();
+                    if (sorting != null)
+                        sorting.isDragging = true;
+                }
+            }
+            else
+            {
+                // Let scroll happen
+                if (parentScroll != null)
+                {
+                    parentScroll.OnDrag(eventData);
+                }
+                return;
+            }
+        }
+
         if (spawnedObj != null)
         {
-            Vector3 pos = GetWorldPosition(eventData.position);
-            spawnedObj.transform.position = pos;
+            spawnedObj.transform.position = GetWorldPosition(eventData.position);
         }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (spawnedObj == null) return;
+        if (!isDragging || eventData.pointerId != activePointerId)
+            return;
 
-        Vector3 finalPos = spawnedObj.transform.position;
+        isDragging = false;
+        activePointerId = -1;
 
+        if (!hasSpawned)
+        {
+            if (parentScroll != null)
+            {
+                parentScroll.OnEndDrag(eventData);
+            }
+            return;
+        }
 
-        // ✅ Step 1: Clone the item
-        //BackgroundItem clonedItem = GameManager.instance.background.CloneItem(item);
+        transform.localScale /= 1.1f;
 
-        //// ✅ Step 2: Assign unique key using time (safe)
-        //string uniqueKey = $"{clonedItem.itemName}:{GameManager.instance.background.activeItems.Count}";
-        //clonedItem.postionkey = uniqueKey;
+        if (spawnedObj != null)
+        {
+            Sorting sorting = spawnedObj.GetComponent<Sorting>();
+            if (sorting != null)
+                sorting.isDragging = false;
 
-        //// ✅ Step 3: Assign position and prefab reference
-        //clonedItem.ItemPostion = finalPos;
-        //clonedItem.item = spawnedObj;
+            Vector3 finalPos = spawnedObj.transform.position;
 
-        // ✅ Step 4: Link UI and set data
-        //spawnedObj.GetComponent<bACKGR>().Item = clonedItem;
+            Destroy(spawnedObj);
 
-        // ✅ Step 5: Add to active list and save data
-        Destroy(spawnedObj);
-        if (IsWithinBounds(finalPos))
-            GameManager.instance.background.Clicked(item);
-
-
-
+            if (IsWithinBounds(finalPos))
+            {
+                GameManager.instance.background.Clicked(item);
+            }
+        }
     }
 
     private Vector3 GetWorldPosition(Vector3 screenPosition)
@@ -81,6 +155,4 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         return pos.x >= minBounds.x && pos.x <= maxBounds.x &&
                pos.y >= minBounds.y && pos.y <= maxBounds.y;
     }
-
-
 }
