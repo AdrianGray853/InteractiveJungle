@@ -6,6 +6,7 @@ public class Sorting : MonoBehaviour
 {
     private SortingGroup sortingGroup;
     public bool isDragging;
+    public bool rag;
 
     void Start()
     {
@@ -21,7 +22,12 @@ public class Sorting : MonoBehaviour
 
         }
         float y = transform.position.y;
+        if (rag) { 
+            sortingGroup.sortingLayerName = "Deafult";
 
+            return;
+
+        }
         // Dynamically assign Sorting Layer based on Y position
         if (y > 2)
             sortingGroup.sortingLayerName = "Layer01";

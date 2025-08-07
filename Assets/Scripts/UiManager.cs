@@ -18,6 +18,11 @@ public class UiManager : MonoBehaviour
     public bool panelOpen;
     public void OpenPanel(BtnPanel btn)
     {
+        if (GameManager.instance.currentDrag != null)
+        {
+            Destroy(GameManager.instance.currentDrag);
+            return;
+        }
         if (prePanel != null)
             prePanel.ClosePanel();
         if (prePanel == btn)

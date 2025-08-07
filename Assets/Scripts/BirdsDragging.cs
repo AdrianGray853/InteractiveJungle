@@ -26,8 +26,14 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         mainCam = Camera.main;
         parentScroll = GetComponentInParent<ScrollRect>();
-    }
+        Refresh();
 
+    }
+    private void Update()
+    {
+        Refresh();
+
+    }
     public void OnInitializePotentialDrag(PointerEventData eventData)
     {
         parentScroll?.OnInitializePotentialDrag(eventData);
@@ -42,7 +48,7 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         parentScroll?.OnBeginDrag(eventData);
     }
-
+    
     public void OnDrag(PointerEventData eventData)
     {
         if (!isDragging || eventData.pointerId != activePointerId)
@@ -69,6 +75,8 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 {
                     Vector3 spawnPos = GetWorldPosition(eventData.position);
                     spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
+                    GameManager.instance.currentDrag = spawnedObj;
+
                     spawnedObj.GetComponent<Sorting>().isDragging = true;
                 }
             }
@@ -128,8 +136,32 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             Destroy(spawnedObj);
         }
-    }
+        Refresh();
+        GameManager.instance.currentDrag = null;
 
+    }
+    public void Refresh()
+    {
+        // Dim the item if it's not available
+        if (GameManager.instance.birds.isAvalible(item.itemName))
+        {
+            SetAlpha(0.85f); // 95% transparent
+        }
+        else
+        {
+            SetAlpha(1f); // Fully visible
+        }
+    }
+    private void SetAlpha(float alpha)
+    {
+        Image[] images = GetComponentsInChildren<Image>(true);
+        foreach (var img in images)
+        {
+            Color c = img.color;
+            c.a = alpha;
+            img.color = c;
+        }
+    }
     private Vector3 GetWorldPosition(Vector3 screenPosition)
     {
         Vector3 worldPos = mainCam.ScreenToWorldPoint(screenPosition);

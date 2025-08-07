@@ -24,6 +24,7 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     {
         mainCam = Camera.main;
         parentScroll = GetComponentInParent<ScrollRect>();
+        Refresh();
     }
 
     public void OnInitializePotentialDrag(PointerEventData eventData)
@@ -77,7 +78,7 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                     transform.localScale *= 1.1f;
                     Vector3 spawnPos = GetWorldPosition(eventData.position);
                     spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
-
+                    GameManager.instance.currentDrag = spawnedObj;
                     SpriteRenderer sr = spawnedObj.GetComponent<SpriteRenderer>() ?? spawnedObj.GetComponentInChildren<SpriteRenderer>();
                     if (sr != null)
                     {
@@ -133,13 +134,38 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 sorting.isDragging = false;
 
             Vector3 finalPos = spawnedObj.transform.position;
-
+            GameManager.instance.currentDrag = null;
             Destroy(spawnedObj);
 
             if (IsWithinBounds(finalPos))
             {
                 GameManager.instance.background.Clicked(item);
             }
+        }
+        Refresh();
+    }
+
+    public void Refresh()
+    {
+        // Dim the item if it's not available
+        if (GameManager.instance.background.isAvalible(item.itemName))
+        {
+            SetAlpha(0.9f); // 95% transparent
+        }
+        else
+        {
+            SetAlpha(1f); // Fully visible
+        }
+    }
+
+    private void SetAlpha(float alpha)
+    {
+        Image[] images = GetComponentsInChildren<Image>(true);
+        foreach (var img in images)
+        {
+            Color c = img.color;
+            c.a = alpha;
+            img.color = c;
         }
     }
 

@@ -123,6 +123,7 @@ public abstract class Base<T> : MonoBehaviour where T : BaseItem
 
         int index = activeItems.IndexOf(match);
         //match.item?.SetActive(false);
+        if(match.item!= null)
         Destroy(match.item);
 
         activeItems.Remove(match);
