@@ -14,9 +14,15 @@ public class UiManager : MonoBehaviour
     public GameObject[] tools;
     public Transform camTransform;
     private BtnPanel prePanel;
-    public bool isPanelOpen;
+    [HideInInspector]
+    public bool panelOpen;
     public void OpenPanel(BtnPanel btn)
     {
+        if (GameManager.instance.currentDrag != null)
+        {
+            Destroy(GameManager.instance.currentDrag);
+            return;
+        }
         if (prePanel != null)
             prePanel.ClosePanel();
         if (prePanel == btn)
@@ -27,14 +33,13 @@ public class UiManager : MonoBehaviour
             {
                 tool.gameObject.SetActive(true);
             }
-            isPanelOpen = false;
+            panelOpen = false;
             prePanel = null;
             return;
         }
 
         prePanel = btn;
-        isPanelOpen = true;
-
+        panelOpen = true;
         foreach (var tool in tools)
         {
             tool.gameObject.SetActive(false);
@@ -47,6 +52,19 @@ public class UiManager : MonoBehaviour
 
 
     }
+    public void ClosePanel()
+    {
+        panelOpen = false;
+
+        prePanel.ClosePanel();
+        panelAnim.Play("ClosePanel");
+        canAnim.Play("ClosePanel");
+        foreach (var item in tools)
+        {
+            item.SetActive(true);
+        }
+        prePanel = null;
+    }
     private void Update()
     {
         // Check for left mouse click (or first finger tap on mobile)
@@ -57,20 +75,10 @@ public class UiManager : MonoBehaviour
             {
                 if (prePanel != null)
                 {
-                    ClosePanel(); // 👈 Call your panel close method
+                    ClosePanel();
                 }
             }
         }
     }
-    public void ClosePanel()
-    {
-        prePanel.ClosePanel();
-        panelAnim.Play("ClosePanel");
-        canAnim.Play("ClosePanel");
-        foreach (var item in tools)
-        {
-            item.SetActive(true);
-        }
-        prePanel = null;
-    }
+
 }

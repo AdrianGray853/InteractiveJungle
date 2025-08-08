@@ -121,7 +121,7 @@ public class Animals : Base<AnimalItem>
 
         Debug.Log($"🗑️ Removed saved position for {item.itemName}");
     }
-
+ 
     [Header("Load List Settings")]
 
     public GameObject[] itemObjects;

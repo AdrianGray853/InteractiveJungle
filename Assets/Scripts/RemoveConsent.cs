@@ -31,7 +31,7 @@ public class ConsentManager : MonoBehaviour
     /// </summary>
     public void ShowConsent(Vector3 spawnPos, UnityAction onYes, UnityAction onNo)
     {
-        rect.position = spawnPos;
+        //rect.position = spawnPos;
         yesAction = onYes;
         noAction = onNo;
         consentPanel.SetActive(true);

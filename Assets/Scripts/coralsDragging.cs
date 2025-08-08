@@ -1,42 +1,85 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CoralDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 
     public coralsItem item;
-    private GameObject spawnedObj;
+ 
 
+    private GameObject spawnedObj;
     private Camera mainCam;
 
     [Header("Valid Placement Bounds")]
     public Vector2 minBounds = new Vector2(-5f, -3f);
     public Vector2 maxBounds = new Vector2(5f, 3f);
 
+    private Vector2 dragStartPos;
+    private bool isDragging = false;
+    private bool hasSpawned = false;
+    private int activePointerId = -1;
+
+    private const float dragThreshold = 20f;
+
+    public ScrollRect parentScroll;
+
     private void Start()
     {
         mainCam = Camera.main;
+        parentScroll = GetComponentInParent<ScrollRect>();
+    }
+
+    public void OnInitializePotentialDrag(PointerEventData eventData)
+    {
+        parentScroll?.OnInitializePotentialDrag(eventData);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (item.isLocked) return;
-        if (item.ItemUi != null)
-        {
-            Vector3 spawnPos = GetWorldPosition(eventData.position);
-            spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
-            spawnedObj.GetComponent<Sorting>().isDragging = true;
+        isDragging = true;
+        hasSpawned = false;
+        dragStartPos = eventData.position;
+        activePointerId = eventData.pointerId;
 
-            SpriteRenderer[] sprites = spawnedObj.GetComponentsInChildren<SpriteRenderer>();
-            foreach (var item in sprites)
-            {
-                item.maskInteraction = SpriteMaskInteraction.None;
-            }
-        }
+        parentScroll?.OnBeginDrag(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!isDragging || eventData.pointerId != activePointerId)
+            return;
+
+        Vector2 delta = eventData.position - dragStartPos;
+
+        // Spawn only after horizontal drag crosses threshold
+        if (!hasSpawned)
+        {
+            if (Mathf.Abs(delta.x) > dragThreshold && Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
+            {
+                    if (item.isLocked || GameManager.instance.corals.isAvalible(item.itemName))
+                    {
+                        isDragging = false;
+                        return;
+                    }
+
+                hasSpawned = true;
+                parentScroll?.OnEndDrag(eventData);
+
+                if (item.ItemUi != null)
+                {
+                    Vector3 spawnPos = GetWorldPosition(eventData.position);
+                    spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
+                    spawnedObj.GetComponent<Sorting>().isDragging = true;
+                }
+            }
+            else
+            {
+                parentScroll?.OnDrag(eventData);
+                return;
+            }
+        }
+
         if (spawnedObj != null)
         {
             Vector3 pos = GetWorldPosition(eventData.position);
@@ -46,29 +89,40 @@ public class CoralDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (spawnedObj == null) return;
-        spawnedObj.GetComponent<Sorting>().isDragging = false;
+        if (!isDragging || eventData.pointerId != activePointerId)
+            return;
+
+        isDragging = false;
+        activePointerId = -1;
+
+        if (!hasSpawned)
+        {
+            parentScroll?.OnEndDrag(eventData);
+            return;
+        }
+
+        if (spawnedObj == null)
+            return;
 
         Vector3 finalPos = spawnedObj.transform.position;
 
         if (IsWithinBounds(finalPos))
         {
+            spawnedObj.GetComponent<Sorting>().isDragging = false;
 
+            coralsItem clonedItem = GameManager.instance.corals.CloneItem(item);
+            string uniqueKey = $"{clonedItem.itemName}:{GameManager.instance.GenerateRandomKey()}";
+            clonedItem.postionkey = uniqueKey;
+            clonedItem.ItemPostion = finalPos;
+            clonedItem.item = spawnedObj;
 
+            spawnedObj.GetComponent<CoralItemUi>().Item = clonedItem;
 
-            item.ItemPostion = finalPos;
-            spawnedObj.GetComponent<CoralItemUi>().Item = item;
-            int index = GameManager.instance.house.activeItems.Count;
-            string uniqueKey = $"{item.itemName}:{index}";
-            item.postionkey = uniqueKey;
-            GameManager.instance.corals.AddActiveItem(item);
-            GameManager.instance.corals.SaveData(item);
-            //GameManager.instance.house.SaveItemData(houseItem);
-            SpriteRenderer[] sprites = spawnedObj.GetComponentsInChildren<SpriteRenderer>();
-            foreach (var item in sprites)
-            {
-                item.maskInteraction = SpriteMaskInteraction.None;
-            }
+            GameManager.instance.corals.AddActiveItem(clonedItem);
+            GameManager.instance.corals.SaveData(clonedItem);
+
+            if (spawnedObj.transform.GetChild(0).TryGetComponent<Animator>(out Animator anim))
+                anim.enabled = true;
         }
         else
         {
@@ -88,6 +142,4 @@ public class CoralDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         return pos.x >= minBounds.x && pos.x <= maxBounds.x &&
                pos.y >= minBounds.y && pos.y <= maxBounds.y;
     }
-
-
 }

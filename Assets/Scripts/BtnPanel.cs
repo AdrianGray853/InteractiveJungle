@@ -11,7 +11,6 @@ public class BtnPanel : MonoBehaviour
         animator = GetComponent<Animator>();
         GetComponent<Button>().onClick.AddListener(() =>
         {
-
             UiManager.Instance.OpenPanel(this);
 
           

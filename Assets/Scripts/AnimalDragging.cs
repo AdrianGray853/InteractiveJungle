@@ -1,45 +1,110 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IInitializePotentialDragHandler
 {
-
     public AnimalItem item;
     private GameObject spawnedObj;
-
     private Camera mainCam;
 
     [Header("Valid Placement Bounds")]
     public Vector2 minBounds = new Vector2(-5f, -3f);
     public Vector2 maxBounds = new Vector2(5f, 3f);
 
+    private Vector2 dragStartPos;
+    private bool isDragging = false;
+    private bool hasSpawned = false;
+    private int activePointerId = -1;
+
+    private const float dragThreshold = 20f;
+
+    public ScrollRect parentScroll;
+
     private void Start()
     {
         mainCam = Camera.main;
+        parentScroll = GetComponentInParent<ScrollRect>();
+    }
+    private void Update()
+    {
+        Refresh();
+
+    }
+
+    public void OnInitializePotentialDrag(PointerEventData eventData)
+    {
+        parentScroll?.OnInitializePotentialDrag(eventData);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (item.isLocked || GameManager.instance.animal.isAvalible(item.itemName))
-            return;
-        if (item.ItemUi != null)
-        {
-            Vector3 spawnPos = GetWorldPosition(eventData.position);
-            spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
-            spawnedObj.GetComponent<Sorting>().isDragging = true;
+        isDragging = true;
+        hasSpawned = false;
+        dragStartPos = eventData.position;
+        activePointerId = eventData.pointerId;
 
-            SpriteRenderer[] sprites = spawnedObj.GetComponentsInChildren<SpriteRenderer>();
-            foreach (var item in sprites)
-            {
-                item.maskInteraction = SpriteMaskInteraction.None;
-            }
+        parentScroll?.OnBeginDrag(eventData);
+    }
+    public void Refresh()
+    {
+        // Dim the item if it's not available
+        if (GameManager.instance.animal.isAvalible(item.itemName))
+        {
+            SetAlpha(0.95f); // 95% transparent
+        }
+        else
+        {
+            SetAlpha(1f); // Fully visible
         }
     }
-
+    private void SetAlpha(float alpha)
+    {
+        Image[] images = GetComponentsInChildren<Image>(true);
+        foreach (var img in images)
+        {
+            Color c = img.color;
+            c.a = alpha;
+            img.color = c;
+        }
+    }
     public void OnDrag(PointerEventData eventData)
     {
-        if (item.isLocked || GameManager.instance.animal.isAvalible(item.itemName))
+        if (!isDragging || eventData.pointerId != activePointerId)
             return;
+
+        Vector2 delta = eventData.position - dragStartPos;
+
+        // Spawn only after horizontal drag crosses threshold
+        if (!hasSpawned)
+        {
+            if (Mathf.Abs(delta.x) > dragThreshold && Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
+            {
+                if (item.isLocked || GameManager.instance.animal.isAvalible(item.itemName))
+                {
+                    isDragging = false;
+                    return;
+                }
+
+                hasSpawned = true;
+                parentScroll?.OnEndDrag(eventData);
+
+                if (item.ItemUi != null)
+                {
+                    Vector3 spawnPos = GetWorldPosition(eventData.position);
+                    spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
+                    GameManager.instance.currentDrag = spawnedObj;
+
+                    spawnedObj.GetComponent<Sorting>().isDragging = true;
+                }
+            }
+            else
+            {
+                parentScroll?.OnDrag(eventData);
+                return;
+            }
+        }
+
         if (spawnedObj != null)
         {
             Vector3 pos = GetWorldPosition(eventData.position);
@@ -49,45 +114,50 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (item.isLocked || GameManager.instance.animal.isAvalible(item.itemName))
+        if (!isDragging || eventData.pointerId != activePointerId)
             return;
-        if (spawnedObj == null) return;
-        spawnedObj.GetComponent<Sorting>().isDragging = false;
+
+        isDragging = false;
+        activePointerId = -1;
+
+        if (!hasSpawned)
+        {
+            parentScroll?.OnEndDrag(eventData);
+            return;
+        }
+
+        if (spawnedObj == null)
+            return;
 
         Vector3 finalPos = spawnedObj.transform.position;
 
         if (IsWithinBounds(finalPos))
         {
-            // ✅ Step 1: Clone the item
-            AnimalItem clonedItem = GameManager.instance.animal.CloneItem(item);
+            spawnedObj.GetComponent<Sorting>().isDragging = false;
 
-            // ✅ Step 2: Assign unique key using time (safe)
+            AnimalItem clonedItem = GameManager.instance.animal.CloneItem(item);
             string uniqueKey = $"{clonedItem.itemName}:{GameManager.instance.GenerateRandomKey()}";
             clonedItem.postionkey = uniqueKey;
-
-            // ✅ Step 3: Assign position and prefab reference
             clonedItem.ItemPostion = finalPos;
             clonedItem.item = spawnedObj;
 
-            // ✅ Step 4: Link UI and set data
             spawnedObj.GetComponent<AnimalItemUi>().Item = clonedItem;
 
-            // ✅ Step 5: Add to active list and save data
             GameManager.instance.animal.AddActiveItem(clonedItem);
             GameManager.instance.animal.SaveData(clonedItem);
-            spawnedObj.transform.GetChild(0).GetComponent<Animator>().enabled = true;
-            spawnedObj.transform.GetComponent<AnimalController>().enabled = true;
 
-            // ✅ Optional: turn off sprite masking
-            SpriteRenderer[] sprites = spawnedObj.GetComponentsInChildren<SpriteRenderer>();
-            foreach (var s in sprites)
-                s.maskInteraction = SpriteMaskInteraction.None;
+            spawnedObj.transform.GetChild(0).GetComponent<Animator>().enabled = true;
+            spawnedObj.GetComponent<AnimalController>().enabled = true;
         }
         else
         {
             Destroy(spawnedObj);
         }
+       Refresh();
+        GameManager.instance.currentDrag = null;
+
     }
+
     private Vector3 GetWorldPosition(Vector3 screenPosition)
     {
         Vector3 worldPos = mainCam.ScreenToWorldPoint(screenPosition);
@@ -100,6 +170,4 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         return pos.x >= minBounds.x && pos.x <= maxBounds.x &&
                pos.y >= minBounds.y && pos.y <= maxBounds.y;
     }
-
-
 }

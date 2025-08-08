@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class VehicleItem : BaseItem
 {
     public VehicleDragging drag;
-    public GameObject ItemUi; // Prefab to instantiate
 }
 public class Vehicle : Base<VehicleItem>
 {
