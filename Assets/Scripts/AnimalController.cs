@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UIElements.Experimental;
 
 public class AnimalController : MonoBehaviour
 {
@@ -26,10 +27,11 @@ public class AnimalController : MonoBehaviour
     private float rightBound;
 
     private Animator animator;
-    private bool isMoving = false;
-    private bool isEating = false;
+    public bool isMoving = false;
+    public bool isEating = false;
     private Vector2 direction;
     public Transform currentFood;
+    public bool eat;
 
     private void Start()
     {
@@ -38,6 +40,9 @@ public class AnimalController : MonoBehaviour
         direction = isFacingRightAtStart ? Vector2.right : Vector2.left;
         FaceDirection(isFacingRightAtStart);
         StartCoroutine(BehaviorRoutine());
+        satiety = 0;
+        
+        currentFood.gameObject.SetActive(false);
     }
     private void FaceDirection(bool faceRight)
     {
@@ -55,23 +60,23 @@ public class AnimalController : MonoBehaviour
 
     private void Update()
     {
-        if (isEating || !isMoving) return;
+        SetAnimation(isMoving, isEating);
 
-        if (currentFood != null)
+        if (isEating || !isMoving) return;
+        if (eat && currentFood != null)
         {
             // Move towards food
             Vector2 dirToFood = (currentFood.position - transform.position).normalized;
             direction = dirToFood.x < 0 ? Vector2.left : Vector2.right;
             transform.Translate(dirToFood * moveSpeed * Time.deltaTime);
-
+            SetAnimation(false, true);
+            animator.SetBool("Eating", true);
+            Debug.Log("Eat food");
+            isEating = true;
+            isMoving = false;
             // Flip
             FaceDirection(direction.x > 0);
 
-
-            // Check arrival
-            if (Vector2.Distance(transform.position, currentFood.position) < distanceToStopFromFood)
-            {
-            }
             StartCoroutine(EatFood(currentFood.gameObject));
 
             return;
@@ -108,14 +113,17 @@ public class AnimalController : MonoBehaviour
             {
                 currentFood = food.transform;
                 isMoving = true;
-                SetAnimation(true, false);
+
+                if (!isEating)
+                    SetAnimation(true, false);
                 yield return new WaitUntil(() => !isMoving); // wait till done eating
                 continue;
             }
-
+            satiety -= eatingRate * Time.deltaTime;
             // Idle wait
             float wait = Random.Range(waitTimeRange.x, waitTimeRange.y);
-            SetAnimation(false, false);
+            if (!isEating)
+                SetAnimation(false, false);
             yield return new WaitForSeconds(wait);
 
             // Start patrol move
@@ -124,7 +132,8 @@ public class AnimalController : MonoBehaviour
             float moveDuration = distance / moveSpeed;
 
             isMoving = true;
-            SetAnimation(true, false);
+            if (!isEating)
+                SetAnimation(true, false);
 
             float endTime = Time.time + moveDuration;
             while (Time.time < endTime && isMoving)
@@ -139,18 +148,17 @@ public class AnimalController : MonoBehaviour
         isEating = true;
         isMoving = false;
         SetAnimation(false, true);
-        Debug.Log("Hello");
+        food.gameObject.SetActive(true);
         while (satiety < maxSatiety)
         {
             satiety += eatingRate * Time.deltaTime;
             yield return null;
         }
 
-        if (food != null)
-            //Destroy(food);
 
+        food.gameObject.SetActive(false);
+        eat = false;
         isEating = false;
-        currentFood = null;
         SetAnimation(true, false);
     }
 
@@ -163,8 +171,8 @@ public class AnimalController : MonoBehaviour
     private void SetAnimation(bool walking, bool eating)
     {
         //if (animator == null) return;
-        //animator.SetBool("Walking", walking);
-        //animator.SetBool("Eating", eating);
+        animator.SetBool("Walking", walking);
+        animator.SetBool("Eating", eating);
     }
 
     private void UpdateCameraBounds()

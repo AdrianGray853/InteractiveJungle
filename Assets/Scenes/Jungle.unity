@@ -42853,13 +42853,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3990a5d393d83c45b202aff5975e321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnSpeed: 10
-  rotationSpeed: 180
   sprites:
   - {fileID: -2029870488639289397, guid: ce2fc1a77d3d50c40a372d660e965cfd, type: 3}
   - {fileID: 6306447341410546962, guid: ce2fc1a77d3d50c40a372d660e965cfd, type: 3}
-  returnOffset: 1
-  fooditem: {fileID: 0}
+  checkRadius: 1.5
+  animalLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  obj: {fileID: 9082542755187889011, guid: 0ba91d42756fb5842b08d0de24cc3dc6, type: 3}
 --- !u!61 &2049205683
 BoxCollider2D:
   m_ObjectHideFlags: 0

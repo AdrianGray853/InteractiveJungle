@@ -1,92 +1,49 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
-using UnityEngine.UI; // Needed for Image component
+using UnityEngine.UI;
 
-public class FoodItems : Draggable
-
+public class FoodItems : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public float rotationSpeed = 180f; // degrees per second
-    private Coroutine rotateCoroutine;
-    public Sprite[] sprites; // 0 = idle, 1 = dragging
+    public Sprite[] sprites; // [0] idle, [1] dragging
+    public float checkRadius = 1.5f;
+    public LayerMask animalLayer;
+    public GameObject obj;
     private Image image;
-    public int returnOffset;
-    public GameObject fooditem;
-    bool dragging;
-    protected override void Start()
+    private GameObject spawnedDragObj;
+    private Camera cam;
+    private Vector3 dragOffset;
+
+    void Start()
     {
-        startPosition =  transform.position;
+        cam = Camera.main;
         image = GetComponent<Image>();
         if (sprites.Length > 0 && image != null)
-        {
-            image.sprite = sprites[0]; // Set initial to idle
-        }
+            image.sprite = sprites[0];
     }
-   
-    public override void OnBeginDrag(PointerEventData eventData)
+
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        dragging = true;
-       
-        base.OnBeginDrag(eventData);
-        if (sprites.Length > 0 && image != null)
-        {
-            image.sprite = sprites[1];
-        }
-       
+        if (spawnedDragObj != null) return;
 
+        // Instantiate a copy of this object for dragging
+        spawnedDragObj = Instantiate(obj, transform.position, Quaternion.identity);
+        //Destroy(spawnedDragObj.GetComponent<FoodItems>()); // Remove this script from clone to avoid recursive behavior
+
+        //var dragScript = spawnedDragObj.AddComponent<FoodItemDrag>();
+        //dragScript.Init(sprites, checkRadius, animalLayer);
+
+        GameManager.instance.currentDrag = spawnedDragObj;
     }
 
-    public override void OnDrag(PointerEventData eventData)
+    public void OnDrag(PointerEventData eventData) { /* no need to handle here */ }
+    public void OnEndDrag(PointerEventData eventData) { /* no need to handle here */ }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
     {
-        base.OnDrag(eventData);
-
-        //if (rotateCoroutine != null)
-            //StopCoroutine(rotateCoroutine);
-        //if (sprites.Length > 0 && image != null)
-        //{
-        //    image.sprite = sprites[1];
-        //}
-      
-        //rotateCoroutine = StartCoroutine(RotateToAngle(targetZ));
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, checkRadius);
     }
-    private void Update()
-    {
-        
-    }
-    public override void OnEndDrag(PointerEventData eventData)
-    {
-        
-        dragging = false;
-     
-        if(Vector3.Distance(transform.position,startPosition) < returnOffset)
-        {
-            base.OnEndDrag(eventData);
-            if (sprites.Length > 0 && image != null)
-            {
-                image.sprite = sprites[0];
-            }
-        }
-           
-
-    }
-
-    private IEnumerator RotateToAngle(float targetZ)
-    {
-        float startZ = transform.eulerAngles.z;
-        if (startZ > 180f) startZ -= 360f; // Convert to -180 ~ 180 range
-
-        float elapsed = 0f;
-        float duration = Mathf.Abs(targetZ - startZ) / rotationSpeed;
-
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / duration);
-            float newZ = Mathf.Lerp(startZ, targetZ, t);
-            transform.rotation = Quaternion.Euler(0, 0, newZ);
-            yield return null;
-        }
-
-        transform.rotation = Quaternion.Euler(0, 0, targetZ);
-    }
+#endif
 }
