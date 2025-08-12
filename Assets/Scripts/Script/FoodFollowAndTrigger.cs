@@ -14,7 +14,7 @@ public class FoodFollowAndTrigger : MonoBehaviour
     private bool isInteracted = false;
     private bool isReturning = false;
     private Vector3 originalPosition;
-
+    public bool isPlaced;
     void Start()
     {
         cam = Camera.main;
@@ -30,7 +30,7 @@ public class FoodFollowAndTrigger : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !isPlaced)
         {
             Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
@@ -63,7 +63,7 @@ public class FoodFollowAndTrigger : MonoBehaviour
     void CheckProximity()
     {
         Collider2D hit = Physics2D.OverlapCircle(transform.position, checkRadius, animalLayer);
-        if (hit != null)
+        if (hit != null && hit.gameObject.GetComponent<AnimalController>())
         {
             isInteracted = true;
 
@@ -71,10 +71,14 @@ public class FoodFollowAndTrigger : MonoBehaviour
 
             if (sprites.Length > 0 && image != null)
                 image.sprite = sprites[0]; // back to idle sprite
-            hit.gameObject.GetComponent<AnimalController>().eat = true;// ();// = false;
+            AnimalController animal = hit.gameObject.GetComponent<AnimalController>();
+            animal.eat = true;
             StopAllCoroutines();
-            Destroy(gameObject);
+            //Destroy(gameObject);
             StartCoroutine(FeedAndDisable());
+            gameObject.SetActive(false);
+            transform.position = animal.currentFood.position;
+
         }
         else
         {
@@ -85,14 +89,20 @@ public class FoodFollowAndTrigger : MonoBehaviour
     private IEnumerator FeedAndDisable()
     {
         yield return new WaitForSeconds(0.0f);
-        Destroy(this); // disable drag behavior after feeding
+        //Destroy(gameObject); // disable drag behavior after feeding
     }
-
+    public void CompleteEating()
+    {
+        gameObject.SetActive(true);
+        StartCoroutine(AutoReturnAfterTime(0.1f)); // 10 seconds
+        //isInteracted = false;
+        isReturning = false;
+    }
     private IEnumerator AutoReturnAfterTime(float seconds)
     {
         yield return new WaitForSeconds(seconds);
 
-        if (!isInteracted && !isReturning)
+        if (!isReturning)
         {
             isReturning = true;
 
@@ -113,7 +123,8 @@ public class FoodFollowAndTrigger : MonoBehaviour
             }
 
             transform.position = originalPosition;
-            Destroy(this); // Disable script after return
+            Destroy(gameObject); // disable drag behavior after feeding
+
         }
     }
 

@@ -41,8 +41,8 @@ public class AnimalController : MonoBehaviour
         FaceDirection(isFacingRightAtStart);
         StartCoroutine(BehaviorRoutine());
         satiety = 0;
-        
-        currentFood.gameObject.SetActive(false);
+        if (currentFood != null)
+            currentFood.gameObject.SetActive(false);
     }
     private void FaceDirection(bool faceRight)
     {
@@ -155,11 +155,12 @@ public class AnimalController : MonoBehaviour
             yield return null;
         }
 
-
         food.gameObject.SetActive(false);
+        GameManager.instance.currentSpawnedFood.GetComponent<FoodFollowAndTrigger>().CompleteEating();
         eat = false;
         isEating = false;
         SetAnimation(true, false);
+
     }
 
     private void StopMovement()
