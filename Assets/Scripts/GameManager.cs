@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     public Decoration decoration;
     [HideInInspector] public Vehicle vehicle;
     /*HideInInspector]*/ public GameObject currentDrag;
+    [HideInInspector]
+    public GameObject currentSpawnedFood;
 
- 
 
     public static GameManager instance;
     public string GenerateRandomKey(int length = 8)
