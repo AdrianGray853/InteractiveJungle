@@ -160,13 +160,13 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     private void SetAlpha(float alpha)
     {
-        Image[] images = GetComponentsInChildren<Image>(true);
-        foreach (var img in images)
-        {
-            Color c = img.color;
-            c.a = alpha;
-            img.color = c;
-        }
+        //Image[] images = GetComponentsInChildren<Image>(true);
+        //foreach (var img in images)
+        //{
+        //    Color c = img.color;
+        //    c.a = alpha;
+        //    img.color = c;
+        //}
     }
 
     private Vector3 GetWorldPosition(Vector3 screenPosition)
