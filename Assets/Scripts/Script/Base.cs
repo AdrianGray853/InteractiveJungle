@@ -94,6 +94,10 @@ public abstract class Base<T> : MonoBehaviour where T : BaseItem
         SaveSelectedItems();
         SaveItemData(newItem);
     }
+    public virtual int GetActiveItemCount(string itemName)
+    {
+        return activeItems.Count(item => item.itemName == itemName);
+    }
 
     public virtual void AddActiveItem(T newItem)
     {

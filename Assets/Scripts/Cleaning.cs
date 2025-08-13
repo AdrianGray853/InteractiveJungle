@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-
 public class Cleaning : Draggable
 {
     public Sprite[] sprites; // 0 = idle, 1 = dragging
@@ -13,54 +12,71 @@ public class Cleaning : Draggable
     private Quaternion originalRotation;
     private Vector3 originalPosition;
 
-    [Header("Rotation Target")]
-    public Transform fixedTarget;
-
     [Header("Cleaning Settings")]
-    public float cleanAmount = 0.1f; // how much to clean per second
-    public float overlapRadius = 30f; // UI pixels distance from overlay center
-    public float angle = 30f; // UI pixels distance from overlay center
-    //public GameObject waterDroping;
+    public float overlapRadius = 1f; // World units for rake detection
+    public LayerMask leafLayer;      // Layer for leaves in world space
+
+    private Camera mainCam;
+
     protected override void Start()
     {
         image = GetComponent<Image>();
         originalRotation = transform.rotation;
         originalPosition = transform.position;
+        mainCam = Camera.main;
 
         if (image != null && sprites.Length > 0)
-        {
             image.sprite = sprites[0]; // idle
-        }
     }
 
     protected void Update()
     {
         if (isDragging)
         {
-            RotateTowardsTarget();
-
-            // Cleaning logic: only clean if overlapping the dirt area
-            TryCleanIfTouchingOverlay();
-
+            TryCleanIfTouchingLeaves();
         }
     }
 
-    private void RotateTowardsTarget()
+    private void TryCleanIfTouchingLeaves()
     {
-        Vector3 targetPos = fixedTarget != null ? fixedTarget.position : originalPosition;
-        Vector3 direction = targetPos - transform.position;
+        // Convert rake UI position to world position
+        //Vector3 worldPos = mainCam.ScreenToWorldPoint(rectTransform.position);
+        //worldPos.z = 0f;
 
-        if (direction.sqrMagnitude > 0.001f)
+        // Check for leaves within world radius
+        Collider2D[] hits = Physics2D.OverlapCircleAll(rectTransform.position, overlapRadius, leafLayer);
+        foreach (var hit in hits)
         {
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            if (hit.CompareTag("Leaf"))
+            {
+                StartCoroutine(FadeAndRemoveLeaf(hit.gameObject, rectTransform.position));
+            }
         }
     }
 
-    private void TryCleanIfTouchingOverlay()
+    private IEnumerator FadeAndRemoveLeaf(GameObject leaf, Vector3 rakePos)
     {
-      
-     
+        SpriteRenderer sr = leaf.GetComponent<SpriteRenderer>();
+        if (sr == null) yield break;
+
+        Vector3 startPos = leaf.transform.position;
+        Vector3 pushDir = (leaf.transform.position - rakePos).normalized;
+        Vector3 targetPos = startPos + pushDir * 0.3f; // push 0.3 world units
+
+        Color startColor = sr.color;
+
+        float t = 0f;
+        while (t < 1f)
+        {
+            if (sr == null) yield break; // stops if destroyed
+            t += Time.deltaTime * 2f; // speed multiplier
+            if(leaf!=null)
+            leaf.transform.position = Vector3.Lerp(startPos, targetPos, t);
+            sr.color = new Color(startColor.r, startColor.g, startColor.b, 1f - t);
+            yield return null;
+        }
+
+        Destroy(leaf);
     }
 
     public override void OnBeginDrag(PointerEventData eventData)
@@ -71,21 +87,15 @@ public class Cleaning : Draggable
 
         if (image != null && sprites.Length > 1)
             image.sprite = sprites[1];
-       
-        //waterDroping.SetActive(true);
-
-
     }
 
     public override void OnEndDrag(PointerEventData eventData)
     {
         base.OnEndDrag(eventData);
         isDragging = false;
-        //waterDroping.SetActive(false);
 
         if (image != null && sprites.Length > 0)
             image.sprite = sprites[0];
-      
 
         StartCoroutine(SmoothReturnToStartAndRotation());
     }
@@ -112,15 +122,13 @@ public class Cleaning : Draggable
         transform.position = originalPosition;
         transform.rotation = originalRotation;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
 
-    }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnDrawGizmosSelected()
     {
-        if (collision.gameObject.CompareTag("Dirty"))
-        {
-
-        }
+        if (mainCam == null) mainCam = Camera.main;
+        Vector3 worldPos = Application.isPlaying ? mainCam.ScreenToWorldPoint(rectTransform.position) : Vector3.zero;
+        worldPos.z = 0f;
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(worldPos, overlapRadius);
     }
 }
