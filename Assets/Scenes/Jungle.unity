@@ -49256,6 +49256,7 @@ GameObject:
   - component: {fileID: 2143936620}
   - component: {fileID: 2143936623}
   - component: {fileID: 2143936624}
+  - component: {fileID: 2143936625}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -49389,7 +49390,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143936619}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9db9177f0919d7647840175eeb1a2075, type: 2}
   m_CullingMode: 0
@@ -49403,6 +49404,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2143936625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143936619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f8e1687a13fca49af39c9bcea88516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fitType: 0
+  pixelsPerUnit: 90
+  playAreaWidth: 1920
+  playAreaHeight: 1080
+  updateInterval: 0.1
 --- !u!1 &2145919700
 GameObject:
   m_ObjectHideFlags: 0
