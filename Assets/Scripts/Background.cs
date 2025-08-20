@@ -1,10 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 [System.Serializable]
 public class BackgroundItem : BaseItem
 {
     public BackgroundDrag drag;
+    public void Lock()
+    {
+        isLocked = true;
+        drag?.SetAlpha(0.5f, Color.gray); // visually dim
+    }
+
+    public void Unlock()
+    {
+        isLocked = false;
+        drag?.SetAlpha(1f); // restore normal
+    }
 }
 
 public class Background : Base<BackgroundItem>
@@ -19,7 +31,22 @@ public class Background : Base<BackgroundItem>
         base.Start();
 
     }
+    public void LockOnly(BackgroundItem active)
+    {
+        foreach (var item in items)
+        {
+            if (item == active)
+            {
+                item.isLocked = true;        // ✅ Mark locked
+            }
+            else
+            {
+                item.isLocked = false;       // ✅ Unlock others
+            }
+            item.drag.Refresh();
+        }
 
+    }
     protected override void OnItemSelected(BackgroundItem item)
     {
         base.OnItemSelected(item);

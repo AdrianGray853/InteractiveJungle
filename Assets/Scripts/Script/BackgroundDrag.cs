@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEditor.Media;
+using System.Collections.Generic;
 
 public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IInitializePotentialDragHandler
 {
@@ -55,6 +57,9 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (item.isLocked)
+            return;
+
         if (!isDragging || eventData.pointerId != activePointerId)
             return;
 
@@ -120,6 +125,8 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             if (parentScroll != null)
             {
+                Debug.Log("hasSpawned"+ hasSpawned);
+
                 parentScroll.OnEndDrag(eventData);
             }
             return;
@@ -139,34 +146,44 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
             if (IsWithinBounds(finalPos))
             {
+                Debug.Log("IsWithinBounds" + finalPos);
+
                 GameManager.instance.background.Clicked(item);
+
+                GameManager.instance.background.LockOnly(item);
             }
         }
         Refresh();
     }
-
+  
     public void Refresh()
     {
         // Dim the item if it's not available
         if (GameManager.instance.background.isAvalible(item.itemName))
         {
-            SetAlpha(0.9f); // 95% transparent
+            Debug.Log("item placed");
+            item.isLocked = true;
+            SetAlpha(0.8f,Color.gray); // 95% transparent
         }
         else
         {
-            SetAlpha(1f); // Fully visible
+            Debug.Log("item not  placed");
+            item.isLocked = false;
+
+            SetAlpha(1f,Color.white); // Fully visible
         }
     }
 
-    private void SetAlpha(float alpha)
+    public void SetAlpha(float alpha, Color? overrideColor = null)
     {
-        //Image[] images = GetComponentsInChildren<Image>(true);
-        //foreach (var img in images)
-        //{
-        //    Color c = img.color;
-        //    c.a = alpha;
-        //    img.color = c;
-        //}
+        Image[] images = GetComponentsInChildren<Image>(true);
+
+        foreach (var img in images)
+        {
+            Color c = overrideColor ?? img.color; 
+            c.a = alpha;
+            img.color = c;
+        }
     }
 
     private Vector3 GetWorldPosition(Vector3 screenPosition)

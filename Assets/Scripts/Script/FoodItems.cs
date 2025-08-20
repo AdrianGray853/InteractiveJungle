@@ -39,7 +39,9 @@ public class FoodItems : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnDrag(PointerEventData eventData) { /* no need to handle here */ }
     public void OnEndDrag(PointerEventData eventData)
     {
-        spawnedDragObj.GetComponent<FoodFollowAndTrigger>().isPlaced = true;
+        if (spawnedDragObj != null)
+            spawnedDragObj.GetComponent<FoodFollowAndTrigger>().isPlaced = true;
+
     }
 
 #if UNITY_EDITOR
