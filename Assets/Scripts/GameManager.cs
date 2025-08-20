@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public GameObject currentSpawnedFood;
     //public GameObject leaves;
-
+   public LeafRakingManager rakingManager;
     public static GameManager instance;
     public string GenerateRandomKey(int length = 8)
     {

@@ -77,6 +77,7 @@ public class Cleaning : Draggable
         }
 
         Destroy(leaf);
+        GameManager.instance.rakingManager.ResetCounter();
     }
 
     public override void OnBeginDrag(PointerEventData eventData)

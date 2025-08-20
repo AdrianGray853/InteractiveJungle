@@ -160,6 +160,10 @@ public class AnimalController : MonoBehaviour
         eat = false;
         isEating = false;
         SetAnimation(true, false);
+        this.Invoke(() =>
+        {
+            satiety = 0;
+        }, 15);
 
     }
 

@@ -150,8 +150,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2164219820793973867}
   m_Enabled: 1
-  m_SortingLayerID: -1298007849
-  m_SortingLayer: 3
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
 --- !u!114 &-6336237077300001818
@@ -161,13 +161,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2164219820793973867}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc1003c618a5fff4f80cc227bb9ce93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isDragging: 0
   rag: 0
+  offsetY: 0
 --- !u!1 &4134454520690897308
 GameObject:
   m_ObjectHideFlags: 0

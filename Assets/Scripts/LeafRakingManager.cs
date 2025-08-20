@@ -14,7 +14,7 @@ public class LeafRakingManager : MonoBehaviour
 
     [Header("Timing")]
     public float accumulationTime = 30f; // Time to spawn leaves
-
+    public GameObject spawningParticle;
     [Header("Rake Settings")]
     public Transform rake;               // Rake visual
     public float rakeRadius = 1f;        // Radius for detecting leaves
@@ -26,7 +26,7 @@ public class LeafRakingManager : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
-        StartCoroutine(SpawnLeavesRoutine());
+        //StartCoroutine(SpawnLeavesRoutine());
     }
 
     IEnumerator SpawnLeavesRoutine()
@@ -53,7 +53,30 @@ public class LeafRakingManager : MonoBehaviour
         GameObject leaf = Instantiate(leafPrefab[Random.Range(0,leafPrefab.Length)], spawnPos, Quaternion.identity, leafParent);
         //spawnedLeaves.Add(leaf);
     }
+    int counter;
+    public GameObject SpawnLeaf(Vector3 postion)
+    {
+        counter++;
+        Vector3 spawnPos = postion; 
+        if (counter >= 30)
+        {
+            spawningParticle.SetActive(false);
+        }
+        GameObject leaf = Instantiate(leafPrefab[Random.Range(0,leafPrefab.Length)], spawnPos, Quaternion.identity, leafParent);
+        //spawnedLeaves.Add(leaf);
+        return leaf;
+    }
+    public void ResetCounter()
+    {
+        counter--;// = 0;
+        if (counter <= 10)
+        {
+            spawningParticle.SetActive(true);
+            spawningParticle.GetComponent<ParticleSystem>().Play();
 
+        }
+
+    }
     void Update()
     {
         if (!isRakingPhase) return;
