@@ -1,0 +1,1621 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &19675763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19675766}
+  - component: {fileID: 19675765}
+  - component: {fileID: 19675764}
+  m_Layer: 0
+  m_Name: Fader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &19675766
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19675763}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 575965165}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &19675765
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19675763}
+  m_CullTransparentMesh: 1
+--- !u!114 &19675764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19675763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!1 &575965164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 575965165}
+  - component: {fileID: 575965168}
+  - component: {fileID: 575965167}
+  - component: {fileID: 575965166}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &575965165
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575965164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 19675766}
+  m_Father: {fileID: 3273757064341464164}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!223 &575965168
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575965164}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 10
+  m_TargetDisplay: 0
+--- !u!114 &575965167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575965164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 2778, y: 1284}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!114 &575965166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575965164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!1 &8760320102522561428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3273757064341464164}
+  - component: {fileID: 141611679846510959}
+  - component: {fileID: 924292822}
+  - component: {fileID: 5949533680015487040}
+  - component: {fileID: 3748655879478139353}
+  - component: {fileID: 4076623455387268565}
+  - component: {fileID: -2662750472730057737}
+  - component: {fileID: 122064435957318938}
+  - component: {fileID: -7709343689146215458}
+  - component: {fileID: -4148231038883441601}
+  - component: {fileID: 3538748140055788930}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3273757064341464164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760320102522561428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 575965165}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141611679846510959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760320102522561428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3838fd3f4b554ab680a2bd7bcafe9b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalMusicVolume: 0.2
+  GlobalSFXVolume: 1
+  Sounds:
+  - Name: MiniGame3FindAPair
+    Clip: {fileID: 8300000, guid: 5f7c0aa31d564de6bf889d0a802d4add, type: 3}
+  - Name: LetterClick
+    Clip: {fileID: 8300000, guid: 4247e9cfa3d64b83942cc941dd5abc21, type: 3}
+  - Name: EnterAPlanetSound
+    Clip: {fileID: 8300000, guid: 88bed50d16e74716a062f1b68af00784, type: 3}
+  - Name: BubblePop
+    Clip: {fileID: 8300000, guid: 48dc87614f6749b19e0b5ac760b9002a, type: 3}
+  - Name: FinishMiniGame_1
+    Clip: {fileID: 8300000, guid: f2af3b019e464c8e815cc90695be912a, type: 3}
+  - Name: WooshSpaceshipTracing
+    Clip: {fileID: 8300000, guid: 792d77171d354ecd8adb008f6a20afee, type: 3}
+  - Name: Reward
+    Clip: {fileID: 8300000, guid: 0f1ccb6a2f084ce0ab5495bdbe07a93d, type: 3}
+  - Name: RewardBubbles
+    Clip: {fileID: 8300000, guid: 4fa617b0ae11494c97dd72ca4819917d, type: 3}
+  - Name: MoveRocketMiniGame1
+    Clip: {fileID: 8300000, guid: fb3f04f3d69f4ef787befb7a789bdefc, type: 3}
+  - Name: RewardStars
+    Clip: {fileID: 8300000, guid: 347c961d6cee45468797cb160f19a083, type: 3}
+  - Name: LettersSpread
+    Clip: {fileID: 8300000, guid: 456726b8032c462aa2245cc67598dc72, type: 3}
+  - Name: RocketHitMiniGame
+    Clip: {fileID: 8300000, guid: ba5f8a021cc445b8b8c064da3329b9e3, type: 3}
+  - Name: MovingIslands
+    Clip: {fileID: 8300000, guid: c047a0c72b004809bde748887bc161be, type: 3}
+  - Name: RewardStars2
+    Clip: {fileID: 8300000, guid: 7c975f4f32af472d8fa8f141ebaa0b1c, type: 3}
+  - Name: JumpCatMiniGame
+    Clip: {fileID: 8300000, guid: 89da558eb10444ada94ece6b8b39fae0, type: 3}
+  - Name: HitCatSkateGame
+    Clip: {fileID: 8300000, guid: 706ee3f3ad8b43ce8aeed46daa6cc4de, type: 3}
+  - Name: RewardSoapBubbles
+    Clip: {fileID: 8300000, guid: c9af136320884e2cb28b1ba8e45af610, type: 3}
+  - Name: FinishMiniGame_2
+    Clip: {fileID: 8300000, guid: 6666be6f4e104680a910b53ec6a377ca, type: 3}
+  - Name: FallingLetter
+    Clip: {fileID: 8300000, guid: 4697ff896e304acfb8778f55db6d89f2, type: 3}
+  - Name: HellooowLetter
+    Clip: {fileID: 8300000, guid: 2a2e8957eb57498c8b4533332a047974, type: 3}
+  - Name: HitLetterGround
+    Clip: {fileID: 8300000, guid: d7cb0ad6451a58148be592d4eb577d08, type: 3}
+  - Name: SelectLetterSuckInLetter
+    Clip: {fileID: 8300000, guid: 12876e06f8ca484cb5aa33518e106bde, type: 3}
+  - Name: LevelDone
+    Clip: {fileID: 8300000, guid: 8ae37414b5cb403c82c47c7e9c982779, type: 3}
+  - Name: SpaceshipSellectLeter
+    Clip: {fileID: 8300000, guid: 74400bd7cf3c4548a3386b2e28016b64, type: 3}
+  - Name: GameOverMiniGames
+    Clip: {fileID: 8300000, guid: 968138970d1d44399e88a8f4cc2b1860, type: 3}
+  - Name: UFOCloseLid
+    Clip: {fileID: 8300000, guid: 6781613d32a84b06a35b344328912aa3, type: 3}
+  - Name: FinishMiniGame_3
+    Clip: {fileID: 8300000, guid: ced328c4b28e4c99af5b21b6496f71f9, type: 3}
+  - Name: BalloonPop
+    Clip: {fileID: 8300000, guid: 13075326e6fc4b40bcb69dbbfd108fcc, type: 3}
+  - Name: LetterMiniGameColect
+    Clip: {fileID: 8300000, guid: 4e3e033227be4c979f58eff8e954f8d2, type: 3}
+  - Name: LettersToTargetPoint
+    Clip: {fileID: 8300000, guid: 4e41c5b91ffa46748041a4992abeb8d1, type: 3}
+  - Name: ConfettiReward
+    Clip: {fileID: 8300000, guid: 90e7bfe6b7204c13915519e136246581, type: 3}
+  - Name: Click
+    Clip: {fileID: 8300000, guid: d0717143b204483895d6e95fe65919c8, type: 3}
+  - Name: HitSound
+    Clip: {fileID: 8300000, guid: 1cd9406c00e94a3d8282f59b614b7a3f, type: 3}
+  - Name: Electricity
+    Clip: {fileID: 8300000, guid: 90bca342eba04281af71ca46a709fabf, type: 3}
+  - Name: WooshSound
+    Clip: {fileID: 8300000, guid: f6c98c1c2693441bb2558bedcbd63241, type: 3}
+  - Name: WrongSound
+    Clip: {fileID: 8300000, guid: 1cfb2a44e2a84082a68db56d190f4cac, type: 3}
+  - Name: ClickButton
+    Clip: {fileID: 8300000, guid: 965b3a2f564a4c788a6eb68acc9d3b92, type: 3}
+  - Name: ThirdPlanetBgMusic
+    Clip: {fileID: 8300000, guid: e361375286164e97a40cb1f12cbdd403, type: 3}
+  - Name: FirstPlanetBgMusic
+    Clip: {fileID: 8300000, guid: b3be39a4fd7c4c1bbac97d36e9f78517, type: 3}
+  - Name: FourthPlanetBgMusic
+    Clip: {fileID: 8300000, guid: 90311fb620494311b12897a6700e8661, type: 3}
+  - Name: LevelFirstPlanet
+    Clip: {fileID: 8300000, guid: f1a5582fc2df417fac8c10e3d075b723, type: 3}
+  - Name: MainMenuSong
+    Clip: {fileID: 8300000, guid: 4ab0d9a9e65946f58ccf951cb026980b, type: 3}
+  - Name: SecondPlanetBgMusic
+    Clip: {fileID: 8300000, guid: 11b0b2ccbb3542d7b3d6aced60875134, type: 3}
+  - Name: LevelSecondPlanet
+    Clip: {fileID: 8300000, guid: 326789e8df694366af0824f61f50bde5, type: 3}
+  - Name: SpaceshipGameBgMusic
+    Clip: {fileID: 8300000, guid: b659ffeb6ae143e9a510380a6c60468e, type: 3}
+  - Name: SkateMiniGameBgSound
+    Clip: {fileID: 8300000, guid: c1e9ed485bd540708bb75911eb4502a7, type: 3}
+  - Name: ThirdMiniGameBgSound
+    Clip: {fileID: 8300000, guid: 1bb20f5025f642dbb9bba9561883fae7, type: 3}
+  - Name: SortingLettersBgSoundModule
+    Clip: {fileID: 8300000, guid: f997fdf6a5a04c3f90fb7208fef6abcc, type: 3}
+  - Name: MatchUpperCaseWithLowerCaseBgMusic
+    Clip: {fileID: 8300000, guid: 732fdb65095b4ea89737f445baa8af0c, type: 3}
+  - Name: TracingModuleBgMusic
+    Clip: {fileID: 8300000, guid: b3a5791003934a928c5bf2e4937b165e, type: 3}
+  - Name: DragandDropBgMusic
+    Clip: {fileID: 8300000, guid: 74e1acaf6a294457aa14ad67f027c3c4, type: 3}
+  - Name: SelectLettersModulesBgMusic
+    Clip: {fileID: 8300000, guid: 3f778ca6d1744591ae47e223ba0db3b7, type: 3}
+  - Name: MatchIconsWithLettersBgSound
+    Clip: {fileID: 8300000, guid: 52d94699bf4846acbfac76d8eedcb514, type: 3}
+  - Name: TracingSpaceshipTarget
+    Clip: {fileID: 8300000, guid: 80f64d4a3b4f467b840227bc2ccd90cc, type: 3}
+  - Name: welcome
+    Clip: {fileID: 8300000, guid: cb8d87e8b47447ad806b0cec227f8c46, type: 3}
+  - Name: alright
+    Clip: {fileID: 8300000, guid: ee707f1f401147eb98dc84538167fc48, type: 3}
+  - Name: select
+    Clip: {fileID: 8300000, guid: 1915b9b203e9488d81ce4852de3eb4d2, type: 3}
+  - Name: alright_what_here
+    Clip: {fileID: 8300000, guid: e5e787da5aa34e81a44eca37e2aef823, type: 3}
+  - Name: arrived_planet
+    Clip: {fileID: 8300000, guid: dd5a978ef6764ec39b66d3b03febd2f9, type: 3}
+  - Name: explore
+    Clip: {fileID: 8300000, guid: 772da45ce97e4f4c98a45a51d4bad173, type: 3}
+  - Name: new_game
+    Clip: {fileID: 8300000, guid: d248d71b0c3c47cb892c8ca6a7c1717c, type: 3}
+  - Name: decide
+    Clip: {fileID: 8300000, guid: b402e485ca5c440ba857b7067d264c67, type: 3}
+  - Name: attention_details
+    Clip: {fileID: 8300000, guid: a2e5b8c4190140fa9dd8f83cbb942d8e, type: 3}
+  - Name: dont_worry
+    Clip: {fileID: 8300000, guid: 0bff50e3e3f745e49fd02dccece171a0, type: 3}
+  - Name: select_upper_lower_near
+    Clip: {fileID: 8300000, guid: b253c1430f054ab49c095438164d7296, type: 3}
+  - Name: nice_observation
+    Clip: {fileID: 8300000, guid: 2d3ccf16340b47279089c890def295e6, type: 3}
+  - Name: so_fast
+    Clip: {fileID: 8300000, guid: 226dab37b3074b4fb30fe98ad7909a29, type: 3}
+  - Name: doing_great
+    Clip: {fileID: 8300000, guid: cfb237d9f91d4956b0b7a1e38f788916, type: 3}
+  - Name: genius
+    Clip: {fileID: 8300000, guid: 89fd782522ea48d7842bb11abcfda6b6, type: 3}
+  - Name: try
+    Clip: {fileID: 8300000, guid: 14afdb90da364c6893fb90b06bee866e, type: 3}
+  - Name: colourfull_letters
+    Clip: {fileID: 8300000, guid: 9706e78d3627492a8f5df550c39ee71e, type: 3}
+  - Name: nice_know_letters
+    Clip: {fileID: 8300000, guid: b83b99113430429c8eb020a900b87a70, type: 3}
+  - Name: do_again
+    Clip: {fileID: 8300000, guid: 39a89904951c45a787079c627ed60f0f, type: 3}
+  - Name: skateride_collect
+    Clip: {fileID: 8300000, guid: b7dab8c773fa42ef91d38d8a8341a716, type: 3}
+  - Name: lets_have_fun
+    Clip: {fileID: 8300000, guid: 35fd67c469954260b349ee54e3eb4436, type: 3}
+  - Name: fine_try_again
+    Clip: {fileID: 8300000, guid: c012e9ea866f4c18a8b378830649d824, type: 3}
+  - Name: try_again
+    Clip: {fileID: 8300000, guid: cfcb08f0601749689da6f47ce9b643bb, type: 3}
+  - Name: come_play_again
+    Clip: {fileID: 8300000, guid: 6b791566b66d476983792414b0eef169, type: 3}
+  - Name: feel_rhythm
+    Clip: {fileID: 8300000, guid: e91d0e3d42184c8d81f33357b05cbd2d, type: 3}
+  - Name: avoid_rocks
+    Clip: {fileID: 8300000, guid: 51cf4c13d76246c2b08b87ce55a5016f, type: 3}
+  - Name: try_avoid_rocks
+    Clip: {fileID: 8300000, guid: 51ec1eeb347449f2a7558bc594b26441, type: 3}
+  - Name: professional_rider
+    Clip: {fileID: 8300000, guid: db83659dfd61446a8df344f9eb0c665f, type: 3}
+  - Name: another_letter
+    Clip: {fileID: 8300000, guid: 210632002cb74e468461aee9d71c164f, type: 3}
+  - Name: here_is
+    Clip: {fileID: 8300000, guid: 19acca84e6a448ada5bcd82baa13e5bf, type: 3}
+  - Name: select_form
+    Clip: {fileID: 8300000, guid: 012e10a14ffb4b1787bf41910f177228, type: 3}
+  - Name: you_can
+    Clip: {fileID: 8300000, guid: efeb85224b954620a0a2e5f5ddecc920, type: 3}
+  - Name: you_captain
+    Clip: {fileID: 8300000, guid: 3827ac4052544173b327038a4eb1fb1a, type: 3}
+  - Name: direct_up_down
+    Clip: {fileID: 8300000, guid: 5a7886a059c34d1e8b92385d0e533dd4, type: 3}
+  - Name: good_job
+    Clip: {fileID: 8300000, guid: 1adb59d6f9c44d43a78d752767dfb7b5, type: 3}
+  - Name: collect_to_form
+    Clip: {fileID: 8300000, guid: 380015a6547e48b8aacad90d7200db7d, type: 3}
+  - Name: one_more_letter
+    Clip: {fileID: 8300000, guid: e34712051bee42b797ce519dcf944ac8, type: 3}
+  - Name: save_avoid
+    Clip: {fileID: 8300000, guid: 3f2ee82e853c42c9b517ef00734e3439, type: 3}
+  - Name: jump_collect
+    Clip: {fileID: 8300000, guid: cbabdd5348ac437daba40202f9f3ec3c, type: 3}
+  - Name: jump
+    Clip: {fileID: 8300000, guid: a79708d4c2a74a998837613133030215, type: 3}
+  - Name: o
+    Clip: {fileID: 8300000, guid: 5b672562938345bfa9032dc47898c340, type: 3}
+  - Name: b
+    Clip: {fileID: 8300000, guid: cafd37a51d4b454b8c3274bf53a2171d, type: 3}
+  - Name: j
+    Clip: {fileID: 8300000, guid: 80809e028e95411695fa7858071a1fa9, type: 3}
+  - Name: a
+    Clip: {fileID: 8300000, guid: 77f62d068cba43008fc91c044caef5df, type: 3}
+  - Name: l
+    Clip: {fileID: 8300000, guid: b8c19734010d49378a4b22489882d3a2, type: 3}
+  - Name: f
+    Clip: {fileID: 8300000, guid: ce96b7eb5d6942ef99b2890829595590, type: 3}
+  - Name: e
+    Clip: {fileID: 8300000, guid: e3e02af6c22f4a7ebdc67b04e482567e, type: 3}
+  - Name: u
+    Clip: {fileID: 8300000, guid: 1c35e9e8f0d146a289b41bcca850f138, type: 3}
+  - Name: y
+    Clip: {fileID: 8300000, guid: 027d7c044b4643af944cf0d8bb25a39f, type: 3}
+  - Name: k
+    Clip: {fileID: 8300000, guid: b0f53dc1ccd7415b8488e69444753034, type: 3}
+  - Name: q
+    Clip: {fileID: 8300000, guid: 6d503532354244ee9993ef33d5f8a155, type: 3}
+  - Name: r
+    Clip: {fileID: 8300000, guid: 21295141101643f19c3c3627812b5353, type: 3}
+  - Name: g
+    Clip: {fileID: 8300000, guid: eb224fea03a44874b4cf1ede3d451558, type: 3}
+  - Name: m
+    Clip: {fileID: 8300000, guid: 046b7911b7a54d409dfe02130be0b9a7, type: 3}
+  - Name: d
+    Clip: {fileID: 8300000, guid: a01821b87e744faf939152fdf6524daa, type: 3}
+  - Name: h
+    Clip: {fileID: 8300000, guid: c56cf1d0d6cf44fb8bdd88388415ddb5, type: 3}
+  - Name: i
+    Clip: {fileID: 8300000, guid: 750a4abc539842dea8b322ee3752b6bf, type: 3}
+  - Name: s
+    Clip: {fileID: 8300000, guid: 19ac00ca29214dda969dfd090527d49a, type: 3}
+  - Name: w
+    Clip: {fileID: 8300000, guid: dd11849fe2264412875274e24d9bbfcd, type: 3}
+  - Name: c
+    Clip: {fileID: 8300000, guid: 36054e351c454344bebbd3b1cce4a76e, type: 3}
+  - Name: t
+    Clip: {fileID: 8300000, guid: c5e39f728dd847d0b7ce621005a647f7, type: 3}
+  - Name: x
+    Clip: {fileID: 8300000, guid: 5f6d728f729d4b98bb4d1bfdaafbb2e7, type: 3}
+  - Name: n
+    Clip: {fileID: 8300000, guid: a1eb976ae4ad40f2b21c554d7a076ab1, type: 3}
+  - Name: v
+    Clip: {fileID: 8300000, guid: 5a917ab186304e7592916f6e82420316, type: 3}
+  - Name: p
+    Clip: {fileID: 8300000, guid: 65b4bfbdd60849bf9778f14ad3cda19c, type: 3}
+  - Name: z
+    Clip: {fileID: 8300000, guid: c35f0fa540b54411bf805b19344e646e, type: 3}
+  - Name: jupiter
+    Clip: {fileID: 8300000, guid: 1d8bdb1a6c674fd685442c9e46906248, type: 3}
+  - Name: alien
+    Clip: {fileID: 8300000, guid: 530297a501af407cbfccd11a3dc1d700, type: 3}
+  - Name: space
+    Clip: {fileID: 8300000, guid: 09049f20f71a4b2da5aa42d90bc7b94b, type: 3}
+  - Name: stars
+    Clip: {fileID: 8300000, guid: 93c65ab734de4a35985747a059d0d599, type: 3}
+  - Name: planet
+    Clip: {fileID: 8300000, guid: cd189365a19d4391a782087760b6aab8, type: 3}
+  - Name: pilot
+    Clip: {fileID: 8300000, guid: 55df3af2cc6e45d4bd3cdff25fedbb2e, type: 3}
+  - Name: earth
+    Clip: {fileID: 8300000, guid: 74bbf0bfbbab445a9225f4c5ee57c0e3, type: 3}
+  - Name: neptune
+    Clip: {fileID: 8300000, guid: 20b8470d28bf4a578d53eb99ef73c0a0, type: 3}
+  - Name: galaxy
+    Clip: {fileID: 8300000, guid: e07d26ba3dba4d6897aebd4766d12b39, type: 3}
+  - Name: universe
+    Clip: {fileID: 8300000, guid: 9ba50bbd9ed549febd6aa076fd314b38, type: 3}
+  - Name: mercury
+    Clip: {fileID: 8300000, guid: 12c7a6469eca4f79adb1e6e460e5f108, type: 3}
+  - Name: rocket
+    Clip: {fileID: 8300000, guid: 2865faa67180485eba951c7db3cff47e, type: 3}
+  - Name: science
+    Clip: {fileID: 8300000, guid: 6dcf965373e0481aac8b94af8eb45528, type: 3}
+  - Name: uranus
+    Clip: {fileID: 8300000, guid: c27400514b5648178fbd12ef9be3b9fa, type: 3}
+  - Name: constellation
+    Clip: {fileID: 8300000, guid: 8ad6f03bd56644a485a6e8d0523e9a4c, type: 3}
+  - Name: saturn
+    Clip: {fileID: 8300000, guid: d40688f54b6649879fbff1a65d94bdcc, type: 3}
+  - Name: night
+    Clip: {fileID: 8300000, guid: 0a9466ffd82e46beaebf22b0188217ae, type: 3}
+  - Name: venus
+    Clip: {fileID: 8300000, guid: 1a975f7f809f4bf08488f5268a065240, type: 3}
+  - Name: gravity
+    Clip: {fileID: 8300000, guid: 11e874a2a35a4c87884aaa5ee54eeca6, type: 3}
+  - Name: friendship
+    Clip: {fileID: 8300000, guid: e6e2e67f98eb43568484e42685e21ada, type: 3}
+  - Name: game
+    Clip: {fileID: 8300000, guid: 6defb172eeb2455f9a21215b4ad9a1f5, type: 3}
+  - Name: love
+    Clip: {fileID: 8300000, guid: c92ffc9023f649f7a4f5cef1d307ef4e, type: 3}
+  - Name: adventure
+    Clip: {fileID: 8300000, guid: b57b3bb6b7b24a80a6fdd84843f615fb, type: 3}
+  - Name: treasure
+    Clip: {fileID: 8300000, guid: 7b48926dac49466b9c217690ab6f9f07, type: 3}
+  - Name: add_letter
+    Clip: {fileID: 8300000, guid: f51c7e0bd99441c8878b4b4eb2e9801b, type: 3}
+  - Name: where_belongs_word
+    Clip: {fileID: 8300000, guid: 34d1bbaf27aa4e7aa7d8f52c1a8dab18, type: 3}
+  - Name: here_is_the_word
+    Clip: {fileID: 8300000, guid: 51c5ef991be54954bc7ce465cea411c8, type: 3}
+  - Name: awesome
+    Clip: {fileID: 8300000, guid: 6fa761391870438a82e307003f2da0f7, type: 3}
+  - Name: amazing
+    Clip: {fileID: 8300000, guid: b0f3871b92e7475fa0e3744df3bd583f, type: 3}
+  - Name: nextone
+    Clip: {fileID: 8300000, guid: 3c7135c6da034518a10993669ef19b35, type: 3}
+  - Name: bravo
+    Clip: {fileID: 8300000, guid: 3281a83e54524567aa8078fcec1e554d, type: 3}
+  - Name: definetly_know
+    Clip: {fileID: 8300000, guid: f6a0f3f2aaf94d2083634659092f8757, type: 3}
+  - Name: cool_you_did_it
+    Clip: {fileID: 8300000, guid: 9e698558722c47f7af4a583029b72d0b, type: 3}
+  - Name: 2_more_spaceships
+    Clip: {fileID: 8300000, guid: 58a9410a307e42c29dd3e617af3b4b7a, type: 3}
+  - Name: did_this_too
+    Clip: {fileID: 8300000, guid: 3cade92a9a00482b97ed4db7e7127d0f, type: 3}
+  - Name: bear
+    Clip: {fileID: 8300000, guid: 9a6f8c17451f45a38653ab8a9dcbe26d, type: 3}
+  - Name: a_from
+    Clip: {fileID: 8300000, guid: 669c496582d3477fbad6304eef260776, type: 3}
+  - Name: here_is_A
+    Clip: {fileID: 8300000, guid: 2a53967fa13340f19f8acc73f1ebf5ca, type: 3}
+  - Name: know_how
+    Clip: {fileID: 8300000, guid: eb2c7d66bdd24b8d81625de2491e3aea, type: 3}
+  - Name: so_cool
+    Clip: {fileID: 8300000, guid: 595f24a3f3864e5fbe17becb7ab545c1, type: 3}
+  - Name: okay
+    Clip: {fileID: 8300000, guid: 772c8a298f2b4ee9b643eaf6f5b4c66e, type: 3}
+  - Name: one_more 1
+    Clip: {fileID: 8300000, guid: b2d182823a2d485183dff8e5d1f47cf7, type: 3}
+  - Name: enjoy
+    Clip: {fileID: 8300000, guid: 984b566bc0da415691f0f99066650c4e, type: 3}
+  - Name: again
+    Clip: {fileID: 8300000, guid: a4d34b39609544a9818b38d1b1fa5274, type: 3}
+  - Name: rabbit
+    Clip: {fileID: 8300000, guid: 0ec234124aa446858a7094e947e911bf, type: 3}
+  - Name: bird
+    Clip: {fileID: 8300000, guid: 4c9281e0603c4beb8085fdaf23df85c7, type: 3}
+  - Name: iguana
+    Clip: {fileID: 8300000, guid: 2d9c28fc30b342e89b0f1da62e578676, type: 3}
+  - Name: new_one
+    Clip: {fileID: 8300000, guid: b4cc2e5fb1564b8eaed10815902870b1, type: 3}
+  - Name: newt
+    Clip: {fileID: 8300000, guid: a53bc825fbf1481d825670268a61b38f, type: 3}
+  - Name: lets_continue
+    Clip: {fileID: 8300000, guid: 309cf9cad05b4d50ab33be174903e256, type: 3}
+  - Name: miss_it
+    Clip: {fileID: 8300000, guid: c7a66ee48c2f481099fd22dcde098fc0, type: 3}
+  - Name: move_upper_to_orange
+    Clip: {fileID: 8300000, guid: b7ce46765f784e85bdb72bdbd408df43, type: 3}
+  - Name: one_more
+    Clip: {fileID: 8300000, guid: 48689d7859ee4f1ba38af012113ab735, type: 3}
+  - Name: move_lower_to_blue
+    Clip: {fileID: 8300000, guid: e83ce1b13df3464eb418d5ef8e7545e0, type: 3}
+  - Name: wow_cool
+    Clip: {fileID: 8300000, guid: b3aa30e8a4454407968da4588c6c03cb, type: 3}
+  - Name: wow_lets_see
+    Clip: {fileID: 8300000, guid: 22e310b7826640d7aa316d9d2c6b7be3, type: 3}
+  - Name: continue_that_way
+    Clip: {fileID: 8300000, guid: 924ccec2a66f491db7134794a5b6d213, type: 3}
+  - Name: welcome_2
+    Clip: {fileID: 8300000, guid: 71c3faaf0953430b96e1644eb85a47ea, type: 3}
+  - Name: one_more_friend
+    Clip: {fileID: 8300000, guid: 3408eb5f6ab2440595fdaceb02c67dbb, type: 3}
+  - Name: do_again 2
+    Clip: {fileID: 8300000, guid: 46cd93825a4943eb8bd135629cd989d4, type: 3}
+  - Name: have_fun
+    Clip: {fileID: 8300000, guid: 5e0112accbce40e89a0f5921fccb33fc, type: 3}
+  - Name: seagull
+    Clip: {fileID: 8300000, guid: 0e286bc48a87414f86608ca9b9069186, type: 3}
+  - Name: frog
+    Clip: {fileID: 8300000, guid: bd04f702975b43da85533a30fcf4c925, type: 3}
+  - Name: zeppelin
+    Clip: {fileID: 8300000, guid: 9c2a0e37f05e413bb497bff2a48390c8, type: 3}
+  - Name: lowercase_bubble
+    Clip: {fileID: 8300000, guid: e02e3b8fff5c4a67a0d6fd2e0b74ada0, type: 3}
+  - Name: connect_with
+    Clip: {fileID: 8300000, guid: b38594cbdab741aeaba51425fc5f2233, type: 3}
+  - Name: cool
+    Clip: {fileID: 8300000, guid: ead7a41354ed49e2ab532020eede92e9, type: 3}
+  - Name: got_it
+    Clip: {fileID: 8300000, guid: 76542fbc41b64d5a81ccee9069af0576, type: 3}
+  - Name: koala
+    Clip: {fileID: 8300000, guid: 83d527e45509473a9cf5acb334b72719, type: 3}
+  - Name: selected_letters
+    Clip: {fileID: 8300000, guid: 71c9654261e542f2ad2f445e35f680ae, type: 3}
+  - Name: selected_lowercase
+    Clip: {fileID: 8300000, guid: 7b9459ae95a3401ab76d35cd474483ce, type: 3}
+  - Name: fish
+    Clip: {fileID: 8300000, guid: 5a96b806203c4dd9af44fb7d8ff20b13, type: 3}
+  - Name: learn_write_trace
+    Clip: {fileID: 8300000, guid: 7d0aa44587eb4ea7a196c5dbadbe998a, type: 3}
+  - Name: horse
+    Clip: {fileID: 8300000, guid: 352cfe623bac492e9a4a8f345fa957a6, type: 3}
+  - Name: envelope
+    Clip: {fileID: 8300000, guid: 209c5d1538434fce82142a18cfd613d1, type: 3}
+  - Name: letters_wait
+    Clip: {fileID: 8300000, guid: f2520ad678ea47838e8b3b6895aeeaa6, type: 3}
+  - Name: this_time_letter
+    Clip: {fileID: 8300000, guid: b88b6f6b41594f00b43e389d58888ca5, type: 3}
+  - Name: unicorn
+    Clip: {fileID: 8300000, guid: 9f5108866b29416fbc9703aa7c2b5efb, type: 3}
+  - Name: uppercase
+    Clip: {fileID: 8300000, guid: 811acbbc726240b9b9bfc3c709b16dc4, type: 3}
+  - Name: uu_yeah
+    Clip: {fileID: 8300000, guid: b02874563d2e4295bcdac1ab5d42664d, type: 3}
+  - Name: uuu_weee
+    Clip: {fileID: 8300000, guid: fb64ef4f419b4007968fb8a3cf0a99a3, type: 3}
+  - Name: combinations_play
+    Clip: {fileID: 8300000, guid: b37807d0eb70421597752222e4737b85, type: 3}
+  - Name: and_drag_to_lower
+    Clip: {fileID: 8300000, guid: 41266c8e1bf749c28b7b3f385dbf3fbc, type: 3}
+  - Name: friends_played_before
+    Clip: {fileID: 8300000, guid: 7c0f94098bc64bc8b02389f29018aa6b, type: 3}
+  - Name: vulture
+    Clip: {fileID: 8300000, guid: fb05824d21e94dcf92d0f2f8e1aa3cba, type: 3}
+  - Name: sun
+    Clip: {fileID: 8300000, guid: 1a0503fc5a8042cd964811c0ee0fbae3, type: 3}
+  - Name: tada
+    Clip: {fileID: 8300000, guid: 0e6b0a3a95724cfaaa515036c53fdf26, type: 3}
+  - Name: new_combinations
+    Clip: {fileID: 8300000, guid: 6be0ba7f891b45339f9eb5378c20467c, type: 3}
+  - Name: connected_upper
+    Clip: {fileID: 8300000, guid: 8e4e8a887efd41ebbe10b19a253f4e38, type: 3}
+  - Name: ahaa
+    Clip: {fileID: 8300000, guid: bf6822bba5764d568d5c07f2d1f9ec06, type: 3}
+  - Name: enjoy_nice
+    Clip: {fileID: 8300000, guid: d660be755e244e19b1fb87248055dead, type: 3}
+  - Name: uppercase_bubbe
+    Clip: {fileID: 8300000, guid: 127dbae569ae4f409e9ce93a322057f2, type: 3}
+  - Name: move_upper_lower
+    Clip: {fileID: 8300000, guid: fb21ad676ac045c0bba7617630a6ba53, type: 3}
+  - Name: racoon
+    Clip: {fileID: 8300000, guid: 5aad02f7971f4b0592e6fb3e519036c0, type: 3}
+  - Name: rainbow
+    Clip: {fileID: 8300000, guid: 7f2d0372c64749d6b816453a55d89a10, type: 3}
+  - Name: press_green
+    Clip: {fileID: 8300000, guid: 78c27a5b2a804e1d82e9eee5edf88e8b, type: 3}
+  - Name: drag_drop_a
+    Clip: {fileID: 8300000, guid: d8ec682e20474ff4b8e656b42a50c349, type: 3}
+  - Name: the_word
+    Clip: {fileID: 8300000, guid: c21179ff2b9c48d9b7ee16e8906b5a94, type: 3}
+  - Name: moon
+    Clip: {fileID: 8300000, guid: 43843f53365942988d02cf4d18bfa249, type: 3}
+  - Name: glad_alone
+    Clip: {fileID: 8300000, guid: 1e179429dddc4af1997b7ceef89f0b92, type: 3}
+  - Name: start_with
+    Clip: {fileID: 8300000, guid: 13bad887fdee44f8b9f90ab1cb0a772f, type: 3}
+  - Name: ladybug
+    Clip: {fileID: 8300000, guid: bab5a095e39848c38638e38fb0e458f1, type: 3}
+  - Name: yey
+    Clip: {fileID: 8300000, guid: d5a2e0f00c524999a6e2e3c1e94d6163, type: 3}
+  - Name: do_you_play_again
+    Clip: {fileID: 8300000, guid: 6cb245338c3944469c2529819d8e9d8d, type: 3}
+  - Name: where_belongs_world
+    Clip: {fileID: 8300000, guid: 9fe3a2125df94e349d16732b9af114aa, type: 3}
+  - Name: here_is_word_aligator
+    Clip: {fileID: 8300000, guid: 6c590988bd354bd5840d3b3f374f0d48, type: 3}
+  - Name: nice
+    Clip: {fileID: 8300000, guid: d4ab7624f24b47ed81418f7d462b0d72, type: 3}
+  - Name: watermelon
+    Clip: {fileID: 8300000, guid: c16524f31e24480d9f97586ddfca9ddb, type: 3}
+  - Name: move_spaceship_where
+    Clip: {fileID: 8300000, guid: e815230ef66549c9b749003e64f1881a, type: 3}
+  - Name: kangaroo
+    Clip: {fileID: 8300000, guid: ea84f5a9115747378fbfbe71364d7a8d, type: 3}
+  - Name: select_letters
+    Clip: {fileID: 8300000, guid: 619c62f96f71435a96be3fd178bb8016, type: 3}
+  - Name: learn_cool
+    Clip: {fileID: 8300000, guid: a1e8f797e5b541a0ba1956e321884e6a, type: 3}
+  - Name: did_all
+    Clip: {fileID: 8300000, guid: b6afa18e73fa4eca9018ee5a5f9b4328, type: 3}
+  - Name: moved_letter
+    Clip: {fileID: 8300000, guid: 3d954661b3fa40dd92cee60ea26b4f27, type: 3}
+  - Name: cat
+    Clip: {fileID: 8300000, guid: c8e4514a2f87479693ac62c627f42e20, type: 3}
+  - Name: did_great
+    Clip: {fileID: 8300000, guid: f85396292c3b4b27935a805050709c2f, type: 3}
+  - Name: dont_miss_too_much
+    Clip: {fileID: 8300000, guid: ffd72ad723ff493c87b32dd7e888aac4, type: 3}
+  - Name: lets_build_word
+    Clip: {fileID: 8300000, guid: 779c3a0ab4154914a69da99fc33d3ec8, type: 3}
+  - Name: world_interesting
+    Clip: {fileID: 8300000, guid: f92afbf1773b40379c77b32f862a35bb, type: 3}
+  - Name: fun
+    Clip: {fileID: 8300000, guid: 98861095cb234bcc8a791ab35f476c9b, type: 3}
+  - Name: select_letter_island
+    Clip: {fileID: 8300000, guid: 6cc1baf6d85443a5bc3f07795a68c915, type: 3}
+  - Name: spaceship_too
+    Clip: {fileID: 8300000, guid: a8163e7c3b764572a064095b36b9af09, type: 3}
+  - Name: here_we_go
+    Clip: {fileID: 8300000, guid: 73c4a7fec0744edd9e0a095dbc40bdc0, type: 3}
+  - Name: notebook
+    Clip: {fileID: 8300000, guid: a4f07ee45b16468bad30935c25a457aa, type: 3}
+  - Name: arrived
+    Clip: {fileID: 8300000, guid: 15b1f9c893b248d6a199b4cac7ad7586, type: 3}
+  - Name: yummy
+    Clip: {fileID: 8300000, guid: 5548f622d48d460d9fcd52082c394788, type: 3}
+  - Name: fox
+    Clip: {fileID: 8300000, guid: dc953d0a2f47491681a54b82abf79dc8, type: 3}
+  - Name: drum
+    Clip: {fileID: 8300000, guid: 1efd430cd52344d88bb2a5ed4d03f70a, type: 3}
+  - Name: whale
+    Clip: {fileID: 8300000, guid: bdc275da48d7457eaa9c7ae8211391f4, type: 3}
+  - Name: what_here
+    Clip: {fileID: 8300000, guid: 90b0299e2c22499db798a7f05ef77d85, type: 3}
+  - Name: lion
+    Clip: {fileID: 8300000, guid: cca79a628c264ac1a16846c2f9d98247, type: 3}
+  - Name: group_two
+    Clip: {fileID: 8300000, guid: 8df931972694413185a661845e2c14bf, type: 3}
+  - Name: house
+    Clip: {fileID: 8300000, guid: 5ac7e217c98f4db8954912f664468aac, type: 3}
+  - Name: play_again
+    Clip: {fileID: 8300000, guid: aebd4505dd9e4af59d9a05764344902b, type: 3}
+  - Name: what_we_have_here
+    Clip: {fileID: 8300000, guid: 399311a13f6d4e8192b50c5f4b0b45e2, type: 3}
+  - Name: goodjob
+    Clip: {fileID: 8300000, guid: e64829c7e08748c4baee6addf2911eb3, type: 3}
+  - Name: island
+    Clip: {fileID: 8300000, guid: 9b8c81d64e944beebf7f05724e24de24, type: 3}
+  - Name: yak
+    Clip: {fileID: 8300000, guid: f4bacef9df14421897e414fa05a18a77, type: 3}
+  - Name: vulcano
+    Clip: {fileID: 8300000, guid: 847101fb57dc43d6b1744cc5a4f7ddfe, type: 3}
+  - Name: spell_a_aligator
+    Clip: {fileID: 8300000, guid: 2f420ac3183d491abed890fb6384773c, type: 3}
+  - Name: happy_play_her
+    Clip: {fileID: 8300000, guid: db63f6f2170b4137b220516dcdbdc3b2, type: 3}
+  - Name: gift
+    Clip: {fileID: 8300000, guid: 981d29f9c8dd41ca881b5de4215b5882, type: 3}
+  - Name: select_remember
+    Clip: {fileID: 8300000, guid: d7054149f0f4417fb932503fd27d5f17, type: 3}
+  - Name: elephant
+    Clip: {fileID: 8300000, guid: 2ae88408469c44d1bd7a98f65c92d666, type: 3}
+  - Name: great
+    Clip: {fileID: 8300000, guid: 7abf365def134e4ca2eef7724680bb03, type: 3}
+  - Name: start_letter
+    Clip: {fileID: 8300000, guid: 1b896f9340a44b28934af7ce548fc8e3, type: 3}
+  - Name: start_uppercase
+    Clip: {fileID: 8300000, guid: 836f24bb9c624321a8e5c5bbb58f2be2, type: 3}
+  - Name: mushroom
+    Clip: {fileID: 8300000, guid: 56fa9b6e45e3493a8a4450908be77cd4, type: 3}
+  - Name: lowercase_letter
+    Clip: {fileID: 8300000, guid: e04d7e2aabcf4d28aa204d34ad715a05, type: 3}
+  - Name: find_uppercase
+    Clip: {fileID: 8300000, guid: fc02710a56284ea4ac030a31dc095c69, type: 3}
+  - Name: follow_blue
+    Clip: {fileID: 8300000, guid: db8b04eaa1ea40e4a90cc283ce4ebe7d, type: 3}
+  - Name: queen
+    Clip: {fileID: 8300000, guid: ff3881c63aac41b88fa8b4b61e5a73f5, type: 3}
+  - Name: palette
+    Clip: {fileID: 8300000, guid: 04b59c0219b141428678aa4682065242, type: 3}
+  - Name: penguin
+    Clip: {fileID: 8300000, guid: 3369b11379934a1386d76080a06f8ce6, type: 3}
+  - Name: fly_spaceship
+    Clip: {fileID: 8300000, guid: a9a1bf8c7e1f447faf3738d548ecc248, type: 3}
+  - Name: now_you_know
+    Clip: {fileID: 8300000, guid: 9cbc9d7eca0645d2a0fc42f4b1dafcaf, type: 3}
+  - Name: jeans
+    Clip: {fileID: 8300000, guid: 87f8407a123248f6b756ee1e12dcfedb, type: 3}
+  - Name: connect_upper_lower
+    Clip: {fileID: 8300000, guid: a65723bb95984226ad796cd29e2e7bc1, type: 3}
+  - Name: weee
+    Clip: {fileID: 8300000, guid: 228e94fd267a48e5b4d39f8925add24b, type: 3}
+  - Name: weeeeeeee
+    Clip: {fileID: 8300000, guid: ffbdce6293a440089f9da4bfc16079c3, type: 3}
+  - Name: next_island
+    Clip: {fileID: 8300000, guid: 7751d106c7b14bfa8acd993d23ca0577, type: 3}
+  - Name: xylophone
+    Clip: {fileID: 8300000, guid: c071ba1cef8147ed9ab61266d62eb2fb, type: 3}
+  - Name: which_letter_move
+    Clip: {fileID: 8300000, guid: f1ca11ac09cc480c88c7a872781f6854, type: 3}
+  - Name: with_letter
+    Clip: {fileID: 8300000, guid: 87ea292943394375a81de1afb08c58ea, type: 3}
+  - Name: letter
+    Clip: {fileID: 8300000, guid: 70f5bfe277734f2d89af02e413a7844e, type: 3}
+  - Name: spaceship_flew
+    Clip: {fileID: 8300000, guid: 2a6a3cbf7fee4e6d9a5eb19880756388, type: 3}
+  - Name: spaceship_game
+    Clip: {fileID: 8300000, guid: 883d7df247274de69460b194ad6bb5c7, type: 3}
+  - Name: alligator
+    Clip: {fileID: 8300000, guid: ccd840525b834c1fa1fdc49a6057e5d9, type: 3}
+  - Name: play_friendly_letters
+    Clip: {fileID: 8300000, guid: 4c3098a6ba32430896c5553e60a6619e, type: 3}
+  - Name: practice_great
+    Clip: {fileID: 8300000, guid: a2f9a3deacbe48b48aca3420460ec7b8, type: 3}
+  - Name: dolphin
+    Clip: {fileID: 8300000, guid: 2bd4e849858848e7890f474ae9d1e358, type: 3}
+  - Name: connected_lower
+    Clip: {fileID: 8300000, guid: aa2b32038bc44e499c6eb7d9c1c5d39f, type: 3}
+  - Name: next_pair
+    Clip: {fileID: 8300000, guid: f77cb4a2cd474ba1bffb39561d114aee, type: 3}
+  - Name: select_lowercase
+    Clip: {fileID: 8300000, guid: d0f0d5cd961540abbcb644e18f638540, type: 3}
+  - Name: now_here_is_aligator
+    Clip: {fileID: 8300000, guid: c808318f079a402fa3362e0fc406589a, type: 3}
+  - Name: trace_lowercase
+    Clip: {fileID: 8300000, guid: 48586acafe8a4d60a2af761556544379, type: 3}
+  - Name: next_letter
+    Clip: {fileID: 8300000, guid: acd0f1254b614223a100d7dfdc62c780, type: 3}
+  - Name: dog
+    Clip: {fileID: 8300000, guid: 3ab51f47f62042cab65728f8fcf5a67d, type: 3}
+  - Name: wow
+    Clip: {fileID: 8300000, guid: 4ef4981f0bdf4693b8aa8d68a64862f5, type: 3}
+  - Name: come_play_lowercase
+    Clip: {fileID: 8300000, guid: e01131c256ab4f27be02c98b86161d64, type: 3}
+  - Name: a_from_alligator
+    Clip: {fileID: 8300000, guid: ef12bda87d0549a2ab616c1d37fa5321, type: 3}
+  - Name: kite
+    Clip: {fileID: 8300000, guid: e7c6738db7d442b2b62bb8cc71918895, type: 3}
+  - Name: now_lowercase
+    Clip: {fileID: 8300000, guid: 1549d655b24248ac9bba23d89497930b, type: 3}
+  - Name: draw_lowercase
+    Clip: {fileID: 8300000, guid: e481a44d9463499fa3e76c5873b2d1ad, type: 3}
+  - Name: have
+    Clip: {fileID: 8300000, guid: 0e6f4da449cb4e199f00648899ca27b5, type: 3}
+  - Name: know_jump
+    Clip: {fileID: 8300000, guid: a6259903aa6745a3ae9edc7950b53d3f, type: 3}
+  - Name: enjoy_haha
+    Clip: {fileID: 8300000, guid: 980e15bf7ab44c3bb8988dd561f9b10c, type: 3}
+  - Name: startTrace_uppercase_A
+    Clip: {fileID: 8300000, guid: 1bb36d8bb060432fb91533332baf007f, type: 3}
+  - Name: new_friend_a
+    Clip: {fileID: 8300000, guid: e0d6c10e7afa4e98a23c8ddda7f609f4, type: 3}
+  - Name: cow
+    Clip: {fileID: 8300000, guid: bb76649cabfb4215b781816c41ea6993, type: 3}
+  - Name: move_spaceship
+    Clip: {fileID: 8300000, guid: c1a6fd3ab4a045a6b1d40cd021654f32, type: 3}
+  - Name: car
+    Clip: {fileID: 8300000, guid: 07ba504d437b4abca267ce418a2784dc, type: 3}
+  - Name: jellyfish
+    Clip: {fileID: 8300000, guid: c7e47c0a1cb543ddb184e504fd2b5006, type: 3}
+  - Name: waiting_you
+    Clip: {fileID: 8300000, guid: dc9d397db9974a60a505ae507870c616, type: 3}
+  - Name: waka_waka
+    Clip: {fileID: 8300000, guid: b165e351930549258816f7c0feaf8b04, type: 3}
+  - Name: monkey
+    Clip: {fileID: 8300000, guid: daafc798438f42c3974c0d25750ed3da, type: 3}
+  - Name: uppercase_letter
+    Clip: {fileID: 8300000, guid: 584139a5013e4bb7982aacca33548f87, type: 3}
+  - Name: recognize
+    Clip: {fileID: 8300000, guid: e80151de33d647ee9575c50ca3fb7dd1, type: 3}
+  - Name: owl
+    Clip: {fileID: 8300000, guid: 1d6940faf94f4f93a0b4932e839207af, type: 3}
+  - Name: have_select
+    Clip: {fileID: 8300000, guid: 7ef3bf275f9346258bf5c61e0e28808e, type: 3}
+  - Name: giraffe
+    Clip: {fileID: 8300000, guid: 616bf0b65872478e817ba66b5e697291, type: 3}
+  - Name: letter_back
+    Clip: {fileID: 8300000, guid: 478d86da02df4ffa8059426fdeaa0e8a, type: 3}
+  - Name: zebra
+    Clip: {fileID: 8300000, guid: 5fc50642be894a92aa28a72f70e56e6b, type: 3}
+  - Name: asociated_with
+    Clip: {fileID: 8300000, guid: 128e37e86afc41adaa74fbc4c1f84224, type: 3}
+  - Name: collect_letter
+    Clip: {fileID: 8300000, guid: ae2a2dea49c0488098564c2d38aba14a, type: 3}
+  - Name: no_hurry
+    Clip: {fileID: 8300000, guid: de2b27f3408c4a2fb8b5f08991c594e3, type: 3}
+  - Name: select_another
+    Clip: {fileID: 8300000, guid: 521c6c5a698a4987bee0ee117ecb8a9b, type: 3}
+  - Name: oops
+    Clip: {fileID: 8300000, guid: 60fc9002b94346e398e23d9f9179c7ac, type: 3}
+  - Name: put_back
+    Clip: {fileID: 8300000, guid: 0215ccfafe0c4247abda039c7f558a1d, type: 3}
+  - Name: quail
+    Clip: {fileID: 8300000, guid: 3b7fb8c92d3347a8ad871b1f3ad8f2a0, type: 3}
+  - Name: jumped_from_word
+    Clip: {fileID: 8300000, guid: 3c9d519b38584c76bd57385655dd64f9, type: 3}
+  - Name: lowercase
+    Clip: {fileID: 8300000, guid: 8902f3262ebd4dd4a27f5a43b417e99c, type: 3}
+  - Name: move
+    Clip: {fileID: 8300000, guid: a5b266ea3b9f4bc4a05c92ff36b11076, type: 3}
+  - Name: last_one
+    Clip: {fileID: 8300000, guid: 2670903c09b34ccabeb055b562d7c106, type: 3}
+  - Name: yes
+    Clip: {fileID: 8300000, guid: f5801aa000894b93a0645e1ad6e1a805, type: 3}
+  - Name: have_here
+    Clip: {fileID: 8300000, guid: 0f60c9a3e43341ca86512950c526537a, type: 3}
+  - Name: did_it
+    Clip: {fileID: 8300000, guid: 9801d42445f244c4b6a6fa30cec33556, type: 3}
+  - Name: another_a
+    Clip: {fileID: 8300000, guid: 8d85866a8c9f49798654c6e6fc344787, type: 3}
+  - Name: and_word_is
+    Clip: {fileID: 8300000, guid: b2f566bbb046495fa62e8af929f19dbd, type: 3}
+  - Name: congrats
+    Clip: {fileID: 8300000, guid: 0120c2d5ae584cc08bab971d1327b717, type: 3}
+  - Name: ball
+    Clip: {fileID: 8300000, guid: dfefdcf9fe11465ea8fdaf6cb3e441fa, type: 3}
+  - Name: can_you_do_it
+    Clip: {fileID: 8300000, guid: a4c61be961d24ce3b8ac57e3bc653561, type: 3}
+  - Name: almost_there
+    Clip: {fileID: 8300000, guid: 029d7e62d19b4b80afcc2c15dd61c84e, type: 3}
+  - Name: so_smart
+    Clip: {fileID: 8300000, guid: ab3e887f096243b4a5c2eaf4237051d3, type: 3}
+  - Name: flower
+    Clip: {fileID: 8300000, guid: bfcce2402b7b4e7eb0ef24b0669c44e5, type: 3}
+  - Name: lets_connect
+    Clip: {fileID: 8300000, guid: 6416ab3c2a2a4f048fe100d7ad864de4, type: 3}
+  - Name: tiger
+    Clip: {fileID: 8300000, guid: 834175995dff4c3d9b2315c325d272f7, type: 3}
+  - Name: tooth
+    Clip: {fileID: 8300000, guid: 4a12a886c70540de9e4e6d31215485d6, type: 3}
+  - Name: wakamakafo
+    Clip: {fileID: 8300000, guid: 7a057a82cd424ed79df74a525c7e387a, type: 3}
+  - Name: aha
+    Clip: {fileID: 8300000, guid: d4504aea03c64b1e9429f835f47fd3ae, type: 3}
+  - Name: ufo
+    Clip: {fileID: 8300000, guid: eb64a5bdcd9b4e47818fa333546435ee, type: 3}
+  - Name: completed_word
+    Clip: {fileID: 8300000, guid: 094e865ef6444098b9de8ee2f7546679, type: 3}
+  - Name: another_game
+    Clip: {fileID: 8300000, guid: 91778096e0014a53b29e26c5757cd42b, type: 3}
+  - Name: xrayfish
+    Clip: {fileID: 8300000, guid: 64a81f5a4b80411b98467d0c6be79902, type: 3}
+  - Name: another_pair
+    Clip: {fileID: 8300000, guid: 7c4af1d0458b4aafb3d18e172cc3d877, type: 3}
+  - Name: astronaut
+    Clip: {fileID: 8300000, guid: 5dcce4aa15e047359dfce11860f65082, type: 3}
+  - Name: orange
+    Clip: {fileID: 8300000, guid: abe68df58c9d42008efcaf47c7da2040, type: 3}
+  - Name: last_rock
+    Clip: {fileID: 8300000, guid: a56b94beed684161956fc904d903b2be, type: 3}
+  - Name: 2_spaceships
+    Clip: {fileID: 8300000, guid: 00bc5e75a4c34325893a4993438580cd, type: 3}
+  - Name: another
+    Clip: {fileID: 8300000, guid: 22fe19fef3294c399ca3ecf8de14470a, type: 3}
+  - Name: oh_wow
+    Clip: {fileID: 8300000, guid: 0fe441333b18432280d21d7c7735dca0, type: 3}
+  - Name: built_word
+    Clip: {fileID: 8300000, guid: 65789e8eff7c4257918e3914bdded06e, type: 3}
+  - Name: cool_another_done
+    Clip: {fileID: 8300000, guid: 752c393aab914140a9955afe9923849f, type: 3}
+  - Name: z_from_zebra
+    Clip: {fileID: 8300000, guid: f59bb6d1c3db4379a4fc4f4cfebe6d48, type: 3}
+  - Name: q_from_quail
+    Clip: {fileID: 8300000, guid: b8e417e4e0884f5c86cae456efedf6f4, type: 3}
+  - Name: z_from_zeppelin
+    Clip: {fileID: 8300000, guid: 3fcc0842f0dd4ae5a453138b71702d23, type: 3}
+  - Name: k_from_koala
+    Clip: {fileID: 8300000, guid: 793ed0cfa32448df9625d0a40d7e5d3e, type: 3}
+  - Name: o_from_owl
+    Clip: {fileID: 8300000, guid: a8a9b7b66b4b4b139148c9ac9af3afd1, type: 3}
+  - Name: v_from_vulcano
+    Clip: {fileID: 8300000, guid: 6d66bbdf78074f128f8990a3097b2488, type: 3}
+  - Name: c_from_cow
+    Clip: {fileID: 8300000, guid: 49cf9cd46915493aba5996e675339c7a, type: 3}
+  - Name: x_from_xrayfish
+    Clip: {fileID: 8300000, guid: 066cfd7586674e919e542cf76a4f54a8, type: 3}
+  - Name: e_from_envelope
+    Clip: {fileID: 8300000, guid: b043fe24e5d64bb486141755f7af4896, type: 3}
+  - Name: l_from_lion
+    Clip: {fileID: 8300000, guid: 2f9f8b2b2b1b49dba960affa03af7a03, type: 3}
+  - Name: w_from_watermelon
+    Clip: {fileID: 8300000, guid: de5ea3901a1c4fa5a77c2c6cd449c3d0, type: 3}
+  - Name: c_from_car
+    Clip: {fileID: 8300000, guid: e3c93a58ed284918bed15fb4ac16ee8a, type: 3}
+  - Name: t_from_tiger
+    Clip: {fileID: 8300000, guid: 80f400daba55434d91a3184f38ec9ab1, type: 3}
+  - Name: u_from_ufo
+    Clip: {fileID: 8300000, guid: 50b628d7aeb24eb3b6ffb975ad4acaff, type: 3}
+  - Name: d_from_drum
+    Clip: {fileID: 8300000, guid: 881617a5f35c40089ebe8890c2f76d9e, type: 3}
+  - Name: x_from_xylophone
+    Clip: {fileID: 8300000, guid: c4f9a48c24604e0aaa5079b122a96441, type: 3}
+  - Name: m_from_mushroom
+    Clip: {fileID: 8300000, guid: 79089c7ac91349dd9f05a4979648dea3, type: 3}
+  - Name: m_from_monkey
+    Clip: {fileID: 8300000, guid: d4395acf37664eaf9e9f7832bdf99dc8, type: 3}
+  - Name: n_from_notebook
+    Clip: {fileID: 8300000, guid: b664c9c4ba4143b891979627fcb39e17, type: 3}
+  - Name: w_from_whale
+    Clip: {fileID: 8300000, guid: f009a187ec55449a91a36ce3301013a6, type: 3}
+  - Name: l_from_ladybug
+    Clip: {fileID: 8300000, guid: 9e1f0ef1bcfc46de922bd7843859d571, type: 3}
+  - Name: r_from_rainbow
+    Clip: {fileID: 8300000, guid: 728e2a8e32604ca0bc3d0aa6a06a3797, type: 3}
+  - Name: q_from_queen
+    Clip: {fileID: 8300000, guid: 6ae4f1d96aa74342887184e46ac17faf, type: 3}
+  - Name: n_from_newt
+    Clip: {fileID: 8300000, guid: e8b549cda3294517be7f2b98ea7aff4a, type: 3}
+  - Name: e_from_elephant
+    Clip: {fileID: 8300000, guid: e0cc66d5c17a445ea4c7d88090f1d759, type: 3}
+  - Name: j_from_jeans
+    Clip: {fileID: 8300000, guid: e6dc8012f816409fb0e03107effae6cb, type: 3}
+  - Name: g_from_giraffe
+    Clip: {fileID: 8300000, guid: dcef338a456345e185283c7db69e4a8f, type: 3}
+  - Name: f_from_flower
+    Clip: {fileID: 8300000, guid: b3a46ade07ea4e58abfca420ec60b6ed, type: 3}
+  - Name: u_from_unicorn
+    Clip: {fileID: 8300000, guid: b6d9d2244bd842a69cc86222c63fa5b0, type: 3}
+  - Name: h_from_house
+    Clip: {fileID: 8300000, guid: 96cf0fe8177f4f4eae6261f0ff070e1c, type: 3}
+  - Name: y_from_yak
+    Clip: {fileID: 8300000, guid: 4f1d35694a9746e69f57cfe8d41134b4, type: 3}
+  - Name: g_from_guitar
+    Clip: {fileID: 8300000, guid: 043d5323d5ef4c1298af37e0c7966f98, type: 3}
+  - Name: p_from_palette
+    Clip: {fileID: 8300000, guid: 1379c5fbaffd448bac9ce55d5fb0546d, type: 3}
+  - Name: v_from_vulture
+    Clip: {fileID: 8300000, guid: d70caacc21a24cfdb591812ff2f5e134, type: 3}
+  - Name: k_from_kite
+    Clip: {fileID: 8300000, guid: 73594acb1895435fbcbe93c4604790c0, type: 3}
+  - Name: o_from_orange
+    Clip: {fileID: 8300000, guid: 623e7205fac74d1f86705837a77896d0, type: 3}
+  - Name: g_from_gift
+    Clip: {fileID: 8300000, guid: ee5b9de9386d47dbb12534532a95c02f, type: 3}
+  - Name: s_from_seagull
+    Clip: {fileID: 8300000, guid: c2aaadffc91b447b8e1419038349d15f, type: 3}
+  - Name: i_from_island
+    Clip: {fileID: 8300000, guid: 2bddd09f667742779fd3912b1daa3cb9, type: 3}
+  - Name: a_from_astronaut
+    Clip: {fileID: 8300000, guid: 20cbae94d45b4cc8a5140eecf660da49, type: 3}
+  - Name: d_from_dog
+    Clip: {fileID: 8300000, guid: ae4617680b204f74a59c6759bcfcf9fa, type: 3}
+  - Name: j_from_jellyfish
+    Clip: {fileID: 8300000, guid: 665f95f4f7b5408fa512735b415f015b, type: 3}
+  - Name: f_from_fox
+    Clip: {fileID: 8300000, guid: 2d50eef3b136466f9e4de9454022ef42, type: 3}
+  - Name: b_from_bear
+    Clip: {fileID: 8300000, guid: 22f33e8f72c34872b720a5e50c17d842, type: 3}
+  - Name: s_from_sun
+    Clip: {fileID: 8300000, guid: fb950a1e131c409eaf557201968c323a, type: 3}
+  - Name: t_from_tooth
+    Clip: {fileID: 8300000, guid: 88c07e59a84041728e3ff08b450030fa, type: 3}
+  - Name: r_from_racoon
+    Clip: {fileID: 8300000, guid: b962a419b576413f87c5116325c4e105, type: 3}
+  - Name: i_from_iguana
+    Clip: {fileID: 8300000, guid: b78a4ae0edb04823a7b2fdbe52d02a9f, type: 3}
+  - Name: h_from_horse
+    Clip: {fileID: 8300000, guid: f68d764b0cf04a6d8d5327384a82eb06, type: 3}
+  - Name: p_from_pig
+    Clip: {fileID: 8300000, guid: e39c7cbf703d4b658a86b528e49f96e0, type: 3}
+  - Name: clock
+    Clip: {fileID: 8300000, guid: b61debec356f4bdbac599ff75af9d9c1, type: 3}
+  - Name: boat
+    Clip: {fileID: 8300000, guid: bf8ae05c2f124903b31876363c0a5f63, type: 3}
+  - Name: book
+    Clip: {fileID: 8300000, guid: 7afba43af9fb4bdaa0599c1dc2c85c23, type: 3}
+  - Name: star
+    Clip: {fileID: 8300000, guid: a6d58160dab24aa3893599bd348c2057, type: 3}
+  - Name: telescope
+    Clip: {fileID: 8300000, guid: d1016b254e1b4206acad8a6635881568, type: 3}
+  - Name: plane
+    Clip: {fileID: 8300000, guid: ed6693cef91a4e74bc9a7b63c53650ea, type: 3}
+  - Name: tree
+    Clip: {fileID: 8300000, guid: 8c8d23c0d96d40aab7df850e7e6512af, type: 3}
+  - Name: bicycle
+    Clip: {fileID: 8300000, guid: 96c90f9ccbce4c849a9187d81e956001, type: 3}
+  - Name: window
+    Clip: {fileID: 8300000, guid: 7f36014b71d24a6b8ce234701165ed2a, type: 3}
+  - Name: spaceship
+    Clip: {fileID: 8300000, guid: 6c5356bceed34491ba1caf94320800d7, type: 3}
+  - Name: asteroid
+    Clip: {fileID: 8300000, guid: 6de2debdc42642799b19a43675893fc1, type: 3}
+  - Name: umbrella
+    Clip: {fileID: 8300000, guid: 596f18f904e84eedbe12db240c33ea9c, type: 3}
+  - Name: cloud
+    Clip: {fileID: 8300000, guid: 37ca64a6fb274ae09754719b6a69d14e, type: 3}
+  - Name: train
+    Clip: {fileID: 8300000, guid: 147019bfe88747fcafac0c41a5e945b3, type: 3}
+  - Name: butterfly
+    Clip: {fileID: 8300000, guid: 9e9230711b13460b8ef5e75db9977769, type: 3}
+  - Name: airplane
+    Clip: {fileID: 8300000, guid: 94fa5550a6a944afa2eab5e4cd051885, type: 3}
+  - Name: pencil
+    Clip: {fileID: 8300000, guid: a7d4fd9e845b40aaa89af45238fe7633, type: 3}
+  - Name: select_A
+    Clip: {fileID: 8300000, guid: 5cbc5491563846f5994b41dd856c8306, type: 3}
+  - Name: drag_drop_letter
+    Clip: {fileID: 8300000, guid: 5702ba97b042489680f2153b7170ae90, type: 3}
+  - Name: welcome_uppercase
+    Clip: {fileID: 8300000, guid: 889b7b8b85654d0598cdeee2fb6a1ec0, type: 3}
+  - Name: select_uppercase
+    Clip: {fileID: 8300000, guid: 66dc9b4203f0405a89736006148381d5, type: 3}
+  - Name: startTrace_lowercase
+    Clip: {fileID: 8300000, guid: fb9475f3a15c4679b89ed1efb818b7bf, type: 3}
+  - Name: startTrace_uppercase
+    Clip: {fileID: 8300000, guid: c62b803f9af84fb89fda9915d955a7a0, type: 3}
+  - Name: first
+    Clip: {fileID: 8300000, guid: acb366bf667746dda7d560bcb20f0fa3, type: 3}
+  - Name: trace_uppercase
+    Clip: {fileID: 8300000, guid: cffd8777a0394dbfb96ca41433a234e3, type: 3}
+  - Name: CrowdCheer
+    Clip: {fileID: 8300000, guid: f8b91eda05ef4725a37441e5808c2419, type: 3}
+  - Name: banana
+    Clip: {fileID: 8300000, guid: 48ec9a088db44c96b46608a02ff60e27, type: 3}
+  - Name: guitar
+    Clip: {fileID: 8300000, guid: d6120877e964409d97a26b2cef45347d, type: 3}
+  - Name: pig
+    Clip: {fileID: 8300000, guid: 0ec3eb22fbe04dc8bd886ecd72e2d3a2, type: 3}
+  - Name: superhero
+    Clip: {fileID: 8300000, guid: 917e2b29f79b4e27a5a2fbeea236bf8f, type: 3}
+  - Name: b_from_ball
+    Clip: {fileID: 8300000, guid: 52881de8650f4f2aa952c1396c97a8f7, type: 3}
+  - Name: now_lowercase_1
+    Clip: {fileID: 8300000, guid: e3c46e5a38e34ddb8d1ac27d20f49a29, type: 3}
+  - Name: yacht
+    Clip: {fileID: 8300000, guid: 34292a1f326e46969b7f8b4d9fd67da3, type: 3}
+  - Name: apple
+    Clip: {fileID: 8300000, guid: bd1c933d42ce4b2db19e7fd761c55ebb, type: 3}
+  - Name: u_from_umbrella
+    Clip: {fileID: 8300000, guid: 496393ed9c6448d3b03bba1aa373f2ca, type: 3}
+  - Name: supernova
+    Clip: {fileID: 8300000, guid: bcfaeb37e6a648179b0ae7b22b49ee40, type: 3}
+  - Name: y_from_yacht
+    Clip: {fileID: 8300000, guid: d936ea5f5fcf46bb8cf75cf510078a6c, type: 3}
+  - Name: alphabet
+    Clip: {fileID: 8300000, guid: feb4b032941140758a6a236c6f8d08f4, type: 3}
+  - Name: ambition
+    Clip: {fileID: 8300000, guid: bfacc171332b4d5da89e2adcb626a923, type: 3}
+  - Name: angle
+    Clip: {fileID: 8300000, guid: 7100e876fa3d4805ba967018839121b6, type: 3}
+  - Name: aquarium
+    Clip: {fileID: 8300000, guid: b41f22dfd224454fa675c58d0f3207a2, type: 3}
+  - Name: atlas
+    Clip: {fileID: 8300000, guid: 0acbccd07bfa4473a3dee36f9ce9f0d1, type: 3}
+  - Name: backpack
+    Clip: {fileID: 8300000, guid: b6314a51035046acb485f3ba636a3d63, type: 3}
+  - Name: balloon
+    Clip: {fileID: 8300000, guid: 542f9f37f3f14447b1eaa02f1afc3386, type: 3}
+  - Name: basketball
+    Clip: {fileID: 8300000, guid: 602dbc0d5fee4aa385173e81f8d4892b, type: 3}
+  - Name: beach
+    Clip: {fileID: 8300000, guid: ee1e38ac36044e9b946ac7df2d54d437, type: 3}
+  - Name: blackboard
+    Clip: {fileID: 8300000, guid: 0d6dc9ebe0a847dcb3be200783b38846, type: 3}
+  - Name: bloom
+    Clip: {fileID: 8300000, guid: e137f8cd802341d0ac78160a4b996d08, type: 3}
+  - Name: blueberry
+    Clip: {fileID: 8300000, guid: 5588b6051cfa47c99d52e65a8a40b473, type: 3}
+  - Name: brain
+    Clip: {fileID: 8300000, guid: f31a2f0e6e144ec9a20002564a66fd2d, type: 3}
+  - Name: brush
+    Clip: {fileID: 8300000, guid: 9776be0a71e840b1a024ac8500e6ef9e, type: 3}
+  - Name: bubblegum
+    Clip: {fileID: 8300000, guid: f490e6c8c742463297ab5d8d1332cf95, type: 3}
+  - Name: calendar
+    Clip: {fileID: 8300000, guid: 0342c87047df46bf900a6bbef5149f63, type: 3}
+  - Name: caterpillar
+    Clip: {fileID: 8300000, guid: f062387d986d407698b3ee552cda748f, type: 3}
+  - Name: chair
+    Clip: {fileID: 8300000, guid: 68380f78c6834b84b741a7b7baa7406d, type: 3}
+  - Name: circle
+    Clip: {fileID: 8300000, guid: d983915bf9ef460c883e33066ac78b5c, type: 3}
+  - Name: color
+    Clip: {fileID: 8300000, guid: bd05a538c56a4a4a819e535260479fd0, type: 3}
+  - Name: comet
+    Clip: {fileID: 8300000, guid: 405afc63e7484108928769565b7ec35c, type: 3}
+  - Name: compassion
+    Clip: {fileID: 8300000, guid: 00ebcc12fdbc42729a407d00cafda4f7, type: 3}
+  - Name: confidence
+    Clip: {fileID: 8300000, guid: 53c6e003db8644c8a271826e549ddec6, type: 3}
+  - Name: courage
+    Clip: {fileID: 8300000, guid: 3fdf1ccc581f49689dcd695f60fd8046, type: 3}
+  - Name: creativity
+    Clip: {fileID: 8300000, guid: 97db3d81a95c415bbbdf80cbb6113ac8, type: 3}
+  - Name: crown
+    Clip: {fileID: 8300000, guid: e95418b369f94425b218c05cea915374, type: 3}
+  - Name: cupcake
+    Clip: {fileID: 8300000, guid: 5015fb6f22c847b496eb8ab8669202a6, type: 3}
+  - Name: curiosity
+    Clip: {fileID: 8300000, guid: 11415bdee33847f6a81565e02692eeda, type: 3}
+  - Name: cylinder
+    Clip: {fileID: 8300000, guid: 76302561d1084114844ce382ff5d02aa, type: 3}
+  - Name: dance
+    Clip: {fileID: 8300000, guid: fa4029173785487db7f1a978b200028d, type: 3}
+  - Name: dancer
+    Clip: {fileID: 8300000, guid: 5f5a1b696a694a9d8fb19ea83404af38, type: 3}
+  - Name: desert
+    Clip: {fileID: 8300000, guid: 466e501a28ae4b32b7e3e64ca699e16d, type: 3}
+  - Name: digit
+    Clip: {fileID: 8300000, guid: 5f567f38a6b44610b98b4d3399177893, type: 3}
+  - Name: dinosaur
+    Clip: {fileID: 8300000, guid: 7d7a9189ea12409fa2608b6f689d096f, type: 3}
+  - Name: discover
+    Clip: {fileID: 8300000, guid: 2e37a27b437845d1a3a89fb63d530695, type: 3}
+  - Name: earth
+    Clip: {fileID: 8300000, guid: 877c5f0fe4ff4b3e870644b59996755b, type: 3}
+  - Name: east
+    Clip: {fileID: 8300000, guid: 109ce085dfa34c509ef0d34ad29b1a54, type: 3}
+  - Name: eclipse
+    Clip: {fileID: 8300000, guid: a97e29ecc71d4993833e86d9a98321f8, type: 3}
+  - Name: elbow
+    Clip: {fileID: 8300000, guid: ccf1a13f23de4c2ab2f926a344406f72, type: 3}
+  - Name: elephant
+    Clip: {fileID: 8300000, guid: 029d6fca221745f7a96bf3f9de1e53fa, type: 3}
+  - Name: empathy
+    Clip: {fileID: 8300000, guid: 3dfbc3c127e9422eacedbc32c9499d2d, type: 3}
+  - Name: encyclopedia
+    Clip: {fileID: 8300000, guid: da4031ae5b534f72b1ab91ff14477cd4, type: 3}
+  - Name: energy
+    Clip: {fileID: 8300000, guid: c9effacbe2f24626b4bf6edc1576d68f, type: 3}
+  - Name: enthusiasm
+    Clip: {fileID: 8300000, guid: 3956aedb08f348ddae06acfe8da6d57e, type: 3}
+  - Name: escalator
+    Clip: {fileID: 8300000, guid: ccb1222b866f44b6bfc8a4cb1c527f36, type: 3}
+  - Name: field
+    Clip: {fileID: 8300000, guid: 74a558c40ec64ef797c9014d8fa2466b, type: 3}
+  - Name: flamingo
+    Clip: {fileID: 8300000, guid: c72cf6794cb4401aa83d307c6ce188c6, type: 3}
+  - Name: flashlight
+    Clip: {fileID: 8300000, guid: f8507379b6464c2f998e7204a155e9ea, type: 3}
+  - Name: forest
+    Clip: {fileID: 8300000, guid: 865c2973cd7143789f8dae4056b402f8, type: 3}
+  - Name: fruit
+    Clip: {fileID: 8300000, guid: 7b85bb61b6414f8e8c2f6f4a73ca432d, type: 3}
+  - Name: generosity
+    Clip: {fileID: 8300000, guid: db7502d4dd2843e0a0bfddad83fb041d, type: 3}
+  - Name: globe
+    Clip: {fileID: 8300000, guid: bfb4217fdd664c44ae732f27ed4ad9a9, type: 3}
+  - Name: gymnastics
+    Clip: {fileID: 8300000, guid: 72a79e6c276d4e1ca61ad3d6e084bf6f, type: 3}
+  - Name: heart
+    Clip: {fileID: 8300000, guid: 6117a83ce7a6454db4ae2eacf16e2c80, type: 3}
+  - Name: hedgehog
+    Clip: {fileID: 8300000, guid: 0347a13ad5224b3681064df1faa3cac5, type: 3}
+  - Name: helicopter
+    Clip: {fileID: 8300000, guid: a5528576434744cea0f63c80554235d7, type: 3}
+  - Name: hippopotamus
+    Clip: {fileID: 8300000, guid: c1370c0bcf534c93a00a36d8e3c7aeac, type: 3}
+  - Name: honey
+    Clip: {fileID: 8300000, guid: c205b5f1689e43b1bc9ff34c647ebf30, type: 3}
+  - Name: house
+    Clip: {fileID: 8300000, guid: 7b163ee797d64b0c89523a4d79445b5b, type: 3}
+  - Name: iceberg
+    Clip: {fileID: 8300000, guid: 047226ecbaf540b88de136daac0f49d1, type: 3}
+  - Name: image
+    Clip: {fileID: 8300000, guid: 7e29bbd787754c19bc16087d101e301d, type: 3}
+  - Name: imagination
+    Clip: {fileID: 8300000, guid: 4bff0d4dfc8349d383160a1e9e68b8ac, type: 3}
+  - Name: insect
+    Clip: {fileID: 8300000, guid: 1a6c0d9d59ba431b96a8880dc85dadc7, type: 3}
+  - Name: island
+    Clip: {fileID: 8300000, guid: ebf2a39e4fab4a9493f1a2354a08c0f8, type: 3}
+  - Name: jacket
+    Clip: {fileID: 8300000, guid: 593916bd10fb4580a159bbf74330203d, type: 3}
+  - Name: jungle
+    Clip: {fileID: 8300000, guid: 27765c4c1c694cbe82ef96c199605a33, type: 3}
+  - Name: kindness
+    Clip: {fileID: 8300000, guid: 22298f16937348f8b60ad3b5cbfbefe1, type: 3}
+  - Name: knowledge
+    Clip: {fileID: 8300000, guid: 5696bdc6a23b415f97ec56250569c1cf, type: 3}
+  - Name: labyrinth
+    Clip: {fileID: 8300000, guid: 230388194d4d4a11853e8b88e7cf78c3, type: 3}
+  - Name: ladybug
+    Clip: {fileID: 8300000, guid: 54eac9a46ef043ed94e06488e3a3aa4c, type: 3}
+  - Name: lemon
+    Clip: {fileID: 8300000, guid: 2df098b9471f49af92320d82ad01fdeb, type: 3}
+  - Name: lemonade
+    Clip: {fileID: 8300000, guid: 05cf64c0a8924eb6abf3ddd3b15ee49e, type: 3}
+  - Name: light
+    Clip: {fileID: 8300000, guid: 1b882e242f7e42a2b1dca407413e9e6a, type: 3}
+  - Name: lighthouse
+    Clip: {fileID: 8300000, guid: ece55e0cc26741e4ad037e5498b07cb0, type: 3}
+  - Name: magnet
+    Clip: {fileID: 8300000, guid: 7923cd95bbb743189b7ce37102675c0b, type: 3}
+  - Name: map
+    Clip: {fileID: 8300000, guid: bcffdb529b074d4da4241b5591beefe1, type: 3}
+  - Name: marble
+    Clip: {fileID: 8300000, guid: 63864711229547ebaca4e32f79a50cfc, type: 3}
+  - Name: mathematics
+    Clip: {fileID: 8300000, guid: 48785ce0a7954d018754efc065f579ed, type: 3}
+  - Name: mermaid
+    Clip: {fileID: 8300000, guid: 4a0e7fcb2b3e441d8ff1a3f92d8c8db2, type: 3}
+  - Name: microscope
+    Clip: {fileID: 8300000, guid: d9bbd0d61f344e92a437fc0e62a2e813, type: 3}
+  - Name: moonlight
+    Clip: {fileID: 8300000, guid: 9465c3124302420e88c36ee0ac653a15, type: 3}
+  - Name: mouse
+    Clip: {fileID: 8300000, guid: 249e3aac3d9f40bba71bcc0331aa667e, type: 3}
+  - Name: movie
+    Clip: {fileID: 8300000, guid: 2ebaf674356d4566b72a2a72a9b55841, type: 3}
+  - Name: mushroom
+    Clip: {fileID: 8300000, guid: 807bf2c879f54dfdbd22895e2b24852a, type: 3}
+  - Name: music
+    Clip: {fileID: 8300000, guid: 93a2229091794144aa56c637a2e95d98, type: 3}
+  - Name: north
+    Clip: {fileID: 8300000, guid: 1a9f641add7641b59dad4a96a8d3041b, type: 3}
+  - Name: notebook
+    Clip: {fileID: 8300000, guid: 96b963157ec34bd2a077e2e603be3e5d, type: 3}
+  - Name: ocean
+    Clip: {fileID: 8300000, guid: 5bd7e27ee1a14fd89e34f2700edfef60, type: 3}
+  - Name: octopus
+    Clip: {fileID: 8300000, guid: 7cc805d35fdf43888517de702796648f, type: 3}
+  - Name: orbit
+    Clip: {fileID: 8300000, guid: d97bc5caf616491f97935402b457af39, type: 3}
+  - Name: paint
+    Clip: {fileID: 8300000, guid: dedc7e12d42149eeb138177795b81285, type: 3}
+  - Name: paper
+    Clip: {fileID: 8300000, guid: 61c61b1121994dd5b1936eb04239f63e, type: 3}
+  - Name: patience
+    Clip: {fileID: 8300000, guid: 7e53ab08fc4448c98b66e8a851535a84, type: 3}
+  - Name: peace
+    Clip: {fileID: 8300000, guid: dc9b3436b2e24e6bbf175755d8dd9f25, type: 3}
+  - Name: peach
+    Clip: {fileID: 8300000, guid: 7d3b863409a54387b5ece37e540c15ed, type: 3}
+  - Name: photo
+    Clip: {fileID: 8300000, guid: 259aea42591a42a2aa18f4f7ac60c6b3, type: 3}
+  - Name: piano
+    Clip: {fileID: 8300000, guid: cc232c2cdccc4dbb81c3e5f2e8182d85, type: 3}
+  - Name: pineapple
+    Clip: {fileID: 8300000, guid: 19bcd7d972364441a970ae5628ec48f5, type: 3}
+  - Name: plant
+    Clip: {fileID: 8300000, guid: 7d9c291035e143f1a13b1a2a6cc016f3, type: 3}
+  - Name: prime
+    Clip: {fileID: 8300000, guid: ca25bee4ce8644239f88523c2936625e, type: 3}
+  - Name: puzzle
+    Clip: {fileID: 8300000, guid: e1f39fee14ef464192d2bbbf0aecb210, type: 3}
+  - Name: question
+    Clip: {fileID: 8300000, guid: fe868f9196394a718eaf9fe578c35158, type: 3}
+  - Name: raspberry
+    Clip: {fileID: 8300000, guid: 8e4c6fd8fcb3464a84b4c5f5ad1a0353, type: 3}
+  - Name: rectangle
+    Clip: {fileID: 8300000, guid: 1e448110d69645b68eb59c31345cb8c8, type: 3}
+  - Name: respect
+    Clip: {fileID: 8300000, guid: 3b2df0bce2b641efb94bc8615873f58b, type: 3}
+  - Name: river
+    Clip: {fileID: 8300000, guid: 85a3e23fe811470a90d1a9ebcbb63559, type: 3}
+  - Name: robot
+    Clip: {fileID: 8300000, guid: 53dddc70de1145deb6845856702cc646, type: 3}
+  - Name: rollercoaster
+    Clip: {fileID: 8300000, guid: 92f2b1bf9b9e47e192bf81caec64be7a, type: 3}
+  - Name: school
+    Clip: {fileID: 8300000, guid: 3c55fab7bdad4a9e9f06da6ef1700738, type: 3}
+  - Name: shape
+    Clip: {fileID: 8300000, guid: 39c8f7e06a394b32a4c972771820e8c8, type: 3}
+  - Name: skateboard
+    Clip: {fileID: 8300000, guid: 8fe9adb2e1ca432587faa06f44d7efa3, type: 3}
+  - Name: snowflake
+    Clip: {fileID: 8300000, guid: 443b4ae638fb41fc9691f55afb9ad103, type: 3}
+  - Name: snowman
+    Clip: {fileID: 8300000, guid: 60a54b851d5a46e489e5a7550f041205, type: 3}
+  - Name: solar
+    Clip: {fileID: 8300000, guid: 5ab2028b5e05415fa7bf388f3755d063, type: 3}
+  - Name: sound
+    Clip: {fileID: 8300000, guid: 4691b4dc494546c1abac578a43a0d16b, type: 3}
+  - Name: south
+    Clip: {fileID: 8300000, guid: f99f3b118e5d441c80c8af916e0f787b, type: 3}
+  - Name: space
+    Clip: {fileID: 8300000, guid: c83333b55bb84206ae52605336cfe381, type: 3}
+  - Name: story
+    Clip: {fileID: 8300000, guid: c31828070e4547b18ddc7f7a29714369, type: 3}
+  - Name: strawberry
+    Clip: {fileID: 8300000, guid: 767ea965dc1a4929a52651c28ed9b441, type: 3}
+  - Name: table
+    Clip: {fileID: 8300000, guid: 085dafa2eebc47f9a751ace89dfc1c4a, type: 3}
+  - Name: tolerance
+    Clip: {fileID: 8300000, guid: f18b1f268ce64f0e85759f9022409286, type: 3}
+  - Name: total
+    Clip: {fileID: 8300000, guid: 6d371029adf94e05a2faadaccce0410e, type: 3}
+  - Name: triangle
+    Clip: {fileID: 8300000, guid: 2dfe6f24c39a44739c433ca9f6895992, type: 3}
+  - Name: underwater
+    Clip: {fileID: 8300000, guid: fef254a9c8ce4e019c2082ad401ee929, type: 3}
+  - Name: unique
+    Clip: {fileID: 8300000, guid: dae857a00e9c48b482f9d351aca359ea, type: 3}
+  - Name: urban
+    Clip: {fileID: 8300000, guid: f41672c133064d9aad858d927f617c04, type: 3}
+  - Name: vegetable
+    Clip: {fileID: 8300000, guid: 677a5f91b8724b149cbf7e9e7d15c245, type: 3}
+  - Name: video
+    Clip: {fileID: 8300000, guid: ac41873a65414ed688a1e35bb9b4c48c, type: 3}
+  - Name: volley
+    Clip: {fileID: 8300000, guid: 724d050d22964e328f3d51c77e6da79b, type: 3}
+  - Name: volleyball
+    Clip: {fileID: 8300000, guid: ae4c2c6758044b8d8196a123304ad56c, type: 3}
+  - Name: wallpaper
+    Clip: {fileID: 8300000, guid: 13634b4d89804b0bbb43f07dbe240597, type: 3}
+  - Name: watermelon
+    Clip: {fileID: 8300000, guid: 7476976e3a534f3dabde36b5f9990b51, type: 3}
+  - Name: west
+    Clip: {fileID: 8300000, guid: 96ea9c8c54394331b159ad546c17203f, type: 3}
+  - Name: wheel
+    Clip: {fileID: 8300000, guid: ba84034420914642b94dd67290e72c54, type: 3}
+  - Name: world
+    Clip: {fileID: 8300000, guid: 9d6c43ea482f4338be62b9bbaa4f45c9, type: 3}
+  - Name: xylophone
+    Clip: {fileID: 8300000, guid: 374c2c90c1664de685cd0f966b7fd7a3, type: 3}
+  - Name: yellow
+    Clip: {fileID: 8300000, guid: a1214141d3e04bdaab1e90c28569bb0f, type: 3}
+  - Name: zeppelin
+    Clip: {fileID: 8300000, guid: c7ec6c5e0fa941989e088b2d66b7028b, type: 3}
+  InitMusic: 
+  SFXSource: {fileID: 3538748140055788930}
+--- !u!114 &924292822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760320102522561428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c9ba7d54d6432db18148ecfa3944b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeImage: {fileID: 19675764}
+  DefaultFadeColor: {r: 1, g: 1, b: 1, a: 1}
+  InTransition: 0
+--- !u!114 &5949533680015487040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760320102522561428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b1c2a2f93345ff84713ca11cb6ee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toVel: 40
+  _maxVel: 100
+  _maxForce: 500
+  _gain: 10
+--- !u!114 &3748655879478139353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760320102522561428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06ba01dd070464ca7f86fae425dd108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LastUnlockedLevelBigLetter: -1
+  LastUnlockedLevelSmallLetter: -1
+  LastPlayedLevelBigLetter: -1
+  LastPlayedLevelSmallLetter: -1
+  ReviewFinishedLetterCounter: 0
+--- !u!114 &4076623455387268565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760320102522561428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74998b14bf4ac28ccd03648dd77fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSceneToLoad: 
+--- !u!114 &-2662750472730057737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760320102522561428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c83c207bd042909281471a65dcb315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameType: 0
+  SelectedLevel: 0
+--- !u!114 &122064435957318938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760320102522561428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a4d2fb6fd34e6abc23613f3a3f9516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subscriptionProductId: 9.99_year
+--- !u!114 &-7709343689146215458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760320102522561428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d178768aa8a408ba0bd2391ddfe254a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4148231038883441601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760320102522561428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f03a44db6646728bec5fb59c0f760a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogType: -1
+  MaxLogLength: 100
+--- !u!82 &3538748140055788930
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760320102522561428}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

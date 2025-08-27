@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100b4d23462b1e44699ea0f82d575584, type: 3}
+  m_Name: TouchAndFill
+  m_EditorClassIdentifier: 
+  Ranges:
+  - name: Farm
+    category: 1
+    Start: 0
+    Stickers:
+    - {fileID: -1025265562, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: -113623087, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: -1493564727, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: 1178254535, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: -1960195355, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: 774103551, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+  - name: Sea
+    category: 2
+    Start: 6
+    Stickers:
+    - {fileID: 1466060781, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: -577116998, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: -201513553, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: -1659778525, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: 1176441695, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: 359379269, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+  - name: Birds
+    category: 3
+    Start: 12
+    Stickers:
+    - {fileID: 1996757010, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: -405259993, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: -1896552889, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: 936313120, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: -1441099978, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: -689273084, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+  - name: Zoo
+    category: 4
+    Start: 18
+    Stickers:
+    - {fileID: 1778332352, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: 1985460456, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: 1411051551, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: -1228836833, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: 871980223, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: 1423878713, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+  - name: Dinosaurs
+    category: 5
+    Start: 24
+    Stickers:
+    - {fileID: -251748940, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: 1272047250, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: -2003668333, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: -64806905, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: 222573889, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+    - {fileID: 1551531748, guid: 59caea2da131c274aa432f6b712ef06e, type: 3}
+  - name: Others
+    category: 6
+    Start: 30
+    Stickers:
+    - {fileID: 1250043656, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: -217827052, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: 125571616, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: 830144617, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: 1041279874, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: -1763170933, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+  - name: Transport
+    category: 7
+    Start: 36
+    Stickers:
+    - {fileID: -955316424, guid: fa9911bdaa6cc5b49a9f919ce5fa2fd0, type: 3}
+    - {fileID: -1568722009, guid: fa9911bdaa6cc5b49a9f919ce5fa2fd0, type: 3}
+    - {fileID: -1372871694, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: -734569439, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: -346435888, guid: 3ed6b7715ea068949813a6910ebd2e6c, type: 3}
+    - {fileID: 1068071954, guid: fa9911bdaa6cc5b49a9f919ce5fa2fd0, type: 3}

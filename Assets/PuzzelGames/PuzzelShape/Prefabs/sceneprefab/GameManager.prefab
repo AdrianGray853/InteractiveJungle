@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1813798502748435121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1569722227838781134}
+  - component: {fileID: 7850074648219731800}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1569722227838781134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813798502748435121}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.125672, y: 9.811441, z: 2.4202645}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7850074648219731800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813798502748435121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbb8cfa93c5459c925c90d79655397e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Levels:
+  - {fileID: 4803745212481890125, guid: 7471299009dd484ea560a18a14552496, type: 3}
+  - {fileID: 3429138852008117285, guid: ee4bcfeeca554dc491e3c550cc0f170f, type: 3}
+  - {fileID: 7457651194779877222, guid: 1047b0e402684b5f9969b1357eb6cc86, type: 3}
+  - {fileID: 3101487914548067177, guid: 16b8a9707dba46baa12ec2c3698250c5, type: 3}
+  - {fileID: 5293346804629958467, guid: 4b0cad3e771d476a872c45b765a71e66, type: 3}
+  - {fileID: 1076285413852376978, guid: 25a129682a6b4dc5ad5499bd5d31e799, type: 3}
+  - {fileID: 50355379744664537, guid: 8c2958271ff344e0bfb12afe5b24d0c3, type: 3}
+  - {fileID: 8627407554443624183, guid: 5823380b53004952b8e3fa821943d618, type: 3}
+  - {fileID: 3821510026532223348, guid: cc53b8cfbef543b3a8ffbf1b4e8ce156, type: 3}
+  - {fileID: 3935028344793080934, guid: feb122693c15468eaa7d939c403a05a1, type: 3}
+  - {fileID: 2363568376116617831, guid: b36941fae8eb401894d82c3e0ce3b5af, type: 3}
+  - {fileID: 2253332596060781159, guid: 0a37d9697f47471891ec83105395b8bd, type: 3}
+  - {fileID: 4747526578492445544, guid: 2dd24d83817140519db78489742ebc4f, type: 3}
+  - {fileID: 5138361733987756021, guid: ff59dde1368f4a5ba67ba76a97a00fb0, type: 3}
+  - {fileID: 9223198215502887669, guid: 11ffc40322734747bff98b9544bc8833, type: 3}
+  - {fileID: 7651732620672425500, guid: c42d86ef1d7f4266b87474559feae9f5, type: 3}
+  - {fileID: 4739670608514414993, guid: e9285d6cac5c44d3813c68669eb5d6d4, type: 3}
+  - {fileID: 4848618708490686744, guid: b0ad7256147f417bb6e45be2dc26afeb, type: 3}
+  - {fileID: 6224809169469418786, guid: dfc5e175f90c47c8a406544f796ad69b, type: 3}
+  - {fileID: 7305032732803744493, guid: 06b105c2ec124c829a1384013a20297e, type: 3}
+  - {fileID: 8222798791531290536, guid: a774d74907c54b8a840fb0e39cfdb13c, type: 3}
+  - {fileID: 7485852426037423190, guid: 3a5d6f6639b44c07883c659e2b7a0bb0, type: 3}
+  - {fileID: 6727332551969761217, guid: 1afbce508ac84076b0161b47f034ffbb, type: 3}
+  - {fileID: 6333353487939521065, guid: a2291fa57ec34a40b383bc39c62b118c, type: 3}
+  - {fileID: 2364544621979125612, guid: 1309c6513a9e40a08ae1f96123f148c5, type: 3}
+  - {fileID: 1504052312944275884, guid: 3f373a7532204603a2a83ac981e33a60, type: 3}
+  - {fileID: 1626494974894686423, guid: 47992eb245724d9c9a99d0b9c8130f6a, type: 3}
+  - {fileID: 277297527219150257, guid: b53d4eb5c8134f908d57f428a23fee70, type: 3}
+  - {fileID: 4568803660857202030, guid: 8d32bcee1b744c4893de2fc0b411c10c, type: 3}
+  - {fileID: 7490290817865102752, guid: 9efa1d8a2ade451f90fad8a645310dae, type: 3}
+  - {fileID: 6756331041188763283, guid: 23dc653225e846eba8166f9fa3fe092b, type: 3}
+  - {fileID: 3188262590271815990, guid: c76665d23930440183b2bedcc930f1a6, type: 3}
+  - {fileID: 420002857393986503, guid: 3962ef74aafb4bd1b84bacb31f83ed4d, type: 3}
+  - {fileID: 1103065535776043666, guid: 4e5b84977cdb4afd8ee08a7ba36f689d, type: 3}
+  - {fileID: 4615781319062678142, guid: ad7187ede926434195142d1e56f4b8c7, type: 3}
+  - {fileID: 7959948817548634316, guid: 6133f73efc7140798a44187c32038a10, type: 3}
+  - {fileID: 4030910089947241970, guid: 14f3c504d2e74e09bf436230d30d634b, type: 3}
+  - {fileID: 923734187650002367, guid: 45ed4d123f9040be86cee11ee574109a, type: 3}
+  - {fileID: 2625574581899922526, guid: b663930224df4a3894fceb517e71e218, type: 3}
+  - {fileID: 7994517716436051951, guid: a54448f637ee48d983d0aaab632c58bf, type: 3}
+  - {fileID: 9079692896610001936, guid: 19ef82e55c474309b9a0d3ec40d9efc1, type: 3}
+  - {fileID: 3235707914954844532, guid: d221be9b58244c7c86bee2284bdb912f, type: 3}
+  - {fileID: 4655723509536066707, guid: baeac68fdc12446986be5aea355d4ddf, type: 3}
+  - {fileID: 3343424345409344575, guid: 30d336c4ab384db3996a024d4f2e7e87, type: 3}
+  - {fileID: 3692795984053357771, guid: cd0f17445ba848eba400617ace94716e, type: 3}
+  - {fileID: 9048612183858038364, guid: cf941a913eb84a6a8e8a86bd70f77778, type: 3}
+  - {fileID: 3247389747420548129, guid: 7213f7bd3b264b2a96d2c862fde50dac, type: 3}
+  - {fileID: 8269000276175578189, guid: 5d2f3c39bf84404e9485bb9c0e20bc11, type: 3}
+  - {fileID: 2958260110762491874, guid: 286c0811d52e416ab8d6c8e262a5aada, type: 3}
+  - {fileID: 6867988945921347553, guid: 6448a7f451ad49cc82f39e999ac9e90a, type: 3}
+  - {fileID: 3558785141736528718, guid: 547ddab9dca34eba826606ddef5849d5, type: 3}
+  - {fileID: 1383723911099304929, guid: 0cd4ae9904354b64ba8fecc241a3b6c2, type: 3}
+  DoneFX: {fileID: 0}
+  HintTimer: 10
+  Navigation: {fileID: 0}
+  ReviewLevel: 2
+  Geometries: []
+  GeometryHoles: []
+  RGBColors: {fileID: 0}
+  SuckInFX: {fileID: 0}
+  CardPrefab: {fileID: 0}
+  Cards: []
+  ColorWheel: {fileID: 0}
+  ColoringIconMaterial: {fileID: 0}
+  ExcludeFromPhoto: []
+  ExcludeFromIcon: []
+  PhotoFrame: {fileID: 0}
+  PhotoIcon: {fileID: 0}
+  ScrollPanelShape: {fileID: 0}

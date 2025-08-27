@@ -1,0 +1,913 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5183040029596098680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3915601951454116633}
+  - component: {fileID: 1090102999505572891}
+  - component: {fileID: 603070245067955280}
+  m_Layer: 5
+  m_Name: FadeImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3915601951454116633
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183040029596098680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8034345516863646156}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1090102999505572891
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183040029596098680}
+  m_CullTransparentMesh: 1
+--- !u!114 &603070245067955280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183040029596098680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!1 &6476462830394674336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4607987708894854393}
+  - component: {fileID: -9112975376762845890}
+  - component: {fileID: -2771936640249664640}
+  - component: {fileID: 1474483960654935425}
+  - component: {fileID: -3197179498872343071}
+  - component: {fileID: -61315462005553765}
+  - component: {fileID: -8132941243593162670}
+  - component: {fileID: -463212265483626929}
+  - component: {fileID: -618855212449325732}
+  - component: {fileID: 7119734405701500799}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4607987708894854393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476462830394674336}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8034345516863646156}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-9112975376762845890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476462830394674336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3809d160654729046ab2fce700609143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameType: 5
+  SelectedLevel: 0
+  MainMenuScrollOffset: 0
+  MainMenuEnableMask: 0
+  MainMenuCategory: 3
+--- !u!114 &-2771936640249664640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476462830394674336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c3afd43401144419d1399f45c61e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1474483960654935425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476462830394674336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e86332ccc00684546aaaa79ca11a2e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSceneToLoad: 
+--- !u!114 &-3197179498872343071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476462830394674336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd7be2a86db63e64f92201194e5b4b9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalMusicVolume: 0.15
+  GlobalSFXVolume: 1
+  Sounds:
+  - Name: MainMenu
+    Clip: {fileID: 8300000, guid: 6bac668dfd6330a42a90c82a4104783b, type: 3}
+  - Name: Music1
+    Clip: {fileID: 8300000, guid: e6c1d30958915bb41a66a2635e4c2ac3, type: 3}
+  - Name: Music2
+    Clip: {fileID: 8300000, guid: 35daff4c586e2e04a9227523bcff9712, type: 3}
+  - Name: Music3
+    Clip: {fileID: 8300000, guid: bbdc4ad62119b5e49a85772791607185, type: 3}
+  - Name: Music4
+    Clip: {fileID: 8300000, guid: 91e6d6bae13a13b41ba1c49a6cb9e811, type: 3}
+  - Name: Music5
+    Clip: {fileID: 8300000, guid: 6eea207c87ce7bc49b0ed2212f4fe6a2, type: 3}
+  - Name: Music6
+    Clip: {fileID: 8300000, guid: 1c93dd27804c65e42ae652f9ed062f07, type: 3}
+  - Name: Music7
+    Clip: {fileID: 8300000, guid: 03c9a5e6937045841b413d1188e1aecc, type: 3}
+  - Name: Music8
+    Clip: {fileID: 8300000, guid: c4e01a10a81d70c4392dff916b51abf5, type: 3}
+  - Name: PuzzlePlace
+    Clip: {fileID: 8300000, guid: 0fbe5971cc39aad44bf0dbc139a4631d, type: 3}
+  - Name: Click
+    Clip: {fileID: 8300000, guid: 22b3727e4bf335145a208b408483a17b, type: 3}
+  - Name: BubbleClick
+    Clip: {fileID: 8300000, guid: 66c1b6b939ff7da4ca68e63af2293db4, type: 3}
+  - Name: CameraCapture
+    Clip: {fileID: 8300000, guid: 385da517fdac4da468c8f50426f736b0, type: 3}
+  - Name: RewardStars
+    Clip: {fileID: 8300000, guid: 30295321fa92a3b46bd096ed53bfb4c2, type: 3}
+  - Name: ChangePage
+    Clip: {fileID: 8300000, guid: 84d8591e9f3840640bcf3039019861fe, type: 3}
+  - Name: WinSticker
+    Clip: {fileID: 8300000, guid: 52c8a6405bc3dc941aadc9f34f1188c1, type: 3}
+  - Name: CorkPop
+    Clip: {fileID: 8300000, guid: eee8bd36885dc024ab1729df5e3b4c6e, type: 3}
+  - Name: BookPage
+    Clip: {fileID: 8300000, guid: 537748a51e2e90743a21e5b64c5957e7, type: 3}
+  - Name: help_butterfly
+    Clip: {fileID: 8300000, guid: 4332f2d29d90e224ba13bbf312d813bf, type: 3}
+  - Name: help_diver
+    Clip: {fileID: 8300000, guid: b3b941d2758cdb54da72642392af114f, type: 3}
+  - Name: help_dog_bone
+    Clip: {fileID: 8300000, guid: 87dc5257b452ef7479604fbf1b818efd, type: 3}
+  - Name: help_eagle
+    Clip: {fileID: 8300000, guid: 1d84c70eae1cb5140a54ccf1253cdba8, type: 3}
+  - Name: help_fish
+    Clip: {fileID: 8300000, guid: 6a1933732b9107c4090b1f48f26c935d, type: 3}
+  - Name: help_dinosaur_leaves
+    Clip: {fileID: 8300000, guid: 14f43ca0f90fde7499fecbf4a0116696, type: 3}
+  - Name: help_crab
+    Clip: {fileID: 8300000, guid: 6f02c3521dc1f4a4f90d9cb79e86861c, type: 3}
+  - Name: help_boy
+    Clip: {fileID: 8300000, guid: 96576ddffe827124f915e0ac4a9be30a, type: 3}
+  - Name: help_bird_worm
+    Clip: {fileID: 8300000, guid: d1d1d115f06d50d48847c8e2d623b31d, type: 3}
+  - Name: help_turtle
+    Clip: {fileID: 8300000, guid: 2666642d412693141aca808095256d02, type: 3}
+  - Name: help_worm
+    Clip: {fileID: 8300000, guid: 570bf0838f5e1df4bb38230bffd50e7a, type: 3}
+  - Name: help_dinosaur_cactus
+    Clip: {fileID: 8300000, guid: d2ff66c40ba8ebd4eb47980ec118db0e, type: 3}
+  - Name: help_motorcycle
+    Clip: {fileID: 8300000, guid: 7ed45a2755b3f8942bf8d6d96a228727, type: 3}
+  - Name: help_mouse
+    Clip: {fileID: 8300000, guid: bcbf974a41447924ab2101902965efb4, type: 3}
+  - Name: help_plane
+    Clip: {fileID: 8300000, guid: f1de048db890fc6459c52874163f4ef1, type: 3}
+  - Name: help_helicopter
+    Clip: {fileID: 8300000, guid: c4b89984f27a9864aa2efb7898ee6c95, type: 3}
+  - Name: help_jellyfish
+    Clip: {fileID: 8300000, guid: 55096d5aa13cba647bc188e801ad8705, type: 3}
+  - Name: help_ladybug
+    Clip: {fileID: 8300000, guid: 5dd368e8e08d0904bbca890f8a4a46e1, type: 3}
+  - Name: help_dinosaur_bush
+    Clip: {fileID: 8300000, guid: 033a51a1007992b40a6a005a2f44ac83, type: 3}
+  - Name: help_rabbit
+    Clip: {fileID: 8300000, guid: 901ea90e57a94fd4189bb5539c57d27d, type: 3}
+  - Name: help_rocket
+    Clip: {fileID: 8300000, guid: 5acc7812e408c854f8e50e1a94174e6e, type: 3}
+  - Name: help_snake
+    Clip: {fileID: 8300000, guid: 4a288ab05d85ba44aafadc4077df79a5, type: 3}
+  - Name: help_bird_baby
+    Clip: {fileID: 8300000, guid: d32ccc1b84739414d9eeed3d1bd5839c, type: 3}
+  - Name: help_bee_reach_honey
+    Clip: {fileID: 8300000, guid: 6c5b18e06fdcdea46bd8fdc6dc1ad4e8, type: 3}
+  - Name: help_bus
+    Clip: {fileID: 8300000, guid: 47abfac45430f034ab99c7b06dbc51ab, type: 3}
+  - Name: help_spider
+    Clip: {fileID: 8300000, guid: 00cc5401bd3d3be4695ca6c443b8bb5e, type: 3}
+  - Name: help_submarine_algae
+    Clip: {fileID: 8300000, guid: 74107ae8bc64d1c4091f14f13f1cb428, type: 3}
+  - Name: help_submarine_treasure
+    Clip: {fileID: 8300000, guid: ce3177f2b4d57f742a6e60e684f7b298, type: 3}
+  - Name: help_dinosaur
+    Clip: {fileID: 8300000, guid: 96ebf88c8e41cc1408a4868a0d4d0729, type: 3}
+  - Name: help_car
+    Clip: {fileID: 8300000, guid: 49485c57fb8481d45b356734f1090a41, type: 3}
+  - Name: help_frog
+    Clip: {fileID: 8300000, guid: b2e697f62c46db446bc66da7f5ed2b2a, type: 3}
+  - Name: help_girl_barn
+    Clip: {fileID: 8300000, guid: 982d1d7613c7d8d4c9554fbb670c9e52, type: 3}
+  - Name: help_girl_mill
+    Clip: {fileID: 8300000, guid: 102dd2c71507f794b9c65546b5403dde, type: 3}
+  - Name: color_sheep_sun
+    Clip: {fileID: 8300000, guid: 0e19cc1ebf782aa4c896fb2a39171e0b, type: 3}
+  - Name: color_rabbit_butterfly
+    Clip: {fileID: 8300000, guid: 85332b9080b2d314fb669153f7273348, type: 3}
+  - Name: color_pig_chicken
+    Clip: {fileID: 8300000, guid: d56f7bae876fe7a458a135aac214799e, type: 3}
+  - Name: color_bee_beehive
+    Clip: {fileID: 8300000, guid: 0a71cf52d0ef3d444b1c8e3970e263d4, type: 3}
+  - Name: color_wheel_vegatables
+    Clip: {fileID: 8300000, guid: f231d74aed379184090536830aad5c7f, type: 3}
+  - Name: color_rainbow
+    Clip: {fileID: 8300000, guid: a4528d5fe8b986c4b85ff62197b6e986, type: 3}
+  - Name: color_astronaut_rocket
+    Clip: {fileID: 8300000, guid: b822370f46f884c4e9b3f3f976a0b529, type: 3}
+  - Name: color_butterfly_flower
+    Clip: {fileID: 8300000, guid: 5415e0c1464c051438000cbb04db4963, type: 3}
+  - Name: color_snail_mushroom
+    Clip: {fileID: 8300000, guid: da2f4cc0e78e25d4a86ae1669e56dcec, type: 3}
+  - Name: color_train
+    Clip: {fileID: 8300000, guid: ca9dec7c9d083da41b040505b29cdf3f, type: 3}
+  - Name: color_palmtrees_whale
+    Clip: {fileID: 8300000, guid: 8980bc6c8743df7428683568ed73c600, type: 3}
+  - Name: color_giraffe_lion
+    Clip: {fileID: 8300000, guid: 6652aeb2f7d339341979cb54f300250e, type: 3}
+  - Name: color_swan_frog
+    Clip: {fileID: 8300000, guid: bcd4cc7d15940414ba33eb63172d5bb0, type: 3}
+  - Name: color_hedgehog_fox
+    Clip: {fileID: 8300000, guid: c0c97fb65630a7142a64f3b7d8fd9f10, type: 3}
+  - Name: color_submarine_fish
+    Clip: {fileID: 8300000, guid: c17950eae3c20c6489951dbc9528591f, type: 3}
+  - Name: trace_panda
+    Clip: {fileID: 8300000, guid: af648b9696755f045baaf82669a19670, type: 3}
+  - Name: trace_t-rex
+    Clip: {fileID: 8300000, guid: bc675ff1e684651418cf2963a15674f8, type: 3}
+  - Name: trace_moon_stars
+    Clip: {fileID: 8300000, guid: fd5ff2c1bcd74c94d97a063a7ceccb1f, type: 3}
+  - Name: trace_ribbon
+    Clip: {fileID: 8300000, guid: ca295077f82e2f34fba5c40a3905e340, type: 3}
+  - Name: trace_chicken
+    Clip: {fileID: 8300000, guid: 77593dfd15997dd48bae66ac7a64ce95, type: 3}
+  - Name: trace_amargasaurus
+    Clip: {fileID: 8300000, guid: 7065fa680d4eea9428510e1144119e4e, type: 3}
+  - Name: trace_mushroom
+    Clip: {fileID: 8300000, guid: 3365e8f4497392249ae80f75737020b0, type: 3}
+  - Name: trace_mouse
+    Clip: {fileID: 8300000, guid: 416fb3f86f4714e41ad86ab02bcd1b48, type: 3}
+  - Name: trace_elephant
+    Clip: {fileID: 8300000, guid: df54b420e07a7d4478a0aee8c03dd3e9, type: 3}
+  - Name: trace_strawberry
+    Clip: {fileID: 8300000, guid: 728f2772819f18c46ab29b0195c810d1, type: 3}
+  - Name: trace_fish
+    Clip: {fileID: 8300000, guid: 6e8c5e140375827459a8cbc1cfb64309, type: 3}
+  - Name: trace_monkey
+    Clip: {fileID: 8300000, guid: 8370ee4fa35e98547858970b7a6e69d6, type: 3}
+  - Name: trace_piper
+    Clip: {fileID: 8300000, guid: 704e80450efbb6149a36cd52fde9cf6a, type: 3}
+  - Name: trace_stegosaurus
+    Clip: {fileID: 8300000, guid: 9d04135084470644190334e667622dd5, type: 3}
+  - Name: trace_brontosaurus
+    Clip: {fileID: 8300000, guid: de3b0e8e6a5e971448674adf3b6fe1cb, type: 3}
+  - Name: trace_bus
+    Clip: {fileID: 8300000, guid: c14d0f84072917745aa2d17a54fd2bc9, type: 3}
+  - Name: trace_octopus
+    Clip: {fileID: 8300000, guid: ae90b672a92e5d54b8f3adfee71b9f85, type: 3}
+  - Name: trace_dinosaur
+    Clip: {fileID: 8300000, guid: 92ae04cf0f7460441be0810f54dd5457, type: 3}
+  - Name: trace_lion
+    Clip: {fileID: 8300000, guid: f3439e7db370a1a40a0b32ed7fedf0d9, type: 3}
+  - Name: trace_ostrich
+    Clip: {fileID: 8300000, guid: 00ec42e7df3ebc2489ae78264213ac8a, type: 3}
+  - Name: trace_narwhal
+    Clip: {fileID: 8300000, guid: 06ae197ce819258459f1b3e15998b696, type: 3}
+  - Name: trace_ship
+    Clip: {fileID: 8300000, guid: 6e1968a9e7d738c4988e8a18f0018a68, type: 3}
+  - Name: trace_rocket
+    Clip: {fileID: 8300000, guid: e539743bb7d60494084ab8989fb6cdda, type: 3}
+  - Name: trace_pig
+    Clip: {fileID: 8300000, guid: 8a10598ff701135408b6aa15aa02c50b, type: 3}
+  - Name: trace_owl
+    Clip: {fileID: 8300000, guid: 7bb721252f1897046a9ae60750a78861, type: 3}
+  - Name: trace_sheep
+    Clip: {fileID: 8300000, guid: c0135e22eb421dc4a8af942c1694a072, type: 3}
+  - Name: trace_pelican
+    Clip: {fileID: 8300000, guid: e273532403306e74a98781683b0962eb, type: 3}
+  - Name: trace_paper_windmill
+    Clip: {fileID: 8300000, guid: 43bfa37148c6fa64e8b9f876432a0032, type: 3}
+  - Name: trace_triceraptos
+    Clip: {fileID: 8300000, guid: b4174b0d6454c204bb7c603073fd7d37, type: 3}
+  - Name: trace_pufferfish
+    Clip: {fileID: 8300000, guid: d2d744f36f616c94199cd6d9c754a535, type: 3}
+  - Name: trace_parrot
+    Clip: {fileID: 8300000, guid: 6f0cfc286c2283740af8eff3028f2470, type: 3}
+  - Name: trace_pterodactyl
+    Clip: {fileID: 8300000, guid: c917bc7147f5b074685fb91263ff930d, type: 3}
+  - Name: trace_horse
+    Clip: {fileID: 8300000, guid: 26d1cf6c60daefe45b4f20039c269fd4, type: 3}
+  - Name: trace_penguin
+    Clip: {fileID: 8300000, guid: 9f75fc0605c682147bae8d88eb5fa2a2, type: 3}
+  - Name: trace_bicycle
+    Clip: {fileID: 8300000, guid: 640aeb50170d7f740ae6afdcc22497ee, type: 3}
+  - Name: trace_pumpkin
+    Clip: {fileID: 8300000, guid: 4e8f8aa9b2d72bd439250f56d1b5dd14, type: 3}
+  - Name: trace_turtle
+    Clip: {fileID: 8300000, guid: 544ac29402a12c24ab997d3866b8372e, type: 3}
+  - Name: trace_helicopter
+    Clip: {fileID: 8300000, guid: 2e6ac265094cf6e4eab02ba0dee62d7e, type: 3}
+  - Name: trace_rabbit
+    Clip: {fileID: 8300000, guid: 54abe9a8c52416a45a18e0ccac4a23e3, type: 3}
+  - Name: trace_plane
+    Clip: {fileID: 8300000, guid: 36aa7e892d6b69644bc06b3557a4408a, type: 3}
+  - Name: trace_dove
+    Clip: {fileID: 8300000, guid: 0e1cc04a685b11b43bb0a21df018f14c, type: 3}
+  - Name: color_donut
+    Clip: {fileID: 8300000, guid: d14d8033a89e7f84e8df78980c90e0d5, type: 3}
+  - Name: color_rabbit
+    Clip: {fileID: 8300000, guid: 8ea87da297c5ee84496ceaabcff034fa, type: 3}
+  - Name: color_christmas_tree
+    Clip: {fileID: 8300000, guid: ee7d86fc088e0e24c9d9214b6d289243, type: 3}
+  - Name: color_elf
+    Clip: {fileID: 8300000, guid: 86a890dcf3ee30f439f20417a7804fdf, type: 3}
+  - Name: color_train
+    Clip: {fileID: 8300000, guid: e2a7183b803a69744932d870b235be7f, type: 3}
+  - Name: color_rainbow
+    Clip: {fileID: 8300000, guid: 2f4c46e92007d834f988b015ace8e491, type: 3}
+  - Name: color_stroller
+    Clip: {fileID: 8300000, guid: 9cf5b38a0acb11543b173f6a1f3b2f55, type: 3}
+  - Name: color_poodle
+    Clip: {fileID: 8300000, guid: 6535aba5ce1efbc4890f41bb199dbf13, type: 3}
+  - Name: color_horse
+    Clip: {fileID: 8300000, guid: 86638184114d75846b7c118cef00f3bc, type: 3}
+  - Name: color_teddybear
+    Clip: {fileID: 8300000, guid: e3e0397eba08f9f4d890a40ecd92e848, type: 3}
+  - Name: color_swallow
+    Clip: {fileID: 8300000, guid: 4826b76103d97e0408f470d01f5364b1, type: 3}
+  - Name: color_piano
+    Clip: {fileID: 8300000, guid: 8970a03d9bf3f1d41bff6e63a561f698, type: 3}
+  - Name: color_elephant
+    Clip: {fileID: 8300000, guid: d49d9615559a2624fb26e548ff2f14b8, type: 3}
+  - Name: color_motorcycle
+    Clip: {fileID: 8300000, guid: 2bf56eaa5d5018041ae725525f3b5fa7, type: 3}
+  - Name: color_toucan
+    Clip: {fileID: 8300000, guid: a7872a68bc315fc41a1dddfa96371cf0, type: 3}
+  - Name: color_giraffe
+    Clip: {fileID: 8300000, guid: 025320996e6e87f47aad38d33130a481, type: 3}
+  - Name: color_triceratops
+    Clip: {fileID: 8300000, guid: 0d9d9419eec674742a8b290818675acb, type: 3}
+  - Name: color_pterodactyl
+    Clip: {fileID: 8300000, guid: c10a6c0b935628b4fb58c8b9e9887ffd, type: 3}
+  - Name: color_seahorse
+    Clip: {fileID: 8300000, guid: d7f39b9dd27a1a54291c236225ae1434, type: 3}
+  - Name: color_unicorn
+    Clip: {fileID: 8300000, guid: 5d535dbe24ce4c54f8289b5efb3cd00e, type: 3}
+  - Name: color_cake
+    Clip: {fileID: 8300000, guid: f1344affe91ddbd4fa702abc20553889, type: 3}
+  - Name: color_chicken
+    Clip: {fileID: 8300000, guid: be950fdab90ec2a448981bc900dcb02c, type: 3}
+  - Name: color_taxi
+    Clip: {fileID: 8300000, guid: c6d5b01d55be61d46a02e3f43b584396, type: 3}
+  - Name: color_sheep
+    Clip: {fileID: 8300000, guid: 7aaaf73ed3c16c64391b9560f7bce746, type: 3}
+  - Name: color_crab
+    Clip: {fileID: 8300000, guid: 51a52ded8f8c9524884a00e983aadb47, type: 3}
+  - Name: color_dog
+    Clip: {fileID: 8300000, guid: 140fe968906aab54a9eae202d42af335, type: 3}
+  - Name: color_crocodile
+    Clip: {fileID: 8300000, guid: 06b0c98fb2a317a4bbe758d1ca220355, type: 3}
+  - Name: color_peacock
+    Clip: {fileID: 8300000, guid: f14a9d2e91a05164f824bc4fbcb4a0c3, type: 3}
+  - Name: color_carriage
+    Clip: {fileID: 8300000, guid: b5f2fd6d60c074248b52e62f43f6e72a, type: 3}
+  - Name: color_mermaid
+    Clip: {fileID: 8300000, guid: 36e81165d107796479ce51ce9be99c30, type: 3}
+  - Name: color_lion
+    Clip: {fileID: 8300000, guid: d68d9a0e8e687ef47851a5324364b62f, type: 3}
+  - Name: color_phoenix
+    Clip: {fileID: 8300000, guid: c76788651a975ed4ebf7e4202c4b059d, type: 3}
+  - Name: color_cupcake
+    Clip: {fileID: 8300000, guid: 616e866b772ad894c9c4a3c596fd95f9, type: 3}
+  - Name: color_penguin
+    Clip: {fileID: 8300000, guid: 6247f48efae914f49b373d204cadd4a3, type: 3}
+  - Name: color_flamingo
+    Clip: {fileID: 8300000, guid: 3c9e551a8bcac524abb57c04d49bbb68, type: 3}
+  - Name: color_cat
+    Clip: {fileID: 8300000, guid: c82f7531b37d1fa4a8ca3f7b12725c23, type: 3}
+  - Name: color_rose
+    Clip: {fileID: 8300000, guid: 6a26e57d73f6c7143878cb0ad479159b, type: 3}
+  - Name: color_fish
+    Clip: {fileID: 8300000, guid: dfe7b167a3f7da54aafd6ce4a21c257c, type: 3}
+  - Name: color_zebra
+    Clip: {fileID: 8300000, guid: 22ec0bdf5f4b4ae4bab8213b4cc7d5f4, type: 3}
+  - Name: color_wizard
+    Clip: {fileID: 8300000, guid: b75397090469d8742861974b3e044bb7, type: 3}
+  - Name: color_dinosaur
+    Clip: {fileID: 8300000, guid: 541f5d3a59addc14aba7af9af38a9742, type: 3}
+  - Name: color_octopus
+    Clip: {fileID: 8300000, guid: d62c41d7d0adebc4f8666801af4eccac, type: 3}
+  - Name: color_iguana
+    Clip: {fileID: 8300000, guid: d1e36a946a34c9448bd2a89e8908f8e3, type: 3}
+  - Name: color_xylophone
+    Clip: {fileID: 8300000, guid: 3426a0318d90d5a488d6a0be2657f131, type: 3}
+  - Name: color_drums
+    Clip: {fileID: 8300000, guid: c4be85f76a0b1a649ba3e802a1f20c0a, type: 3}
+  - Name: color_princess
+    Clip: {fileID: 8300000, guid: e89ff5278efa4414ea07b220fb2d1ede, type: 3}
+  - Name: color_castle
+    Clip: {fileID: 8300000, guid: a9bd77a404f71ea43bbf90c842f50fcb, type: 3}
+  - Name: color_horse_1
+    Clip: {fileID: 8300000, guid: 84b111ab20365684dbaae8a3439071fc, type: 3}
+  - Name: color_bicycle
+    Clip: {fileID: 8300000, guid: e43d877b37d5a8c418f813f3dac0873d, type: 3}
+  - Name: color_drums_1
+    Clip: {fileID: 8300000, guid: 4305f8b269d99614dadb3895d58f1d5c, type: 3}
+  - Name: color_trumpet
+    Clip: {fileID: 8300000, guid: 410e9762a7f129a4c8376d7193c5dcb2, type: 3}
+  - Name: color_goat
+    Clip: {fileID: 8300000, guid: db6d82d067ee63043a557676130b3c3a, type: 3}
+  - Name: color_sheep_1
+    Clip: {fileID: 8300000, guid: d98557065498800409992424abd8d9d2, type: 3}
+  - Name: color_snowman
+    Clip: {fileID: 8300000, guid: 9d074446a31ff6f46b6bd7b1a4f5c880, type: 3}
+  - Name: color_raindeer
+    Clip: {fileID: 8300000, guid: 5523c05290a2ffa47b364ee8979f3a8f, type: 3}
+  - Name: color_scooter
+    Clip: {fileID: 8300000, guid: b2d749196dc7c4745a9a419c48c0011c, type: 3}
+  - Name: color_rings
+    Clip: {fileID: 8300000, guid: 6700fed21efe7ca4cb65cd7acba905af, type: 3}
+  - Name: color_parrot
+    Clip: {fileID: 8300000, guid: dcca04bab83278b4c8cda7fe6545ae57, type: 3}
+  - Name: color_potions
+    Clip: {fileID: 8300000, guid: fe51ddb0063d1264e9ca55d7b0618a8e, type: 3}
+  - Name: color_duck
+    Clip: {fileID: 8300000, guid: 9df37cdf36c9eb44d86ec2e09c254436, type: 3}
+  - Name: color_flower
+    Clip: {fileID: 8300000, guid: 8d51e6b4c9d4aae41b1a23ccd6f91e2e, type: 3}
+  - Name: color_stegosaurus
+    Clip: {fileID: 8300000, guid: 3d68aecfdb27eae49b4304b51410e97f, type: 3}
+  - Name: color_submarine
+    Clip: {fileID: 8300000, guid: 8a538ae34cfebaa4fbf5ec25faea850b, type: 3}
+  - Name: color_tyranosaurus
+    Clip: {fileID: 8300000, guid: b5df6908dd5afb645ab89f2f7bf8433a, type: 3}
+  - Name: color_saxophone
+    Clip: {fileID: 8300000, guid: 6e6710e3f0898b648a0957546d00433f, type: 3}
+  - Name: color_whale
+    Clip: {fileID: 8300000, guid: 3a91ac4ac34deab47aa7651dbf626a64, type: 3}
+  - Name: color_shoes
+    Clip: {fileID: 8300000, guid: 5368de4637c716744aa0c15534803cca, type: 3}
+  - Name: color_brontosaurus
+    Clip: {fileID: 8300000, guid: 819ecba48cffc37418aaafde5865edc9, type: 3}
+  - Name: color_guitar
+    Clip: {fileID: 8300000, guid: b90a4d974ad2bef4ca106c2a9b815574, type: 3}
+  - Name: color_airplane
+    Clip: {fileID: 8300000, guid: c7bfbbf1df782e24bb47e1c41b82cb1a, type: 3}
+  - Name: color_crown
+    Clip: {fileID: 8300000, guid: 2a59f256f88b78f4abded20366b31107, type: 3}
+  - Name: color_amargasaurus
+    Clip: {fileID: 8300000, guid: 2fb94d3e6b09cda43a0a4a00cce4d759, type: 3}
+  - Name: color_bird
+    Clip: {fileID: 8300000, guid: 107b7d75a3acc904f969172c3c48bd09, type: 3}
+  - Name: pick_category
+    Clip: {fileID: 8300000, guid: 678ceb6a8521ca64c8aa35359acf6746, type: 3}
+  - Name: birds
+    Clip: {fileID: 8300000, guid: 52b5dcb921157954da219440354a6184, type: 3}
+  - Name: zoo
+    Clip: {fileID: 8300000, guid: b036de112dcc0464894ef28e3be993dd, type: 3}
+  - Name: vehicles
+    Clip: {fileID: 8300000, guid: a43c808d0efa7534cae981a26924afa3, type: 3}
+  - Name: others
+    Clip: {fileID: 8300000, guid: 6024bb6652895f64e996e120ab8ab7ee, type: 3}
+  - Name: dinosaurs
+    Clip: {fileID: 8300000, guid: 331843734c744ec49bfca7f967d4d2e0, type: 3}
+  - Name: ocean
+    Clip: {fileID: 8300000, guid: 9d4b33001d7f0254ebd0f8c1d2fb00c8, type: 3}
+  - Name: farm
+    Clip: {fileID: 8300000, guid: 093c296e2686a4049abb1ee9680c2a28, type: 3}
+  - Name: time_draw_cute_farm_animals
+    Clip: {fileID: 8300000, guid: 0ad92c76451658442893a1dec913dbf0, type: 3}
+  - Name: excelent
+    Clip: {fileID: 8300000, guid: fb0e4ad1ad7a4934f9b6000481b25e8c, type: 3}
+  - Name: masterpiece_complete
+    Clip: {fileID: 8300000, guid: 99ee328ad86353543beb623b49052d4b, type: 3}
+  - Name: make_pick
+    Clip: {fileID: 8300000, guid: 0ab88f0b2eff8bd40b5ccebfc58e51bc, type: 3}
+  - Name: picture_time
+    Clip: {fileID: 8300000, guid: 1fe11769a38f75a4daf9b4f8ba18c1a3, type: 3}
+  - Name: tap_select_path_trace
+    Clip: {fileID: 8300000, guid: bdc1aa149c571974fa06594bfe657f66, type: 3}
+  - Name: artwork_amazing
+    Clip: {fileID: 8300000, guid: f7e06b6b7e1ca7d4f94e5ffb197299f1, type: 3}
+  - Name: draw_watery_world
+    Clip: {fileID: 8300000, guid: 72ecda95589a907479082b46eec804ed, type: 3}
+  - Name: you_in_charge
+    Clip: {fileID: 8300000, guid: 57b3ffe302f68534194c3436d7462b23, type: 3}
+  - Name: pick_loved_have_adventure
+    Clip: {fileID: 8300000, guid: ad93ea6f1f734854786254c2e96e7060, type: 3}
+  - Name: pick_next_canvas
+    Clip: {fileID: 8300000, guid: 80038cca405a4774daa12dcd9c803a53, type: 3}
+  - Name: youre_talented
+    Clip: {fileID: 8300000, guid: e4faed1734bcd94428b52af9dd4b131a, type: 3}
+  - Name: pick_color_get_creative
+    Clip: {fileID: 8300000, guid: 527ea12e2fce7c64d862d2fefc14fbbc, type: 3}
+  - Name: ready_to_color
+    Clip: {fileID: 8300000, guid: a30c0f2f9dec6bc4299b5bfcb29d002b, type: 3}
+  - Name: dive_sea_imagination
+    Clip: {fileID: 8300000, guid: 7e88b9121d76ce4498fd42e2b7a5e24a, type: 3}
+  - Name: pick_sea_creature
+    Clip: {fileID: 8300000, guid: 4105826bbcdf4d74f9bd99ca3864f032, type: 3}
+  - Name: choose_create_farm
+    Clip: {fileID: 8300000, guid: 2a72e48dc6dba9743a80b655bfdd3bfd, type: 3}
+  - Name: you_got_eye_for_it
+    Clip: {fileID: 8300000, guid: 92ad4df9a648f8344940ff7c31c8cc5e, type: 3}
+  - Name: select_pattern_fill_canvas
+    Clip: {fileID: 8300000, guid: 62c70c5751da78f40a6f7c061b0dc437, type: 3}
+  - Name: select_painting_to_color
+    Clip: {fileID: 8300000, guid: aa99f7f0ddd30f7418420a78fafedb63, type: 3}
+  - Name: next_activity
+    Clip: {fileID: 8300000, guid: 960999c06984dee48bb06a394f951d67, type: 3}
+  - Name: choose_adorable_draw
+    Clip: {fileID: 8300000, guid: 9158df2806ef1a14fab1f0b3673493bd, type: 3}
+  - Name: add_stamps
+    Clip: {fileID: 8300000, guid: 392ae30e1a77a824781dc58c4964d442, type: 3}
+  - Name: select_painting_crayons
+    Clip: {fileID: 8300000, guid: 28ea81f8dd53bbf4f873e7e85c3dab5d, type: 3}
+  - Name: choose_activity
+    Clip: {fileID: 8300000, guid: 8a10ca875f47a014b93c6567c4abc31d, type: 3}
+  - Name: ready_draw_awesome_vehicles
+    Clip: {fileID: 8300000, guid: b8106d067092a3440aca759f1f121747, type: 3}
+  - Name: take_photo_art
+    Clip: {fileID: 8300000, guid: 8c5f3ba8792c7c5439dfb21db77326a0, type: 3}
+  - Name: start_coloring
+    Clip: {fileID: 8300000, guid: 7cb5417193139c349b1dc8798d75bfe7, type: 3}
+  - Name: wow_cool_animals_rockets
+    Clip: {fileID: 8300000, guid: 398306095e8bfb84798a61384d05e465, type: 3}
+  - Name: true_artist
+    Clip: {fileID: 8300000, guid: 27684d0049081e24196989adcd496572, type: 3}
+  - Name: select_drawing_trace
+    Clip: {fileID: 8300000, guid: ae789d9fd6d024647882109740a57b76, type: 3}
+  - Name: wow_earned_sticker
+    Clip: {fileID: 8300000, guid: 8c3f583a6d439d74b9ffd0821ddd6c3b, type: 3}
+  - Name: draw_time
+    Clip: {fileID: 8300000, guid: 448e28f71a5cbb74784b293e2b4dca2a, type: 3}
+  - Name: check_adorable_dinosaurs
+    Clip: {fileID: 8300000, guid: e6a422928e98d5541861099607445123, type: 3}
+  - Name: goto_sticker_album
+    Clip: {fileID: 8300000, guid: 1fdc898c06fe08f40ae08c4749b1661d, type: 3}
+  - Name: look_accomplish_amazing
+    Clip: {fileID: 8300000, guid: 7b0738f426a84d3459a484b9cd4a2c0e, type: 3}
+  - Name: explore_drag_sticker_album
+    Clip: {fileID: 8300000, guid: d945f422fd847d840be10f3e2bf282a3, type: 3}
+  - Name: pick_sea_creature_and_draw
+    Clip: {fileID: 8300000, guid: f0bfaca5d51b85c4ea757cd2d154f994, type: 3}
+  - Name: get_creative
+    Clip: {fileID: 8300000, guid: 13073f49f03f0864c8a3b2c2c3249d7a, type: 3}
+  - Name: time_draw
+    Clip: {fileID: 8300000, guid: c7393956fd7cdd44a98354df86179494, type: 3}
+  - Name: lets_continue
+    Clip: {fileID: 8300000, guid: 29f9a6cb10c8a2442b0806e07ee2b8a3, type: 3}
+  - Name: lovely
+    Clip: {fileID: 8300000, guid: 211af2b55d28c794fbfd100d824aa31c, type: 3}
+  - Name: great_choice
+    Clip: {fileID: 8300000, guid: 4c948b976af9a2e4bac47075697844c6, type: 3}
+  - Name: great
+    Clip: {fileID: 8300000, guid: a738b7f7841099a42b3204c3b0009f2f, type: 3}
+  - Name: ability_colors_amazing
+    Clip: {fileID: 8300000, guid: 1dfb91b6ea31f014f895046503c7c47f, type: 3}
+  - Name: how_many_cute_animals
+    Clip: {fileID: 8300000, guid: 6196d10195b8e164884ce6c50aeb1bf8, type: 3}
+  - Name: hey_artist_get_ready_to_draw
+    Clip: {fileID: 8300000, guid: 9b039b9785ec4764dadd2affd1d9b184, type: 3}
+  - Name: just_choose_painting
+    Clip: {fileID: 8300000, guid: 6b40fc558765ac54a84ad686cc4fa9ef, type: 3}
+  - Name: select_color_fill_sketch
+    Clip: {fileID: 8300000, guid: 14f8d6f1df7b39049bc1cad9f38fd3d2, type: 3}
+  - Name: incredible_work
+    Clip: {fileID: 8300000, guid: 56ec8eba09aa68b448f06ee54beb6064, type: 3}
+  - Name: discover_beyond_water_world
+    Clip: {fileID: 8300000, guid: 2aa4cd63a3c2a5e4294ce5beecddc1e2, type: 3}
+  - Name: pick_favourite_colors
+    Clip: {fileID: 8300000, guid: cdc487da077ed4548bc01027520d4791, type: 3}
+  - Name: did_it
+    Clip: {fileID: 8300000, guid: 3b88924295c384046ba3183ffd5fc82d, type: 3}
+  - Name: briliant
+    Clip: {fileID: 8300000, guid: 1345775e928e99c45a28e9c65e162ef0, type: 3}
+  InitMusic: MainMenu
+  SFXSource: {fileID: 7119734405701500799}
+--- !u!114 &-61315462005553765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476462830394674336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4ab46b72917b049a76c50a5d5a08ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeImage: {fileID: 603070245067955280}
+  DefaultFadeColor: {r: 1, g: 1, b: 1, a: 1}
+  InTransition: 0
+--- !u!114 &-8132941243593162670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476462830394674336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559347a4216724449805fd006d9bddfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toVel: 40
+  _maxVel: 100
+  _maxForce: 500
+  _gain: 10
+--- !u!114 &-463212265483626929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476462830394674336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974701db22136294384a70a40d0b8a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-618855212449325732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476462830394674336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50458f1a28d627644b6812df6f000157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subscriptionProductId: com.drawing.subscription.3
+--- !u!82 &7119734405701500799
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476462830394674336}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 76.27
+  MaxDistance: 100000
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.14
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &8176159155793041884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8034345516863646156}
+  - component: {fileID: 5384344393423600832}
+  - component: {fileID: 6113993185095053750}
+  - component: {fileID: 1603711425128771135}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8034345516863646156
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176159155793041884}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3915601951454116633}
+  m_Father: {fileID: 4607987708894854393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!223 &5384344393423600832
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176159155793041884}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 2
+  m_TargetDisplay: 0
+--- !u!114 &6113993185095053750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176159155793041884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 2778, y: 1284}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!114 &1603711425128771135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176159155793041884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
