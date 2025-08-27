@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Corals corals;
     public Decoration decoration;
     [HideInInspector] public Vehicle vehicle;
-    /*HideInInspector]*/ public GameObject currentDrag;
+    [HideInInspector] public GameObject currentDrag;
     [HideInInspector]
     public GameObject currentSpawnedFood;
     //public GameObject leaves;
@@ -34,8 +35,25 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    private void Update()
+    public void UnlockNextBackground()
     {
+        SceneManager.LoadScene("UnlockBackground");
+        ////background.UnlockNext();
+        //Debug.Log($"last: {background.GetNextUnlock()}");
+        //GameData.GetBackgroundPuzzel = background.GetNextUnlock();
     }
-
+    public void UnlockNextDecoration()
+    {
+        SceneManager.LoadScene("UnlockDecoraion");
+        ////background.UnlockNext();
+        //Debug.Log($"last: {background.GetNextUnlock()}");
+        //GameData.GetBackgroundPuzzel = background.GetNextUnlock();
+    }
+    public void UnlockNextAnimal()
+    {
+        SceneManager.LoadScene("UnlockAnimal");
+        ////background.UnlockNext();
+        //Debug.Log($"last: {background.GetNextUnlock()}");
+        //GameData.GetBackgroundPuzzel = background.GetNextUnlock();
+    }
 }

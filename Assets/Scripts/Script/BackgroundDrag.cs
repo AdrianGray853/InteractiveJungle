@@ -27,9 +27,12 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     {
         mainCam = Camera.main;
         parentScroll = GetComponentInParent<ScrollRect>();
-        Refresh();
     }
+    private void Update()
+    {
+        Refresh();
 
+    }
     public void OnInitializePotentialDrag(PointerEventData eventData)
     {
         // Allow ScrollRect to work unless horizontal drag confirmed
@@ -41,8 +44,8 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (item.isLocked)
-            return;
+        //if (item.isLocked)
+        //    return;
 
         isDragging = true;
         hasSpawned = false;
@@ -58,8 +61,8 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (item.isLocked)
-            return;
+        //if (item.isLocked)
+        //    return;
 
         if (!isDragging || eventData.pointerId != activePointerId)
             return;
@@ -69,7 +72,7 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         // Not yet started dragging item
         if (!hasSpawned)
         {
-            if (Mathf.Abs(delta.x) > dragThreshold && Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
+            if (Mathf.Abs(delta.x) > dragThreshold && Mathf.Abs(delta.x) > Mathf.Abs(delta.y) )
             {
                 // Now we cancel ScrollRect drag and begin our item drag
                 if (parentScroll != null)
@@ -77,9 +80,8 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                     parentScroll.OnEndDrag(eventData);
                 }
 
-                hasSpawned = true;
 
-                if (item.ItemUi != null)
+                if (item.ItemUi != null && !item.isLocked)
                 {
                     transform.localScale *= 1.1f;
                     Vector3 spawnPos = GetWorldPosition(eventData.position);
@@ -91,11 +93,13 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                         sr.sprite = GetComponent<Image>().sprite;
                         sr.sortingOrder = 100;
                     }
+                    hasSpawned = true;
 
                     Sorting sorting = spawnedObj.GetComponent<Sorting>();
                     if (sorting != null)
                         sorting.isDragging = true;
                 }
+
             }
             else
             {
@@ -151,7 +155,7 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
                 GameManager.instance.background.Clicked(item);
 
-                GameManager.instance.background.LockOnly(item);
+                //GameManager.instance.background.LockOnly(item);
             }
         }
         Refresh();
@@ -159,17 +163,18 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
   
     public void Refresh()
     {
+      
         // Dim the item if it's not available
         if (GameManager.instance.background.isAvalible(item.itemName))
         {
             Debug.Log("item placed");
-            item.isLocked = true;
+            //item.isLocked = true;
             SetAlpha(0.8f,Color.gray); // 95% transparent
         }
         else
         {
-            Debug.Log("item not  placed");
-            item.isLocked = false;
+            //Debug.Log("item not  placed");
+            //item.isLocked = false;
 
             SetAlpha(1f,Color.white); // Fully visible
         }
@@ -177,14 +182,15 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void SetAlpha(float alpha, Color? overrideColor = null)
     {
-        Image[] images = GetComponentsInChildren<Image>(true);
-
-        foreach (var img in images)
-        {
-            Color c = overrideColor ?? img.color; 
-            c.a = alpha;
-            img.color = c;
-        }
+      
+        Image img = GetComponent<Image>();
+        Color c = overrideColor ?? img.color;
+        c.a = alpha;
+        img.color = c;
+        //foreach (var img in images)
+        //{
+         
+        //}
     }
 
     private Vector3 GetWorldPosition(Vector3 screenPosition)

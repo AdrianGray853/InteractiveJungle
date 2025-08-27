@@ -11,7 +11,7 @@ public class Animals : Base<AnimalItem>
     public string key;
     protected override void Start()
     {
-        levelCounts = PlayerPrefs.GetInt(key, 20);
+        levelCounts = PlayerPrefs.GetInt(key, 0);
         UnlockLevels();
         base.Start();
 
@@ -134,7 +134,7 @@ public class Animals : Base<AnimalItem>
     {
         for (int i = 0; i < items.Count; i++)
         {
-            if (i >= levelCounts)
+            if (i > levelCounts)
             {
                 items[i].isLocked = true;
                 itemObjects[i].GetComponent<AnimalDragging>().item.isLocked = true;

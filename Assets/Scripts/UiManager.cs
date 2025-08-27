@@ -81,4 +81,18 @@ public class UiManager : MonoBehaviour
         }
     }
 
+    public void OnClickPuzzelGame()
+    {
+        GameManager.instance.UnlockNextBackground();
+    }
+    public void OnClickTracingGame()
+    {
+        GameManager.instance.UnlockNextDecoration();
+    }
+    public void OnClickColoringGame()
+    {
+        GameManager.instance.UnlockNextAnimal();
+    }
+
+
 }

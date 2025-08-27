@@ -14,7 +14,7 @@ public class Decoration : Base<DecorationItem>
     protected override void Start()
     {
 
-        levelCounts = PlayerPrefs.GetInt(key, 20);
+        levelCounts = PlayerPrefs.GetInt(key, 0);
         UnlockLevels();
         base.Start();
 
@@ -134,7 +134,7 @@ public class Decoration : Base<DecorationItem>
     {
         for (int i = 0; i < items.Count; i++)
         {
-            if (i >= levelCounts)
+            if (i >levelCounts)
             {
                 items[i].isLocked = true;
                 itemObjects[i].GetComponent<DecorationDragging>().item.isLocked = true;

@@ -6,17 +6,7 @@ using UnityEngine.UI;
 public class BackgroundItem : BaseItem
 {
     public BackgroundDrag drag;
-    public void Lock()
-    {
-        isLocked = true;
-        drag?.SetAlpha(0.5f, Color.gray); // visually dim
-    }
-
-    public void Unlock()
-    {
-        isLocked = false;
-        drag?.SetAlpha(1f); // restore normal
-    }
+    
 }
 
 public class Background : Base<BackgroundItem>
@@ -26,27 +16,12 @@ public class Background : Base<BackgroundItem>
     protected override void Start()
     {
 
-        levelCounts = PlayerPrefs.GetInt(key, 20);
+        levelCounts = PlayerPrefs.GetInt(key, 0);
         UnlockLevels();
         base.Start();
-
+        Debug.Log("Start");
     }
-    public void LockOnly(BackgroundItem active)
-    {
-        foreach (var item in items)
-        {
-            if (item == active)
-            {
-                item.isLocked = true;        // ✅ Mark locked
-            }
-            else
-            {
-                item.isLocked = false;       // ✅ Unlock others
-            }
-            item.drag.Refresh();
-        }
-
-    }
+   
     protected override void OnItemSelected(BackgroundItem item)
     {
         base.OnItemSelected(item);
@@ -125,18 +100,46 @@ public class Background : Base<BackgroundItem>
     public GameObject itemUi; // Shared item prefab ya visual
     public int levelCounts;
 
+    // ✅ Unlock next background
+    public int GetNextUnlock()
+    {
+        int index = levelCounts;
+        int nextIndex = index + 1;
+        return nextIndex;
+    }
+    public void UnlockNext()
+    {
+        int index = levelCounts;
+        if (index < 0) return;
+
+        // Next index
+        int nextIndex = index + 1;
+        if (nextIndex < items.Count && items[nextIndex].isLocked)
+        {
+            items[nextIndex].isLocked = false;
+            items[nextIndex].drag.item.isLocked = false;
+            levelCounts = Mathf.Max(levelCounts, nextIndex + 1);
+
+            PlayerPrefs.SetInt(key, levelCounts);
+            PlayerPrefs.Save();
+
+            Debug.Log($"🎉 Unlocked {items[nextIndex].itemName}");
+        }
+    }
     [ContextMenu("UnlockLevls")]
     public void UnlockLevels()
     {
         for (int i = 0; i < items.Count; i++)
         {
-            if (i >= levelCounts)
+            if (i > levelCounts)
             {
                 items[i].isLocked = true;
+                items[i].drag.item.isLocked = true;
             }
             else
             {
                 items[i].isLocked = false;
+                items[i].drag.item.isLocked = false;
 
             }
         }

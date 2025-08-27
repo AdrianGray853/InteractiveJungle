@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+    using UnityEngine.UI;
 
     public class GameManagerTouch : MonoBehaviour
     {
@@ -28,7 +29,11 @@ using UnityEngine;
     	}
 
     	public GameObject[] Levels;
-    	public CategoryRangeConfigSO CategoryConfig;
+    	public Sprite[] LevelsSprite;
+        public GameObject tracingSolvedPanel;
+        public Image tracingSprite;
+        public string key;
+        public CategoryRangeConfigSO CategoryConfig;
     	[System.NonSerialized]
     	public int CurrentLevel;
     	private GameObject SpawnedLevel;
@@ -95,8 +100,9 @@ using UnityEngine;
     			UIBounds.center = Vector3.zero;
     			UIBounds.size = new Vector3(Camera.main.orthographicSize * 2.0f * Camera.main.aspect, Camera.main.orthographicSize * 2.0f);
     		}
+            GameDataTouch.Instance.SelectedLevel = PlayerPrefs.GetInt(key, 0) + 1;
 
-    		CurrentLevel = GameDataTouch.Instance.SelectedLevel;
+            CurrentLevel = GameDataTouch.Instance.SelectedLevel;
     		if (Levels != null && Levels.Length > 0)
     			SpawnLevel(Levels[CurrentLevel]);
     		else
@@ -196,17 +202,21 @@ using UnityEngine;
 
     	public void NextLevel()
     	{
-    		//Coroutine iconRoutine = CheckForIcons();
-    		//if (iconRoutine != null)
-    		//{
-    		//	StartCoroutine(DelayedNextLevel(iconRoutine));
-    		//}
-    		//else
-    		//{
-    			SpawnNextLevel();
-    		//}
-    	}
-
+            //Coroutine iconRoutine = CheckForIcons();
+            //if (iconRoutine != null)
+            //{
+            //	StartCoroutine(DelayedNextLevel(iconRoutine));
+            //}
+            //else
+            //{
+            SpawnNextLevel();
+            //}
+           
+        }
+        public void GoHome()
+        {
+            SceneLoader.Instance.LoadScene("Jungle");
+        }
     	private void SpawnNextLevel()
     	{
     		CurrentLevel++;
@@ -239,13 +249,15 @@ using UnityEngine;
 
     		if (CurrentLevel > lastLevel || !ProductManagerTouch.Instance.IsSubscribed && currentLevelRelative >= 2)
     		{
-    			TransitionManagerTouch.Instance.ShowFade(1.0f, () => SceneLoader.Instance.LoadScene("MainMenu"));
+    			TransitionManagerTouch.Instance.ShowFade(1.0f, () => SceneLoader.Instance.LoadScene("Jungle"));
     			return;
     		}
 
     		GameDataTouch.Instance.SelectedLevel = CurrentLevel;
-    		SpawnLevel(Levels[CurrentLevel]);
-    	}
+            //SpawnLevel(Levels[CurrentLevel]);
+            NextLevel();
+
+        }
 
     	IEnumerator DelayedNextLevel(Coroutine coroutine)
     	{
@@ -271,8 +283,22 @@ using UnityEngine;
     	{
     		DoneButton.SetActive(true);
     		SoundManagerTouch.Instance.PlaySFX("RewardStars");
+            tracingSprite.sprite = LevelsSprite[CurrentLevel];
 
-    		ShowStickerReward();
+            // set initial small scale
+            Transform panelChild = tracingSolvedPanel.transform.GetChild(0);
+            panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+
+            PlayerPrefs.SetInt(key, GameDataTouch.Instance.SelectedLevel);
+            Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
+
+            tracingSolvedPanel.SetActive(true);
+
+            // animate scale to 1 smoothly
+            panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+
+            Invoke(nameof(GoHome), 3);
+            ShowStickerReward();
     	}
 
     	public void ShowStickerReward()

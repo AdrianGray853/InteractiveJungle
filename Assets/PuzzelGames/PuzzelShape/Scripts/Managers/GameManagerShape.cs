@@ -1,18 +1,22 @@
-using System;
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
 namespace Interactive.PuzzelShape
 {
-using System;
-using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+
+    using DG.Tweening;
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+    using UnityEngine;
+    using UnityEngine.UI;
+    using UnityEngine.SceneManagement;
 
     public class GameManagerShape : MonoBehaviour
     {
@@ -36,6 +40,10 @@ using UnityEngine;
 
         [Header("| General")]
         public GameObject[] Levels;
+        public Sprite[] LevelsSprite;
+        public GameObject PuzzelSolvedPanel;
+        public Image puzzelSprite;
+        
         public ParticleSystem DoneFX;
         public float HintTimer = 10.0f;
         public NavigationController Navigation;
@@ -88,7 +96,9 @@ using UnityEngine;
             }
             else
             {
-    #endif
+#endif
+                GameDataShape.Instance.SelectedLevel = PlayerPrefs.GetInt("Background", 0)+1;
+
                 CurrentLevelIdx = GameDataShape.Instance.SelectedLevel;
                 CurrentLevel = Instantiate(Levels[CurrentLevelIdx]);
     #if UNITY_EDITOR
@@ -277,11 +287,28 @@ using UnityEngine;
         {
             Cleanup();
             Destroy(CurrentLevel);
+
+            puzzelSprite.sprite = LevelsSprite[CurrentLevelIdx];
+
+            // set initial small scale
+            Transform panelChild = PuzzelSolvedPanel.transform.GetChild(0);
+            panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+
             CurrentLevelIdx += Direction;
-            CurrentLevel = Instantiate(Levels[CurrentLevelIdx]);
-            Navigation.NextLevelButton.gameObject.SetActive(false);
+            PlayerPrefs.SetInt("Background", GameDataShape.Instance.SelectedLevel);
+            Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt("Background")}");
+
+            PuzzelSolvedPanel.SetActive(true);
+
+            // animate scale to 1 smoothly
+            panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+
+            Invoke(nameof(GoHome), 3);
+            //CurrentLevel = Instantiate(Levels[CurrentLevelIdx]);
+            //Navigation.NextLevelButton.gameObject.SetActive(false);
             NotifyLevelChanged();
         }
+
 
         public void PrevLevel()
         {
@@ -313,7 +340,7 @@ using UnityEngine;
             {
                 Cleanup();
                 TransitionManagerShape.Instance.SetDefaultFadeColor();
-                TransitionManagerShape.Instance.ShowFade(1.0f, () => SceneLoaderShape.Instance.LoadScene("MainMenu"));
+                TransitionManagerShape.Instance.ShowFade(1.0f, () => SceneLoaderShape.Instance.LoadScene("Jungle"));
             }
         }
 
