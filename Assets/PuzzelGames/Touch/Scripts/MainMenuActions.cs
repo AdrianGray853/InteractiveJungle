@@ -10,9 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-    public class MainMenuActions : MonoBehaviour
+    public class JungleActions : MonoBehaviour
     {
-    	public GameObject MainMenu;
+    	public GameObject Jungle;
 
     	public GameObject ColoringMenu;
     	public GameObject DrawingMenu;
@@ -56,24 +56,24 @@ using UnityEngine;
     		TransitionManagerTouch.Instance.SetFadeColor(new Color(0.53f, 0.84f, 1.0f));
     		InitPlatformTransformations();
 
-    		if (SoundManagerTouch.Instance.GetCurrentMusicName() != "MainMenu")
+    		if (SoundManagerTouch.Instance.GetCurrentMusicName() != "Jungle")
     		{
-    			SoundManagerTouch.Instance.CrossFadeMusic("MainMenu", 1.0f);
+    			SoundManagerTouch.Instance.CrossFadeMusic("Jungle", 1.0f);
     		}
 
-    		if (SceneLoader.Instance.LastScene == "" || SceneLoader.Instance.LastScene == "Loader" || SceneLoader.Instance.LastScene == "MainMenu")
+    		if (SceneLoader.Instance.LastScene == "" || SceneLoader.Instance.LastScene == "Loader" || SceneLoader.Instance.LastScene == "Jungle")
     		{
     #if PROJECT_X
     				//PlayInitVoice();
     				InitForProjectX();
     #else
     			PlayInitVoice();
-    			ShowMainMenu();
+    			ShowJungle();
     #endif
     		}
     		else
     		{
-    			InitMainMenuFromMask();
+    			InitJungleFromMask();
     			PlayReturnVoice();
     		}
 
@@ -114,7 +114,7 @@ using UnityEngine;
 
     	void HideAllExcept(params GameObject[] gameObjects)
     	{
-    		MainMenu.SetActive(gameObjects.Contains(MainMenu));
+    		Jungle.SetActive(gameObjects.Contains(Jungle));
 
     		ColoringMenu.SetActive(gameObjects.Contains(ColoringMenu));
     		DrawingMenu.SetActive(gameObjects.Contains(DrawingMenu));
@@ -136,12 +136,12 @@ using UnityEngine;
 
     		StickerBook.SetActive(gameObjects.Contains(StickerBook));
 
-    		if (MainMenu.activeSelf || ColoringMenu.activeSelf || DrawingMenu.activeSelf || StickerBook.activeSelf)
+    		if (Jungle.activeSelf || ColoringMenu.activeSelf || DrawingMenu.activeSelf || StickerBook.activeSelf)
     			BookButton.SetActive(false);
     		else
     			BookButton.SetActive(true);
 
-    		BackButton.SetActive(!MainMenu.activeSelf);
+    		BackButton.SetActive(!Jungle.activeSelf);
 
     		foreach (var go in gameObjects)
     		{
@@ -186,29 +186,29 @@ using UnityEngine;
     			backRect.anchoredPosition = pos;
     		}
     	}
-    	public void ShowMainMenu()
+    	public void ShowJungle()
     	{
-    		HideAllExcept(MainMenu);
+    		HideAllExcept(Jungle);
     	}
 
     	// Main Menu
-    	public void MainMenuPressColoring()
+    	public void JunglePressColoring()
     	{
     		if (!inputActive)
     			return;
 
-    		lastMenu = MainMenu;
+    		lastMenu = Jungle;
     		HideAllExcept(ColoringMenu);
 
     		SoundManagerTouch.Instance.PlaySFX("BubbleClick");
     	}
 
-    	public void MainMenuPressDrawing()
+    	public void JunglePressDrawing()
     	{
     		if (!inputActive)
     			return;
 
-    		lastMenu = MainMenu;
+    		lastMenu = Jungle;
     		HideAllExcept(DrawingMenu);
 
     		SoundManagerTouch.Instance.PlaySFX("BubbleClick");
@@ -257,7 +257,7 @@ using UnityEngine;
     		if (!inputActive)
     			return;
 
-    		CreateMainMenuMask();
+    		CreateJungleMask();
 
     		GameDataTouch.Instance.GameType = GameDataTouch.eGameType.AI;
     		TransitionManagerTouch.Instance.ShowFade(new Color(0.53f, 0.84f, 1.0f), 0.5f, () => SceneLoader.Instance.LoadScene("AI"));
@@ -271,7 +271,7 @@ using UnityEngine;
     		if (!inputActive)
     			return;
 
-    		CreateMainMenuMask();
+    		CreateJungleMask();
 
     		GameDataTouch.Instance.GameType = GameDataTouch.eGameType.Symmetry;
     		TransitionManagerTouch.Instance.ShowFade(new Color(0.53f, 0.84f, 1.0f), 0.5f, () => SceneLoader.Instance.LoadScene("Symmetry"));
@@ -352,11 +352,11 @@ using UnityEngine;
     		StickerBook.GetComponent<StickerBookController>().Init(gameType);
     	}
 
-    	public void CreateMainMenuMask(int category = 3, float scrollOffset = 0f)
+    	public void CreateJungleMask(int category = 3, float scrollOffset = 0f)
     	{
     		int mask = 0;
 
-    		if (MainMenu.activeSelf)
+    		if (Jungle.activeSelf)
     			mask |= 1 << 0;
 
     		if (ColoringMenu.activeSelf)
@@ -383,15 +383,15 @@ using UnityEngine;
     		if (BackButton.activeSelf)
     			mask |= 1 << 10;
 
-    		GameDataTouch.Instance.MainMenuEnableMask = mask;
-    		GameDataTouch.Instance.MainMenuScrollOffset = scrollOffset;
-    		GameDataTouch.Instance.MainMenuCategory = category;
+    		GameDataTouch.Instance.JungleEnableMask = mask;
+    		GameDataTouch.Instance.JungleScrollOffset = scrollOffset;
+    		GameDataTouch.Instance.JungleCategory = category;
     	}
 
     #if PROJECT_X
     	private void InitForProjectX()
     	{
-    		MainMenu.SetActive(false);
+    		Jungle.SetActive(false);
     		ColoringMenu.SetActive(false);
     		DrawingMenu.SetActive(false);
 
@@ -420,7 +420,7 @@ using UnityEngine;
 
     		if (controller != null)
     		{
-    			controller.CategorySelectorRef.SelectCategory(GameDataTouch.Instance.MainMenuCategory, true);
+    			controller.CategorySelectorRef.SelectCategory(GameDataTouch.Instance.JungleCategory, true);
     		}
     		Modules.SetActive(true);
 
@@ -429,7 +429,7 @@ using UnityEngine;
     		else if (OutlineMenu.activeSelf || TracingMenu.activeSelf)
     			lastMenu = DrawingMenu;
     		else
-    			lastMenu = MainMenu;
+    			lastMenu = Jungle;
 
     		StickerBook.SetActive(false);
 
@@ -437,10 +437,10 @@ using UnityEngine;
     	}
     #endif
 
-    	public void InitMainMenuFromMask()
+    	public void InitJungleFromMask()
     	{
-    		int mask = GameDataTouch.Instance.MainMenuEnableMask;
-    		MainMenu.SetActive((mask & (1 << 0)) != 0);
+    		int mask = GameDataTouch.Instance.JungleEnableMask;
+    		Jungle.SetActive((mask & (1 << 0)) != 0);
 
     		ColoringMenu.SetActive((mask & (1 << 1)) != 0);
     		DrawingMenu.SetActive((mask & (1 << 2)) != 0);
@@ -470,8 +470,8 @@ using UnityEngine;
 
     		if (controller != null)
     		{
-    			controller.CategorySelectorRef.SelectCategory(GameDataTouch.Instance.MainMenuCategory, true);
-    			controller.ScrollToOffset(GameDataTouch.Instance.MainMenuScrollOffset);
+    			controller.CategorySelectorRef.SelectCategory(GameDataTouch.Instance.JungleCategory, true);
+    			controller.ScrollToOffset(GameDataTouch.Instance.JungleScrollOffset);
 
     			Modules.SetActive(true);
     		}
@@ -485,7 +485,7 @@ using UnityEngine;
     		else if (OutlineMenu.activeSelf || TracingMenu.activeSelf)
     			lastMenu = DrawingMenu;
     		else
-    			lastMenu = MainMenu;
+    			lastMenu = Jungle;
 
     		StickerBook.SetActive(false);
 
@@ -509,13 +509,13 @@ using UnityEngine;
     #if PROJECT_X
     			if (!StickerBook.activeSelf)
     			{
-    				global::SceneLoader.Instance.LoadDrawingScene("MainMenu", "MainMenuDrawing");
+    				global::SceneLoader.Instance.LoadDrawingScene("Jungle", "JungleDrawing");
     			}
     #endif
 
     		if (lastMenu.activeSelf)
     		{
-    			ShowMainMenu();
+    			ShowJungle();
     			return;
     		}
 

@@ -10,9 +10,9 @@ using UnityEngine;
 
     public class UIController : MonoBehaviour
     {
-        public void GoToMainMenu()
+        public void GoToJungle()
     	{
-            TransitionManagerTouch.Instance.ShowFade(new Color(0.53f, 0.84f, 1.0f), 0.5f, () => SceneLoader.Instance.LoadScene("MainMenu"));
+            TransitionManagerTouch.Instance.ShowFade(new Color(0.53f, 0.84f, 1.0f), 0.5f, () => SceneLoader.Instance.LoadScene("Jungle"));
 
             SoundManagerTouch.Instance.PlaySFX("Click");
         }

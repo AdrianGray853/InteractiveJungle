@@ -12,7 +12,7 @@ using UnityEngine;
 
     public class ModuleController : MonoBehaviour
     {
-        public MainMenuActions MainActions;
+        public JungleActions MainActions;
 
         public GameDataTouch.eGameType GameType;
         public CategorySelector CategorySelectorRef;
@@ -290,7 +290,7 @@ using UnityEngine;
                 return;
     		}
 
-            MainActions.CreateMainMenuMask(category, CategoriesGOs[category].xOffset);
+            MainActions.CreateJungleMask(category, CategoriesGOs[category].xOffset);
 
             GameDataTouch.Instance.SelectedLevel = globalIdx;
             GameDataTouch.Instance.GameType = GameType;

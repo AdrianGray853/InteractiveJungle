@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EModule = GameDataShape.eGameType;
 
-    public class MainMenu : MonoBehaviour
+    public class Jungle : MonoBehaviour
     {
         public GameObject Elements;
         public GameObject HomeButton;
@@ -41,7 +41,7 @@ using EModule = GameDataShape.eGameType;
 
         private void Start()
         {
-            ShowMainMenu();
+            ShowJungle();
     #if PROJECT_X
     		inputActive = true;
     		if (global::GameDataShape.Instance.GameTarget == "Coloring")
@@ -60,7 +60,7 @@ using EModule = GameDataShape.eGameType;
     #endif
             if (SceneLoaderShape.Instance.LastScene != "Loader")
             {
-                SoundManagerShape.Instance.CrossFadeMusic("MainMenuMusic", 2.0f);
+                SoundManagerShape.Instance.CrossFadeMusic("JungleMusic", 2.0f);
                 //            //  AnalyticsManager.Instance.ModuleEnded();
             }
 
@@ -127,14 +127,14 @@ using EModule = GameDataShape.eGameType;
         {
             PlayClickSound();
     #if PROJECT_X
-    			global::SceneLoaderShape.Instance.LoadShapesScene("MainMenu", "MainMenu");
+    			global::SceneLoaderShape.Instance.LoadShapesScene("Jungle", "Jungle");
     #else
-            ShowMainMenu();
+            ShowJungle();
             // AnalyticsManager.Instance.ModuleEnded();
     #endif
         }
 
-        public void ShowMainMenu()
+        public void ShowJungle()
         {
             Elements.SetActive(true);
             ColoringModule.gameObject.SetActive(false);

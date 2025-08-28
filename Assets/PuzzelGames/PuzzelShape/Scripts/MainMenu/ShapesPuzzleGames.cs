@@ -22,7 +22,7 @@ using UnityEngine.UI;
     	public string GameScene;
     	public Color FadeColor = Color.white;
 
-    	MainMenuItem fluturiTarget;
+    	JungleItem fluturiTarget;
     	Tween shakeSequence;
 
 
@@ -39,7 +39,7 @@ using UnityEngine.UI;
     			GameObject go = Instantiate(MenuItemGO, ContentRoot);
     			go.name = "ShapesPuzzleMenuItem" + i;
     			go.SetActive(true);
-    			MainMenuItem item = go.GetComponent<MainMenuItem>();
+    			JungleItem item = go.GetComponent<JungleItem>();
     			int idx = i;
     			item.Button.onClick.AddListener(() => ButtonClicked(idx));
     			item.Image.sprite = PuzzleIcons[i];

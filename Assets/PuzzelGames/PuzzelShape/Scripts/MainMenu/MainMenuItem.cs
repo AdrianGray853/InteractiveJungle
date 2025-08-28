@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-    public class MainMenuItem : MonoBehaviour
+    public class JungleItem : MonoBehaviour
     {
         public UnityEngine.UI.Image Image;
         public TextMeshProUGUI Text;

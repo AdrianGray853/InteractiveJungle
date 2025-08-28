@@ -272,14 +272,14 @@ namespace Interactive.PuzzelShape
                 .Append(TransitionManagerShape.Instance.ShowFade(1.0f, () =>
                 {
                     Cleanup();
-                    SceneLoaderShape.Instance.LoadScene("MainMenu");
+                    SceneLoaderShape.Instance.LoadScene("Jungle");
                 }));
             */
 
             TransitionManagerShape.Instance.ShowFade(1.0f, () =>
             {
                 Cleanup();
-                SceneLoaderShape.Instance.LoadScene("MainMenu");
+                SceneLoaderShape.Instance.LoadScene("Jungle");
             }).PrependInterval(0.0f);
         }
 
@@ -492,7 +492,7 @@ namespace Interactive.PuzzelShape
             {
                 Cleanup();
                 TransitionManagerShape.Instance.SetDefaultFadeColor();
-                TransitionManagerShape.Instance.ShowFade(1.0f, () => SceneLoaderShape.Instance.LoadScene("MainMenu"));
+                TransitionManagerShape.Instance.ShowFade(1.0f, () => SceneLoaderShape.Instance.LoadScene("Jungle"));
             }
             else if (NextAction == eDelayedAction.GameDone)
             {

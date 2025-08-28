@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-    public class MainMenuActions : MonoBehaviour
+    public class JungleActions : MonoBehaviour
     {
     	public Camera mainCamera;
     	public UpCasePlanetController BigLetterPlanet;
@@ -136,13 +136,13 @@ using DG.Tweening;
     		if (OnBoardingController.Instance.IsOnBoardingActive)
     			return; // Don't do anything bello from here, like hints etc...
 
-    		if (!welcomeSoundPlayed && !GameData.Instance.GetFlag("MainMenuWelcomePlayed"))
+    		if (!welcomeSoundPlayed && !GameData.Instance.GetFlag("JungleWelcomePlayed"))
     		{
     			//Sequence s = DOTween.Sequence();
     			//s.AppendInterval(2.5f);
     			//s.AppendCallback(() => SoundManager.Instance.PlaySFX("welcome"));
     			SoundManager.Instance.PlaySFX("welcome");
-    			GameData.Instance.SetFlag("MainMenuWelcomePlayed", true);
+    			GameData.Instance.SetFlag("JungleWelcomePlayed", true);
     			welcomeSoundPlayed = true;
     		}
 
@@ -170,9 +170,9 @@ using DG.Tweening;
 
         private void Start()
         {
-            if (SoundManager.Instance.GetCurrentMusicName() != "MainMenuSong")
+            if (SoundManager.Instance.GetCurrentMusicName() != "JungleSong")
             {
-    			SoundManager.Instance.CrossFadeMusic("MainMenuSong", 1.0f);
+    			SoundManager.Instance.CrossFadeMusic("JungleSong", 1.0f);
             }
 
     		hintCountdown = HintMaxCountdown;

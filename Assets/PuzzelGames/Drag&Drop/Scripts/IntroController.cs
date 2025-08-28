@@ -55,12 +55,12 @@ using UnityEngine.Video;
 
         void EndReached(VideoPlayer vp)
         {
-            GoToMainMenu();
+            GoToJungle();
         }
 
-        public void GoToMainMenu()
+        public void GoToJungle()
         {
-            TransitionManager.Instance.ShowFade(Color.black, 2.0f, () => SceneLoader.Instance.LoadScene("MainMenu"));
+            TransitionManager.Instance.ShowFade(Color.black, 2.0f, () => SceneLoader.Instance.LoadScene("Jungle"));
         }
     }
 
