@@ -67,9 +67,6 @@ MonoBehaviour:
   trss: {fileID: 5231240676416048707}
   RendererGroups:
   - Group:
-    - {fileID: 9098890669417669743}
-    Colliders: []
-  - Group:
     - {fileID: 2269200653784357363}
     Colliders: []
   - Group:
@@ -1528,8 +1525,3 @@ PolygonCollider2D:
       - {x: -1.67, y: -4.65}
       - {x: -1.4699999, y: -4.61}
   m_UseDelaunayMesh: 0
---- !u!212 &9098890669417669743 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3975557122122117582, guid: 5ef09c34f2b565442923b83fff0f5e7b, type: 3}
-  m_PrefabInstance: {fileID: 5289975809851610529}
-  m_PrefabAsset: {fileID: 0}

@@ -67,9 +67,6 @@ MonoBehaviour:
   trss: {fileID: 3982599474309050282}
   RendererGroups:
   - Group:
-    - {fileID: 6819618350878310861}
-    Colliders: []
-  - Group:
     - {fileID: 3927170759139344845}
     Colliders: []
   - Group:
@@ -88,7 +85,7 @@ MonoBehaviour:
     - {fileID: 569166026924691389}
     Colliders: []
   - Group:
-    - {fileID: 4616530998440562735}
+    - {fileID: 569166026924691389}
     Colliders: []
   material: {fileID: 2100000, guid: 2263d6b7dbe159b4ab7d612ea401de1b, type: 2}
 --- !u!1001 &5554670401696904432
@@ -1035,11 +1032,6 @@ PolygonCollider2D:
       - {x: 8.139999, y: 1.28}
       - {x: 8.04, y: 1.3199999}
   m_UseDelaunayMesh: 0
---- !u!212 &4616530998440562735 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 938737976209581279, guid: 98bdfc4d77224f14cbafeb155d762ae7, type: 3}
-  m_PrefabInstance: {fileID: 5554670401696904432}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5400353146840782157 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: 98bdfc4d77224f14cbafeb155d762ae7, type: 3}
@@ -1162,11 +1154,6 @@ SpriteRenderer:
 --- !u!4 &6501492828484455726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 98bdfc4d77224f14cbafeb155d762ae7, type: 3}
-  m_PrefabInstance: {fileID: 5554670401696904432}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &6819618350878310861 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: -7804173490817108675, guid: 98bdfc4d77224f14cbafeb155d762ae7, type: 3}
   m_PrefabInstance: {fileID: 5554670401696904432}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6889317922107624820 stripped

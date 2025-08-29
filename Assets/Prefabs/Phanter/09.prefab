@@ -67,16 +67,10 @@ MonoBehaviour:
   trss: {fileID: 2080330233689940448}
   RendererGroups:
   - Group:
-    - {fileID: 6555008162870680976}
-    Colliders: []
-  - Group:
     - {fileID: 8783010416415429571}
     Colliders: []
   - Group:
     - {fileID: 4123084069487337984}
-    Colliders: []
-  - Group:
-    - {fileID: 3728292368443091258}
     Colliders: []
   - Group:
     - {fileID: 586026977711454671}
@@ -95,6 +89,7 @@ MonoBehaviour:
     Colliders: []
   - Group:
     - {fileID: 352218130518229186}
+    - {fileID: 3728292368443091258}
     Colliders: []
   - Group:
     - {fileID: 4237105956717905593}
@@ -977,11 +972,6 @@ PolygonCollider2D:
       - {x: 0.42, y: -1.22}
       - {x: 0.82, y: -0.79999995}
   m_UseDelaunayMesh: 0
---- !u!212 &6555008162870680976 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: -3314368345309796256, guid: 591483a68937fc54ab7743e530001dc4, type: 3}
-  m_PrefabInstance: {fileID: 646529043867629040}
-  m_PrefabAsset: {fileID: 0}
 --- !u!212 &6568977956534835618 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: -3183662200605463470, guid: 591483a68937fc54ab7743e530001dc4, type: 3}
