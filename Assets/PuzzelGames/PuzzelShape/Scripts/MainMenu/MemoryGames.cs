@@ -28,7 +28,7 @@ using DG.Tweening;
     	public string GameScene;
     	public Color FadeColor = Color.white;
 	
-    	MainMenuItem fluturiTarget;
+    	JungleItem fluturiTarget;
     	Tween shakeSequence;
 
 
@@ -45,7 +45,7 @@ using DG.Tweening;
     			GameObject go = Instantiate(MenuItemGO, ContentRoot);
     			go.name = "MemoryMenuItem" + i;
     			go.SetActive(true);
-    			MainMenuItem item = go.GetComponent<MainMenuItem>();
+    			JungleItem item = go.GetComponent<JungleItem>();
     			int idx = i;
     			item.Button.onClick.AddListener(() => ButtonClicked(idx));
     			item.Text.text = (i + 1).ToString();

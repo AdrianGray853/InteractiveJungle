@@ -100,7 +100,7 @@ using UnityEngine;
     			UIBounds.center = Vector3.zero;
     			UIBounds.size = new Vector3(Camera.main.orthographicSize * 2.0f * Camera.main.aspect, Camera.main.orthographicSize * 2.0f);
     		}
-            GameDataTouch.Instance.SelectedLevel = PlayerPrefs.GetInt(key, 0) + 1;
+            GameDataTouch.Instance.SelectedLevel = PlayerPrefs.GetInt(key, 0) ;
 
             CurrentLevel = GameDataTouch.Instance.SelectedLevel;
     		if (Levels != null && Levels.Length > 0)
@@ -283,13 +283,14 @@ using UnityEngine;
     	{
     		DoneButton.SetActive(true);
     		SoundManagerTouch.Instance.PlaySFX("RewardStars");
-            tracingSprite.sprite = LevelsSprite[CurrentLevel];
+            if (LevelsSprite.Length > CurrentLevel)
+                tracingSprite.sprite = LevelsSprite[CurrentLevel];
 
             // set initial small scale
             Transform panelChild = tracingSolvedPanel.transform.GetChild(0);
             panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
 
-            PlayerPrefs.SetInt(key, GameDataTouch.Instance.SelectedLevel);
+            PlayerPrefs.SetInt(key, ++GameDataTouch.Instance.SelectedLevel);
             Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
 
             tracingSolvedPanel.SetActive(true);
@@ -444,19 +445,19 @@ using UnityEngine;
     #if UNITY_EDITOR || DEVELOPMENT_BUILD
     	private void OnGUI()
     	{
-    		if (CaptureManager.Instance.ScreenshotIsRunning)
-    			return;
+    		//if (CaptureManager.Instance.ScreenshotIsRunning)
+    		//	return;
 
-    		GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
-    		myButtonStyle.fontSize = 50;
-    		if (GUI.Button(new Rect(200, 200, 300, 150), "Next", myButtonStyle))
-    		{
-    			NextLevel();
-    		}
-    		if (GUI.Button(new Rect(200, 350, 300, 150), "Prev", myButtonStyle))
-    		{
-    			PreviousLevel();
-    		}
+    		//GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
+    		//myButtonStyle.fontSize = 50;
+    		//if (GUI.Button(new Rect(200, 200, 300, 150), "Next", myButtonStyle))
+    		//{
+    		//	NextLevel();
+    		//}
+    		//if (GUI.Button(new Rect(200, 350, 300, 150), "Prev", myButtonStyle))
+    		//{
+    		//	PreviousLevel();
+    		//}
     	}
     #endif
     }

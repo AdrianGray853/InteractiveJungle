@@ -20,7 +20,7 @@ using UnityEngine.UI;
         public string GameScene = "ColoringModule";
     	public Color FadeColor = Color.white;
 
-    	MainMenuItem fluturiTarget;
+    	JungleItem fluturiTarget;
     	Tween shakeSequence;
 
 
@@ -37,7 +37,7 @@ using UnityEngine.UI;
     			GameObject go = Instantiate(MenuItemPrefab, ContentRoot);
     			go.name = "ColorMenuItem" + i;
                 go.SetActive(true);
-                MainMenuItem item = go.GetComponent<MainMenuItem>();
+                JungleItem item = go.GetComponent<JungleItem>();
                 int idx = i;
                 Sprite doneSprite = GetExistingLevelSprite(i + 1);
                 if (doneSprite != null)

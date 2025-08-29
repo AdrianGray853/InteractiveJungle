@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
@@ -12,6 +13,8 @@ public class UiManager : MonoBehaviour
     public Animator panelAnim;
     public Animator canAnim;
     public GameObject[] tools;
+    public string[] puzzelsName;
+
     public Transform camTransform;
     private BtnPanel prePanel;
     [HideInInspector]
@@ -93,6 +96,14 @@ public class UiManager : MonoBehaviour
     {
         GameManager.instance.UnlockNextAnimal();
     }
+  
+    public void OnClickDragPuzzelGame()
+    {
+        GameManager.instance.UnlockNextDragDrop();
+    }
+    public void OnClickPlayRandonActivity()
+    {
+       SceneManager.LoadScene( puzzelsName[Random.Range(0, puzzelsName.Length)]);
 
-
+    }
 }

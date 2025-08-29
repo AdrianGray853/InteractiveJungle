@@ -34,7 +34,13 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
-
+    public void UnlockNextDragDrop()
+    {
+        SceneManager.LoadScene("DragAndDropWord");
+        ////background.UnlockNext();
+        //Debug.Log($"last: {background.GetNextUnlock()}");
+        //GameData.GetBackgroundPuzzel = background.GetNextUnlock();
+    }
     public void UnlockNextBackground()
     {
         SceneManager.LoadScene("UnlockBackground");

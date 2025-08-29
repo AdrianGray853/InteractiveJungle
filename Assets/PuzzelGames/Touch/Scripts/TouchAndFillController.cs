@@ -214,25 +214,25 @@ using UnityEngine;
     #if UNITY_EDITOR || DEVELOPMENT_BUILD
     	private void OnGUI()
     	{
-    		if (CaptureManager.Instance.ScreenshotIsRunning)
-    			return;
+    		//if (CaptureManager.Instance.ScreenshotIsRunning)
+    		//	return;
 
-    		GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
-    		myButtonStyle.fontSize = 50;
-    		if (GUI.Button(new Rect(200, 500, 300, 150), "Animate!", myButtonStyle))
-    		{
-    			animator.enabled = true;
-    			animator.Play("Play");
-    		}
-    		if (GUI.Button(new Rect(200, 650, 300, 150), "TestMenu!", myButtonStyle))
-    		{
-    			SceneLoader.Instance.LoadScene("TESTING");
-    		}
+    		//GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
+    		//myButtonStyle.fontSize = 50;
+    		//if (GUI.Button(new Rect(200, 500, 300, 150), "Animate!", myButtonStyle))
+    		//{
+    		//	animator.enabled = true;
+    		//	animator.Play("Play");
+    		//}
+    		//if (GUI.Button(new Rect(200, 650, 300, 150), "TestMenu!", myButtonStyle))
+    		//{
+    		//	SceneLoader.Instance.LoadScene("TESTING");
+    		//}
 
-    		if (GUI.Button(new Rect(200, 800, 300, 150), "Clear!", myButtonStyle))
-    		{
-    			ClearOutRenderTexture(rt, originalTex);
-    		}
+    		//if (GUI.Button(new Rect(200, 800, 300, 150), "Clear!", myButtonStyle))
+    		//{
+    		//	ClearOutRenderTexture(rt, originalTex);
+    		//}
     	}
     #endif
     }

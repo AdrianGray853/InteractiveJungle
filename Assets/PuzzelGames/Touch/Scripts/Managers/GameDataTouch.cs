@@ -65,9 +65,9 @@ using UnityEngine;
         public eGameType GameType;
         public int SelectedLevel;
 
-        public float MainMenuScrollOffset = 0f;
-        public int MainMenuEnableMask = 0;
-        public int MainMenuCategory = 3;
+        public float JungleScrollOffset = 0f;
+        public int JungleEnableMask = 0;
+        public int JungleCategory = 3;
 
     	// Start is called before the first frame update
     	void Awake()

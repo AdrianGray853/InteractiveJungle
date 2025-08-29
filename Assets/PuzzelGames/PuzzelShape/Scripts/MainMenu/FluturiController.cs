@@ -57,7 +57,7 @@ using UnityEngine.UI;
 
         List<ButterDesc> ButterFlies = new List<ButterDesc>();
 
-        MainMenuItem targetItem = null;
+        JungleItem targetItem = null;
         Vector3 lastOffset = Vector3.zero;
 
         static public FluturiController Instance { get; private set; }
@@ -67,7 +67,7 @@ using UnityEngine.UI;
             Instance = this;
         }
 
-        public void SetTargetItem(MainMenuItem item)
+        public void SetTargetItem(JungleItem item)
         {
             targetItem = item;
             if (item != null)

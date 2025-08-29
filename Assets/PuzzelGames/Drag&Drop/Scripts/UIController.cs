@@ -10,13 +10,13 @@ using UnityEngine;
 
     public class UIController : MonoBehaviour
     {
-        public string BackScene = "MainMenu";
+        public string BackScene = "Jungle";
 
         public void GoBack()
         {
             SoundManager.Instance.PlaySFX("ClickButton");
             /*
-            string targetScene = "MainMenu";
+            string targetScene = "Jungle";
             if (GameData.Instance.GameType == GameData.eGameType.UpperCase)
                 targetScene = "UpperCaseMap";
             else if (GameData.Instance.GameType == GameData.eGameType.LowerCase)
@@ -36,7 +36,7 @@ using UnityEngine;
         public void GoHome()
         {
             SoundManager.Instance.PlaySFX("ClickButton");
-            TransitionManager.Instance.ShowFade(2.0f, () => SceneLoader.Instance.LoadScene("MainMenu"));
+            TransitionManager.Instance.ShowFade(2.0f, () => SceneLoader.Instance.LoadScene("Jungle"));
         }
 
         public void GoNext()

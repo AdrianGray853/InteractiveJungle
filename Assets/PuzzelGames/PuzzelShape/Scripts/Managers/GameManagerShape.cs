@@ -43,7 +43,7 @@ namespace Interactive.PuzzelShape
         public Sprite[] LevelsSprite;
         public GameObject PuzzelSolvedPanel;
         public Image puzzelSprite;
-        
+        public string key;
         public ParticleSystem DoneFX;
         public float HintTimer = 10.0f;
         public NavigationController Navigation;
@@ -97,7 +97,7 @@ namespace Interactive.PuzzelShape
             else
             {
 #endif
-                GameDataShape.Instance.SelectedLevel = PlayerPrefs.GetInt("Background", 0)+1;
+                GameDataShape.Instance.SelectedLevel = PlayerPrefs.GetInt(key, 0);
 
                 CurrentLevelIdx = GameDataShape.Instance.SelectedLevel;
                 CurrentLevel = Instantiate(Levels[CurrentLevelIdx]);
@@ -272,14 +272,14 @@ namespace Interactive.PuzzelShape
                 .Append(TransitionManagerShape.Instance.ShowFade(1.0f, () =>
                 {
                     Cleanup();
-                    SceneLoaderShape.Instance.LoadScene("MainMenu");
+                    SceneLoaderShape.Instance.LoadScene("Jungle");
                 }));
             */
 
             TransitionManagerShape.Instance.ShowFade(1.0f, () =>
             {
                 Cleanup();
-                SceneLoaderShape.Instance.LoadScene("MainMenu");
+                SceneLoaderShape.Instance.LoadScene("Jungle");
             }).PrependInterval(0.0f);
         }
 
@@ -287,7 +287,7 @@ namespace Interactive.PuzzelShape
         {
             Cleanup();
             Destroy(CurrentLevel);
-
+            if(LevelsSprite.Length> CurrentLevelIdx)
             puzzelSprite.sprite = LevelsSprite[CurrentLevelIdx];
 
             // set initial small scale
@@ -295,8 +295,8 @@ namespace Interactive.PuzzelShape
             panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
 
             CurrentLevelIdx += Direction;
-            PlayerPrefs.SetInt("Background", GameDataShape.Instance.SelectedLevel);
-            Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt("Background")}");
+            PlayerPrefs.SetInt(key, ++GameDataShape.Instance.SelectedLevel);
+            Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
 
             PuzzelSolvedPanel.SetActive(true);
 
@@ -492,7 +492,7 @@ namespace Interactive.PuzzelShape
             {
                 Cleanup();
                 TransitionManagerShape.Instance.SetDefaultFadeColor();
-                TransitionManagerShape.Instance.ShowFade(1.0f, () => SceneLoaderShape.Instance.LoadScene("MainMenu"));
+                TransitionManagerShape.Instance.ShowFade(1.0f, () => SceneLoaderShape.Instance.LoadScene("Jungle"));
             }
             else if (NextAction == eDelayedAction.GameDone)
             {
