@@ -301,11 +301,11 @@ using DG.Tweening;
     #if UNITY_EDITOR
         private void OnGUI()
     	{
-    		if (GUI.Button(new Rect(0, 0, 100, 100), "Restart"))
-    			Start();
+    		//if (GUI.Button(new Rect(0, 0, 100, 100), "Restart"))
+    		//	Start();
 
-    		if (GUI.Button(new Rect(200, 200, 400, 400), "Spread"))
-    			Spread();
+    		//if (GUI.Button(new Rect(200, 200, 400, 400), "Spread"))
+    		//	Spread();
     	}
     #endif
     }

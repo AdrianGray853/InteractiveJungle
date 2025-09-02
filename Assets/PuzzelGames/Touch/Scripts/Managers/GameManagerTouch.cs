@@ -186,7 +186,8 @@ using UnityEngine;
     	{
     		StickerShown = false;
     		Resources.UnloadUnusedAssets();
-    		DoneButton.SetActive(false);
+
+    		DoneButton?.SetActive(false);
     		if (NextGroupButton != null)
     			NextGroupButton.SetActive(false);
     		if (SpawnedLevel != null)
@@ -281,7 +282,7 @@ using UnityEngine;
 
     	public void ShowDoneButton()
     	{
-    		DoneButton.SetActive(true);
+    		DoneButton?.SetActive(true);
     		SoundManagerTouch.Instance.PlaySFX("RewardStars");
             if (LevelsSprite.Length > CurrentLevel)
                 tracingSprite.sprite = LevelsSprite[CurrentLevel];

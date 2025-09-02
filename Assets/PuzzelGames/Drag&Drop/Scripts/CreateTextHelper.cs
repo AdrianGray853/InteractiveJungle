@@ -154,7 +154,12 @@ using UnityEngine;
                 target.gameObject.SetActive(false);
                 GameObject targetPos = new GameObject(letter.name + counter + "Target");
                 targetPos.transform.parent = dragLetters.transform;
-                targetPos.transform.position = target.transform.position;
+                if (Random.Range(0, 2) == 0)
+                    targetPos.transform.position = target.transform.position + new Vector3(Random.Range(3.5f, 4), Random.Range(6.5f, 8), 0);
+                else
+                    targetPos.transform.position = target.transform.position + new Vector3(Random.Range(-3.5f, -4), Random.Range(-5.5f, -6), 0);
+
+
                 letter.TargetPosition = targetPos.transform;
                 counter++;
                 targetLetters.Add(target.GetComponent<LetterDefinition>());
@@ -164,7 +169,10 @@ using UnityEngine;
             dragController.TargetLetters = targetLetters.ToArray();
 
             //
+            mainLetters.transform.localScale = Vector3.one;
+            dragLetters.transform.localScale = Vector3.one;
         }
+
     }
 
 

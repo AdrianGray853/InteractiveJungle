@@ -250,8 +250,8 @@ using UnityEngine;
     			AudioClip clip = SoundManager.Instance.GetClip(name);
     			if (clip != null)
     				PreviousDuration = clip.length;
-    			StackSequence.AppendCallback(() => SoundManager.Instance.PlaySFX(name, volume, Category, Priority, this));
-    			StackSequence.AppendInterval(clip.length);
+    			//StackSequence.AppendCallback(() => SoundManager.Instance.PlaySFX(name, volume, Category, Priority, this));
+    			//StackSequence.AppendInterval(clip.length);
     			return this;
             }
 
