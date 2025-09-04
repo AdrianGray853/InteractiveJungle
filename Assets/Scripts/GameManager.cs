@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Interactive.DRagDrop;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject currentSpawnedFood;
     //public GameObject leaves;
    public LeafRakingManager rakingManager;
+    public LoadScene sceneLoader;
     public static GameManager instance;
     public string GenerateRandomKey(int length = 8)
     {
@@ -36,28 +38,28 @@ public class GameManager : MonoBehaviour
     }
     public void UnlockNextDragDrop()
     {
-        SceneManager.LoadScene("DragAndDropWord");
+       sceneLoader.LoadScen("DragAndDropWord");
         ////background.UnlockNext();
         //Debug.Log($"last: {background.GetNextUnlock()}");
         //GameData.GetBackgroundPuzzel = background.GetNextUnlock();
     }
     public void UnlockNextBackground()
     {
-        SceneManager.LoadScene("UnlockBackground");
+        sceneLoader.LoadScen("UnlockBackground");
         ////background.UnlockNext();
         //Debug.Log($"last: {background.GetNextUnlock()}");
         //GameData.GetBackgroundPuzzel = background.GetNextUnlock();
     }
     public void UnlockNextDecoration()
     {
-        SceneManager.LoadScene("UnlockDecoraion");
+        sceneLoader.LoadScen("UnlockDecoraion");
         ////background.UnlockNext();
         //Debug.Log($"last: {background.GetNextUnlock()}");
         //GameData.GetBackgroundPuzzel = background.GetNextUnlock();
     }
     public void UnlockNextAnimal()
     {
-        SceneManager.LoadScene("UnlockAnimal");
+        sceneLoader.LoadScen("UnlockAnimal");
         ////background.UnlockNext();
         //Debug.Log($"last: {background.GetNextUnlock()}");
         //GameData.GetBackgroundPuzzel = background.GetNextUnlock();
