@@ -6,9 +6,13 @@ public class BtnPanel : MonoBehaviour
     private Animator animator;
     private bool openedPanel;
     public GameObject panel;
-    void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
+
+    }
+    void Start()
+    {
         GetComponent<Button>().onClick.AddListener(() =>
         {
             UiManager.Instance.OpenPanel(this);

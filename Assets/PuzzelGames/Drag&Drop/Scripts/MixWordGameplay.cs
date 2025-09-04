@@ -26,6 +26,8 @@ namespace Interactive.DRagDrop
         public GameObject PuzzelSolvedPanel;
         public Image puzzelSprite;
         public string key;
+        public int sessionId;
+
         public RawImage Fader;
         public GameObject PopUp;
 
@@ -111,7 +113,7 @@ namespace Interactive.DRagDrop
             SoundManager.Instance.PlaySFX("FinishMiniGame_3");
             string[] sfxx = new string[] { "good_job", "do_again", "did_great", "did_all", "play_again" };
             SoundManager.Instance.PlaySFX(sfxx.GetRandomElement());
-            Transform panelChild = PuzzelSolvedPanel.transform.GetChild(0);
+            Transform panelChild = PuzzelSolvedPanel.transform.GetChild(1);
             panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
 
             PlayerPrefs.SetInt(key, wordIndex);
@@ -120,6 +122,7 @@ namespace Interactive.DRagDrop
             PuzzelSolvedPanel.SetActive(true);
             // animate scale to 1 smoothly
             panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+            PlayerPrefs.SetInt("Session", sessionId);
 
             Invoke(nameof(GoHome), 3);
             //DOTween.Sequence()

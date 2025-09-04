@@ -44,6 +44,8 @@ namespace Interactive.PuzzelShape
         public GameObject PuzzelSolvedPanel;
         public Image puzzelSprite;
         public string key;
+        public int sessionId;
+
         public ParticleSystem DoneFX;
         public float HintTimer = 10.0f;
         public NavigationController Navigation;
@@ -291,7 +293,7 @@ namespace Interactive.PuzzelShape
             puzzelSprite.sprite = LevelsSprite[CurrentLevelIdx];
 
             // set initial small scale
-            Transform panelChild = PuzzelSolvedPanel.transform.GetChild(0);
+            Transform panelChild = PuzzelSolvedPanel.transform.GetChild(1);
             panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
 
             CurrentLevelIdx += Direction;
@@ -302,6 +304,7 @@ namespace Interactive.PuzzelShape
 
             // animate scale to 1 smoothly
             panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+            PlayerPrefs.SetInt("Session", sessionId);
 
             Invoke(nameof(GoHome), 3);
             //CurrentLevel = Instantiate(Levels[CurrentLevelIdx]);

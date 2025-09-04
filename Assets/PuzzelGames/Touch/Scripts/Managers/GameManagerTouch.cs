@@ -33,6 +33,8 @@ using UnityEngine;
         public GameObject tracingSolvedPanel;
         public Image tracingSprite;
         public string key;
+        public int sessionId;
+
         public CategoryRangeConfigSO CategoryConfig;
     	[System.NonSerialized]
     	public int CurrentLevel;
@@ -288,7 +290,7 @@ using UnityEngine;
                 tracingSprite.sprite = LevelsSprite[CurrentLevel];
 
             // set initial small scale
-            Transform panelChild = tracingSolvedPanel.transform.GetChild(0);
+            Transform panelChild = tracingSolvedPanel.transform.GetChild(1);
             panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
 
             PlayerPrefs.SetInt(key, ++GameDataTouch.Instance.SelectedLevel);
@@ -298,6 +300,7 @@ using UnityEngine;
 
             // animate scale to 1 smoothly
             panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+            PlayerPrefs.SetInt("Session", sessionId);
 
             Invoke(nameof(GoHome), 3);
             ShowStickerReward();

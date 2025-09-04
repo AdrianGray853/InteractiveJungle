@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System;
+using System.Collections;
 
 [System.Serializable]
 public class AnimalItem : BaseItem
@@ -9,13 +12,59 @@ public class AnimalItem : BaseItem
 public class Animals : Base<AnimalItem>
 {
     public string key;
+    public ScrollRect scrollRect;
+    public float scrollSpeed = 10f; // Higher = faster
     protected override void Start()
     {
         levelCounts = PlayerPrefs.GetInt(key, 0);
         UnlockLevels();
         base.Start();
 
+        RectTransform rect = scrollRect.content.transform.GetChild(levelCounts + 1).GetComponent<RectTransform>();
+        ScrollTo(rect);
     }
+    public void ScrollTo(RectTransform target)
+    {
+        StartCoroutine(ScrollToCoroutine(target));
+    }
+
+    private IEnumerator ScrollToCoroutine(RectTransform target)
+    {
+        RectTransform content = scrollRect.content;
+        RectTransform viewport = scrollRect.viewport;
+
+        // Viewport ka center world point
+        Vector3 viewportCenterWorld = viewport.position;
+
+        // Target ka world point
+        Vector3 targetWorld = target.position;
+
+        // Offset (target ko viewport ke center pe lana hai, vertical me Y axis ka use hoga)
+        float diff = viewportCenterWorld.y - targetWorld.y;
+
+        // New Y position (x,z preserve)
+        float newY = content.position.y + diff;
+
+        // Clamp karna hoga taake content bahar na nikle
+        float contentHeight = content.rect.height;
+        float viewportHeight = viewport.rect.height;
+        float minY = viewport.position.y - (contentHeight - viewportHeight) * 0.5f;
+        float maxY = viewport.position.y + (contentHeight - viewportHeight) * 0.5f;
+
+        newY = Mathf.Clamp(newY, minY, maxY);
+
+        // Smoothly move only Y
+        while (Mathf.Abs(content.position.y - newY) > 0.01f)
+        {
+            float y = Mathf.Lerp(content.position.y, newY, Time.deltaTime * scrollSpeed);
+            content.position = new Vector3(content.position.x, y, content.position.z);
+            yield return null;
+        }
+
+        // Snap to final pos
+        content.position = new Vector3(content.position.x, newY, content.position.z);
+    }
+
     public override AnimalItem CloneItem(AnimalItem original)
     {
         return new AnimalItem

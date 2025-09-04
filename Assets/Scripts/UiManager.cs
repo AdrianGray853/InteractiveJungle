@@ -17,8 +17,22 @@ public class UiManager : MonoBehaviour
 
     public Transform camTransform;
     private BtnPanel prePanel;
+    public BtnPanel[] prePanelList;
+
     [HideInInspector]
     public bool panelOpen;
+    void Start()
+    {
+      
+     
+            SessionData.Instance.SessionID = PlayerPrefs.GetInt("Session", -1);
+
+            if (SessionData.Instance.SessionID >= 0)
+                OpenPanel(prePanelList[SessionData.Instance.SessionID]);
+            PlayerPrefs.DeleteKey("Session");
+
+
+    }
     public void OpenPanel(BtnPanel btn)
     {
         if (GameManager.instance.currentDrag != null)

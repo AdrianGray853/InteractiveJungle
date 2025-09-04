@@ -5752,6 +5752,12 @@ MonoBehaviour:
   - UnlockDecoraion
   - UnlockAnimal
   camTransform: {fileID: 2143936622}
+  prePanelList:
+  - {fileID: 1702379884}
+  - {fileID: 496035933}
+  - {fileID: 2029822159}
+  - {fileID: 4528}
+  - {fileID: 1914893981}
   panelOpen: 0
 --- !u!114 &248604299
 MonoBehaviour:
@@ -5899,6 +5905,8 @@ MonoBehaviour:
     drag: {fileID: 1192301017}
   activeItems: []
   key: Background
+  scrollRect: {fileID: 700988625}
+  scrollSpeed: 10
   itemObjects:
   - {fileID: 1896443964}
   - {fileID: 1125056633}
@@ -6117,6 +6125,8 @@ MonoBehaviour:
     drag: {fileID: 8041739979395876107}
   activeItems: []
   key: Animal
+  scrollRect: {fileID: 1514514805}
+  scrollSpeed: 10
   itemObjects:
   - {fileID: 916472583}
   - {fileID: 1590436248}
@@ -6363,6 +6373,8 @@ MonoBehaviour:
     drag: {fileID: 873265621}
   activeItems: []
   key: Decoration
+  scrollRect: {fileID: 170756509}
+  scrollSpeed: 10
   itemObjects:
   - {fileID: 1286800263}
   - {fileID: 2045731695}
@@ -6519,6 +6531,8 @@ MonoBehaviour:
     drag: {fileID: 1059294922}
   activeItems: []
   key: Birds
+  scrollRect: {fileID: 219315426}
+  scrollSpeed: 10
   itemObjects:
   - {fileID: 1776221830}
   - {fileID: 1663981425}
@@ -6582,8 +6596,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupPrefab: {fileID: 3337283096341311684}
-  firstDelay: 5
-  nextPopupDelay: {x: 15, y: 30}
+  firstDelay: 15
+  nextPopupDelay: {x: 30, y: 45}
 --- !u!1 &250764400
 GameObject:
   m_ObjectHideFlags: 0
@@ -13372,7 +13386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3bf888c5bf2ce4b957882a53b5ffd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectType: 0
+  effectType: 5
   speed: 2
   rotateSpeed: 90
   scaleAmount: 1.2
@@ -50687,7 +50701,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2114674508}
-  - component: {fileID: 2114674507}
+  - component: {fileID: 2114674509}
   m_Layer: 0
   m_Name: UnlockManager
   m_TagString: Untagged
@@ -50695,18 +50709,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2114674507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114674506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf953ab6957889042bbf9ba4e6768240, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2114674508
 Transform:
   m_ObjectHideFlags: 0
@@ -50722,6 +50724,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2114674509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114674506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c5b419392aa57419feb0472fb3d5da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SessionID: 0
 --- !u!1 &2117067153
 GameObject:
   m_ObjectHideFlags: 0
@@ -51774,8 +51789,8 @@ RectTransform:
   m_GameObject: {fileID: 2250854655734385700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9107581281252553659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51929,9 +51944,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 649179653584804801, guid: 0106f115b3962d5448f2242d3f19d8f1, type: 3}
+  m_Sprite: {fileID: -5785792849582130394, guid: c12bfb99b39303e4bac316c352d0cc90, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
