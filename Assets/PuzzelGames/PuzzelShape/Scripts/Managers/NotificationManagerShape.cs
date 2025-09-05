@@ -10,8 +10,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    #if UNITY_IOS
-using Unity.Notifications.iOS;
+#if UNITY_IOS
+    using Unity.Notifications.iOS;
 
 
     public class NotificationManagerShape : MonoBehaviour
