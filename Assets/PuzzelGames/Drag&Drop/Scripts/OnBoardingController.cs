@@ -196,11 +196,11 @@ using UnityEngine.UI;
 
     	public void ShowBirthdayPopup()
     	{
-    		if (ProductManager.Instance.State == ProductManager.eState.Initiating || ProductManager.Instance.State == ProductManager.eState.FailedToInitialize)
-            {
-    			ShowNoInternet();
-    			return;
-            }
+    		//if (ProductManager.Instance.State == ProductManager.eState.Initiating || ProductManager.Instance.State == ProductManager.eState.FailedToInitialize)
+      //      {
+    		//	ShowNoInternet();
+    		//	return;
+      //      }
 
     		if (PopupTween != null)
     			PopupTween.Kill(true);
@@ -352,7 +352,7 @@ using UnityEngine.UI;
     			.AppendCallback(() =>
     				{
     					LoadingPanel.gameObject.SetActive(true);
-    					ProductManager.Instance.BuySubscription();
+    					//ProductManager.Instance.BuySubscription();
     				});
 
     		PopupTween = s;
@@ -381,12 +381,12 @@ using UnityEngine.UI;
 
     	private void OnEnable()
     	{
-    		ProductManager.Instance.OnStoreResults += OnStoreResults;
+    		//ProductManager.Instance.OnStoreResults += OnStoreResults;
     	}
 
     	private void OnDisable()
     	{
-    		ProductManager.Instance.OnStoreResults -= OnStoreResults;
+    		//ProductManager.Instance.OnStoreResults -= OnStoreResults;
     	}
 
     	private void OnStoreResults(bool success)
@@ -406,7 +406,7 @@ using UnityEngine.UI;
 
     	public void OnRestoreClick()
     	{
-    		ProductManager.Instance.RestoreSubscription();
+    		//ProductManager.Instance.RestoreSubscription();
     	}
 
     	public void OnPrivacyClick()

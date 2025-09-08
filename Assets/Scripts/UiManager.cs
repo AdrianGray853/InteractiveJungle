@@ -23,13 +23,32 @@ public class UiManager : MonoBehaviour
     public bool panelOpen;
     void Start()
     {
-      
-     
-            SessionData.Instance.SessionID = PlayerPrefs.GetInt("Session", -1);
 
-            if (SessionData.Instance.SessionID >= 0)
-                OpenPanel(prePanelList[SessionData.Instance.SessionID]);
-            PlayerPrefs.DeleteKey("Session");
+        SessionData.Instance.SessionID = PlayerPrefs.GetInt("Session", -1);
+
+        SessionData.Instance.SessionID = PlayerPrefs.GetInt("Session", -1);
+
+        if (SessionData.Instance.SessionID >= 0)
+        {
+            OpenPanel(prePanelList[SessionData.Instance.SessionID]);
+            if (Random.Range(0, 2) == 1)
+                SoundManager.Instance.PlayVoiceOver(VoiceOverType.WellDoneYouUnlockedSomethingNew);
+            else
+                SoundManager.Instance.PlayVoiceOver(VoiceOverType.GreatJobYouUnlockedSomethingNew);
+
+            SoundManager.Instance.PlaySFX(SFXType.GiftFromCompletedActivity);
+
+
+        }
+        else
+        {
+            this.Invoke(() =>
+            {
+                SoundManager.Instance.PlayVoiceOver(VoiceOverType.WelcomeToTheJungleDecorateAndMeetNewFriends);
+            }, 2.5f);
+
+        }
+        PlayerPrefs.DeleteKey("Session");
 
 
     }

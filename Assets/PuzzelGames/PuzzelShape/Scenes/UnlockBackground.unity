@@ -1692,6 +1692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4edc2da31fd4705828511e65e8a94f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableEditorLogging: 0
 --- !u!222 &3243507973267046430
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2664,6 +2665,24 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: b54bc9a137094a19bc6912506901628d, type: 3}
   - Name: BuildXelophonPuzzle
     Clip: {fileID: 8300000, guid: 0bc3fc6576f046509951ec38c0c4e9d1, type: 3}
+  - Name: BuildShape
+    Clip: {fileID: 8300000, guid: bed22566f3701e54a87966e32c8f5734, type: 3}
+  - Name: BuildPuzzel
+    Clip: {fileID: 8300000, guid: 17f7d740bccbc9044a1098aead1d3ab7, type: 3}
+  - Name: TracethePath
+    Clip: {fileID: 0}
+  - Name: BuildWord
+    Clip: {fileID: 8300000, guid: e15ecd4975557264086ee566121b7246, type: 3}
+  - Name: PickColor
+    Clip: {fileID: 8300000, guid: 66dd6d0cba497e34982a7c934d28c51e, type: 3}
+  - Name: SoNice
+    Clip: {fileID: 0}
+  - Name: ThatsFun
+    Clip: {fileID: 0}
+  - Name: ThatsAmazing
+    Clip: {fileID: 8300000, guid: 1e7042ab429941c4d9daac8cca5bbc30, type: 3}
+  - Name: DoneActivity
+    Clip: {fileID: 8300000, guid: 308efa920d69076449e53132e7acf7a1, type: 3}
   InitMusic: MainMenuMusic
   SFXSource: {fileID: 4199522175495769255}
 --- !u!224 &3410349663388908896
@@ -9446,6 +9465,12 @@ MonoBehaviour:
   PuzzelSolvedPanel: {fileID: 892398376}
   puzzelSprite: {fileID: 1415347818}
   key: Background
+  SoundName: BuildPuzzel
+  boostSounds:
+  - DoneActivity
+  - ThatsFun
+  - SoNice
+  - ThatsAmazing
   sessionId: 0
   DoneFX: {fileID: 8415969011408774450}
   HintTimer: 10

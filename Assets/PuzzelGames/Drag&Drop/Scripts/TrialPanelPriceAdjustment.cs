@@ -16,7 +16,7 @@ using UnityEngine;
 
         private void OnEnable()
         {
-            textMesh.text = ProductManager.Instance.SubscriptionText;
+            //textMesh.text = ProductManager.Instance.SubscriptionText;
         }
     }
 

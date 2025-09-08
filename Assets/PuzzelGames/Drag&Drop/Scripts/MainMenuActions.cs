@@ -33,11 +33,11 @@ using DG.Tweening;
     		if (!inputActive)
     			return;
 
-    		if (!ProductManager.Instance.IsSubscribed)
-            {
-    			OnBoardingController.Instance.ShowInGame(0);
-    			return;
-            }
+    		//if (!ProductManager.Instance.IsSubscribed)
+      //      {
+    		//	OnBoardingController.Instance.ShowInGame(0);
+    		//	return;
+      //      }
 
     		SoundManager.Instance.PlaySFX("EnterAPlanetSound", 0.75f);
     		BigLetterPlanet.HideLetters();
@@ -49,11 +49,11 @@ using DG.Tweening;
     		if (!inputActive)
     			return;
 
-    		if (!ProductManager.Instance.IsSubscribed)
-    		{
-    			OnBoardingController.Instance.ShowInGame(1);
-    			return;
-    		}
+    		//if (!ProductManager.Instance.IsSubscribed)
+    		//{
+    		//	OnBoardingController.Instance.ShowInGame(1);
+    		//	return;
+    		//}
 
     		SoundManager.Instance.PlaySFX("EnterAPlanetSound", 0.75f);
     		SmallLetterPlanet.HideLetters();
@@ -76,11 +76,11 @@ using DG.Tweening;
     		if (!inputActive)
     			return;
 
-    		if (!ProductManager.Instance.IsSubscribed)
-    		{
-    			OnBoardingController.Instance.ShowInGame(2);
-    			return;
-    		}
+    		//if (!ProductManager.Instance.IsSubscribed)
+    		//{
+    		//	OnBoardingController.Instance.ShowInGame(2);
+    		//	return;
+    		//}
 
     		SoundManager.Instance.PlaySFX("EnterAPlanetSound", 0.75f);
     		MinigamesPlanet.ShowSelectedAnimation();
@@ -112,26 +112,26 @@ using DG.Tweening;
 
         private void Update()
         {
-    		if (ProductManager.Instance.State == ProductManager.eState.Initiating)
-    			return;
+    		//if (ProductManager.Instance.State == ProductManager.eState.Initiating)
+    		//	return;
 
-    		foreach (var lockGraphic in LockedGraphics)
-    		{
-    			if (lockGraphic.activeSelf == ProductManager.Instance.IsSubscribed) // Checking as SetActive might do more stuff behind the scenes...
-    				lockGraphic.SetActive(!ProductManager.Instance.IsSubscribed);
-    		}
+    		//foreach (var lockGraphic in LockedGraphics)
+    		//{
+    		//	if (lockGraphic.activeSelf == ProductManager.Instance.IsSubscribed) // Checking as SetActive might do more stuff behind the scenes...
+    		//		lockGraphic.SetActive(!ProductManager.Instance.IsSubscribed);
+    		//}
 
     		if (TransitionManager.Instance.InTransition)
     			return;
 
     		inputActive = true;
 
-    		if (ProductManager.Instance.State == ProductManager.eState.Initialized && !ProductManager.Instance.IsSubscribed && !ProgressManager.Instance.IsOnboardingShown()) // TODO: Check the save file for only one onboarding show!
-    		{
-    			ProgressManager.Instance.SetOnboardingShown(true);
-    			//OnBoardingController.Instance.ShowInGame();
-    			OnBoardingController.Instance.ShowOnBoarding();
-    		}
+    		//if (ProductManager.Instance.State == ProductManager.eState.Initialized && !ProductManager.Instance.IsSubscribed && !ProgressManager.Instance.IsOnboardingShown()) // TODO: Check the save file for only one onboarding show!
+    		//{
+    		//	ProgressManager.Instance.SetOnboardingShown(true);
+    		//	//OnBoardingController.Instance.ShowInGame();
+    		//	OnBoardingController.Instance.ShowOnBoarding();
+    		//}
 
     		if (OnBoardingController.Instance.IsOnBoardingActive)
     			return; // Don't do anything bello from here, like hints etc...

@@ -16,7 +16,7 @@ using UnityEngine;
 
         private void Start()
         {
-            textMesh.text = ProductManagerTouch.Instance.SubscriptionText;
+            //textMesh.text = ProductManagerTouch.Instance.SubscriptionText;
         }
     }
 

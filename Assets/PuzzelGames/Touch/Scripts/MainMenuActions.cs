@@ -38,12 +38,12 @@ using UnityEngine;
 
     	private void OnEnable()
     	{
-    		ProductManagerTouch.Instance.OnStoreResults += StoreResult;
+    		//ProductManagerTouch.Instance.OnStoreResults += StoreResult;
     	}
 
     	private void OnDisable()
     	{
-    		ProductManagerTouch.Instance.OnStoreResults -= StoreResult;
+    		//ProductManagerTouch.Instance.OnStoreResults -= StoreResult;
     	}
 
     	private void StoreResult(bool Success)
@@ -82,18 +82,18 @@ using UnityEngine;
 
     	private void Update()
     	{
-    		if (ProductManagerTouch.Instance.State == ProductManagerTouch.eState.Initiating)
-    			return;
+    		//if (ProductManagerTouch.Instance.State == ProductManagerTouch.eState.Initiating)
+    		//	return;
 
     		if (TransitionManagerTouch.Instance.InTransition)
     			return;
 
-    		if (ProductManagerTouch.Instance.State == ProductManagerTouch.eState.Initialized && !ProductManagerTouch.Instance.IsSubscribed && !ProgressManagerTouch.Instance.IsOnboardingShown()) // TODO: Check the save file for only one onboarding show!
-    		{
-    			ProgressManagerTouch.Instance.SetOnboardingShown(true);
-    			//OnBoardingControllerTouch.Instance.ShowInGame();
-    			OnBoardingControllerTouch.Instance.ShowOnBoarding();
-    		}
+    		//if (ProductManagerTouch.Instance.State == ProductManagerTouch.eState.Initialized && !ProductManagerTouch.Instance.IsSubscribed && !ProgressManagerTouch.Instance.IsOnboardingShown()) // TODO: Check the save file for only one onboarding show!
+    		//{
+    		//	ProgressManagerTouch.Instance.SetOnboardingShown(true);
+    		//	//OnBoardingControllerTouch.Instance.ShowInGame();
+    		//	OnBoardingControllerTouch.Instance.ShowOnBoarding();
+    		//}
 
     		if (OnBoardingControllerTouch.Instance.IsOnBoardingActive)
     			return; // Don't do anything bello from here, like hints etc...

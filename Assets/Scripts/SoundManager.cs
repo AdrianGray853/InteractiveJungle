@@ -1,125 +1,151 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static SoundManager;
+
+[Serializable]
+public class VoiceOverEntry
+{
+    public VoiceOverType type;
+    public AudioClip clip;
+}
+
+[Serializable]
+public class SFXEntry
+{
+    public SFXType type;
+    public AudioClip clip;
+}
+
+public enum VoiceOverType
+{
+    // Jungle-specific
+    WelcomeToTheJungleDecorateAndMeetNewFriends,
+    RakeTheLeavesOnTheGround,
+    TakeCareOfYourJungleFriendsAndFeedThemEveryDay,
+
+    // Common
+    GreatJobYouUnlockedSomethingNew,
+    WellDoneYouUnlockedSomethingNew,
+    LetsBuildTheObjectFromShapes,
+    LetsBuildTheWordPlaceEachLetter,
+    LetsColorPickYourFavoriteColors,
+    LetsDoAPuzzle,
+    LetsTraceThePathFollowTheLine,
+    LetsPlayAndUnlockNewThings,
+    SoNice,
+    ThatsAmazing,
+    ThatsSoFun
+}
+
+public enum SFXType
+{
+    // Jungle-specific
+    MainMusicJungle,
+    AnimalsEating,
+    RakingTheLeaves,
+
+    // Common
+    Click,
+    DoneActivity,
+    DragAndDrop,
+    GiftFromCompletedActivity,
+    HomeButtonFromActivities,
+    Unlock
+}
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance;
+    public static SoundManager Instance;
 
-    public AudioSource bgAudioSource;
-    public AudioSource gameAudioSource;
+    [Header("Audio Sources")]
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource sfxMusicSource;
+    [SerializeField] private AudioSource voiceOverSource;
 
+    [Header("VoiceOvers Mapping")]
+    [SerializeField] private List<VoiceOverEntry> voiceOverEntries = new List<VoiceOverEntry>();
 
+    [Header("SFX Mapping")]
+    [SerializeField] private List<SFXEntry> sfxEntries = new List<SFXEntry>();
 
-    public AudioClip bgSound;
-    public AudioClip gameOver;
-    public AudioClip buttonSound;
-    // public AudioClip runningSound;
-    //public AudioClip shootSound;
+    private Dictionary<VoiceOverType, AudioClip> voiceOverDict;
+    private Dictionary<SFXType, AudioClip> sfxDict;
 
-    public AudioClip CollectCoin;
-    bool mapIsPlaying, encounterIsPlaying, bossIsPlaying;
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
         DontDestroyOnLoad(gameObject);
-        InitializeValues();
-    }
-    void InitializeValues()
-    {
-        if (!PlayerPrefs.HasKey("music"))
+
+        // Convert lists to dictionaries
+        voiceOverDict = new Dictionary<VoiceOverType, AudioClip>();
+        foreach (var entry in voiceOverEntries)
         {
-            PlayerPrefs.SetInt("music", 1);
+            if (!voiceOverDict.ContainsKey(entry.type))
+                voiceOverDict.Add(entry.type, entry.clip);
         }
 
-        if (!PlayerPrefs.HasKey("sound"))
+        sfxDict = new Dictionary<SFXType, AudioClip>();
+        foreach (var entry in sfxEntries)
         {
-            PlayerPrefs.SetInt("sound", 1);
-        }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (PlayerPrefs.GetInt("music") == 1)
-        {
-            playBGSound();
-        }
-        else
-        {
-            stopBGSound();
-        }
-
-        if (PlayerPrefs.GetInt("sound") == 1)
-        {
-            gameAudioSource.volume = 1;
-
-        }
-        else
-        {
-            gameAudioSource.volume = 0;
-
+            if (!sfxDict.ContainsKey(entry.type))
+                sfxDict.Add(entry.type, entry.clip);
         }
     }
 
-    // Update is called once per frame
-    private void TurnSceneDependentSoundsOFF()
+    #region Music
+    public void PlayMusic(SFXType type, bool loop = true)
     {
-
-        mapIsPlaying = false;
-        encounterIsPlaying = false;
-        bossIsPlaying = false;
-    }
-    void Update()
-    {
-
+        if (sfxDict.TryGetValue(type, out var clip))
+        {
+            musicSource.clip = clip;
+            musicSource.loop = loop;
+            musicSource.Play();
+        }
     }
 
-    public void playBGSound()
+    public void StopMusic() => musicSource.Stop();
+    #endregion
+
+    #region SFX
+    public void PlaySFX(SFXType type)
     {
-        bgAudioSource.clip = bgSound;
-        bgAudioSource.Play();
-        TurnSceneDependentSoundsOFF();
+        if (sfxDict.TryGetValue(type, out var clip))
+            sfxSource.PlayOneShot(clip);
     }
 
-    public void stopBGSound()
+    public void PlaySFXMusic(SFXType type)
     {
-        bgAudioSource.Stop();
+        if (sfxDict.TryGetValue(type, out var clip))
+        {
+            sfxMusicSource.clip = clip;
+            sfxMusicSource.loop = true;
+            sfxMusicSource.Play();
+        }
     }
 
-    public void stopSound()
-    {
-        gameAudioSource.volume = 0;
+    public void StopSfxMusic() => sfxMusicSource.Stop();
+    #endregion
 
+    #region VoiceOvers
+    public void PlayVoiceOver(VoiceOverType type)
+    {
+        if (voiceOverDict.TryGetValue(type, out var clip))
+        {
+            voiceOverSource.Stop(); // only one VO at a time
+            voiceOverSource.clip = clip;
+            voiceOverSource.Play();
+        }
     }
 
-    public void enableSound()
-    {
-        gameAudioSource.volume = 1;
-
-    }
-
-    public void PlayButtonSound()
-    {
-        gameAudioSource.PlayOneShot(buttonSound);
-    }
-
-    // public void playRunningSound ()
-    // {
-    //     runningAudioSource.clip = runningSound;
-    //     runningAudioSource.Play();
-    // }
-
-
-    public void PlayGameOver()
-    {
-        gameAudioSource.PlayOneShot(gameOver);
-    }
-
+    public void StopVoiceOverMusic() => voiceOverSource.Stop();
+    #endregion
 }

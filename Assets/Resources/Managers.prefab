@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: -61315462005553765}
   - component: {fileID: -8132941243593162670}
   - component: {fileID: -463212265483626929}
-  - component: {fileID: -618855212449325732}
   - component: {fileID: 7119734405701500799}
   m_Layer: 0
   m_Name: Managers
@@ -127,9 +126,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameType: 5
   SelectedLevel: 0
-  MainMenuScrollOffset: 0
-  MainMenuEnableMask: 0
-  MainMenuCategory: 3
+  JungleScrollOffset: 0
+  JungleEnableMask: 0
+  JungleCategory: 3
 --- !u!114 &-2771936640249664640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,6 +653,24 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 3b88924295c384046ba3183ffd5fc82d, type: 3}
   - Name: briliant
     Clip: {fileID: 8300000, guid: 1345775e928e99c45a28e9c65e162ef0, type: 3}
+  - Name: BuildShape
+    Clip: {fileID: 8300000, guid: bed22566f3701e54a87966e32c8f5734, type: 3}
+  - Name: BuildPuzzel
+    Clip: {fileID: 8300000, guid: 17f7d740bccbc9044a1098aead1d3ab7, type: 3}
+  - Name: TracethePath
+    Clip: {fileID: 8300000, guid: b4bcfbdfbed3cf64dae2be4a3d5de81d, type: 3}
+  - Name: PickColor
+    Clip: {fileID: 8300000, guid: 66dd6d0cba497e34982a7c934d28c51e, type: 3}
+  - Name: SoNice
+    Clip: {fileID: 8300000, guid: 9d68114ec94183f4991271528c2aa63f, type: 3}
+  - Name: ThatsAmazing
+    Clip: {fileID: 8300000, guid: 1e7042ab429941c4d9daac8cca5bbc30, type: 3}
+  - Name: ThatsFun
+    Clip: {fileID: 8300000, guid: e32e2082b9b35c444ab9f7fe201f5c1e, type: 3}
+  - Name: DoneActivity
+    Clip: {fileID: 8300000, guid: 308efa920d69076449e53132e7acf7a1, type: 3}
+  - Name: PlaceWord
+    Clip: {fileID: 8300000, guid: e15ecd4975557264086ee566121b7246, type: 3}
   InitMusic: MainMenu
   SFXSource: {fileID: 7119734405701500799}
 --- !u!114 &-61315462005553765
@@ -699,19 +716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974701db22136294384a70a40d0b8a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-618855212449325732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6476462830394674336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50458f1a28d627644b6812df6f000157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  subscriptionProductId: com.drawing.subscription.3
 --- !u!82 &7119734405701500799
 AudioSource:
   m_ObjectHideFlags: 0

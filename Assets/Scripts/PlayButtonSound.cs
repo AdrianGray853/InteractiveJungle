@@ -12,6 +12,6 @@ public class PlayButtonSound : MonoBehaviour
     }
     public void PlaySound()
     {
-        SoundManager.instance.PlayButtonSound();
+        //SoundManager.instance.PlayButtonSound();
     }
 }

@@ -41,11 +41,11 @@ public class ActivityPopup : MonoBehaviour
     private void ShowPopup()
     {
         if (popupActive) return;
-
+        SoundManager.Instance.PlayVoiceOver(VoiceOverType.LetsPlayAndUnlockNewThings);
         popupPrefab.SetActive(true);
         popupActive = true;
 
-      
+
     }
 
     public void OnPopupClicked()

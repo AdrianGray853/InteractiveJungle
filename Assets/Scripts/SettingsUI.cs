@@ -26,12 +26,12 @@ public class SettingsUI : MonoBehaviour
         if (PlayerPrefs.GetInt("music") == 1)
         {
             PlayerPrefs.SetInt("music", 0);
-            SoundManager.instance.stopBGSound();
+            //SoundManager.instance.stopBGSound();
         }
         else
         {
             PlayerPrefs.SetInt("music", 1);
-            SoundManager.instance.playBGSound();
+            //SoundManager.instance.playBGSound();
         }
         setSoundSettings();
     }
@@ -41,19 +41,19 @@ public class SettingsUI : MonoBehaviour
         if (PlayerPrefs.GetInt("sound") == 1)
         {
             PlayerPrefs.SetInt("sound", 0);
-            SoundManager.instance.stopSound();
+            //SoundManager.instance.stopSound();
         }
         else
         {
             PlayerPrefs.SetInt("sound", 1);
-            SoundManager.instance.enableSound();
+            //SoundManager.instance.enableSound();
         }
         setSoundSettings();
     }
 
     public void onBackButton ()
     {
-        SoundManager.instance.PlayButtonSound();
+        //SoundManager.instance.PlayButtonSound();
         //GetComponent<Animator>().Play(disableAnimation);
         Invoke("onExit", 0.4f);
     }
@@ -86,7 +86,7 @@ public class SettingsUI : MonoBehaviour
 
     private void OnDisable()
     {
-        SoundManager.instance.PlayButtonSound();
+        //SoundManager.instance.PlayButtonSound();
        // GetComponent<Animator>().Play(disableAnimation);
     }
 }

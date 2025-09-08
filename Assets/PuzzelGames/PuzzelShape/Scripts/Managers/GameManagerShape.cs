@@ -1,22 +1,15 @@
 using DG.Tweening;
-using System;
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+using UnityEngine.UI;
 
 namespace Interactive.PuzzelShape
 {
 
-    using DG.Tweening;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using UnityEngine;
-    using UnityEngine.UI;
-    using UnityEngine.SceneManagement;
 
     public class GameManagerShape : MonoBehaviour
     {
@@ -44,8 +37,9 @@ namespace Interactive.PuzzelShape
         public GameObject PuzzelSolvedPanel;
         public Image puzzelSprite;
         public string key;
+        public string SoundName;
+        public string[] boostSounds;
         public int sessionId;
-
         public ParticleSystem DoneFX;
         public float HintTimer = 10.0f;
         public NavigationController Navigation;
@@ -89,7 +83,7 @@ namespace Interactive.PuzzelShape
 
         void Start()
         {
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
             var dropzone = GameObject.FindObjectsOfType<MonoBehaviour>().OfType<IDropZone>().FirstOrDefault();
             if (SceneLoaderShape.Instance.LastScene == "Loader" && dropzone != null)
             {
@@ -103,22 +97,24 @@ namespace Interactive.PuzzelShape
 
                 CurrentLevelIdx = GameDataShape.Instance.SelectedLevel;
                 CurrentLevel = Instantiate(Levels[CurrentLevelIdx]);
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
             }
-    #endif
+#endif
             Navigation.NextLevelButton.gameObject.SetActive(false);
             NotifyLevelChanged();
+            SoundManagerShape.Instance.PlaySFX(SoundName);
+
 
             // Photo stuff
             if (GameDataShape.Instance.GameType == GameDataShape.eGameType.Coloring)
             {
                 SoundManagerShape.Instance.PlaySFX("TouchToFeelTheColor");
 
-                var permission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write, NativeGallery.MediaType.Image);
-                if (permission == NativeGallery.Permission.Denied)
-                    PhotoIcon.gameObject.SetActive(false);
-                else if (permission == NativeGallery.Permission.ShouldAsk)
-                    ShouldAskForPhoto = true;
+                //var permission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write, NativeGallery.MediaType.Image);
+                //if (permission == NativeGallery.Permission.Denied)
+                //    PhotoIcon.gameObject.SetActive(false);
+                //else if (permission == NativeGallery.Permission.ShouldAsk)
+                //    ShouldAskForPhoto = true;
             }
             else if (GameDataShape.Instance.GameType == GameDataShape.eGameType.Memory)
             {
@@ -130,6 +126,9 @@ namespace Interactive.PuzzelShape
             }
 
             SoundManagerShape.Instance.CrossFadeMusic(GetLevelMusic(GameDataShape.Instance.GameType), 2.0f);
+
+
+
         }
 
         private void Update()
@@ -187,7 +186,7 @@ namespace Interactive.PuzzelShape
             //color.a = 0f;
             //NextLevelButton.color = color;
             //NextLevelButton.DOFade(1.0f, 0.5f);
-            SoundManagerShape.Instance.PlaySFX("NextLevelAppear", 0.5f);
+            //SoundManagerShape.Instance.PlaySFX("NextLevelAppear", 0.5f);
 
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(Navigation.NextLevelButton.transform.position);
             worldPos.z = 0f;
@@ -220,14 +219,14 @@ namespace Interactive.PuzzelShape
             if (gameDone)
                 return;
 
-    #if UNITY_IOS
-              if (!ProgressManagerShape.Instance.IsReviewShown(GameDataShape.Instance.GameType) && (CurrentLevelIdx == ReviewLevel))
-              {
-                  Debug.Log("Asking for review!");
-                  UnityEngine.iOS.Device.RequestStoreReview();
-                  ProgressManagerShape.Instance.SetReviewShow(GameDataShape.Instance.GameType);
-              }
-    #endif
+#if UNITY_IOS
+            if (!ProgressManagerShape.Instance.IsReviewShown(GameDataShape.Instance.GameType) && (CurrentLevelIdx == ReviewLevel))
+            {
+                Debug.Log("Asking for review!");
+                UnityEngine.iOS.Device.RequestStoreReview();
+                ProgressManagerShape.Instance.SetReviewShow(GameDataShape.Instance.GameType);
+            }
+#endif
 
             //        AnalyticsManager.Instance.LevelEnded(true);
             if (CurrentLevelIdx >= Levels.Length - 1)
@@ -236,7 +235,7 @@ namespace Interactive.PuzzelShape
                 gameDone = true;
                 ProgressManagerShape.Instance.SetGameDone(GameDataShape.Instance.GameType);
                 DOTween.Sequence().AppendInterval(1.0f)
-                    .AppendCallback(() => SoundManagerShape.Instance.PlaySFX("FinishedLevels"));
+                    .AppendCallback(() => SoundManagerShape.Instance.PlaySFX("/*FinishedLevels*/"));
                 if (GameDataShape.Instance.GameType == GameDataShape.eGameType.Coloring && CurrentLevel.GetComponent<FillColorOnTouch>().IsDone())
                     StartCoroutine(DelayedIcon(eDelayedAction.GameDone));
                 else
@@ -266,7 +265,7 @@ namespace Interactive.PuzzelShape
         private void ShowDone()
         {
             //DoneFX.Play();
-            SoundManagerShape.Instance.PlaySFX("LevelDone");
+            SoundManagerShape.Instance.PlaySFX("DoneActivity");
             TransitionManagerShape.Instance.SetDefaultFadeColor();
             /*
             DOTween.Sequence()
@@ -284,27 +283,35 @@ namespace Interactive.PuzzelShape
                 SceneLoaderShape.Instance.LoadScene("Jungle");
             }).PrependInterval(0.0f);
         }
-
+        public void PlayRandomSound()
+        {
+            if (Random.Range(0, 4) == 1)
+            {
+                SoundManagerShape.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
+            }
+        }
         private void AdvanceLevel(int Direction)
         {
             Cleanup();
             Destroy(CurrentLevel);
-            if(LevelsSprite.Length> CurrentLevelIdx)
-            puzzelSprite.sprite = LevelsSprite[CurrentLevelIdx];
-
-            // set initial small scale
+            if (LevelsSprite.Length > CurrentLevelIdx)
+                puzzelSprite.sprite = LevelsSprite[CurrentLevelIdx];
+            Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
+            SoundManagerShape.Instance.PlaySFX("DoneActivity");
+            SoundManagerShape.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
             Transform panelChild = PuzzelSolvedPanel.transform.GetChild(1);
             panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
 
             CurrentLevelIdx += Direction;
-            PlayerPrefs.SetInt(key, ++GameDataShape.Instance.SelectedLevel);
+            int UpLevel = PlayerPrefs.GetInt(key) + 1;
+            PlayerPrefs.SetInt(key, UpLevel);
             Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
 
             PuzzelSolvedPanel.SetActive(true);
+            PlayerPrefs.SetInt("Session", sessionId);
 
             // animate scale to 1 smoothly
             panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
-            PlayerPrefs.SetInt("Session", sessionId);
 
             Invoke(nameof(GoHome), 3);
             //CurrentLevel = Instantiate(Levels[CurrentLevelIdx]);
@@ -355,9 +362,9 @@ namespace Interactive.PuzzelShape
 
             if (ShouldAskForPhoto)
             {
-                var permission = NativeGallery.RequestPermission(NativeGallery.PermissionType.Write, NativeGallery.MediaType.Image);
-                if (permission == NativeGallery.Permission.Denied)
-                    return;
+                //    var permission = NativeGallery.RequestPermission(NativeGallery.PermissionType.Write, NativeGallery.MediaType.Image);
+                //    if (permission == NativeGallery.Permission.Denied)
+                //        return;
             }
 
             StartCoroutine(DelayedScreenshot());
@@ -393,7 +400,7 @@ namespace Interactive.PuzzelShape
             yield return null;
 
             string screenshotFileName = "Screenshot" + ProgressManagerShape.Instance.GetScreenShotId() + System.DateTime.Now.ToString("yyyyMMddhhmmss") + ".png";
-            NativeGallery.SaveImageToGallery(texture, Application.productName, screenshotFileName);
+            //NativeGallery.SaveImageToGallery(texture, Application.productName, screenshotFileName);
             ProgressManagerShape.Instance.SetScreenshotId(ProgressManagerShape.Instance.GetScreenShotId() + 1);
 
             if (photoFrameSequence != null)
@@ -530,7 +537,7 @@ namespace Interactive.PuzzelShape
         void NotifyLevelChanged()
         {
             ProgressManagerShape.Instance.UnlockLevel(GameDataShape.Instance.GameType, CurrentLevelIdx); // Mark current level as unfinished
-                                                                                               //  AnalyticsManager.Instance.LevelStarted(CurrentLevelIdx);
+                                                                                                         //  AnalyticsManager.Instance.LevelStarted(CurrentLevelIdx);
 
             if (ScrollPanelShape != null)
                 ScrollPanelShape.NotifyLevelChange();

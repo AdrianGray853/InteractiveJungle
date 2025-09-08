@@ -82,7 +82,7 @@ using UnityEngine;
                             item.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite =
                                 CaptureManager.Instance.GetExistingLevelSprite(GameType, range.Start + tmpJ, LevelIcons[range.Start + tmpJ]);
                         }
-                        item.transform.Find("Lock").gameObject.SetActive(j >= 2 && !ProductManagerTouch.Instance.IsSubscribed);
+                        //item.transform.Find("Lock").gameObject.SetActive(j >= 2 && !ProductManagerTouch.Instance.IsSubscribed);
                         scrollMenu.Items.Add(item.transform);
                     }
                     scrollMenu.Init();
@@ -108,7 +108,7 @@ using UnityEngine;
                         item.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite =
                             CaptureManager.Instance.GetExistingLevelSprite(GameType, j, LevelIcons[j]);
                     }
-                    item.transform.Find("Lock").gameObject.SetActive(j >= 2 && !ProductManagerTouch.Instance.IsSubscribed);
+                    //item.transform.Find("Lock").gameObject.SetActive(j >= 2 && !ProductManagerTouch.Instance.IsSubscribed);
                     scrollMenu.Items.Add(item.transform);
                 }
                 scrollMenu.Init();
@@ -268,7 +268,7 @@ using UnityEngine;
             {
                 for (int i = 0; i < scrollMenu.Items.Count; i++)
                 {
-                    scrollMenu.Items[i].transform.Find("Lock").gameObject.SetActive(i >= 2 && !ProductManagerTouch.Instance.IsSubscribed);
+                    //scrollMenu.Items[i].transform.Find("Lock").gameObject.SetActive(i >= 2 && !ProductManagerTouch.Instance.IsSubscribed);
                 }
             }
         }
@@ -284,11 +284,11 @@ using UnityEngine;
             if (OnBoardingControllerTouch.Instance.IsOnBoardingActive)
                 return; // Don't do anything bello from here, like hints etc...
 
-            if (!ProductManagerTouch.Instance.IsSubscribed && item >= 2)
-    		{
-                OnBoardingControllerTouch.Instance.ShowInGame(0);
-                return;
-    		}
+      //      if (!ProductManagerTouch.Instance.IsSubscribed && item >= 2)
+    		//{
+      //          OnBoardingControllerTouch.Instance.ShowInGame(0);
+      //          return;
+    		//}
 
             MainActions.CreateJungleMask(category, CategoriesGOs[category].xOffset);
 

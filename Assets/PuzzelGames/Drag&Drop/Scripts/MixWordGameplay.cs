@@ -1,8 +1,3 @@
-using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 
 namespace Interactive.DRagDrop
 {
@@ -26,6 +21,8 @@ namespace Interactive.DRagDrop
         public GameObject PuzzelSolvedPanel;
         public Image puzzelSprite;
         public string key;
+        public string SoundName;
+        public string[] boostSounds;
         public int sessionId;
 
         public RawImage Fader;
@@ -67,7 +64,11 @@ namespace Interactive.DRagDrop
                 //currentWordIdx = 0;
             }
         }
-
+        public void GoHome()
+        {
+            SoundManager.Instance.PlaySFX("HomeButtonFromActivities", 1);
+            SceneManager.LoadScene(0);
+        }
         void OnDone()
         {
             TextLetterDragController tmpWord = currentWord;
@@ -86,6 +87,8 @@ namespace Interactive.DRagDrop
                 if (currentLevel < maxLevels)
                 {
                     SpawnWord();
+                    string[] sfx = new string[] { boostSounds[0], boostSounds[1], boostSounds[2] };
+                    SoundManager.Instance.AddSFXToQueue(sfx.GetRandomElement());
 
                     //string[] sfx = new string[] { "awesome", "nextone", "good_job", "doing_great", "feel_rhythm", "bravo", "amazing", "definetly_know" };
                     //SoundManager.Instance.PlaySFX(sfx.GetRandomElement());
@@ -110,21 +113,25 @@ namespace Interactive.DRagDrop
             if (LevelsSprite.Length > currentLevel)
                 puzzelSprite.sprite = LevelsSprite[wordIndex];
             wordIndex++;
-            SoundManager.Instance.PlaySFX("FinishMiniGame_3");
+            //SoundManager.Instance.PlaySFX("FinishMiniGame_3");
             string[] sfxx = new string[] { "good_job", "do_again", "did_great", "did_all", "play_again" };
             SoundManager.Instance.PlaySFX(sfxx.GetRandomElement());
             Transform panelChild = PuzzelSolvedPanel.transform.GetChild(1);
             panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-
+            PlayerPrefs.SetInt("Session", sessionId);
+            SoundManager.Instance.PlaySFX("DoneActivity");
+            SoundManager.Instance.PlaySFX("CompletedActivity", 1, "sfx", 1);
             PlayerPrefs.SetInt(key, wordIndex);
             Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
 
             PuzzelSolvedPanel.SetActive(true);
             // animate scale to 1 smoothly
             panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
-            PlayerPrefs.SetInt("Session", sessionId);
 
-            Invoke(nameof(GoHome), 3);
+            Invoke(nameof(GoHome), 5);
+
+
+
             //DOTween.Sequence()
             //    .AppendInterval(1.0f)
             //    .AppendCallback(() => Fader.gameObject.SetActive(true))
@@ -132,12 +139,6 @@ namespace Interactive.DRagDrop
             //    .AppendCallback(() => PopUp.SetActive(true))
             //    .Append(PopUp.transform.DOScale(Vector3.zero, 0.4f).From().SetEase(Ease.OutBack));
         }
-        public void GoHome()
-        {
-            SceneManager.LoadScene(0);
-        }
     }
-
-
 
 }
