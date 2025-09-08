@@ -13,7 +13,7 @@ using UnityEngine;
     public class CaptureManager : MonoBehaviour
     {
         public bool ScreenshotIsRunning { get; private set; } = false;
-        public NativeGallery.Permission ScreenshotPermission { get; private set; } = NativeGallery.Permission.ShouldAsk;
+        //public NativeGallery.Permission ScreenshotPermission { get; private set; } = NativeGallery.Permission.ShouldAsk;
 
         static CaptureManager _instance = null;
         public static CaptureManager Instance
@@ -35,7 +35,7 @@ using UnityEngine;
         private void Awake()
     	{
             _instance = this;
-            ScreenshotPermission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write, NativeGallery.MediaType.Image);
+            //ScreenshotPermission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write, NativeGallery.MediaType.Image);
         }
 
     	public void Screenshot(GameObject[] ExcludeFromPhoto = null, Bounds? bounds = null, SpriteRenderer photoFrame = null, GameObject photoIcon = null)
