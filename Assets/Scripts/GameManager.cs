@@ -64,4 +64,9 @@ public class GameManager : MonoBehaviour
         //Debug.Log($"last: {background.GetNextUnlock()}");
         //GameData.GetBackgroundPuzzel = background.GetNextUnlock();
     }
+    public void PlayRandomScene(string name)
+    {
+        sceneLoader.LoadScen(name);
+
+    }
 }

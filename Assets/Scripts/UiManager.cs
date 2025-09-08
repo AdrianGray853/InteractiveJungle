@@ -136,7 +136,7 @@ public class UiManager : MonoBehaviour
     }
     public void OnClickPlayRandonActivity()
     {
-       SceneManager.LoadScene( puzzelsName[Random.Range(0, puzzelsName.Length)]);
+        GameManager.instance.PlayRandomScene(puzzelsName[Random.Range(0, puzzelsName.Length)]);
 
     }
 }
