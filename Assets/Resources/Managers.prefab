@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: -3197179498872343071}
   - component: {fileID: -61315462005553765}
   - component: {fileID: -8132941243593162670}
-  - component: {fileID: -463212265483626929}
   - component: {fileID: 7119734405701500799}
   m_Layer: 0
   m_Name: Managers
@@ -166,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7be2a86db63e64f92201194e5b4b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalMusicVolume: 0.15
+  GlobalMusicVolume: 0
   GlobalSFXVolume: 1
   Sounds:
   - Name: MainMenu
@@ -704,18 +703,6 @@ MonoBehaviour:
   _maxVel: 100
   _maxForce: 500
   _gain: 10
---- !u!114 &-463212265483626929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6476462830394674336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 974701db22136294384a70a40d0b8a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &7119734405701500799
 AudioSource:
   m_ObjectHideFlags: 0

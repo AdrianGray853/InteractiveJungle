@@ -88,6 +88,9 @@ public class Cleaning : Draggable
 
         if (image != null && sprites.Length > 1)
             image.sprite = sprites[1];
+
+        SoundManager.Instance.PlaySFXMusic(SFXType.RakingTheLeaves);
+
     }
 
     public override void OnEndDrag(PointerEventData eventData)
@@ -97,6 +100,7 @@ public class Cleaning : Draggable
 
         if (image != null && sprites.Length > 0)
             image.sprite = sprites[0];
+        SoundManager.Instance.StopSfxMusic();
 
         StartCoroutine(SmoothReturnToStartAndRotation());
     }

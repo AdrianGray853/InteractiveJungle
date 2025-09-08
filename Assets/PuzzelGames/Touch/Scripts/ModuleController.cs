@@ -79,8 +79,8 @@ using UnityEngine;
                         if (LevelIcons != null && LevelIcons.Length > 0)
                         {
                             //Debug.Log(range.Start + tmpJ);
-                            item.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite =
-                                CaptureManager.Instance.GetExistingLevelSprite(GameType, range.Start + tmpJ, LevelIcons[range.Start + tmpJ]);
+                            //item.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite =
+                            //    CaptureManager.Instance.GetExistingLevelSprite(GameType, range.Start + tmpJ, LevelIcons[range.Start + tmpJ]);
                         }
                         //item.transform.Find("Lock").gameObject.SetActive(j >= 2 && !ProductManagerTouch.Instance.IsSubscribed);
                         scrollMenu.Items.Add(item.transform);
@@ -105,8 +105,8 @@ using UnityEngine;
                     item.GetComponent<SpriteButton>().onClick.AddListener(() => OnItemClick(0, tmpJ, tmpJ));
                     if (LevelIcons != null && LevelIcons.Length > 0)
                     {
-                        item.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite =
-                            CaptureManager.Instance.GetExistingLevelSprite(GameType, j, LevelIcons[j]);
+                        //item.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite =
+                        //    CaptureManager.Instance.GetExistingLevelSprite(GameType, j, LevelIcons[j]);
                     }
                     //item.transform.Find("Lock").gameObject.SetActive(j >= 2 && !ProductManagerTouch.Instance.IsSubscribed);
                     scrollMenu.Items.Add(item.transform);

@@ -259,7 +259,7 @@ using UnityEngine;
     	{
             if (!introAnimationFinised)
                 return; 
-            CaptureManager.Instance.Screenshot(HideFromPhotoObjects, Paper.bounds, PhotoFrame, PhotoButton);
+            //CaptureManager.Instance.Screenshot(HideFromPhotoObjects, Paper.bounds, PhotoFrame, PhotoButton);
     	}
 
     	private void OnEnable()

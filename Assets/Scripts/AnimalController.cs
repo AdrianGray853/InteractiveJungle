@@ -145,6 +145,8 @@ public class AnimalController : MonoBehaviour
 
     private IEnumerator EatFood(GameObject food)
     {
+        SoundManager.Instance.PlaySFXMusic(SFXType.AnimalsEating);
+
         isEating = true;
         isMoving = false;
         SetAnimation(false, true);
@@ -160,9 +162,12 @@ public class AnimalController : MonoBehaviour
         eat = false;
         isEating = false;
         SetAnimation(true, false);
+        SoundManager.Instance.StopSfxMusic();
+
         this.Invoke(() =>
         {
             satiety = 0;
+
         }, 15);
 
     }

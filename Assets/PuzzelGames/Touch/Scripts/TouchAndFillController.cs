@@ -210,7 +210,7 @@ namespace Interactive.Touch
                     bounds.Encapsulate(renderor.bounds);
                 }
             }
-            return CaptureManager.Instance.CreateIcon(bounds, new GameObject[] { GameManagerTouch.Instance.LeftBoundObject.parent.gameObject });
+            return null/*CaptureManager.Instance.CreateIcon(bounds, new GameObject[] { GameManagerTouch.Instance.LeftBoundObject.parent.gameObject })*/;
         }
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD

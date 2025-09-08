@@ -437,7 +437,7 @@ namespace Interactive.Touch
 
         public void Screenshot()
         {
-            CaptureManager.Instance.Screenshot(ScreenshotHideObjects, null, PhotoFrame, PhotoIcon);
+            //CaptureManager.Instance.Screenshot(ScreenshotHideObjects, null, PhotoFrame, PhotoIcon);
         }
 
         public void ClearSymmetryTexture()

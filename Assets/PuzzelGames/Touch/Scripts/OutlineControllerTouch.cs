@@ -490,38 +490,38 @@ using UnityEngine;
     				bounds.Encapsulate(renderor.bounds);
     			}
     		}
-    		return CaptureManager.Instance.CreateIcon(bounds, new GameObject[] { GameManagerTouch.Instance.LeftBoundObject.parent.gameObject });
+    		return null;
     	}
 
     #if UNITY_EDITOR || DEVELOPMENT_BUILD
     	private void OnGUI()
     	{
-    		if (CaptureManager.Instance.ScreenshotIsRunning)
-    			return;
+    		//if (CaptureManager.Instance.ScreenshotIsRunning)
+    		//	return;
 
-    		GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
-    		myButtonStyle.fontSize = 50;
-    		if (GUI.Button(new Rect(200, 500, 300, 150), "ShowSticker!", myButtonStyle))
-    		{
-    			Camera.main.transform.position = new Vector3(0f, 0f, -10.0f);
-    			Camera.main.orthographicSize = 5.0f;
-    			GameManagerTouch.Instance.ShowStickerReward();
-    		}
-    		if (GUI.Button(new Rect(200, 650, 300, 150), "SkipGroups!", myButtonStyle))
-    		{
-    			goNextElement = true;
-    		}
+    		//GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
+    		//myButtonStyle.fontSize = 50;
+    		//if (GUI.Button(new Rect(200, 500, 300, 150), "ShowSticker!", myButtonStyle))
+    		//{
+    		//	Camera.main.transform.position = new Vector3(0f, 0f, -10.0f);
+    		//	Camera.main.orthographicSize = 5.0f;
+    		//	GameManagerTouch.Instance.ShowStickerReward();
+    		//}
+    		//if (GUI.Button(new Rect(200, 650, 300, 150), "SkipGroups!", myButtonStyle))
+    		//{
+    		//	goNextElement = true;
+    		//}
 
-    		if (GUI.Button(new Rect(200, 800, 300, 150), "Clear!", myButtonStyle))
-    		{
-    			ClearOutRenderTexture();
-    		}
+    		//if (GUI.Button(new Rect(200, 800, 300, 150), "Clear!", myButtonStyle))
+    		//{
+    		//	ClearOutRenderTexture();
+    		//}
 
-    		GUIStyle fontStyle = new GUIStyle(GUI.skin.label);
-    		fontStyle.normal.textColor = Color.black;
-    		fontStyle.fontSize = 40;
-    		float percentageDone = 1.0f - visitedPoints[touchedGroupIdx].Count / (float)tracingController.paths[touchedGroupIdx].points.Length;
-    		GUI.Label(new Rect(350f, 50.0f, 100.0f, 50.0f), (percentageDone * 100.0f).ToString("0.00") + "%", fontStyle);
+    		//GUIStyle fontStyle = new GUIStyle(GUI.skin.label);
+    		//fontStyle.normal.textColor = Color.black;
+    		//fontStyle.fontSize = 40;
+    		//float percentageDone = 1.0f - visitedPoints[touchedGroupIdx].Count / (float)tracingController.paths[touchedGroupIdx].points.Length;
+    		//GUI.Label(new Rect(350f, 50.0f, 100.0f, 50.0f), (percentageDone * 100.0f).ToString("0.00") + "%", fontStyle);
     	}
     #endif
     }

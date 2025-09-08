@@ -189,8 +189,6 @@ GameObject:
   - component: {fileID: 3748655879478139353}
   - component: {fileID: 4076623455387268565}
   - component: {fileID: -2662750472730057737}
-  - component: {fileID: 122064435957318938}
-  - component: {fileID: -7709343689146215458}
   - component: {fileID: -4148231038883441601}
   - component: {fileID: 3538748140055788930}
   m_Layer: 0
@@ -228,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3838fd3f4b554ab680a2bd7bcafe9b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalMusicVolume: 0.2
+  GlobalMusicVolume: 0
   GlobalSFXVolume: 1
   Sounds:
   - Name: MiniGame3FindAPair
@@ -1484,31 +1482,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameType: 0
   SelectedLevel: 0
---- !u!114 &122064435957318938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8760320102522561428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08a4d2fb6fd34e6abc23613f3a3f9516, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  subscriptionProductId: 9.99_year
---- !u!114 &-7709343689146215458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8760320102522561428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d178768aa8a408ba0bd2391ddfe254a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-4148231038883441601
 MonoBehaviour:
   m_ObjectHideFlags: 0
