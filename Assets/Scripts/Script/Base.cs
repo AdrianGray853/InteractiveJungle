@@ -152,7 +152,12 @@ public abstract class Base<T> : MonoBehaviour where T : BaseItem
         }
     }
 
-    protected virtual void OnItemSelected(T item) { }
+    protected virtual void OnItemSelected(T item) 
+    {
+ 
+    
+
+    }
 
     protected virtual void OnItemLocked(T item)
     {

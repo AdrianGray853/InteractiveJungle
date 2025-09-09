@@ -97,6 +97,7 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         activePointerId = eventData.pointerId;
 
         parentScroll?.OnBeginDrag(eventData);
+
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -161,6 +162,7 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             clonedItem.postionkey = $"{clonedItem.itemName}:{GameManager.instance.GenerateRandomKey()}";
             clonedItem.ItemPostion = finalPos;
             clonedItem.item = spawnedObj;
+            SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
 
             spawnedObj.GetComponent<AnimalItemUi>().Item = clonedItem;
             spawnedObj.GetComponent<AnimalController>().enabled = true;

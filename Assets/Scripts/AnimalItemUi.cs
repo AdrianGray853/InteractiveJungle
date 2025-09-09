@@ -59,6 +59,8 @@ public class AnimalItemUi : MonoBehaviour
                 isDragging = true;
                 dragStartPos = transform.position;
                 SetMask(false);
+                SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
+
             }
         }
         else if (Input.GetMouseButton(0) && isDragging)

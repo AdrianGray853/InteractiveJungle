@@ -17,6 +17,8 @@ public class LoadScene : MonoBehaviour
 
     public void LoadScen(string sceneName)
     {
+        SoundManager.Instance.PlaySFX(SFXType.Click);
+
         StartCoroutine(FadeAndLoad(sceneName));
     }
 

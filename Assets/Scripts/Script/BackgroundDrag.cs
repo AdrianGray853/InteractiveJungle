@@ -154,6 +154,7 @@ public class BackgroundDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 Debug.Log("IsWithinBounds" + finalPos);
 
                 GameManager.instance.background.Clicked(item);
+                SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
 
                 //GameManager.instance.background.LockOnly(item);
             }

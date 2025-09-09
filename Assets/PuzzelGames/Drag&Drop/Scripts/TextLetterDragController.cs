@@ -59,8 +59,8 @@ using DG.Tweening;
     				.AppendInterval(2.75f)
     				.AppendCallback(Spread);
 
-    			SoundManager.Instance.PlaySFXStack("here_is_the_word", 1.0f, "voiceover", 2)
-    				.AddSFXStack(GetWord());
+    			//SoundManager.Instance.PlaySFXStack("here_is_the_word", 1.0f, "voiceover", 2)
+    			//	.AddSFXStack(GetWord());
     		}
     	}
 
@@ -288,9 +288,9 @@ using DG.Tweening;
     					}
     					if (hintLetters.Count > 0)
     						FingerHintController.Instance?.ShowDrag(letter.transform.position, hintLetters.GetRandomElement().transform.position, 2.0f);
-    						SoundManager.Instance.PlaySFXStack("add_letter", 1.0f, "voiceover", 1)
-    								.AddSFXStack(char.ToLower(hintLetters[0].Letter).ToString())
-    								.AddSFXStack("where_belongs_word");
+    						//SoundManager.Instance.PlaySFXStack("add_letter", 1.0f, "voiceover", 1)
+    						//		.AddSFXStack(char.ToLower(hintLetters[0].Letter).ToString())
+    						//		.AddSFXStack("where_belongs_word");
 
 
     				}

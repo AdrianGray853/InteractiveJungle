@@ -80,6 +80,11 @@ public class Animals : Base<AnimalItem>
     protected override void OnItemSelected(AnimalItem item)
     {
         base.OnItemSelected(item);
+        if (activeItems.Count == 1)
+        {
+            SoundManager.Instance.PlayVoiceOver(VoiceOverType.TakeCareOfYourJungleFriendsAndFeedThemEveryDay);
+
+        }
 
         //if (item.houseDrag != null)
         //    item.houseDrag.houseItem = item;

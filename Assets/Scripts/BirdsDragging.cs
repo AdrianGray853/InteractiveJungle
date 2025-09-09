@@ -161,6 +161,7 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             clonedItem.postionkey = $"{clonedItem.itemName}:{GameManager.instance.GenerateRandomKey()}";
             clonedItem.ItemPostion = finalPos;
             clonedItem.item = spawnedObj;
+            SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
 
             spawnedObj.GetComponent<BirdsItemUi>().Item = clonedItem;
             spawnedObj.GetComponent<BirdController>().enabled = true;

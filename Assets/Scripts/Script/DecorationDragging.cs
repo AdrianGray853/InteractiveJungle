@@ -166,6 +166,7 @@ public class DecorationDragging : MonoBehaviour, IBeginDragHandler, IDragHandler
             spawnedObj.GetComponent<DecorationItemUI>().Item = clonedItem;
             GameManager.instance.decoration.AddActiveItem(clonedItem);
             GameManager.instance.decoration.SaveData(clonedItem);
+            SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
 
             if (spawnedObj.TryGetComponent<Animator>(out Animator anim))
                 anim.enabled = true;

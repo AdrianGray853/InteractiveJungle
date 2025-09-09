@@ -61,8 +61,8 @@ using DG.Tweening;
 
     		if (StartSound != null && StartSound != "")
     		{
-    			SoundManagerTouch.Instance.AddSFXToQueue(StartSound, 1.0f, "voiceover");
-    			GameManagerTouch.Instance.PlayIntroVoice();
+    			//SoundManagerTouch.Instance.AddSFXToQueue(StartSound, 1.0f, "voiceover");
+    			//GameManagerTouch.Instance.PlayIntroVoice();
     		}
     	}
 

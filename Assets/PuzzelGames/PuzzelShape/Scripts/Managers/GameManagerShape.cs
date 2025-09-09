@@ -249,6 +249,7 @@ namespace Interactive.PuzzelShape
             }
             else
             {
+
                 AdvanceLevel(1);
 
                 /*
@@ -292,12 +293,14 @@ namespace Interactive.PuzzelShape
         }
         private void AdvanceLevel(int Direction)
         {
+            SoundManagerShape.Instance.PlaySFX("DoneActivity");
+
             Cleanup();
             Destroy(CurrentLevel);
             if (LevelsSprite.Length > CurrentLevelIdx)
                 puzzelSprite.sprite = LevelsSprite[CurrentLevelIdx];
             Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
-            SoundManagerShape.Instance.PlaySFX("DoneActivity");
+
             SoundManagerShape.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
             Transform panelChild = PuzzelSolvedPanel.transform.GetChild(1);
             panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
@@ -308,10 +311,13 @@ namespace Interactive.PuzzelShape
             Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
 
             PuzzelSolvedPanel.SetActive(true);
+
             PlayerPrefs.SetInt("Session", sessionId);
 
             // animate scale to 1 smoothly
             panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+
+            SoundManagerShape.Instance.PlaySFX("GiftFromCompletedActivity");
 
             Invoke(nameof(GoHome), 3);
             //CurrentLevel = Instantiate(Levels[CurrentLevelIdx]);

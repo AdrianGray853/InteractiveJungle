@@ -90,6 +90,7 @@ public class Cleaning : Draggable
             image.sprite = sprites[1];
 
         SoundManager.Instance.PlaySFXMusic(SFXType.RakingTheLeaves);
+        SoundManager.Instance.PlayVoiceOver(VoiceOverType.RakeTheLeavesOnTheGround);
 
     }
 

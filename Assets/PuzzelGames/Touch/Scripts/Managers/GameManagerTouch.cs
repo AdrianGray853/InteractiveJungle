@@ -292,10 +292,11 @@ namespace Interactive.Touch
 
         public void ShowDoneButton()
         {
-            DoneButton.SetActive(true);
             SoundManagerTouch.Instance.PlaySFX("DoneActivity");
-            SoundManagerTouch.Instance.PlaySFX("ThatsAmazing");
-            SoundManagerTouch.Instance.PlaySFX("CompletedActivity", 1, "sfx", 1);
+
+            DoneButton.SetActive(true);
+            //SoundManagerTouch.Instance.PlaySFX("ThatsAmazing");
+            //SoundManagerTouch.Instance.PlaySFX("CompletedActivity", 1, "sfx", 1);
             if (LevelsSprite.Length > PlayerPrefs.GetInt(key))
                 tracingSprite.sprite = LevelsSprite[PlayerPrefs.GetInt(key)];
 
@@ -304,11 +305,13 @@ namespace Interactive.Touch
             panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
             PlayerPrefs.SetInt(key, ++GameDataTouch.Instance.SelectedLevel);
             Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
+            SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
 
             tracingSolvedPanel.SetActive(true);
             PlayerPrefs.SetInt("Session", sessionId);
             // animate scale to 1 smoothly
             panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+            SoundManagerTouch.Instance.PlaySFX("GiftFromCompletedActivity");
 
             Invoke(nameof(GoHome), 3);
             //ShowStickerReward();

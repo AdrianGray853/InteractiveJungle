@@ -40050,34 +40050,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManger
       objectReference: {fileID: 0}
-    - target: {fileID: 5973371546230429531, guid: ce96af124993e614892838497265477e, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 8300000, guid: e487dadba7d299941a131bc6d3b83b73, type: 3}
-    - target: {fileID: 5973371546230429531, guid: ce96af124993e614892838497265477e, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: e487dadba7d299941a131bc6d3b83b73, type: 3}
     - target: {fileID: 6118894534234109952, guid: ce96af124993e614892838497265477e, type: 3}
-      propertyPath: sfxEntries.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: e487dadba7d299941a131bc6d3b83b73, type: 3}
+      propertyPath: sfxEntries.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6118894534234109952, guid: ce96af124993e614892838497265477e, type: 3}
-      propertyPath: sfxEntries.Array.data[1].clip
+      propertyPath: sfxEntries.Array.data[6].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 5875d278da8bf8844b564b46653a98ee, type: 3}
+      objectReference: {fileID: 8300000, guid: d57f399757ebf5e4091687d1017974ea, type: 3}
     - target: {fileID: 6118894534234109952, guid: ce96af124993e614892838497265477e, type: 3}
-      propertyPath: voiceOverEntries.Array.data[0].clip
+      propertyPath: sfxEntries.Array.data[7].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 0f7bb6989e1832445b12f35b2d87aaf5, type: 3}
+      objectReference: {fileID: 8300000, guid: ba1ecf4eea87f634597a80705d49bff6, type: 3}
     - target: {fileID: 6118894534234109952, guid: ce96af124993e614892838497265477e, type: 3}
-      propertyPath: voiceOverEntries.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 03f7b8dbb270ff9418de4139b2ab72c5, type: 3}
-    - target: {fileID: 6118894534234109952, guid: ce96af124993e614892838497265477e, type: 3}
-      propertyPath: voiceOverEntries.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7892508a66e43d84881dce25e55efd5c, type: 3}
+      propertyPath: sfxEntries.Array.data[7].type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7714993238646055151, guid: ce96af124993e614892838497265477e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1201267

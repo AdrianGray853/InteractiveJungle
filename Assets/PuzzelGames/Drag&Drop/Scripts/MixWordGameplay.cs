@@ -88,7 +88,7 @@ namespace Interactive.DRagDrop
                 {
                     SpawnWord();
                     string[] sfx = new string[] { boostSounds[0], boostSounds[1], boostSounds[2] };
-                    SoundManager.Instance.AddSFXToQueue(sfx.GetRandomElement());
+                    SoundManager.Instance.PlaySFX(sfx.GetRandomElement());
 
                     //string[] sfx = new string[] { "awesome", "nextone", "good_job", "doing_great", "feel_rhythm", "bravo", "amazing", "definetly_know" };
                     //SoundManager.Instance.PlaySFX(sfx.GetRandomElement());
@@ -109,17 +109,18 @@ namespace Interactive.DRagDrop
                 ProgressManager.Instance.SetReviewShow(3);
             }
 #endif
+            SoundManager.Instance.PlaySFX("DoneActivity");
 
             if (LevelsSprite.Length > currentLevel)
                 puzzelSprite.sprite = LevelsSprite[wordIndex];
             wordIndex++;
             //SoundManager.Instance.PlaySFX("FinishMiniGame_3");
-            string[] sfxx = new string[] { "good_job", "do_again", "did_great", "did_all", "play_again" };
+            string[] sfxx = new string[] { boostSounds[0], boostSounds[1], boostSounds[2] };
+
             SoundManager.Instance.PlaySFX(sfxx.GetRandomElement());
             Transform panelChild = PuzzelSolvedPanel.transform.GetChild(1);
             panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
             PlayerPrefs.SetInt("Session", sessionId);
-            SoundManager.Instance.PlaySFX("DoneActivity");
             SoundManager.Instance.PlaySFX("CompletedActivity", 1, "sfx", 1);
             PlayerPrefs.SetInt(key, wordIndex);
             Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");

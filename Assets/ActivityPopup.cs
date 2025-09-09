@@ -47,7 +47,7 @@ public class ActivityPopup : MonoBehaviour
         // Hide popup
         popupPrefab.SetActive(false);
         popupActive = false;
-
+        SoundManager.Instance.PlaySFX(SFXType.Click);
         // TODO: Load your activity scene here
         // SceneManager.LoadScene("ActivityScene");
     }

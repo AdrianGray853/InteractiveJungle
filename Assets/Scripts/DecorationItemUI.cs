@@ -60,6 +60,8 @@ public class DecorationItemUI : MonoBehaviour
                 isDragging = true;
                 dragStartPos = transform.position;
                 SetMask(false);
+                SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
+
             }
         }
         else if (Input.GetMouseButton(0) && isDragging)
@@ -91,6 +93,8 @@ public class DecorationItemUI : MonoBehaviour
                         isDragging = true;
                         dragStartPos = transform.position;
                         SetMask(false);
+                        SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
+
                     }
                     break;
 
