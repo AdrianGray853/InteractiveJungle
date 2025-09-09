@@ -145,6 +145,14 @@ public class SoundManager : MonoBehaviour
             voiceOverSource.Play();
         }
     }
+    public void PlayVoiceOver(AudioClip clip)
+    {
+       
+            voiceOverSource.Stop(); // only one VO at a time
+            voiceOverSource.clip = clip;
+            voiceOverSource.Play();
+        
+    }
 
     public void StopVoiceOverMusic() => voiceOverSource.Stop();
     #endregion

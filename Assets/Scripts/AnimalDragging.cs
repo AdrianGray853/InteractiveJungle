@@ -166,6 +166,8 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
             spawnedObj.GetComponent<AnimalItemUi>().Item = clonedItem;
             spawnedObj.GetComponent<AnimalController>().enabled = true;
+            SoundManager.Instance.PlayVoiceOver(spawnedObj.GetComponent<AnimalController>().audioclip);
+
             spawnedObj.transform.GetChild(0).GetComponent<Animator>().enabled = true;
             GameManager.instance.animal.AddActiveItem(clonedItem);
             GameManager.instance.animal.SaveData(clonedItem);

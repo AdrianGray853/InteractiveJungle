@@ -138,6 +138,7 @@ MonoBehaviour:
     m_Bits: 0
   padding: -3
   currentFood: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 550d4abb1d2cc964182ec6ba62cb5b7b, type: 3}
 --- !u!210 &737386333883102752
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -146,8 +147,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6498200415796806126}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -316001799
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_SortAtRoot: 0
 --- !u!114 &-3468765422263417370
@@ -164,6 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDragging: 0
   rag: 0
+  offsetY: 0
 --- !u!1001 &2795310745229150198
 PrefabInstance:
   m_ObjectHideFlags: 0

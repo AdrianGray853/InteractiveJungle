@@ -30,6 +30,7 @@ public class BirdController : MonoBehaviour
     private bool isEating = false;
     private Vector2 direction;
     public Transform currentFood;
+    public AudioClip audioClip;
 
     private void Start()
     {

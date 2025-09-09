@@ -165,6 +165,7 @@ public class BirdsDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
             spawnedObj.GetComponent<BirdsItemUi>().Item = clonedItem;
             spawnedObj.GetComponent<BirdController>().enabled = true;
+            SoundManager.Instance.PlayVoiceOver(spawnedObj.GetComponent<BirdController>().audioClip);
             spawnedObj.transform.GetChild(0).GetComponent<Animator>().enabled = true;
             GameManager.instance.birds.AddActiveItem(clonedItem);
             GameManager.instance.birds.SaveData(clonedItem);

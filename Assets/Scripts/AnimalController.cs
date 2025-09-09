@@ -32,7 +32,7 @@ public class AnimalController : MonoBehaviour
     private Vector2 direction;
     public Transform currentFood;
     public bool eat;
-
+    public AudioClip audioclip;
     private void Start()
     {
         animator = transform.GetChild(0).GetComponent<Animator>();

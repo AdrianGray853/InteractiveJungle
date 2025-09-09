@@ -15,7 +15,6 @@ public class BirdsItemUi : MonoBehaviour
     private bool isDragging = false;
     private Vector3 dragStartPos;
     private const float dragThreshold = 0.1f;
-
     public void OpenRemoveConsentPanel()
     {
         ConsentManager.Instance.ShowConsent(
