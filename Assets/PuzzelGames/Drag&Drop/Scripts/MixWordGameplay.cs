@@ -37,8 +37,8 @@ namespace Interactive.DRagDrop
         // Start is called before the first frame update
         void Start()
         {
-            SoundManager.Instance.CrossFadeMusic("DragandDropBgMusic", 1.0f);
-
+            //SoundManager.Instance.CrossFadeMusic("DragandDropBgMusic", 1.0f);
+            SoundManager.Instance.PlaySFX(SoundName);
             //Utils.Shuffle(Words);
             currentWordIdx = 0;
             wordIndex = PlayerPrefs.GetInt(key, 0);
