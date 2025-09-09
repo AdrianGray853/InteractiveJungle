@@ -146,7 +146,7 @@ using UnityEngine.UI;
     		if (!ProgressManager.Instance.IsReviewShown(8))
     		{
     			Debug.Log("Asking for review!");
-    			UnityEngine.iOS.Device.RequestStoreReview();
+    			//UnityEngine.iOS.Device.RequestStoreReview();
     			ProgressManager.Instance.SetReviewShow(8);
     		}
     #endif

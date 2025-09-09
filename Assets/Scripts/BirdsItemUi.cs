@@ -60,7 +60,6 @@ public class BirdsItemUi : MonoBehaviour
                 isDragging = true;
                 dragStartPos = transform.position;
                 SetMask(false);
-                SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
 
             }
         }
@@ -93,7 +92,6 @@ public class BirdsItemUi : MonoBehaviour
                         isDragging = true;
                         dragStartPos = transform.position;
                         SetMask(false);
-                        SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
 
                     }
                     break;
@@ -132,7 +130,11 @@ public class BirdsItemUi : MonoBehaviour
         {
             OpenRemoveConsentPanel();
         }
+        else
+        {
+            SoundManager.Instance.PlayClickSFX(SFXType.DragAndDrop);
 
+        }
         SetMask(true);
     }
 

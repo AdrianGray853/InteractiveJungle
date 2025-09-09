@@ -118,6 +118,8 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 if (item.ItemUi != null)
                 {
                     Vector3 spawnPos = GetWorldPosition(eventData.position);
+                    SoundManager.Instance.PlayClickSFX(SFXType.DragAndDrop);
+
                     spawnedObj = Instantiate(item.ItemUi, spawnPos, Quaternion.identity);
                     spawnedObj.GetComponent<Sorting>().isDragging = true;
                     foreach (var img in images)
@@ -162,7 +164,6 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             clonedItem.postionkey = $"{clonedItem.itemName}:{GameManager.instance.GenerateRandomKey()}";
             clonedItem.ItemPostion = finalPos;
             clonedItem.item = spawnedObj;
-            SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
 
             spawnedObj.GetComponent<AnimalItemUi>().Item = clonedItem;
             spawnedObj.GetComponent<AnimalController>().enabled = true;

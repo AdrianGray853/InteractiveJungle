@@ -161,7 +161,7 @@ namespace Interactive.Touch
             if (Random.Range(0, 4) == 1)
             {
 
-                SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
+                //SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
             }
         }
         // ColorPicker actions
@@ -251,11 +251,11 @@ namespace Interactive.Touch
             }
 
 #if UNITY_IOS
-            if (currentLevelRelative % 2 == 0)
-            {
-                Debug.Log("Asking for review!");
-                UnityEngine.iOS.Device.RequestStoreReview();
-            }
+            //if (currentLevelRelative % 2 == 0)
+            //{
+            //    Debug.Log("Asking for review!");
+            //    UnityEngine.iOS.Device.RequestStoreReview();
+            //}
 #endif
 
             //if (CurrentLevel > lastLevel || !ProductManagerTouch.Instance.IsSubscribed && currentLevelRelative >= 2)

@@ -932,7 +932,7 @@ using UnityEngine.UI;
     		if (!ProgressManager.Instance.IsReviewShown(2))
     		{
     			Debug.Log("Asking for review!");
-    			UnityEngine.iOS.Device.RequestStoreReview();
+    			//UnityEngine.iOS.Device.RequestStoreReview();
     			ProgressManager.Instance.SetReviewShow(2);
     		}
     #endif

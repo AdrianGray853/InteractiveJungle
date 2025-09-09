@@ -223,7 +223,7 @@ namespace Interactive.PuzzelShape
             if (!ProgressManagerShape.Instance.IsReviewShown(GameDataShape.Instance.GameType) && (CurrentLevelIdx == ReviewLevel))
             {
                 Debug.Log("Asking for review!");
-                UnityEngine.iOS.Device.RequestStoreReview();
+                //UnityEngine.iOS.Device.RequestStoreReview();
                 ProgressManagerShape.Instance.SetReviewShow(GameDataShape.Instance.GameType);
             }
 #endif
@@ -288,7 +288,7 @@ namespace Interactive.PuzzelShape
         {
             if (Random.Range(0, 4) == 1)
             {
-                SoundManagerShape.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
+                //SoundManagerShape.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
             }
         }
         private void AdvanceLevel(int Direction)

@@ -265,7 +265,7 @@ using UnityEngine.Timeline;
     		if (!ProgressManager.Instance.IsReviewShown(9))
     		{
     			Debug.Log("Asking for review!");
-    			UnityEngine.iOS.Device.RequestStoreReview();
+    			//UnityEngine.iOS.Device.RequestStoreReview();
     			ProgressManager.Instance.SetReviewShow(9);
     		}
     #endif
@@ -332,7 +332,7 @@ using UnityEngine.Timeline;
     		if (ProgressManager.Instance.ReviewFinishedLetterCounter >= 2 && !ProgressManager.Instance.IsReviewShown(10))
     		{
     			Debug.Log("Asking for review!");
-    			UnityEngine.iOS.Device.RequestStoreReview();
+    			//UnityEngine.iOS.Device.RequestStoreReview();
     			ProgressManager.Instance.SetReviewShow(10);
     		}
     #endif

@@ -60,7 +60,6 @@ public class DecorationItemUI : MonoBehaviour
                 isDragging = true;
                 dragStartPos = transform.position;
                 SetMask(false);
-                SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
 
             }
         }
@@ -131,6 +130,11 @@ public class DecorationItemUI : MonoBehaviour
         if (Vector3.Distance(transform.position, dragStartPos) < dragThreshold)
         {
             OpenRemoveConsentPanel();
+        }
+        else
+        {
+            SoundManager.Instance.PlayClickSFX(SFXType.DragAndDrop);
+
         }
 
         SetMask(true);

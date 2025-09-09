@@ -59,7 +59,7 @@ public class AnimalItemUi : MonoBehaviour
                 isDragging = true;
                 dragStartPos = transform.position;
                 SetMask(false);
-                SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
+
 
             }
         }
@@ -129,7 +129,11 @@ public class AnimalItemUi : MonoBehaviour
         {
             OpenRemoveConsentPanel();
         }
+        else
+        {
+            SoundManager.Instance.PlayClickSFX(SFXType.DragAndDrop);
 
+        }
         SetMask(true);
     }
 

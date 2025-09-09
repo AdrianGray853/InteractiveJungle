@@ -506,7 +506,7 @@ using UnityEngine.UI;
     		if (!ProgressManager.Instance.IsReviewShown(0))
     		{
     			Debug.Log("Asking for review!");
-    			UnityEngine.iOS.Device.RequestStoreReview();
+    			//UnityEngine.iOS.Device.RequestStoreReview();
     			ProgressManager.Instance.SetReviewShow(0);
     		}
     #endif
@@ -532,7 +532,7 @@ using UnityEngine.UI;
     		if (!ProgressManager.Instance.IsReviewShown(0))
     		{
     			Debug.Log("Asking for review!");
-    			UnityEngine.iOS.Device.RequestStoreReview();
+    			//UnityEngine.iOS.Device.RequestStoreReview();
     			ProgressManager.Instance.SetReviewShow(0);
     		}
     #endif

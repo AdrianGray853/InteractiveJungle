@@ -87,8 +87,8 @@ namespace Interactive.DRagDrop
                 if (currentLevel < maxLevels)
                 {
                     SpawnWord();
-                    string[] sfx = new string[] { boostSounds[0], boostSounds[1], boostSounds[2] };
-                    SoundManager.Instance.PlaySFX(sfx.GetRandomElement());
+                    //string[] sfx = new string[] { boostSounds[0], boostSounds[1], boostSounds[2] };
+                    //SoundManager.Instance.PlaySFX(sfx.GetRandomElement());
 
                     //string[] sfx = new string[] { "awesome", "nextone", "good_job", "doing_great", "feel_rhythm", "bravo", "amazing", "definetly_know" };
                     //SoundManager.Instance.PlaySFX(sfx.GetRandomElement());
@@ -105,7 +105,7 @@ namespace Interactive.DRagDrop
             if (!ProgressManager.Instance.IsReviewShown(3))
             {
                 Debug.Log("Asking for review!");
-                UnityEngine.iOS.Device.RequestStoreReview();
+                //UnityEngine.iOS.Device.RequestStoreReview();
                 ProgressManager.Instance.SetReviewShow(3);
             }
 #endif

@@ -62,6 +62,7 @@ public class SoundManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource clickSource;
     [SerializeField] private AudioSource sfxMusicSource;
     [SerializeField] private AudioSource voiceOverSource;
 
@@ -120,6 +121,11 @@ public class SoundManager : MonoBehaviour
     {
         if (sfxDict.TryGetValue(type, out var clip))
             sfxSource.PlayOneShot(clip);
+    }
+    public void PlayClickSFX(SFXType type)
+    {
+        if (sfxDict.TryGetValue(type, out var clip))
+            clickSource.PlayOneShot(clip);
     }
 
     public void PlaySFXMusic(SFXType type)
