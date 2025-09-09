@@ -28,6 +28,7 @@ public class DecorationDragging : MonoBehaviour, IBeginDragHandler, IDragHandler
     private bool hasSpawned = false;
     private Vector2 dragStartPos;
     private const float dragThreshold = 20f;
+    public AudioClip audioClip;
 
     private void Start()
     {
@@ -167,6 +168,7 @@ public class DecorationDragging : MonoBehaviour, IBeginDragHandler, IDragHandler
             GameManager.instance.decoration.AddActiveItem(clonedItem);
             GameManager.instance.decoration.SaveData(clonedItem);
             SoundManager.Instance.PlaySFX(SFXType.DragAndDrop);
+            SoundManager.Instance.PlayVoiceOver(audioClip);
 
             if (spawnedObj.TryGetComponent<Animator>(out Animator anim))
                 anim.enabled = true;

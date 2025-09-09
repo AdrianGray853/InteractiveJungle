@@ -24,7 +24,6 @@ public class UiManager : MonoBehaviour
     void Start()
     {
 
-        SessionData.Instance.SessionID = PlayerPrefs.GetInt("Session", -1);
 
         SessionData.Instance.SessionID = PlayerPrefs.GetInt("Session", -1);
 
@@ -37,6 +36,7 @@ public class UiManager : MonoBehaviour
                 SoundManager.Instance.PlayVoiceOver(VoiceOverType.GreatJobYouUnlockedSomethingNew);
 
             SoundManager.Instance.PlaySFX(SFXType.GiftFromCompletedActivity);
+            SessionData.Instance.SessionID = -1;
 
 
         }

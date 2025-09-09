@@ -171,7 +171,16 @@ public class AnimalDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             spawnedObj.transform.GetChild(0).GetComponent<Animator>().enabled = true;
             GameManager.instance.animal.AddActiveItem(clonedItem);
             GameManager.instance.animal.SaveData(clonedItem);
+            this.Invoke(() =>
+            {
 
+                if (GameManager.instance.animal.activeItems.Count == 1 && SessionData.Instance.SessionID == -2)
+                {
+                    SoundManager.Instance.PlayVoiceOver(VoiceOverType.TakeCareOfYourJungleFriendsAndFeedThemEveryDay);
+
+                }
+            }, 2);
+         
             UpdateQtyFromScene(); // immediately refresh after placing
         }
         else
