@@ -292,11 +292,41 @@ namespace Interactive.Touch
 
         public void ShowDoneButton()
         {
-            SoundManagerTouch.Instance.PlaySFX("DoneActivity");
+            //SoundManagerTouch.Instance.PlaySFX("DoneActivity");
 
-            DoneButton.SetActive(true);
-            //SoundManagerTouch.Instance.PlaySFX("ThatsAmazing");
-            //SoundManagerTouch.Instance.PlaySFX("CompletedActivity", 1, "sfx", 1);
+            //DoneButton.SetActive(true);
+            ////SoundManagerTouch.Instance.PlaySFX("ThatsAmazing");
+            ////SoundManagerTouch.Instance.PlaySFX("CompletedActivity", 1, "sfx", 1);
+            //if (LevelsSprite.Length > PlayerPrefs.GetInt(key))
+            //    tracingSprite.sprite = LevelsSprite[PlayerPrefs.GetInt(key)];
+
+            //// set initial small scale
+            //Transform panelChild = tracingSolvedPanel.transform.GetChild(1);
+            //panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+            //PlayerPrefs.SetInt(key, ++GameDataTouch.Instance.SelectedLevel);
+            //Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
+            ////SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
+
+            //tracingSolvedPanel.SetActive(true);
+            //PlayerPrefs.SetInt("Session", sessionId);
+            //// animate scale to 1 smoothly
+            //panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+            //SoundManagerTouch.Instance.PlaySFX("GiftFromCompletedActivity");
+
+            //Invoke(nameof(GoHome), 3);
+            ////ShowStickerReward();
+            ///
+
+            StartCoroutine(AdvanceLevelSequence());
+        }
+        private IEnumerator AdvanceLevelSequence()
+        {
+            SoundManagerTouch.Instance.PlaySFX("DoneActivity");
+            SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
+
+            yield return new WaitForSeconds(0.3f);
+
+
             if (LevelsSprite.Length > PlayerPrefs.GetInt(key))
                 tracingSprite.sprite = LevelsSprite[PlayerPrefs.GetInt(key)];
 
@@ -305,7 +335,7 @@ namespace Interactive.Touch
             panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
             PlayerPrefs.SetInt(key, ++GameDataTouch.Instance.SelectedLevel);
             Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
-            SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
+            //SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
 
             tracingSolvedPanel.SetActive(true);
             PlayerPrefs.SetInt("Session", sessionId);
@@ -314,9 +344,7 @@ namespace Interactive.Touch
             SoundManagerTouch.Instance.PlaySFX("GiftFromCompletedActivity");
 
             Invoke(nameof(GoHome), 3);
-            //ShowStickerReward();
         }
-
         public void ShowStickerReward()
         {
             SoundManagerTouch.Instance.AddSFXToQueue(SoundManagerTouch.GetCheeringVoice(), 1.0f, "voiceover", 1);
