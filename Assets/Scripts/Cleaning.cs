@@ -82,6 +82,7 @@ public class Cleaning : Draggable
 
     public override void OnBeginDrag(PointerEventData eventData)
     {
+        if(GameManager.instance.currentDrag) return;
         base.OnBeginDrag(eventData);
         isDragging = true;
         startPosition = rectTransform.position;
@@ -102,6 +103,7 @@ public class Cleaning : Draggable
         if (image != null && sprites.Length > 0)
             image.sprite = sprites[0];
         SoundManager.Instance.StopSfxMusic();
+        SoundManager.Instance.StopVoiceOverMusic();
 
         StartCoroutine(SmoothReturnToStartAndRotation());
     }

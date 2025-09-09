@@ -12,6 +12,6 @@ public class PlayButtonSound : MonoBehaviour
     }
     public void PlaySound()
     {
-        //SoundManager.Instance.PlayClickSFX(SFXType.Click);
+        SoundManager.Instance.PlayClickSFX(SFXType.Click);
     }
 }

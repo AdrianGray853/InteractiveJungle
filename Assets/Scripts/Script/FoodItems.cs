@@ -34,13 +34,22 @@ public class FoodItems : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         //dragScript.Init(sprites, checkRadius, animalLayer);
 
         GameManager.instance.currentSpawnedFood = spawnedDragObj;
+        GameManager.instance.currentDrag = spawnedDragObj;
     }
 
     public void OnDrag(PointerEventData eventData) { /* no need to handle here */ }
     public void OnEndDrag(PointerEventData eventData)
     {
         if (spawnedDragObj != null)
+        {
+            spawnedDragObj.GetComponent<FoodFollowAndTrigger>().enabled = true;
             spawnedDragObj.GetComponent<FoodFollowAndTrigger>().isPlaced = true;
+
+
+        }
+        GameManager.instance.currentDrag = null;
+
+
 
     }
 
