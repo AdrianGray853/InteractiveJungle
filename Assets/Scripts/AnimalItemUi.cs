@@ -131,7 +131,7 @@ public class AnimalItemUi : MonoBehaviour
         }
         else
         {
-            SoundManager.Instance.PlayClickSFX(SFXType.DragAndDrop);
+            //SoundManager.Instance.PlayClickSFX(SFXType.DragAndDrop);
 
         }
         SetMask(true);

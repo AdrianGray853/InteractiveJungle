@@ -132,7 +132,7 @@ public class BirdsItemUi : MonoBehaviour
         }
         else
         {
-            SoundManager.Instance.PlayClickSFX(SFXType.DragAndDrop);
+            //SoundManager.Instance.PlayClickSFX(SFXType.DragAndDrop);
 
         }
         SetMask(true);

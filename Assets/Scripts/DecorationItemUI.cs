@@ -133,7 +133,7 @@ public class DecorationItemUI : MonoBehaviour
         }
         else
         {
-            SoundManager.Instance.PlayClickSFX(SFXType.DragAndDrop);
+            //SoundManager.Instance.PlayClickSFX(SFXType.DragAndDrop);
 
         }
 
