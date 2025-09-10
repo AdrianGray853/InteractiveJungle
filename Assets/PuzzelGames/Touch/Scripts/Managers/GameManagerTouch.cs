@@ -258,11 +258,11 @@ namespace Interactive.Touch
             //}
 #endif
 
-            //if (CurrentLevel > lastLevel || !ProductManagerTouch.Instance.IsSubscribed && currentLevelRelative >= 2)
-            //{
-            //    TransitionManagerTouch.Instance.ShowFade(1.0f, () => SceneLoader.Instance.LoadScene("Jungle"));
-            //    return;
-            //}
+            if (CurrentLevel > lastLevel  /*!ProductManagerTouch.Instance.IsSubscribed && currentLevelRelative >= 2*/)
+            {
+                TransitionManagerTouch.Instance.ShowFade(1.0f, () => SceneLoader.Instance.LoadScene("Jungle"));
+                return;
+            }
 
             GameDataTouch.Instance.SelectedLevel = CurrentLevel;
             //SpawnLevel(Levels[CurrentLevel]);

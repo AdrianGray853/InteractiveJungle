@@ -18,11 +18,16 @@ public class Decoration : Base<DecorationItem>
     protected override void Start()
     {
 
-        levelCounts = PlayerPrefs.GetInt(key, 0);
+        levelCounts = PlayerPrefs.GetInt(key, 16);
         UnlockLevels();
         base.Start();
-        RectTransform rect = scrollRect.content.transform.GetChild(levelCounts + 1).GetComponent<RectTransform>();
+        int value = Mathf.Clamp((levelCounts), 0, scrollRect.content.transform.childCount - 1);
+
+        RectTransform rect = scrollRect.content.transform.GetChild(value).GetComponent<RectTransform>();
+
+
         ScrollTo(rect);
+
     }
     public void ScrollTo(RectTransform target)
     {
@@ -38,7 +43,7 @@ public class Decoration : Base<DecorationItem>
         Vector3 viewportCenterWorld = viewport.position;
 
         // Target ka world point
-        Vector3 targetWorld = target.position;
+        Vector3 targetWorld = target.position - new Vector3(0, 4, 0);
 
         // Offset (target ko viewport ke center pe lana hai, vertical me Y axis ka use hoga)
         float diff = viewportCenterWorld.y - targetWorld.y;
@@ -65,7 +70,6 @@ public class Decoration : Base<DecorationItem>
         // Snap to final pos
         content.position = new Vector3(content.position.x, newY, content.position.z);
     }
-
 
     protected override void OnItemSelected(DecorationItem item)
     {

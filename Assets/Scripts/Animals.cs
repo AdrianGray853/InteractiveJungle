@@ -19,9 +19,13 @@ public class Animals : Base<AnimalItem>
         levelCounts = PlayerPrefs.GetInt(key, 0);
         UnlockLevels();
         base.Start();
+        int value = Mathf.Clamp((levelCounts), 0, scrollRect.content.transform.childCount - 1);
 
-        RectTransform rect = scrollRect.content.transform.GetChild(levelCounts + 1).GetComponent<RectTransform>();
+        RectTransform rect = scrollRect.content.transform.GetChild(value).GetComponent<RectTransform>();
+
+
         ScrollTo(rect);
+
     }
     public void ScrollTo(RectTransform target)
     {
@@ -37,7 +41,7 @@ public class Animals : Base<AnimalItem>
         Vector3 viewportCenterWorld = viewport.position;
 
         // Target ka world point
-        Vector3 targetWorld = target.position;
+        Vector3 targetWorld = target.position - new Vector3(0, 4, 0);
 
         // Offset (target ko viewport ke center pe lana hai, vertical me Y axis ka use hoga)
         float diff = viewportCenterWorld.y - targetWorld.y;
@@ -64,7 +68,6 @@ public class Animals : Base<AnimalItem>
         // Snap to final pos
         content.position = new Vector3(content.position.x, newY, content.position.z);
     }
-
     public override AnimalItem CloneItem(AnimalItem original)
     {
         return new AnimalItem
