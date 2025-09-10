@@ -2,9 +2,7 @@
 namespace Interactive.DRagDrop
 {
     using DG.Tweening;
-    using log4net.Core;
-    using System.Collections;
-    using System.Collections.Generic;
+    
     using UnityEngine;
     using UnityEngine.SceneManagement;
     using UnityEngine.UI;
