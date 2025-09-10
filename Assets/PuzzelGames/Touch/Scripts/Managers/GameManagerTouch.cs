@@ -327,12 +327,12 @@ namespace Interactive.Touch
         private IEnumerator AdvanceLevelSequence()
         {
             SoundManagerTouch.Instance.PlaySFX("DoneActivity");
-            SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
-
-            yield return new WaitForSeconds(0.3f);
+           
             if (!levelCompleted)
             {
+                SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
 
+                yield return new WaitForSeconds(0.3f);
                 if (LevelsSprite.Length > PlayerPrefs.GetInt(key))
                     tracingSprite.sprite = LevelsSprite[PlayerPrefs.GetInt(key)];
 

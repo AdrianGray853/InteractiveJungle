@@ -309,11 +309,12 @@ namespace Interactive.PuzzelShape
         private IEnumerator AdvanceLevelSequence(int direction)
         {
             SoundManagerShape.Instance.PlaySFX("DoneActivity");
-            SoundManagerShape.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
-
-            yield return new WaitForSeconds(0.15f);
+           
             if (!levelCompleted)
             {
+                SoundManagerShape.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
+
+                yield return new WaitForSeconds(0.15f);
                 Cleanup();
                 Destroy(CurrentLevel);
                 if (LevelsSprite.Length > CurrentLevelIdx)
