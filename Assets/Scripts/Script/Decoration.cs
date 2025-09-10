@@ -18,7 +18,7 @@ public class Decoration : Base<DecorationItem>
     protected override void Start()
     {
 
-        levelCounts = PlayerPrefs.GetInt(key, 16);
+        levelCounts = PlayerPrefs.GetInt(key, 0);
         UnlockLevels();
         base.Start();
         int value = Mathf.Clamp((levelCounts), 0, scrollRect.content.transform.childCount - 1);

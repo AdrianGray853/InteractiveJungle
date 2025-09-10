@@ -81,6 +81,7 @@ namespace Interactive.Touch
         public bool RainbowColor { get; private set; } = true;
 
         private bool StickerShown = false;
+        private bool levelCompleted = false;
 
         // Start is called before the first frame update
         void Start()
@@ -104,7 +105,11 @@ namespace Interactive.Touch
                 UIBounds.size = new Vector3(Camera.main.orthographicSize * 2.0f * Camera.main.aspect, Camera.main.orthographicSize * 2.0f);
             }
             GameDataTouch.Instance.SelectedLevel = PlayerPrefs.GetInt(key, 0);
-
+            if (GameDataTouch.Instance.SelectedLevel >= Levels.Length - 1)
+            {
+                GameDataTouch.Instance.SelectedLevel = Random.Range(0, Levels.Length - 1);
+                levelCompleted = true;
+            }
             CurrentLevel = GameDataTouch.Instance.SelectedLevel;
             if (Levels != null && Levels.Length > 0)
                 SpawnLevel(Levels[CurrentLevel]);
@@ -212,15 +217,15 @@ namespace Interactive.Touch
 
         public void NextLevel()
         {
-            //Coroutine iconRoutine = CheckForIcons();
-            //if (iconRoutine != null)
-            //{
-            //	StartCoroutine(DelayedNextLevel(iconRoutine));
-            //}
-            //else
-            //{
-            SpawnNextLevel();
-            //}
+            Coroutine iconRoutine = CheckForIcons();
+            if (iconRoutine != null)
+            {
+                StartCoroutine(DelayedNextLevel(iconRoutine));
+            }
+            else
+            {
+                SpawnNextLevel();
+            }
 
         }
         public void GoHome()
@@ -325,24 +330,25 @@ namespace Interactive.Touch
             SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
 
             yield return new WaitForSeconds(0.3f);
+            if (!levelCompleted)
+            {
 
+                if (LevelsSprite.Length > PlayerPrefs.GetInt(key))
+                    tracingSprite.sprite = LevelsSprite[PlayerPrefs.GetInt(key)];
 
-            if (LevelsSprite.Length > PlayerPrefs.GetInt(key))
-                tracingSprite.sprite = LevelsSprite[PlayerPrefs.GetInt(key)];
+                // set initial small scale
+                Transform panelChild = tracingSolvedPanel.transform.GetChild(1);
+                panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                PlayerPrefs.SetInt(key, ++GameDataTouch.Instance.SelectedLevel);
+                Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
+                //SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
 
-            // set initial small scale
-            Transform panelChild = tracingSolvedPanel.transform.GetChild(1);
-            panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-            PlayerPrefs.SetInt(key, ++GameDataTouch.Instance.SelectedLevel);
-            Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
-            //SoundManagerTouch.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
-
-            tracingSolvedPanel.SetActive(true);
-            PlayerPrefs.SetInt("Session", sessionId);
-            // animate scale to 1 smoothly
-            panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
-            SoundManagerTouch.Instance.PlaySFX("GiftFromCompletedActivity");
-
+                tracingSolvedPanel.SetActive(true);
+                PlayerPrefs.SetInt("Session", sessionId);
+                // animate scale to 1 smoothly
+                panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+                SoundManagerTouch.Instance.PlaySFX("GiftFromCompletedActivity");
+            }
             Invoke(nameof(GoHome), 3);
         }
         public void ShowStickerReward()

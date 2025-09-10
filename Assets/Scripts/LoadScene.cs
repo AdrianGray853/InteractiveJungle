@@ -8,6 +8,7 @@ public class LoadScene : MonoBehaviour
     public Image fadeImage;       // assign FadePanel image here in inspector
     public float fadeDuration = 1f;
     public TMP_Text textLoading;
+    bool loading;
     private void Start()
     {
         // Start with fade-in effect
@@ -17,16 +18,22 @@ public class LoadScene : MonoBehaviour
 
     public void LoadScen(string sceneName)
     {
+
+
+        if (loading) return;
+        // Fade to black
+        loading = true;
         SoundManager.Instance.PlaySFX(SFXType.Click);
-        SoundManager.Instance.StopVoiceOverMusic();
+
+
         StartCoroutine(FadeAndLoad(sceneName));
     }
 
     IEnumerator FadeAndLoad(string sceneName)
     {
-        // Fade to black
-        yield return StartCoroutine(FadeOut());
 
+        yield return StartCoroutine(FadeOut());
+        SoundManager.Instance.StopVoiceOverMusic();
         // Load the new scene
         SceneManager.LoadScene(sceneName);
 
@@ -34,7 +41,7 @@ public class LoadScene : MonoBehaviour
         yield return null;
 
         // Fade back in
-        yield return StartCoroutine(FadeIn());
+        //yield return StartCoroutine(FadeIn());
     }
 
     IEnumerator FadeIn()

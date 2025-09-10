@@ -65,7 +65,7 @@ namespace Interactive.PuzzelShape
         public GameObject CurrentLevel { get; private set; }
         public int CurrentLevelIdx { get; private set; }
 
-
+        bool levelCompleted;
         bool ShouldAskForPhoto = false;
         float ShowNextLevelHintTimer = 0f;
 
@@ -94,6 +94,14 @@ namespace Interactive.PuzzelShape
             {
 #endif
                 GameDataShape.Instance.SelectedLevel = PlayerPrefs.GetInt(key, 0);
+
+
+                if(GameDataShape.Instance.SelectedLevel>= Levels.Length-1)
+                {
+                    GameDataShape.Instance.SelectedLevel = Random.Range(0, Levels.Length-1);
+                    levelCompleted = true;
+                }
+
 
                 CurrentLevelIdx = GameDataShape.Instance.SelectedLevel;
                 CurrentLevel = Instantiate(Levels[CurrentLevelIdx]);
@@ -227,7 +235,7 @@ namespace Interactive.PuzzelShape
                 ProgressManagerShape.Instance.SetReviewShow(GameDataShape.Instance.GameType);
             }
 #endif
-
+            Debug.Log("next Done");
             //        AnalyticsManager.Instance.LevelEnded(true);
             if (CurrentLevelIdx >= Levels.Length - 1)
             {
@@ -278,6 +286,8 @@ namespace Interactive.PuzzelShape
                 }));
             */
 
+            Debug.Log("Done");
+
             TransitionManagerShape.Instance.ShowFade(1.0f, () =>
             {
                 Cleanup();
@@ -302,28 +312,29 @@ namespace Interactive.PuzzelShape
             SoundManagerShape.Instance.PlaySFX(boostSounds[Random.Range(0, boostSounds.Length)]);
 
             yield return new WaitForSeconds(0.15f);
+            if (!levelCompleted)
+            {
+                Cleanup();
+                Destroy(CurrentLevel);
+                if (LevelsSprite.Length > CurrentLevelIdx)
+                    puzzelSprite.sprite = LevelsSprite[CurrentLevelIdx];
+                Transform panelChild = PuzzelSolvedPanel.transform.GetChild(1);
+                panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
 
-            Cleanup();
-            Destroy(CurrentLevel);
-            if (LevelsSprite.Length > CurrentLevelIdx)
-                puzzelSprite.sprite = LevelsSprite[CurrentLevelIdx];
-            Transform panelChild = PuzzelSolvedPanel.transform.GetChild(1);
-            panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                CurrentLevelIdx += direction;
+                int UpLevel = PlayerPrefs.GetInt(key) + 1;
+                PlayerPrefs.SetInt(key, UpLevel);
+                Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
 
-            CurrentLevelIdx += direction;
-            int UpLevel = PlayerPrefs.GetInt(key) + 1;
-            PlayerPrefs.SetInt(key, UpLevel);
-            Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
+                PuzzelSolvedPanel.SetActive(true);
 
-            PuzzelSolvedPanel.SetActive(true);
+                PlayerPrefs.SetInt("Session", sessionId);
 
-            PlayerPrefs.SetInt("Session", sessionId);
+                // animate scale to 1 smoothly
+                panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
 
-            // animate scale to 1 smoothly
-            panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
-
-            SoundManagerShape.Instance.PlaySFX("GiftFromCompletedActivity");
-
+                SoundManagerShape.Instance.PlaySFX("GiftFromCompletedActivity");
+            }
             Invoke(nameof(GoHome), 3);
             //CurrentLevel = Instantiate(Levels[CurrentLevelIdx]);
             //Navigation.NextLevelButton.gameObject.SetActive(false);
@@ -517,6 +528,7 @@ namespace Interactive.PuzzelShape
             else if (NextAction == eDelayedAction.GameDone)
             {
                 ShowDone();
+                Debug.Log(12);
             }
         }
 

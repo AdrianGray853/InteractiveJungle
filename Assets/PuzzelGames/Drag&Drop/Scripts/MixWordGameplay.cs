@@ -2,6 +2,7 @@
 namespace Interactive.DRagDrop
 {
     using DG.Tweening;
+    using log4net.Core;
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
@@ -33,7 +34,7 @@ namespace Interactive.DRagDrop
 
         int maxLevels = 3;
         int currentLevel = 0;
-
+        bool levelCompleted;
         // Start is called before the first frame update
         void Start()
         {
@@ -42,6 +43,11 @@ namespace Interactive.DRagDrop
             //Utils.Shuffle(Words);
             currentWordIdx = 0;
             wordIndex = PlayerPrefs.GetInt(key, 0);
+            if (wordIndex >= letter.Length - 1)
+            {
+                wordIndex = Random.Range(0, letter.Length - 1);
+                levelCompleted = true;
+            }
             Debug.Log($"wordIndex {wordIndex}, currentWordIdx {currentWordIdx}");
             GameProgressController.Instance.SetMaxProgressSteps(maxLevels);
             SpawnWord();
@@ -110,25 +116,26 @@ namespace Interactive.DRagDrop
             }
 #endif
             SoundManager.Instance.PlaySFX("DoneActivity");
+            if (!levelCompleted)
+            {
+                if (LevelsSprite.Length > currentLevel)
+                    puzzelSprite.sprite = LevelsSprite[wordIndex];
+                wordIndex++;
+                //SoundManager.Instance.PlaySFX("FinishMiniGame_3");
+                string[] sfxx = new string[] { boostSounds[0], boostSounds[1], boostSounds[2] };
 
-            if (LevelsSprite.Length > currentLevel)
-                puzzelSprite.sprite = LevelsSprite[wordIndex];
-            wordIndex++;
-            //SoundManager.Instance.PlaySFX("FinishMiniGame_3");
-            string[] sfxx = new string[] { boostSounds[0], boostSounds[1], boostSounds[2] };
+                SoundManager.Instance.PlaySFX(sfxx.GetRandomElement());
+                Transform panelChild = PuzzelSolvedPanel.transform.GetChild(1);
+                panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                PlayerPrefs.SetInt("Session", sessionId);
+                SoundManager.Instance.PlaySFX("CompletedActivity", 1, "sfx", 1);
+                PlayerPrefs.SetInt(key, wordIndex);
+                Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
 
-            SoundManager.Instance.PlaySFX(sfxx.GetRandomElement());
-            Transform panelChild = PuzzelSolvedPanel.transform.GetChild(1);
-            panelChild.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-            PlayerPrefs.SetInt("Session", sessionId);
-            SoundManager.Instance.PlaySFX("CompletedActivity", 1, "sfx", 1);
-            PlayerPrefs.SetInt(key, wordIndex);
-            Debug.Log($"AdvanceLevel: {PlayerPrefs.GetInt(key)}");
-
-            PuzzelSolvedPanel.SetActive(true);
-            // animate scale to 1 smoothly
-            panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
-
+                PuzzelSolvedPanel.SetActive(true);
+                // animate scale to 1 smoothly
+                panelChild.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+            }
             Invoke(nameof(GoHome), 5);
 
 
