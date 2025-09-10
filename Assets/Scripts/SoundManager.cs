@@ -160,6 +160,13 @@ public class SoundManager : MonoBehaviour
         
     }
 
-    public void StopVoiceOverMusic() => voiceOverSource.Stop();
+    public void StopVoiceOverMusic()
+    { 
+        voiceOverSource.Stop();
+        sfxMusicSource.clip = null;// ();
+        sfxMusicSource.Stop();
+        clickSource.Stop();
+        sfxSource.Stop();  
+    } 
     #endregion
 }

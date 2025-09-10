@@ -6,8 +6,15 @@ public class SessionData : MonoBehaviour
     public static SessionData Instance;
     private void Awake()
     {
-        
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+     
     }
 }
