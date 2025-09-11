@@ -99,7 +99,7 @@ using DG.Tweening;
     								currentPoint = j;
     								Debug.Log(fill + " " + j);
 
-    								if (currentPoint == tracingController.paths[currentPath].points.Length - 2 && t >= 1.0f)
+    								if (currentPoint >= tracingController.paths[currentPath].points.Length - 2 && t >= 1.0f)
     								{
     									OnDone();
     								}
@@ -130,8 +130,8 @@ using DG.Tweening;
     		isDone = true;
 
     		DOTween.Sequence()
-    			.AppendInterval(1.0f)
-    			.Append(StartObject.DOMove(tracingController.paths[currentPath].points[0], 0.5f).SetEase(Ease.InOutSine))
+                .AppendInterval(1.0f)
+                .Append(StartObject.DOMove(tracingController.paths[currentPath].points[0], 0.5f).SetEase(Ease.InOutSine))
     			.Append(StartObject.DOPath(tracingController.paths[currentPath].points, 3.0f).SetEase(Ease.InOutSine))
     			.OnComplete(() => GameManagerTouch.Instance.ShowDoneButton());
     	}

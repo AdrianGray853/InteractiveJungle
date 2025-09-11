@@ -23,6 +23,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     }
     public virtual void OnBeginDrag(PointerEventData eventData)
     {
+        if (GameManager.instance.currentDrag != null) return;
+
         if (returnCoroutine != null)
             StopCoroutine(returnCoroutine);
 
@@ -33,6 +35,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public virtual void OnDrag(PointerEventData eventData)
     {
+        //if (GameManager.instance.currentDrag != null) return;
+
         if (canvas != null)
         {
             rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
@@ -49,6 +53,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public virtual void OnEndDrag(PointerEventData eventData)
     {
+        if (GameManager.instance.currentDrag != null) return;
+
         if (canvasGroup != null)
             canvasGroup.blocksRaycasts = true;
 

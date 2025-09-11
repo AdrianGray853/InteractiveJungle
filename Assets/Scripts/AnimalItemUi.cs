@@ -13,9 +13,14 @@ public class AnimalItemUi : MonoBehaviour
     private bool isDragging = false;
     private Vector3 dragStartPos;
     private const float dragThreshold = 0.1f;
-
+    bool open;
     public void OpenRemoveConsentPanel()
     {
+        if(open) return;
+        this.Invoke(() =>
+        {
+            open = false;
+        }, 0.3f);
         ConsentManager.Instance.ShowConsent(
             transform.position,
             onYes: () =>

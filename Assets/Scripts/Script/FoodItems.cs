@@ -24,7 +24,7 @@ public class FoodItems : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (spawnedDragObj != null) return;
+        if (spawnedDragObj != null || GameManager.instance.currentDrag != null) return;
 
         // Instantiate a copy of this object for dragging
         spawnedDragObj = Instantiate(obj, transform.position, Quaternion.identity);
@@ -36,13 +36,14 @@ public class FoodItems : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         GameManager.instance.currentSpawnedFood = spawnedDragObj;
         GameManager.instance.currentDrag = spawnedDragObj;
     }
-
+    
     public void OnDrag(PointerEventData eventData) { /* no need to handle here */ }
     public void OnEndDrag(PointerEventData eventData)
     {
         if (spawnedDragObj != null)
         {
-            spawnedDragObj.GetComponent<FoodFollowAndTrigger>().enabled = true;
+
+            //spawnedDragObj.GetComponent<FoodFollowAndTrigger>().enabled = true;
             spawnedDragObj.GetComponent<FoodFollowAndTrigger>().isPlaced = true;
 
 

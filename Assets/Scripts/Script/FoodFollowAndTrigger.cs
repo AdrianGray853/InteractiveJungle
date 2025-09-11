@@ -29,27 +29,31 @@ public class FoodFollowAndTrigger : MonoBehaviour
 
     void Update()
     {
-#if UNITY_EDITOR
-        if (Input.GetMouseButton(0) && !isPlaced)
-        {
-            Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0;
-            transform.position = mousePos;
-        }
-        else if (!isInteracted)
-        {
-            CheckProximity();
-        }
-#else
+        //#if UNITY_EDITOR
+        //        if (Input.GetMouseButton(0) && !isPlaced)
+        //        {
+        //            Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        //            mousePos.z = 0;
+        //            transform.position = mousePos;
+        //        }
+        //        else if (!isInteracted)
+        //        {
+        //            CheckProximity();
+        //        }
+        //#else
         if (Input.touchCount > 0)
         {
             foreach (Touch touch in Input.touches)
             {
                 if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
                 {
-                    Vector3 touchPos = cam.ScreenToWorldPoint(touch.position);
+                    if (!isPlaced)
+                    {
+
+                        Vector3 touchPos = cam.ScreenToWorldPoint(touch.position);
                     touchPos.z = 0;
                     transform.position = touchPos;
+                    }
                 }
                 else if (touch.phase == TouchPhase.Ended && !isInteracted)
                 {
@@ -57,11 +61,17 @@ public class FoodFollowAndTrigger : MonoBehaviour
                 }
             }
         }
-#endif
+        CheckProximity();
+
+        //#endif
     }
 
     void CheckProximity()
     {
+        if (isInteracted || !isPlaced)
+        {
+            return;
+        }
         Collider2D hit = Physics2D.OverlapCircle(transform.position, checkRadius, animalLayer);
         if (hit != null && hit.gameObject.GetComponent<AnimalController>())
         {

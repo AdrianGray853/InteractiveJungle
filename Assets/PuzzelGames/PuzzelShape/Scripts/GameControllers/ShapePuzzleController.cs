@@ -89,8 +89,8 @@ namespace Interactive.PuzzelShape
 
             if (piecesInPlace == PuzzlePieces.Length)
             {
-                SoundManagerShape.Instance.PlaySFX("PuzzleDone");
-                SoundManagerShape.Instance.PlayCongratsVoice();
+                //SoundManagerShape.Instance.PlaySFX("PuzzleDone");
+                //SoundManagerShape.Instance.PlayCongratsVoice();
                 Target.SetActive(false);
                 Sequence s = DOTween.Sequence().AppendInterval(0.6f);
                 for (int i = 0; i < PuzzlePieces.Length; i++)
@@ -102,7 +102,7 @@ namespace Interactive.PuzzelShape
                         s.Join(DOTween.ToAlpha(() => outlineController.OffsetColor, (x) => outlineController.SetOffsetColor(x), 0.3f, 1.0f).SetEase(Ease.Flash, 4.0f, 0.0f));
                 }
                 //s.AppendCallback(() => GameManagerShape.Instance.ShowNextLevel());
-                s.AppendInterval(1.5f);
+                //s.AppendInterval(1.5f);
                 s.AppendCallback(() => GameManagerShape.Instance.NextLevel());
             }
         }

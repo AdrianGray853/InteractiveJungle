@@ -13,12 +13,13 @@ public class DecorationItem : BaseItem
 public class Decoration : Base<DecorationItem>
 {
     public string key = "Decoration";
+    public int deafultOpening;
     public ScrollRect scrollRect;
     public float scrollSpeed = 10f; // Higher = faster
     protected override void Start()
     {
 
-        levelCounts = PlayerPrefs.GetInt(key, 0);
+        levelCounts = PlayerPrefs.GetInt(key, deafultOpening);
         UnlockLevels();
         base.Start();
         int value = Mathf.Clamp((levelCounts), 0, scrollRect.content.transform.childCount - 1);

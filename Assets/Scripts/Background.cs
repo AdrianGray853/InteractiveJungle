@@ -14,12 +14,13 @@ public class BackgroundItem : BaseItem
 public class Background : Base<BackgroundItem>
 {
     public string key = "Decoration";
+    public int deafaultOpening;
     public ScrollRect scrollRect;
     public float scrollSpeed = 10f; // Higher = faster
     protected override void Start()
     {
 
-        levelCounts = PlayerPrefs.GetInt(key, 0);
+        levelCounts = PlayerPrefs.GetInt(key, deafaultOpening);
         UnlockLevels();
         base.Start();
         int value = Mathf.Clamp((levelCounts), 0, scrollRect.content.transform.childCount - 1);
@@ -61,7 +62,7 @@ public class Background : Base<BackgroundItem>
         newY = Mathf.Clamp(newY, minY, maxY);
 
         // Smoothly move only Y
-        while (Mathf.Abs(content.position.y - newY) > 0.01f)
+        while (Mathf.Abs(content.position.y - newY) > 0.1f)
         {
             float y = Mathf.Lerp(content.position.y, newY, Time.deltaTime * scrollSpeed);
             content.position = new Vector3(content.position.x, y, content.position.z);

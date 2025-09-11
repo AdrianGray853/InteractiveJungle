@@ -116,7 +116,7 @@ namespace Interactive.PuzzelShape
             // Photo stuff
             if (GameDataShape.Instance.GameType == GameDataShape.eGameType.Coloring)
             {
-                SoundManagerShape.Instance.PlaySFX("TouchToFeelTheColor");
+                //SoundManagerShape.Instance.PlaySFX("TouchToFeelTheColor");
 
                 //var permission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write, NativeGallery.MediaType.Image);
                 //if (permission == NativeGallery.Permission.Denied)
@@ -126,14 +126,14 @@ namespace Interactive.PuzzelShape
             }
             else if (GameDataShape.Instance.GameType == GameDataShape.eGameType.Memory)
             {
-                SoundManagerShape.Instance.PlaySFX("CanYouMemorise");
+                //SoundManagerShape.Instance.PlaySFX("CanYouMemorise");
             }
             else if (GameDataShape.Instance.GameType == GameDataShape.eGameType.Environment)
             {
-                SoundManagerShape.Instance.PlaySFX("MoveWhereBelongs");
+                //SoundManagerShape.Instance.PlaySFX("MoveWhereBelongs");
             }
 
-            SoundManagerShape.Instance.CrossFadeMusic(GetLevelMusic(GameDataShape.Instance.GameType), 2.0f);
+            //SoundManagerShape.Instance.CrossFadeMusic(GetLevelMusic(GameDataShape.Instance.GameType), 2.0f);
 
 
 
@@ -215,7 +215,7 @@ namespace Interactive.PuzzelShape
                 ShowNextLevelHintTimer = HintTimer;
             ProgressManagerShape.Instance.UnlockLevel(GameDataShape.Instance.GameType, CurrentLevelIdx + 1); // Mark next level as unfinished
 
-            SoundManagerShape.Instance.PlayCongratsVoice(true);
+            //SoundManagerShape.Instance.PlayCongratsVoice(true);
         }
 
         bool gameDone = false;
@@ -242,8 +242,8 @@ namespace Interactive.PuzzelShape
                 ProgressManagerShape.Instance.UnlockLevel(GameDataShape.Instance.GameType, CurrentLevelIdx + 1); // We need to do it here as we don't call Notify Level Change...
                 gameDone = true;
                 ProgressManagerShape.Instance.SetGameDone(GameDataShape.Instance.GameType);
-                DOTween.Sequence().AppendInterval(1.0f)
-                    .AppendCallback(() => SoundManagerShape.Instance.PlaySFX("/*FinishedLevels*/"));
+                //DOTween.Sequence().AppendInterval(1.0f)
+                    //.AppendCallback(() => SoundManagerShape.Instance.PlaySFX(""));
                 if (GameDataShape.Instance.GameType == GameDataShape.eGameType.Coloring && CurrentLevel.GetComponent<FillColorOnTouch>().IsDone())
                     StartCoroutine(DelayedIcon(eDelayedAction.GameDone));
                 else
@@ -274,7 +274,7 @@ namespace Interactive.PuzzelShape
         private void ShowDone()
         {
             //DoneFX.Play();
-            SoundManagerShape.Instance.PlaySFX("DoneActivity");
+            //SoundManagerShape.Instance.PlaySFX("DoneActivity");
             TransitionManagerShape.Instance.SetDefaultFadeColor();
             /*
             DOTween.Sequence()
@@ -454,66 +454,65 @@ namespace Interactive.PuzzelShape
 
         IEnumerator DelayedIcon(eDelayedAction NextAction)
         {
-            ScreenshotIsRunning = true;
-            yield return null;
-            List<GameObject> returnActive = new List<GameObject>();
-            for (int i = 0; i < ExcludeFromPhoto.Length; i++)
-            {
-                if (!ExcludeFromPhoto[i].activeInHierarchy)
-                    continue;
-                ExcludeFromPhoto[i].SetActive(false);
-                returnActive.Add(ExcludeFromPhoto[i]);
-            }
-            for (int i = 0; i < ExcludeFromIcon.Length; i++)
-            {
-                if (!ExcludeFromIcon[i].activeInHierarchy)
-                    continue;
-                ExcludeFromIcon[i].SetActive(false);
-                returnActive.Add(ExcludeFromIcon[i]);
-            }
-            yield return new WaitForEndOfFrame();
-            //var texture_tmp = ScreenCapture.CaptureScreenshotAsTexture();
+            //ScreenshotIsRunning = true;
+            //List<GameObject> returnActive = new List<GameObject>();
+            //for (int i = 0; i < ExcludeFromPhoto.Length; i++)
+            //{
+            //    if (!ExcludeFromPhoto[i].activeInHierarchy)
+            //        continue;
+            //    ExcludeFromPhoto[i].SetActive(false);
+            //    returnActive.Add(ExcludeFromPhoto[i]);
+            //}
+            //for (int i = 0; i < ExcludeFromIcon.Length; i++)
+            //{
+            //    if (!ExcludeFromIcon[i].activeInHierarchy)
+            //        continue;
+            //    ExcludeFromIcon[i].SetActive(false);
+            //    returnActive.Add(ExcludeFromIcon[i]);
+            //}
+            //yield return new WaitForEndOfFrame();
+            ////var texture_tmp = ScreenCapture.CaptureScreenshotAsTexture();
 
-            SpriteRenderer sr = CurrentLevel.GetComponent<FillColorOnTouch>().Base;
-            Vector3 bMin = Camera.main.WorldToScreenPoint(sr.bounds.min);
-            Vector3 bMax = Camera.main.WorldToScreenPoint(sr.bounds.max);
-            Vector3 size = bMax - bMin;
-            Texture2D screenshotTexture = new Texture2D(Mathf.CeilToInt(size.x), Mathf.CeilToInt(size.y), TextureFormat.ARGB32, false);
-            screenshotTexture.wrapMode = TextureWrapMode.Clamp;
-            screenshotTexture.ReadPixels(new Rect(Mathf.Round(bMin.x), Mathf.Round(bMin.y), screenshotTexture.width, screenshotTexture.height), 0, 0);
-            screenshotTexture.Apply();
-            //Vector2 screenshotSize = new Vector2(screenshotTexture.width, screenshotTexture.height);
-            Texture frame = ColoringIconMaterial.GetTexture("_FrameTex");
-            //screenshotSize *= UtilsShape.FitToSizeScale(screenshotSize, new Vector2(frame.width, frame.height));
-            //var resizedTexture = ScaleTexture(screenshotTexture, Mathf.CeilToInt(screenshotSize.x), Mathf.CeilToInt(screenshotSize.y));
+            //SpriteRenderer sr = CurrentLevel.GetComponent<FillColorOnTouch>().Base;
+            //Vector3 bMin = Camera.main.WorldToScreenPoint(sr.bounds.min);
+            //Vector3 bMax = Camera.main.WorldToScreenPoint(sr.bounds.max);
+            //Vector3 size = bMax - bMin;
+            //Texture2D screenshotTexture = new Texture2D(Mathf.CeilToInt(size.x), Mathf.CeilToInt(size.y), TextureFormat.ARGB32, false);
+            //screenshotTexture.wrapMode = TextureWrapMode.Clamp;
+            //screenshotTexture.ReadPixels(new Rect(Mathf.Round(bMin.x), Mathf.Round(bMin.y), screenshotTexture.width, screenshotTexture.height), 0, 0);
+            //screenshotTexture.Apply();
+            ////Vector2 screenshotSize = new Vector2(screenshotTexture.width, screenshotTexture.height);
+            //Texture frame = ColoringIconMaterial.GetTexture("_FrameTex");
+            ////screenshotSize *= UtilsShape.FitToSizeScale(screenshotSize, new Vector2(frame.width, frame.height));
+            ////var resizedTexture = ScaleTexture(screenshotTexture, Mathf.CeilToInt(screenshotSize.x), Mathf.CeilToInt(screenshotSize.y));
+            ////Destroy(screenshotTexture);
+
+            //RenderTexture rt = RenderTexture.GetTemporary(frame.width, frame.height);
+            //rt.filterMode = FilterMode.Bilinear;
+            //RenderTexture last = RenderTexture.active;
+            //RenderTexture.active = rt; // No need to set as Blit sets it for us, Adrian from the future: No we need it because iOS is fucked up and it doesn't clear the texture right...
+            //GL.Clear(true, true, Color.clear);
+
+            //Graphics.Blit(screenshotTexture, rt, ColoringIconMaterial);
+            //Texture2D texture = new Texture2D(rt.width, rt.height, TextureFormat.ARGB32, false);
+            //texture.ReadPixels(new Rect(0f, 0f, rt.width, rt.height), 0, 0);
+
+            //RenderTexture.active = last;
+            //RenderTexture.ReleaseTemporary(rt);
+
+            ////var texture = ScaleTexture(texture_tmp, 100, 100);
+            //// do something with texture
+            //byte[] bytes = texture.EncodeToPNG();
+            //System.IO.Directory.CreateDirectory(Application.persistentDataPath + "/GeneratedLevelIcons/Coloring");
+            //System.IO.File.WriteAllBytes(Application.persistentDataPath + "/GeneratedLevelIcons/Coloring/Level" + (CurrentLevelIdx + 1) + ".png", bytes);
+            //// cleanup
+            //Destroy(texture);
             //Destroy(screenshotTexture);
+            //foreach (var go in returnActive)
+            //    go.SetActive(true);
 
-            RenderTexture rt = RenderTexture.GetTemporary(frame.width, frame.height);
-            rt.filterMode = FilterMode.Bilinear;
-            RenderTexture last = RenderTexture.active;
-            RenderTexture.active = rt; // No need to set as Blit sets it for us, Adrian from the future: No we need it because iOS is fucked up and it doesn't clear the texture right...
-            GL.Clear(true, true, Color.clear);
-
-            Graphics.Blit(screenshotTexture, rt, ColoringIconMaterial);
-            Texture2D texture = new Texture2D(rt.width, rt.height, TextureFormat.ARGB32, false);
-            texture.ReadPixels(new Rect(0f, 0f, rt.width, rt.height), 0, 0);
-
-            RenderTexture.active = last;
-            RenderTexture.ReleaseTemporary(rt);
-
-            //var texture = ScaleTexture(texture_tmp, 100, 100);
-            // do something with texture
-            byte[] bytes = texture.EncodeToPNG();
-            System.IO.Directory.CreateDirectory(Application.persistentDataPath + "/GeneratedLevelIcons/Coloring");
-            System.IO.File.WriteAllBytes(Application.persistentDataPath + "/GeneratedLevelIcons/Coloring/Level" + (CurrentLevelIdx + 1) + ".png", bytes);
-            // cleanup
-            Destroy(texture);
-            Destroy(screenshotTexture);
-            foreach (var go in returnActive)
-                go.SetActive(true);
-
-            Camera.main.Render();
-            ScreenshotIsRunning = false;
+            //Camera.main.Render();
+            //ScreenshotIsRunning = false;
 
             // Postponed level change
             if (NextAction == eDelayedAction.NextLevel)
@@ -531,6 +530,8 @@ namespace Interactive.PuzzelShape
                 ShowDone();
                 Debug.Log(12);
             }
+            yield return null;
+
         }
 
         /*
@@ -566,7 +567,7 @@ namespace Interactive.PuzzelShape
                 ScrollPanelShape.NotifyLevelChange();
             if (ColorWheel != null)
                 ColorWheel.NotifyLevelChange();
-            SoundManagerShape.Instance.ClearQueue();
+            //SoundManagerShape.Instance.ClearQueue();
         }
     }
 

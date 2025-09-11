@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Corals corals;
     public Decoration decoration;
     [HideInInspector] public Vehicle vehicle;
-    [HideInInspector] public GameObject currentDrag;
-    [HideInInspector]
+    /*[HideInInspector]*/ public GameObject currentDrag;
+    //[HideInInspector]
     public GameObject currentSpawnedFood;
     //public GameObject leaves;
    public LeafRakingManager rakingManager;

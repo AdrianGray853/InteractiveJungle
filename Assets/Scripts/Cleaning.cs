@@ -21,9 +21,10 @@ public class Cleaning : Draggable
     protected override void Start()
     {
         image = GetComponent<Image>();
-        originalRotation = transform.rotation;
-        originalPosition = transform.position;
+        originalRotation = rectTransform.rotation;
+        originalPosition = rectTransform.position;
         mainCam = Camera.main;
+        startPosition = rectTransform.position;
 
         if (image != null && sprites.Length > 0)
             image.sprite = sprites[0]; // idle
@@ -82,14 +83,13 @@ public class Cleaning : Draggable
 
     public override void OnBeginDrag(PointerEventData eventData)
     {
-        if(GameManager.instance.currentDrag) return;
+        if(GameManager.instance.currentDrag!=null) return;
         base.OnBeginDrag(eventData);
         isDragging = true;
-        startPosition = rectTransform.position;
 
         if (image != null && sprites.Length > 1)
             image.sprite = sprites[1];
-
+        GameManager.instance.currentDrag = this.gameObject;
         SoundManager.Instance.PlaySFXMusic(SFXType.RakingTheLeaves);
         SoundManager.Instance.PlayVoiceOver(VoiceOverType.RakeTheLeavesOnTheGround);
 
@@ -102,8 +102,9 @@ public class Cleaning : Draggable
 
         if (image != null && sprites.Length > 0)
             image.sprite = sprites[0];
-        SoundManager.Instance.StopSfxMusic();
-        SoundManager.Instance.StopVoiceOverMusic();
+        //SoundManager.Instance.StopSfxMusic();
+        //SoundManager.Instance.StopVoiceOverMusic();
+        GameManager.instance.currentDrag = null;
 
         StartCoroutine(SmoothReturnToStartAndRotation());
     }
