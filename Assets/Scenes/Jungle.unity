@@ -6142,6 +6142,7 @@ MonoBehaviour:
     drag: {fileID: 8041739979395876107}
   activeItems: []
   key: Animal
+  deafultOpening: 10
   scrollRect: {fileID: 1514514805}
   scrollSpeed: 10
   itemObjects:
@@ -6549,6 +6550,7 @@ MonoBehaviour:
     drag: {fileID: 1059294922}
   activeItems: []
   key: Birds
+  deafultOpening: 0
   scrollRect: {fileID: 219315426}
   scrollSpeed: 10
   itemObjects:
@@ -16494,7 +16496,7 @@ MonoBehaviour:
   countText: {fileID: 0}
   minBounds: {x: -12, y: -10}
   maxBounds: {x: 12, y: 1}
-  audioClip: {fileID: 8300000, guid: d26161cc5126d96439cfb0e609a997c5, type: 3}
+  audioClip: {fileID: 8300000, guid: 9422c34395e768043a5b0170ac0974a1, type: 3}
   options: 0
 --- !u!1 &677039475
 GameObject:
@@ -17014,7 +17016,7 @@ MonoBehaviour:
   countText: {fileID: 0}
   minBounds: {x: -12, y: -10}
   maxBounds: {x: 12, y: 1}
-  audioClip: {fileID: 8300000, guid: a3f9044a80072444a960200af1885742, type: 3}
+  audioClip: {fileID: 8300000, guid: 0ed2de824aa18854bb0dbc6bfaeaac96, type: 3}
   options: 0
 --- !u!1 &695909135
 GameObject:
@@ -17969,7 +17971,7 @@ MonoBehaviour:
   countText: {fileID: 0}
   minBounds: {x: -12, y: -10}
   maxBounds: {x: 12, y: 1}
-  audioClip: {fileID: 8300000, guid: b17ecff4a77bf3d44b1bda4fc253614c, type: 3}
+  audioClip: {fileID: 8300000, guid: aff12ee081b23bd4b9f679c186e97319, type: 3}
   options: 0
 --- !u!1 &719908170
 GameObject:
@@ -27536,7 +27538,7 @@ MonoBehaviour:
   countText: {fileID: 0}
   minBounds: {x: -12, y: -10}
   maxBounds: {x: 12, y: 1}
-  audioClip: {fileID: 8300000, guid: 0ed2de824aa18854bb0dbc6bfaeaac96, type: 3}
+  audioClip: {fileID: 8300000, guid: a3f9044a80072444a960200af1885742, type: 3}
   options: 0
 --- !u!1 &1071220388
 GameObject:
@@ -42897,6 +42899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338542589b21c634590879884e08161f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0, z: 0}
   returnSpeed: 10
   sprites:
   - {fileID: -4867315409504972952, guid: ce2fc1a77d3d50c40a372d660e965cfd, type: 3}

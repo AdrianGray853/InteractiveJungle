@@ -12,11 +12,12 @@ public class BirdsItem : BaseItem
 public class Birds : Base<BirdsItem>
 {
     public string key;
+    public int deafultOpening;
     public ScrollRect scrollRect;
     public float scrollSpeed = 10f; // Higher = faster
     protected override void Start()
     {
-        levelCounts = PlayerPrefs.GetInt(key, 0);
+        levelCounts = PlayerPrefs.GetInt(key,deafultOpening);
         UnlockLevels();
         base.Start();
         int value = Mathf.Clamp((levelCounts), 0, scrollRect.content.transform.childCount - 1);
