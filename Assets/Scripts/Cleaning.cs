@@ -24,7 +24,6 @@ public class Cleaning : Draggable
         originalRotation = rectTransform.rotation;
         originalPosition = rectTransform.position;
         mainCam = Camera.main;
-        startPosition = rectTransform.position;
 
         if (image != null && sprites.Length > 0)
             image.sprite = sprites[0]; // idle
@@ -86,7 +85,9 @@ public class Cleaning : Draggable
         if(GameManager.instance.currentDrag!=null) return;
         base.OnBeginDrag(eventData);
         isDragging = true;
-
+        startPosition = rectTransform.position;
+        originalRotation = rectTransform.rotation;
+        originalPosition = rectTransform.position;
         if (image != null && sprites.Length > 1)
             image.sprite = sprites[1];
         GameManager.instance.currentDrag = this.gameObject;
@@ -102,7 +103,7 @@ public class Cleaning : Draggable
 
         if (image != null && sprites.Length > 0)
             image.sprite = sprites[0];
-        //SoundManager.Instance.StopSfxMusic();
+        SoundManager.Instance.StopSfxMusic();
         //SoundManager.Instance.StopVoiceOverMusic();
         GameManager.instance.currentDrag = null;
 
@@ -122,8 +123,8 @@ public class Cleaning : Draggable
             elapsed += Time.deltaTime;
             float t = elapsed / duration;
 
-            transform.position = Vector3.Lerp(startPos, originalPosition, t);
-            transform.rotation = Quaternion.Lerp(startRot, originalRotation, t);
+            rectTransform.position = Vector3.Lerp(startPos, originalPosition, t);
+            rectTransform.rotation = Quaternion.Lerp(startRot, originalRotation, t);
 
             yield return null;
         }

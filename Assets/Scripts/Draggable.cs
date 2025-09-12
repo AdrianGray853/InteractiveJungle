@@ -7,7 +7,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     protected Canvas canvas;
     protected RectTransform rectTransform;
     protected CanvasGroup canvasGroup;
-    protected Vector3 startPosition;
+    public Vector3 startPosition;
     protected Coroutine returnCoroutine;
     public float returnSpeed = 10f;
 

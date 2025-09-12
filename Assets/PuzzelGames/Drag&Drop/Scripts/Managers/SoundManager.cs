@@ -260,8 +260,19 @@ using UnityEngine;
     			StackSequence.Kill(false);
             }
     	}
+        public void PlaySFX(AudioClip clip)
+        {
+            if (clip == null)
+            {
+                Debug.LogWarning("[PlaySFX] Null AudioClip passed!");
+                return;
+            }
 
-    	public SFXStack PlaySFXStack(string name, float volume = 1.0f, string category = "sfx", int priority = 0)
+            // Directly play with PlayOneShot using the SFXSource
+            SFXSource.PlayOneShot(clip, GlobalSFXVolume);
+        }
+
+        public SFXStack PlaySFXStack(string name, float volume = 1.0f, string category = "sfx", int priority = 0)
         {
     		AudioSource source = PlaySFX(name, volume, category, priority);
     		SFXStack stack;

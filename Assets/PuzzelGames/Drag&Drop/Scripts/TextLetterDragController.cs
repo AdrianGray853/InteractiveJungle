@@ -17,7 +17,7 @@ using DG.Tweening;
     	public float TargetRange = 0.5f;
     	public float MaxHintCooldown = 7.0f;
     	float hintCooldownTimer;
-
+        public AudioClip clip;
     	public System.Action OnDoneEvent;
     	[HideInInspector]
     	public bool ShowIntro = true;
@@ -140,6 +140,29 @@ using DG.Tweening;
     	{
     		DragManager.Instance.AddOnTouchCallback(OnTouch);
     		DragManager.Instance.AddOnReleaseCallback(OnRelease);
+            // Original scale ko safe rakh lo
+            Vector3 originalScale = transform.localScale;
+
+#if UNITY_IOS
+        // iPad detect on real device
+        if (UnityEngine.iOS.Device.generation.ToString().Contains("iPad"))
+        {
+             transform.localScale = new Vector3(0.25f,0.25f,0.25f);
+
+        }
+#endif
+
+#if UNITY_EDITOR
+            // Editor (Simulator) me test karna ho
+            // Aspect ratio / resolution check
+            float aspect = (float)Screen.width / Screen.height;
+            // iPad ke aspect ratio usually ~4:3 hote hain
+            if (aspect > 1.3f && aspect < 1.4f)
+            {
+                transform.localScale = new Vector3(0.25f,0.25f,0.25f);
+            }
+#endif
+        
     	}
 
     	private void OnDisable()
@@ -248,6 +271,7 @@ using DG.Tweening;
     		if (lettersToTarget == TargetLetters.Length)
             {
     			OnDoneEvent();
+                SoundManager.Instance.PlaySFX(clip);
             }
         }
 
