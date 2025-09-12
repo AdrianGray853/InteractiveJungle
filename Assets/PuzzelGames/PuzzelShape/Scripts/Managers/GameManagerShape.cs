@@ -150,6 +150,8 @@ namespace Interactive.PuzzelShape
                     ShowNextLevelHintTimer = HintTimer + duration;
                 }
             }
+            
+
         }
 
         void OnDisable()

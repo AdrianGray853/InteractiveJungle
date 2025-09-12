@@ -70,8 +70,11 @@ using DG.Tweening;
     	{
     		if (isDone)
     			return;
-
-    		if (inputCooldownTimer > 0f)
+            if (tracingMesh.Fills[0] > 0.99f)
+            {
+                OnDone();
+            }
+            if (inputCooldownTimer > 0f)
     			inputCooldownTimer -= Time.deltaTime;
 
     		if (Input.touchCount > 0 && inputCooldownTimer <= 0f && tracingController.paths != null && tracingController.paths.Length > 0)
