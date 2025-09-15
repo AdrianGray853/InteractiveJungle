@@ -27,6 +27,10 @@ public class AnimalItemUi : MonoBehaviour
             {
                 Debug.Log("Consent accepted");
                 GameManager.instance.animal.RemoveItemData(Item);
+                SoundManager.Instance.StopSfxMusic();
+                if(GameManager.instance.currentSpawnedFood!=null)
+                GameManager.instance.currentSpawnedFood.GetComponent<FoodFollowAndTrigger>().CompleteEating();
+
                 Destroy(gameObject);
             },
             onNo: () =>
