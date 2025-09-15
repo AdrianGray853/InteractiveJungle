@@ -40093,25 +40093,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManger
       objectReference: {fileID: 0}
-    - target: {fileID: 6118894534234109952, guid: ce96af124993e614892838497265477e, type: 3}
-      propertyPath: sfxEntries.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ba69a1fa06e59174b99483d23a6e3297, type: 3}
-    - target: {fileID: 6118894534234109952, guid: ce96af124993e614892838497265477e, type: 3}
-      propertyPath: sfxEntries.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 5df2ec02a96cbfb4899155c8f777c241, type: 3}
     - target: {fileID: 7714993238646055151, guid: ce96af124993e614892838497265477e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.1201267
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7714993238646055151, guid: ce96af124993e614892838497265477e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.803406
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7714993238646055151, guid: ce96af124993e614892838497265477e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.044512413
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7714993238646055151, guid: ce96af124993e614892838497265477e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -42864,7 +42856,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 60, y: 0, z: 70, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
