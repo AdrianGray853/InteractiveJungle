@@ -73,6 +73,8 @@ using DG.Tweening;
             if (tracingMesh.Fills[0] > 0.99f)
             {
                 OnDone();
+                tracingMesh.Fills[0] = 1;
+
             }
             if (inputCooldownTimer > 0f)
     			inputCooldownTimer -= Time.deltaTime;
