@@ -82,9 +82,6 @@ MonoBehaviour:
     - {fileID: 6568977956534835618}
     Colliders: []
   - Group:
-    - {fileID: 312499877507278042}
-    Colliders: []
-  - Group:
     - {fileID: 2421310416822887659}
     Colliders: []
   - Group:
@@ -99,6 +96,7 @@ MonoBehaviour:
     Colliders: []
   - Group:
     - {fileID: 8614536483565436646}
+    - {fileID: 312499877507278042}
     Colliders: []
   material: {fileID: 2100000, guid: 2263d6b7dbe159b4ab7d612ea401de1b, type: 2}
 --- !u!1001 &646529043867629040
@@ -119,23 +117,23 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2263d6b7dbe159b4ab7d612ea401de1b, type: 2}
     - target: {fileID: -7552582706839291426, guid: 591483a68937fc54ab7743e530001dc4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 591483a68937fc54ab7743e530001dc4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 591483a68937fc54ab7743e530001dc4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 591483a68937fc54ab7743e530001dc4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.79
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 591483a68937fc54ab7743e530001dc4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.4
+      value: -6.63
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 591483a68937fc54ab7743e530001dc4, type: 3}
       propertyPath: m_LocalPosition.z
