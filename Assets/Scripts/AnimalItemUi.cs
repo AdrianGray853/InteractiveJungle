@@ -127,6 +127,9 @@ public class AnimalItemUi : MonoBehaviour
         if (!IsWithinBounds(transform.position))
         {
             GameManager.instance.animal.RemoveItemData(Item);
+            SoundManager.Instance.StopSfxMusic();
+            if (GameManager.instance.currentSpawnedFood != null)
+                GameManager.instance.currentSpawnedFood.GetComponent<FoodFollowAndTrigger>().CompleteEating();
             Destroy(gameObject);
             return;
         }
